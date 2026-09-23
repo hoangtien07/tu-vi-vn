@@ -26,25 +26,31 @@ Nhập ngày giờ sinh
 ## Phase 0 — Bootstrap (commit 1)
 
 - [ ] Monorepo skeleton theo `SPEC.md` §18: `apps/web` (Next.js 15, TS, Tailwind, pnpm), `apps/api` (FastAPI, Python 3.12, uv, pyproject), `packages/`, `eval/`, `infra/`, `scripts/`, `docs/`
-- [ ] `infra/docker-compose.yml`: `web`, `api`, `postgres` (16). Không Redis.
+- [ ] `infra/docker-compose.yml`: `web`, `api`, `postgres` (16), `migrate` (one-shot `alembic upgrade head`). Không Redis. Postgres named volume + backup note (`pg_dump`); reverse proxy (Caddy) tắt SSE buffering (`X-Accel-Buffering: no`); healthchecks + `depends_on`.
 - [ ] `infra/env/.env.example`: `DATABASE_URL`, `AI_BASE_URL`, `AI_API_KEY`, `AI_MODEL`, `AI_TIMEOUT_SECONDS`
 - [ ] `GET /health` (api+db), `GET /health/dependencies` (AI — không block app health)
 - [ ] ruff + mypy strict-lite cho api; eslint + tsc cho web; CI chạy lint+typecheck+pytest
 
 ## Phase 1 — Contracts & persistence (commit 2, 4)
 
-- [ ] `domain/birth/contracts.py`: `RawBirthInput`, `CivilBirthMoment`, `NormalizedBirthMoment` (Pydantic theo SPEC §4)
+- [ ] `domain/birth/contracts.py`: `RawBirthInput` (gồm `calendar`, `leapMonth`, `birthRegion`, `timeUnknown`), `CivilBirthMoment`, `NormalizedBirthMoment` (gồm `tzKey`, `tzdataVersion`, `resolvedOffsetMinutes`) — Pydantic theo SPEC §4
 - [ ] `EngineProfile` + seed `iztro-default-v1` (SPEC §3)
-- [ ] Alembic init; bảng: `birth_profiles, raw_birth_inputs, normalized_birth_moments, engine_profiles, chart_snapshots, conversations, messages, evidence_bundles, interpretation_runs` (JSONB cho chart/evidence)
-- [ ] `chart_hash = sha256(normalized + engine_version + profile)`; chart snapshot immutable
+- [ ] Alembic init; bảng: `birth_profiles` (anonymous V1, không `users` table), `raw_birth_inputs, normalized_birth_moments, engine_profiles, chart_snapshots, conversations, messages, evidence_bundles, interpretation_runs` (JSONB cho chart/evidence)
+- [ ] `packages/contracts`: CanonicalChartDTO + DTOs; contract codegen **one-way** FastAPI OpenAPI → TS (openapi-typescript) — không maintain 2 nguồn
+- [ ] `chart_hash = sha256(canonical_json(normalized) + engine_version + profile_content + normalizer_version + dto_schema_version)`; canonical JSON = sorted keys/UTF-8/no-whitespace; chart snapshot immutable; evidence ordering deterministic (sort type/palace_key/entity_key)
 
 ## Phase 2 — Birth normalization (commit 5)
 
-- [ ] `domain/birth/calendar.py`: solar/lunar → `CivilBirthMoment` (dùng `lunar_python`/`lunardate` — chọn lib có VN lunar đúng)
+- [ ] `domain/birth/calendar.py`: solar/lunar → `CivilBirthMoment`; path lunar dùng `by_lunar(is_leap_month)` native của x-iztro (verified)
+- [ ] **Không** DST machinery cho VN (tzdb: 0 DST). **VN rule table** versioned-data trong `vn-tst-v1` (không zoneinfo — `Asia/Hanoi` vắng khỏi tzdata rearguard): Hà Nội +08→1954-10 (flag ambiguous), +07 sau; Sài Gòn +07 1955-07-01→1959-12-31, +08 1960-01-01→1975-06-12 23:00; divergence windows (1954-10→1955-07, 1960-01→1975-06-12) yêu cầu `birthRegion`
+- [ ] **Tý muộn ownership:** normalizer xuất `(correctedSolarDate, timeIndex)` verbatim — day roll thuộc `dayDivide` trong engine config, normalizer không tự roll (tránh double-roll). Boundary test 23:00/00:00 bắt buộc
+- [ ] `tzdata` dependency + startup assert `ZoneInfo("Asia/Ho_Chi_Minh")`
 - [ ] `domain/birth/normalizer.py` `BirthTimeNormalizer` Protocol + impl `vn-tst-v1`: timezone (IANA) → DST/historical VN → longitude correction → equation of time → date rollover → `NormalizedBirthMoment.timeIndex`
 - [ ] Reference đọc: `Renhuai lib/ziwei/true-solar-time.ts` (MIT). **Không** copy `dst-cn.ts` làm default VN.
-- [ ] Boundary tests bắt buộc: `00:00/00:59/01:00/22:59/23:00/23:59`, index 0 vs 12 (晚子时 + `dayDivide`), correction qua ngày trước/sau, thiếu tọa độ, lunar→solar, tháng nhuận
-- [ ] `POST /api/charts` trả `{chartId, birth:{raw, normalized}, chart}`
+- [ ] Boundary tests bắt buộc: `00:00/00:59/01:00/22:59/23:00/23:59`, index 0 vs 12 (晚子时 + `dayDivide`), correction qua ngày trước/sau, thiếu tọa độ, lunar→solar + `is_leap_month` (pre-validate leapMonth bằng leap-month table → 422), tháng nhuận, ±30 phút quanh mọi hour boundary, ranh giới Tết, longitude cực trị VN (Móng Cái ~107.9°E / Cà Mau ~104.8°E), ngày ranh tz VN `1947-04-01, 1954-10, 1955-07-01, 1959-12-31/1960-01-01, 1975-06-12/13` × `birthRegion`
+- [ ] `NormalizedBirthMoment` persist cặp `(correctedSolarDate, timeIndex 0–12)` — engine input (SPEC §4.3)
+- [ ] `POST /api/charts` trả `{chartId, birth:{raw, normalized}, chart}`; `chart_snapshots.share_token` (unguessable) + `GET /s/{token}` read-only view (share/growth khi chưa có auth)
+- [ ] Freeze contract V1.1 ngay trong API surface: `POST /api/charts/{id}/compatibility {other_chart_id, mode: spouse|business}` (stub 501 OK — hợp bàn top-3 feature VN, không breaking sau); giữ `compare_profiles` trong Mode-2 tools
 
 ## Phase 3 — Engine adapter (commit 3)
 
@@ -57,8 +63,9 @@ class ZiweiEngine(Protocol):
     def get_surrounded_context(self, chart: CanonicalChart, palace_key: str) -> DomainContext: ...
 ```
 
-- [ ] Chỉ file này `import x_iztro`. `astro.by_solar(normalized_date, time_index, gender, language="zh-CN", config=...)`
-- [ ] `CanonicalChartDTO` (SPEC + PLAN §11): meta/palaces/patterns/engine — FE chỉ ăn DTO của ta, không leak Python object
+- [ ] Chỉ file này `import x_iztro`. `astro.by_solar(normalized_date, time_index, gender, language="vi-VN", config=...)` — vi-VN labels khớp UI (verified: language không ảnh hưởng computation); knowledge lookup truyền explicit `KnowledgePack.builtin("zh-CN")`
+- [ ] **Hard rule:** `ChartConfig` rebuild từ `engine_profiles` row — không rehydrate từ `chart.to_dict()['config']` (drop mutagens/brightness). Mọi addressing bằng keys (`soulPalace`...), không translated names (I8)
+- [ ] `CanonicalChartDTO` (SPEC §6): meta/palaces/patterns/engine keyed bằng `*_key`, `schemaVersion`; FE chỉ ăn DTO của ta, không leak Python object. CI import-lint: cấm `import x_iztro` ngoài `infrastructure/`
 - [ ] `GET /api/charts/{id}`
 - [ ] Fixture regression test: input + profile → expected facts (命宫/身宫/chính tinh/tứ hóa/patterns), không chỉ snapshot full JSON
 - [ ] `scripts/differential/` (CI): x-iztro vs JS iztro@2.6.1 trên N random + boundary cases; classify mismatch (bug/school/config/normalization)
@@ -66,14 +73,19 @@ class ZiweiEngine(Protocol):
 ## Phase 4 — Chart UI (commit 6)
 
 - [ ] Port chọn lọc từ Renhuai (MIT): `ChartBoard`, `PalaceCell`, `BirthForm`, `TimeNav` cơ bản → `apps/web/features/chart/`
+- [ ] Palace cell checklist VN: Tuần Không, Triệt Không, Ngũ hành cục (Thủy nhị cục...), đại hạn range theo **tuổi mụ**; birth form giờ sinh picker theo chi (Tý/Sửu...) + âm lịch + nhuận + `birthRegion`
 - [ ] Adapter `CanonicalChartDTO → RenhuaiChartViewModel` trong `features/chart/adapters/` — assumption của Renhuai không nhiễm vào API contract
 - [ ] Trang `/` (birth form), `/chart/{id}` (12 cung)
 
 ## Phase 5 — Knowledge + Context + Evidence (commit 7, 8)
 
 - [ ] `infrastructure/xiztro/knowledge.py` — `KnowledgeRegistry`: `KnowledgePack.builtin("zh-CN")` load 1 lần, `version_info()`
+- [ ] Knowledge excerpt policy: ~150–300 chars/sao/aspect từ `StarEntry.attributes` — không dump essay zh nguyên văn; kind `knowledge` được đánh dấu lore (không phải chart fact)
+- [ ] `packages/knowledge/glossary-vi.md` — sinh ~200–400 dòng từ i18n table vi-VN của x-iztro (script `scripts/gen_glossary.py`); inject prompt + validator flag surface-form lệch
+- [ ] Overview context + summary đại vận hiện tại & kế tiếp
+- [ ] vi lunar-date formatter (chart `lunar_date` luôn chữ Hán số → render `'17/7 âm lịch 2000'`)
 - [ ] `domain/context/composer.py` — `ContextComposer.compose(chart, topic, target) -> ComposedContext`; `TOPIC_POLICY` (SPEC §9); overview = broad natal, topic khác = palace + tam phương tứ chính + patterns + mutagens liên quan
-- [ ] `domain/evidence/builder.py` — `EvidenceBuilder`: `ComposedContext → EvidenceBundle` với stable IDs `E001...`
+- [ ] `domain/evidence/builder.py` — `EvidenceBuilder`: `ComposedContext → EvidenceBundle` với stable IDs `E001...` — allocator per InterpretationRun/conversation (không reuse E001 giữa calls)
 - [ ] Tests: career phải chứa career palace + 三方四正 + relevant patterns; career+2028 phải chứa thêm horoscope 2028; không dump toàn bộ chart
 
 ## Phase 6 — LLM pipeline (commit 9, 10)
@@ -82,13 +94,17 @@ class ZiweiEngine(Protocol):
 - [ ] `app/prompts/` theo SPEC §15 (adapt Crazycreate, bỏ Bát Tự, giữ evidence/anti-invent policies + safety VN)
 - [ ] `PromptRenderer`: topic + ComposedContext + EvidenceBundle → `messages[]`
 - [ ] `POST /api/charts/{id}/interpret` → pipeline: ChartSnapshot → ContextComposer → EvidenceBuilder → PromptRenderer → LLMGateway → GroundingValidator → InterpretationRun → SSE (`metadata, evidence, delta, done`)
-- [ ] `GroundingValidator`: extract `[E###]` → verify tồn tại; `unknownEvidenceReferences = 0`
+- [ ] `GroundingValidator` 4 checks (SPEC §12): ref-existence, closed-world entity (vocab keys từ bundle), evidence-type↔claim-scope compat, orphan-claim flag — vẫn deterministic
+- [ ] Post-stream claim-extraction pass → claim↔evidence pairs lưu vào `InterpretationRun`
 - [ ] InterpretationRun persist đủ version metadata (SPEC §13)
 - [ ] UI: interpretation panel 5 tabs + "Vì sao?" evidence drawer (render `Căn cứ ▼`, không raw `[E###]`)
+- [ ] Split LLM config report vs chat; `timeUnknown` → provisional chart + caveat trong evidence/output
+- [ ] Prompt safety: cấm deterministic claims tử vong/tai họa/tuổi thọ; footer "mang tính tham khảo" + disclaimer mạnh cho topic Sức khỏe/Tài vận
 
 ## Phase 7 — Yearly fortune + chat (commit 11)
 
-- [ ] `GET /api/charts/{id}/fortune/year/{year}` — `chart.horoscope(...)`, adapter owns date convention
+- [ ] `GET /api/charts/{id}/fortune/year/{year}` — `chart.horoscope(target_date)` anchor = Tết Âm lịch năm đó (convention ghi trong SPEC §16); API validate `target_date ≥ normalized birth` (engine không check); ContextComposer chỉ chọn scopes cần (yearly+decadal+age)
+- [ ] Failure semantics theo SPEC §16.1: typed 502/503 + run failed (không persist partial); SSE abort → error event + retry = run mới; grounding-reject → 1 repair retry; `/interpret` idempotency key `(chart_id, topic, target, prompt_version, model)`; typed 422s (leapMonth, lunar day không tồn tại, solar year ngoài 1583–9999, thiếu birthRegion trong divergence window)
 - [ ] `interpret` với `{topic, target:{scope:"yearly", year}}`
 - [ ] `/api/charts/{id}/chat` (simple): system + domain context hiện tại + last N turns; chat không được thay thế chart context
 - [ ] `Conversation`/`Message` persist
@@ -101,7 +117,7 @@ class ZiweiEngine(Protocol):
 ## Sau V1 (Phase 2+ — KHÔNG làm trước khi V1 done + benchmark)
 
 ```text
-Auth, multi-profile, compatibility (hợp bàn), K-line, share cards, PDF,
+Auth, multi-profile, **compatibility (hợp bàn) = V1.1 committed**, K-line, share cards, PDF,
 流月/流日/流时, Vietnamese KnowledgePack overlay, InterpretationRulePack,
 Dataset v3 mining (eval/knowledge/fine-tune), RAG (chỉ nếu eval chứng minh cần),
 tool-calling chat mode (4 semantic tools), model routing theo task
@@ -127,6 +143,15 @@ Gate trước Phase 2: chạy 20–30 charts × 5 topics qua vài candidate mode
 | 10 | `feat: stream grounded interpretation` |
 | 11 | `feat: add yearly fortune interpretation` |
 | 12 | `test: add architecture release gates` |
+
+## Phase 0.5 — scope trims (áp dụng ngay, đừng build thừa)
+
+- Bỏ `packages/ui` khỏi V1 (không có consumer thứ 2 — UI sống trong `apps/web`)
+- Không tạo bảng `users` ở V1 (auth deferred; `birth_profiles` anonymous-scoped)
+- `prompt_version` là file constant, không phải bảng
+- Mode-2 tool-calling: chỉ giữ trong spec, không scaffold
+
+Gate phụ trong Phase 8: ≥1 eval case chạy **non-default mutagen profile** end-to-end (ChartConfig rebuild path — verified footgun SPEC §3).
 
 ## Definition of Done — Vertical Slice V1
 
