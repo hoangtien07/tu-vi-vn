@@ -59,7 +59,7 @@ jobs:
               const { data: pr } = await github.rest.pulls.get({
                 owner, repo, pull_number: number,
               });
-              if (pr.draft) continue;
+              if (pr.state !== 'open' || pr.draft) continue;
               if (!pr.labels.some(l => l.name === LABEL)) continue;
               if (pr.head.repo.full_name !== `${owner}/${repo}`) {
                 // Fork PR: its CI runs in a different check context —
@@ -75,7 +75,10 @@ jobs:
                 branch: pr.head.ref,
                 per_page: 20,
               });
-              const runs = wr.workflow_runs;
+              // Only runs built from the PR's CURRENT head sha count: a run
+              // for an older commit or a sibling PR sharing this branch must
+              // not satisfy the gate.
+              const runs = wr.workflow_runs.filter(r => r.head_sha === pr.head.sha);
               const pending = runs.filter(r => r.status !== 'completed');
               const latest = runs.find(r => r.status === 'completed');
               if (pending.length || !latest || latest.conclusion !== 'success') {
@@ -87,7 +90,14 @@ jobs:
               }
 
               console.log(`#${number}: ci green (run ${latest.id}) — merging`);
-              await github.rest.pulls.merge({
-                owner, repo, pull_number: number, merge_method: 'squash',
-              });
+              try {
+                await github.rest.pulls.merge({
+                  owner, repo, pull_number: number, merge_method: 'squash',
+                  // Expected-head precondition: abort if anyone pushed after
+                  // we read the PR — never merge an untested head.
+                  sha: pr.head.sha,
+                });
+              } catch (e) {
+                console.log(`#${number}: merge rejected (${e.status || e.message}), skip`);
+              }
             }
