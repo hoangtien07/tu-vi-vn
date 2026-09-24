@@ -13,7 +13,10 @@
             "kind": "horoscope_fact",
             "scope": "yearly:2028-01-26:a",
             "entity_key": "yearly",
-            "data": {"palaceName": "Quan Lộc", "name": "Lưu niên A"},
+            "data": {
+              "palaceName": "Quan Lộc",
+              "name": "Lưu niên A"
+            },
             "source": "x-iztro"
           },
           {
@@ -22,13 +25,23 @@
             "scope": "natal:b",
             "palace_key": "soulPalace",
             "entity_key": "soulPalace",
-            "data": {"name": "Mệnh", "majorStars": [{"key": "qishaMaj", "name": "Thất Sát"}]},
+            "data": {
+              "name": "Mệnh",
+              "majorStars": [
+                {
+                  "key": "qishaMaj",
+                  "name": "Thất Sát"
+                }
+              ]
+            },
             "source": "x-iztro"
           }
         ]
       },
       "output": "Người A năm 2028 có biến động nghề nghiệp [E001]. Mệnh Người B có Thất Sát tọa thủ [E002].",
-      "expect": {"ok": true}
+      "expect": {
+        "ok": true
+      }
     },
     {
       "id": "compat-002",
@@ -41,13 +54,20 @@
             "kind": "horoscope_fact",
             "scope": "yearly:2028-01-26:a",
             "entity_key": "yearly",
-            "data": {"palaceName": "Quan Lộc"},
+            "data": {
+              "palaceName": "Quan Lộc"
+            },
             "source": "x-iztro"
           }
         ]
       },
       "output": "Người B năm 2028 gặp sao xung chiếu [E001].",
-      "expect": {"ok": false, "violations": ["temporal_unverified"]}
+      "expect": {
+        "ok": false,
+        "violations": [
+          "temporal_unverified"
+        ]
+      }
     },
     {
       "id": "compat-003",
@@ -60,7 +80,9 @@
             "kind": "horoscope_fact",
             "scope": "yearly:2028-01-26:a",
             "entity_key": "yearly",
-            "data": {"palaceName": "Quan Lộc"},
+            "data": {
+              "palaceName": "Quan Lộc"
+            },
             "source": "x-iztro"
           },
           {
@@ -68,13 +90,20 @@
             "kind": "horoscope_fact",
             "scope": "yearly:2028-01-26:b",
             "entity_key": "yearly",
-            "data": {"palaceName": "Phu Thê"},
+            "data": {
+              "palaceName": "Phu Thê"
+            },
             "source": "x-iztro"
           }
         ]
       },
       "output": "Cả Người A và Người B đều chịu ảnh hưởng lưu niên 2028 [E001].",
-      "expect": {"ok": false, "violations": ["temporal_unverified"]}
+      "expect": {
+        "ok": false,
+        "violations": [
+          "temporal_unverified"
+        ]
+      }
     },
     {
       "id": "compat-004",
@@ -87,7 +116,9 @@
             "kind": "horoscope_fact",
             "scope": "yearly:2028-01-26:a",
             "entity_key": "yearly",
-            "data": {"palaceName": "Quan Lộc"},
+            "data": {
+              "palaceName": "Quan Lộc"
+            },
             "source": "x-iztro"
           },
           {
@@ -95,13 +126,17 @@
             "kind": "horoscope_fact",
             "scope": "yearly:2028-01-26:b",
             "entity_key": "yearly",
-            "data": {"palaceName": "Phu Thê"},
+            "data": {
+              "palaceName": "Phu Thê"
+            },
             "source": "x-iztro"
           }
         ]
       },
       "output": "Người A năm 2028 có biến động nghề nghiệp [E001]; Người B năm 2028 quan hệ đôi lứa sáng [E002].",
-      "expect": {"ok": true}
+      "expect": {
+        "ok": true
+      }
     },
     {
       "id": "compat-005",
@@ -115,13 +150,20 @@
             "scope": "natal:a",
             "palace_key": "soulPalace",
             "entity_key": "soulPalace",
-            "data": {"name": "Mệnh"},
+            "data": {
+              "name": "Mệnh"
+            },
             "source": "x-iztro"
           }
         ]
       },
       "output": "Người A năm 2028 đại hạn đổi vận [E001].",
-      "expect": {"ok": false, "violations": ["temporal_unverified"]}
+      "expect": {
+        "ok": false,
+        "violations": [
+          "temporal_unverified"
+        ]
+      }
     },
     {
       "id": "compat-006",
@@ -135,13 +177,70 @@
             "scope": "natal:a",
             "palace_key": "soulPalace",
             "entity_key": "soulPalace",
-            "data": {"name": "Mệnh", "majorStars": [{"key": "qishaMaj", "name": "Thất Sát"}]},
+            "data": {
+              "name": "Mệnh",
+              "majorStars": [
+                {
+                  "key": "qishaMaj",
+                  "name": "Thất Sát"
+                }
+              ]
+            },
             "source": "x-iztro"
           }
         ]
       },
       "output": "Người A có Lộc Tồn đồng cung Mệnh nên phú quý [E001].",
-      "expect": {"ok": false, "violations": ["invented_entities"]}
+      "expect": {
+        "ok": false,
+        "violations": [
+          "invented_entities"
+        ]
+      }
+    },
+    {
+      "id": "compat-007",
+      "note": "unlabeled output — no Người A/Người B labels → missing_side_labels fail",
+      "bundle": {
+        "topic": "compatibility",
+        "items": [
+          {
+            "id": "E001",
+            "kind": "horoscope_fact",
+            "scope": "yearly:2028-01-26:a",
+            "entity_key": "yearly",
+            "data": {
+              "palaceName": "Quan Lộc",
+              "name": "Lưu niên A"
+            },
+            "source": "x-iztro"
+          },
+          {
+            "id": "E002",
+            "kind": "palace_fact",
+            "scope": "natal:b",
+            "palace_key": "soulPalace",
+            "entity_key": "soulPalace",
+            "data": {
+              "name": "Mệnh",
+              "majorStars": [
+                {
+                  "key": "qishaMaj",
+                  "name": "Thất Sát"
+                }
+              ]
+            },
+            "source": "x-iztro"
+          }
+        ]
+      },
+      "output": "Hai lá số này bổ sung cho nhau và cùng thuận lưu niên 2028 [E001].",
+      "expect": {
+        "ok": false,
+        "violations": [
+          "missing_side_labels"
+        ]
+      }
     }
   ]
 }

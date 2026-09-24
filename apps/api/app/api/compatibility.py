@@ -108,12 +108,10 @@ async def compatibility(
             ):
                 payload = json.dumps(ev["data"], ensure_ascii=False)
                 yield f"event: {ev['event']}\ndata: {payload}\n\n"
-        except Exception as exc:
-            yield (
-                "event: error\ndata: "
-                + json.dumps({"type": "internal", "detail": str(exc)[:200]})
-                + "\n\n"
-            )
+        except Exception:
+            # Typed errors (llm_unconfigured, grounding_failed, …) carry their
+            # own events — a raw exception leaks internals, so stay generic.
+            yield 'event: error\ndata: {"type": "internal"}\n\n'
 
     return StreamingResponse(
         event_stream(),

@@ -149,6 +149,8 @@ class ValidationResult(NamedTuple):
     invented_entities: list[str]
     temporal_unverified: list[str]
     orphan_claims: list[str]
+    # Compatibility only: "Người A"/"Người B" labels absent from the output.
+    missing_side_labels: list[str]
 
     @property
     def violations(self) -> list[str]:
@@ -164,6 +166,11 @@ class ValidationResult(NamedTuple):
             out.append(
                 "nhận định vận hạn thiếu horoscope_fact: "
                 + ", ".join(self.temporal_unverified)
+            )
+        if self.missing_side_labels:
+            out.append(
+                "bài phân tích thiếu nhãn lá số bắt buộc: "
+                + ", ".join(self.missing_side_labels)
             )
         return out
 
@@ -204,6 +211,16 @@ def validate(output: str, bundle: EvidenceBundle) -> ValidationResult:
         }
         for side in ("a", "b")
     }
+    # The compat prompt requires fixed "Người A"/"Người B" labels so every
+    # chart-specific claim is attributable — a report missing either label
+    # fails outright, regardless of citations.
+    missing_labels: list[str] = []
+    if pair:
+        if not _SIDE_A_RE.search(output):
+            missing_labels.append("Người A")
+        if not _SIDE_B_RE.search(output):
+            missing_labels.append("Người B")
+
     vocab = bundle_vocab(bundle)
     entity_names = _bundle_names(bundle)
 
@@ -238,11 +255,12 @@ def validate(output: str, bundle: EvidenceBundle) -> ValidationResult:
             orphans.append(sentence[:120])
 
     return ValidationResult(
-        ok=not unknown and not invented and not temporal,
+        ok=not unknown and not invented and not temporal and not missing_labels,
         unknown_refs=unknown,
         invented_entities=sorted(invented),
         temporal_unverified=temporal[:10],
         orphan_claims=orphans[:10],
+        missing_side_labels=missing_labels,
     )
 
 

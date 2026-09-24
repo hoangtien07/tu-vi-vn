@@ -92,6 +92,20 @@ def _idempotency_key(
     return hashlib.sha256(raw.encode()).hexdigest()[:40]
 
 
+# A `pending` row older than this is a zombie (hard crash skipped the
+# abort-finally) — treated as failed so its idempotency key can be freed.
+_PENDING_TTL = dt.timedelta(minutes=10)
+
+
+def _live_pending(run: InterpretationRun) -> bool:
+    created = run.created_at
+    if created is None:
+        return False
+    if created.tzinfo is not None:
+        created = created.replace(tzinfo=None)
+    return dt.datetime.now(dt.UTC).replace(tzinfo=None) - created < _PENDING_TTL
+
+
 def _sse(event: str, data: Any) -> Event:
     return {"event": event, "data": data}
 
@@ -183,6 +197,16 @@ class InterpretationService:
             session.commit()  # persist evidence bundle row
             async for ev in self._replay(session, existing, bundle, topic, prompt_ver, model):
                 yield ev
+            return
+
+        # A run still streaming must keep its key — a duplicate request gets an
+        # explicit in-progress signal instead of spawning a second LLM stream.
+        if existing is not None and existing.status == "pending" and _live_pending(existing):
+            session.rollback()  # drop the duplicate evidence bundle row
+            yield _sse(
+                "error",
+                {"type": "run_in_progress", "runId": existing.id},
+            )
             return
 
         # Failed/abandoned attempts keep their row for the audit trail: free
@@ -281,6 +305,14 @@ class InterpretationService:
                 session, existing, bundle, COMPATIBILITY_TOPIC, prompt_ver, model
             ):
                 yield ev
+            return
+
+        if existing is not None and existing.status == "pending" and _live_pending(existing):
+            session.rollback()
+            yield _sse(
+                "error",
+                {"type": "run_in_progress", "runId": existing.id},
+            )
             return
 
         if existing is not None:

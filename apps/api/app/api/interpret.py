@@ -119,12 +119,10 @@ async def interpret(
             ):
                 payload = json.dumps(ev["data"], ensure_ascii=False)
                 yield f"event: {ev['event']}\ndata: {payload}\n\n"
-        except Exception as exc:  # last-resort: error event, never partial-as-done
-            yield (
-                "event: error\ndata: "
-                + json.dumps({"type": "internal", "detail": str(exc)[:200]})
-                + "\n\n"
-            )
+        except Exception:  # last-resort: error event, never partial-as-done
+            # Typed errors carry their own events — raw exception text leaks
+            # internals, so the catch-all stays generic.
+            yield 'event: error\ndata: {"type": "internal"}\n\n'
 
     return StreamingResponse(
         event_stream(),

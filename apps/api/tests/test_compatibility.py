@@ -19,7 +19,7 @@ from app.domain.chart.service import ChartService
 from app.domain.context.comparison import ComparisonComposer, chi_relations
 from app.domain.evidence.builder import EvidenceBuilder, EvidenceBundle
 from app.domain.interpretation import grounding
-from app.domain.interpretation.service import _context_hash
+from app.domain.interpretation.service import _context_hash, _live_pending
 from app.infrastructure.db.models import Base, EngineProfileRow, InterpretationRun
 from app.infrastructure.db.session import get_session
 from app.infrastructure.xiztro.engine import XiztroEngine
@@ -341,6 +341,32 @@ def test_get_run(session: Session, pair) -> None:
     assert body["chartAId"] == a.id
     assert body["chartBId"] == b.id
     assert body["status"] == "completed"
+
+
+def test_pending_run_signals_in_progress(session: Session, pair) -> None:
+    # A duplicate request while the first run is still streaming must not
+    # spawn a second LLM stream — the API reports run_in_progress instead.
+    a, b = pair
+    client = _client(session, FakeProvider())
+    r1 = client.post("/api/compatibility", json={"chart_a_id": a.id, "chart_b_id": b.id})
+    done1 = next(d for e, d in _sse_events(r1) if e == "done")
+    run = session.get(InterpretationRun, done1["runId"])
+    run.status = "pending"  # pretend it's still in flight
+    session.commit()
+
+    r2 = client.post("/api/compatibility", json={"chart_a_id": a.id, "chart_b_id": b.id})
+    err = next(d for e, d in _sse_events(r2) if e == "error")
+    assert err["type"] == "run_in_progress"
+    assert err["runId"] == run.id
+
+
+def test_live_pending_ttl() -> None:
+    fresh = InterpretationRun(created_at=dt.datetime.now(dt.UTC).replace(tzinfo=None))
+    assert _live_pending(fresh)
+    stale = InterpretationRun(
+        created_at=dt.datetime.now(dt.UTC).replace(tzinfo=None) - dt.timedelta(minutes=15)
+    )
+    assert not _live_pending(stale)
 
 
 # ---------- Gate D: routing isolation ---------------------------------------
