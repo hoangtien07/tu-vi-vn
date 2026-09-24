@@ -149,6 +149,8 @@ class ValidationResult(NamedTuple):
     invented_entities: list[str]
     temporal_unverified: list[str]
     orphan_claims: list[str]
+    # Compatibility only: "Người A"/"Người B" labels absent from the output.
+    missing_side_labels: list[str]
 
     @property
     def violations(self) -> list[str]:
@@ -165,10 +167,18 @@ class ValidationResult(NamedTuple):
                 "nhận định vận hạn thiếu horoscope_fact: "
                 + ", ".join(self.temporal_unverified)
             )
+        if self.missing_side_labels:
+            out.append(
+                "bài phân tích thiếu nhãn lá số bắt buộc: "
+                + ", ".join(self.missing_side_labels)
+            )
         return out
 
 
 _BOLD_LABEL_RE = re.compile(r"[-*\s]*\*\*[^*\n]+\*\*:?")
+# Compatibility outputs must label the two charts (SPEC_COMPATIBILITY §4).
+_SIDE_A_RE = re.compile(r"Người\s*A\b")
+_SIDE_B_RE = re.compile(r"Người\s*B\b")
 
 
 def _sentences(text: str) -> list[str]:
@@ -189,6 +199,28 @@ def _sentences(text: str) -> list[str]:
 def validate(output: str, bundle: EvidenceBundle) -> ValidationResult:
     known_ids = {item.id for item in bundle.items}
     horoscope_ids = {i.id for i in bundle.items if i.kind == "horoscope_fact"}
+    # Hợp bàn: horoscope scopes are side-tagged (`…:a`/`…:b`); a temporal
+    # claim about "Người A" must cite A-side horoscope evidence, not just any
+    # (SPEC_COMPATIBILITY §4).
+    pair = bundle.topic == "compatibility"
+    horoscope_ids_by_side = {
+        side: {
+            i.id
+            for i in bundle.items
+            if i.kind == "horoscope_fact" and i.scope.endswith(f":{side}")
+        }
+        for side in ("a", "b")
+    }
+    # The compat prompt requires fixed "Người A"/"Người B" labels so every
+    # chart-specific claim is attributable — a report missing either label
+    # fails outright, regardless of citations.
+    missing_labels: list[str] = []
+    if pair:
+        if not _SIDE_A_RE.search(output):
+            missing_labels.append("Người A")
+        if not _SIDE_B_RE.search(output):
+            missing_labels.append("Người B")
+
     vocab = bundle_vocab(bundle)
     entity_names = _bundle_names(bundle)
 
@@ -207,17 +239,28 @@ def validate(output: str, bundle: EvidenceBundle) -> ValidationResult:
     orphans: list[str] = []
     for sentence in _sentences(output):
         s_refs = _refs(sentence)
-        if TEMPORAL_RE.search(sentence) and not (s_refs & horoscope_ids):
-            temporal.append(sentence[:120])
+        if TEMPORAL_RE.search(sentence):
+            if pair:
+                mentions_a = _SIDE_A_RE.search(sentence)
+                mentions_b = _SIDE_B_RE.search(sentence)
+                missing_side = (
+                    (mentions_a and not (s_refs & horoscope_ids_by_side["a"]))
+                    or (mentions_b and not (s_refs & horoscope_ids_by_side["b"]))
+                )
+                if not (s_refs & horoscope_ids) or missing_side:
+                    temporal.append(sentence[:120])
+            elif not (s_refs & horoscope_ids):
+                temporal.append(sentence[:120])
         if not s_refs and any(name in sentence for name in entity_names):
             orphans.append(sentence[:120])
 
     return ValidationResult(
-        ok=not unknown and not invented and not temporal,
+        ok=not unknown and not invented and not temporal and not missing_labels,
         unknown_refs=unknown,
         invented_entities=sorted(invented),
         temporal_unverified=temporal[:10],
         orphan_claims=orphans[:10],
+        missing_side_labels=missing_labels,
     )
 
 

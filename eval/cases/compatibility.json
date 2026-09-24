@@ -1,0 +1,246 @@
+{
+  "gate": "C-compat",
+  "description": "GroundingValidator cases for hợp bàn bundles (SPEC_COMPATIBILITY §5 Gate C). topic=compatibility switches on the side-aware temporal check: 'Người A'/'Người B' temporal claims must cite horoscope_fact of that side (scope ending :a/:b).",
+  "cases": [
+    {
+      "id": "compat-001",
+      "note": "side-correct temporal citation → pass",
+      "bundle": {
+        "topic": "compatibility",
+        "items": [
+          {
+            "id": "E001",
+            "kind": "horoscope_fact",
+            "scope": "yearly:2028-01-26:a",
+            "entity_key": "yearly",
+            "data": {
+              "palaceName": "Quan Lộc",
+              "name": "Lưu niên A"
+            },
+            "source": "x-iztro"
+          },
+          {
+            "id": "E002",
+            "kind": "palace_fact",
+            "scope": "natal:b",
+            "palace_key": "soulPalace",
+            "entity_key": "soulPalace",
+            "data": {
+              "name": "Mệnh",
+              "majorStars": [
+                {
+                  "key": "qishaMaj",
+                  "name": "Thất Sát"
+                }
+              ]
+            },
+            "source": "x-iztro"
+          }
+        ]
+      },
+      "output": "Người A năm 2028 có biến động nghề nghiệp [E001]. Mệnh Người B có Thất Sát tọa thủ [E002].",
+      "expect": {
+        "ok": true
+      }
+    },
+    {
+      "id": "compat-002",
+      "note": "cross-side citation: Người B claim cites only A's horoscope_fact → temporal_unverified",
+      "bundle": {
+        "topic": "compatibility",
+        "items": [
+          {
+            "id": "E001",
+            "kind": "horoscope_fact",
+            "scope": "yearly:2028-01-26:a",
+            "entity_key": "yearly",
+            "data": {
+              "palaceName": "Quan Lộc"
+            },
+            "source": "x-iztro"
+          }
+        ]
+      },
+      "output": "Người B năm 2028 gặp sao xung chiếu [E001].",
+      "expect": {
+        "ok": false,
+        "violations": [
+          "temporal_unverified"
+        ]
+      }
+    },
+    {
+      "id": "compat-003",
+      "note": "sentence naming both sides cites only A's horoscope → temporal_unverified",
+      "bundle": {
+        "topic": "compatibility",
+        "items": [
+          {
+            "id": "E001",
+            "kind": "horoscope_fact",
+            "scope": "yearly:2028-01-26:a",
+            "entity_key": "yearly",
+            "data": {
+              "palaceName": "Quan Lộc"
+            },
+            "source": "x-iztro"
+          },
+          {
+            "id": "E002",
+            "kind": "horoscope_fact",
+            "scope": "yearly:2028-01-26:b",
+            "entity_key": "yearly",
+            "data": {
+              "palaceName": "Phu Thê"
+            },
+            "source": "x-iztro"
+          }
+        ]
+      },
+      "output": "Cả Người A và Người B đều chịu ảnh hưởng lưu niên 2028 [E001].",
+      "expect": {
+        "ok": false,
+        "violations": [
+          "temporal_unverified"
+        ]
+      }
+    },
+    {
+      "id": "compat-004",
+      "note": "both sides cited correctly → pass",
+      "bundle": {
+        "topic": "compatibility",
+        "items": [
+          {
+            "id": "E001",
+            "kind": "horoscope_fact",
+            "scope": "yearly:2028-01-26:a",
+            "entity_key": "yearly",
+            "data": {
+              "palaceName": "Quan Lộc"
+            },
+            "source": "x-iztro"
+          },
+          {
+            "id": "E002",
+            "kind": "horoscope_fact",
+            "scope": "yearly:2028-01-26:b",
+            "entity_key": "yearly",
+            "data": {
+              "palaceName": "Phu Thê"
+            },
+            "source": "x-iztro"
+          }
+        ]
+      },
+      "output": "Người A năm 2028 có biến động nghề nghiệp [E001]; Người B năm 2028 quan hệ đôi lứa sáng [E002].",
+      "expect": {
+        "ok": true
+      }
+    },
+    {
+      "id": "compat-005",
+      "note": "temporal claim with no horoscope_fact at all → fail even in pair mode",
+      "bundle": {
+        "topic": "compatibility",
+        "items": [
+          {
+            "id": "E001",
+            "kind": "palace_fact",
+            "scope": "natal:a",
+            "palace_key": "soulPalace",
+            "entity_key": "soulPalace",
+            "data": {
+              "name": "Mệnh"
+            },
+            "source": "x-iztro"
+          }
+        ]
+      },
+      "output": "Người A năm 2028 đại hạn đổi vận [E001].",
+      "expect": {
+        "ok": false,
+        "violations": [
+          "temporal_unverified"
+        ]
+      }
+    },
+    {
+      "id": "compat-006",
+      "note": "invented entity from a third chart → invented_entities",
+      "bundle": {
+        "topic": "compatibility",
+        "items": [
+          {
+            "id": "E001",
+            "kind": "palace_fact",
+            "scope": "natal:a",
+            "palace_key": "soulPalace",
+            "entity_key": "soulPalace",
+            "data": {
+              "name": "Mệnh",
+              "majorStars": [
+                {
+                  "key": "qishaMaj",
+                  "name": "Thất Sát"
+                }
+              ]
+            },
+            "source": "x-iztro"
+          }
+        ]
+      },
+      "output": "Người A có Lộc Tồn đồng cung Mệnh nên phú quý [E001].",
+      "expect": {
+        "ok": false,
+        "violations": [
+          "invented_entities"
+        ]
+      }
+    },
+    {
+      "id": "compat-007",
+      "note": "unlabeled output — no Người A/Người B labels → missing_side_labels fail",
+      "bundle": {
+        "topic": "compatibility",
+        "items": [
+          {
+            "id": "E001",
+            "kind": "horoscope_fact",
+            "scope": "yearly:2028-01-26:a",
+            "entity_key": "yearly",
+            "data": {
+              "palaceName": "Quan Lộc",
+              "name": "Lưu niên A"
+            },
+            "source": "x-iztro"
+          },
+          {
+            "id": "E002",
+            "kind": "palace_fact",
+            "scope": "natal:b",
+            "palace_key": "soulPalace",
+            "entity_key": "soulPalace",
+            "data": {
+              "name": "Mệnh",
+              "majorStars": [
+                {
+                  "key": "qishaMaj",
+                  "name": "Thất Sát"
+                }
+              ]
+            },
+            "source": "x-iztro"
+          }
+        ]
+      },
+      "output": "Hai lá số này bổ sung cho nhau và cùng thuận lưu niên 2028 [E001].",
+      "expect": {
+        "ok": false,
+        "violations": [
+          "missing_side_labels"
+        ]
+      }
+    }
+  ]
+}

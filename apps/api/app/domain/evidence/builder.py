@@ -18,6 +18,7 @@ KIND_ORDER = [
     "mutagen",
     "pattern",
     "horoscope_fact",
+    "cross_link",
     "knowledge",
 ]
 
@@ -27,6 +28,7 @@ _SOURCE_BY_KIND = {
     "mutagen": "x-iztro",
     "pattern": "x-iztro-pattern-engine",
     "horoscope_fact": "x-iztro",
+    "cross_link": "x-iztro",
     "knowledge": "iztro-docs",
 }
 
