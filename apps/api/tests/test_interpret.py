@@ -196,3 +196,126 @@ def test_extract_claims() -> None:
     claims = extract_claims("Câu một [E001]. Câu hai. Câu ba [E002] [E003].")
     assert len(claims) == 2
     assert claims[1]["refs"] == ["E002", "E003"]
+
+
+def test_glossary_loaded() -> None:
+    from app.domain.interpretation.grounding import _VI_NAMES
+
+    assert len(_VI_NAMES) > 200
+
+
+def test_prompt_includes_glossary() -> None:
+    from app.domain.interpretation.prompts import PromptRenderer
+
+    assert "glossary" in PromptRenderer().system_prompt("career")
+
+
+def test_provisional_chart_caveat_in_evidence(session: Session) -> None:
+    normalized = _normalized().model_copy(
+        update={"provisional": True, "warnings": ["giờ không rõ"]}
+    )
+    snapshot = ChartService(XiztroEngine()).cast_and_persist(
+        session, {"calendar": "solar"}, normalized, _profile()
+    )
+    service = InterpretationService(ContextComposer(XiztroEngine()), None)
+    events = _collect(service, session, snapshot, "overview")
+    evidence = next(e for e in events if e["event"] == "evidence")
+    keys = {i["entity_key"] for i in evidence["data"]["items"]}
+    assert "provisional_chart" in keys
+
+
+def test_repair_replaces_streamed_draft(session: Session, snapshot) -> None:
+    provider = FakeProvider(
+        ["Sao bịa đặt [E999]."], repair_output="Mệnh Thất Sát [E001]."
+    )
+    service = InterpretationService(ContextComposer(XiztroEngine()), provider)
+    events = _collect(service, session, snapshot)
+    kinds = [e["event"] for e in events]
+    assert "replace" in kinds
+    replaced = next(e for e in events if e["event"] == "replace")
+    assert replaced["data"] == "Mệnh Thất Sát [E001]."
+    assert kinds[-1] == "done"
+    # repaired text must not also be streamed as appended deltas
+    deltas = [e for e in events if e["event"] == "delta"]
+    assert all("Mệnh Thất Sát [E001]" not in d["data"] for d in deltas)
+
+
+class _FailingStreamProvider(FakeProvider):
+    async def stream(
+        self, messages: list[dict[str, str]], **kw: Any
+    ) -> AsyncIterator[str]:
+        raise RuntimeError("upstream down")
+        yield  # pragma: no cover
+
+
+def test_failed_run_retry_preserves_history(session: Session, snapshot) -> None:
+    fail = InterpretationService(
+        ContextComposer(XiztroEngine()), _FailingStreamProvider("x")
+    )
+    events = _collect(fail, session, snapshot)
+    assert events[-1]["event"] == "error"
+
+    ok = InterpretationService(
+        ContextComposer(XiztroEngine()), FakeProvider(["Mệnh [E001] rõ."])
+    )
+    events = _collect(ok, session, snapshot)
+    assert events[-1]["event"] == "done"
+
+    runs = list(
+        session.scalars(
+            select(InterpretationRun).where(
+                InterpretationRun.chart_snapshot_id == snapshot.id
+            )
+        )
+    )
+    assert len(runs) == 2
+    failed = next(r for r in runs if r.status == "failed")
+    done = next(r for r in runs if r.status == "completed")
+    assert failed.idempotency_key is None
+    assert done.idempotency_key is not None
+    assert failed.id != done.id
+
+    # subsequent identical request replays the completed run
+    replay = _collect(ok, session, snapshot)
+    assert replay[0]["data"]["replay"] is True
+    assert replay[1]["data"]["bundleId"] == done.evidence_bundle_id
+
+
+def test_unsupported_timezone_422(session: Session) -> None:
+    from pydantic import ValidationError
+
+    from app.domain.birth.contracts import RawBirthInput
+
+    with pytest.raises(ValidationError, match="unsupported timezone"):
+        RawBirthInput(
+            date=dt.date(2000, 1, 1),
+            time=dt.time(8, 0),
+            gender="male",
+            timezone="Asia/Tokyo",
+            trueSolarTimeEnabled=False,
+        )
+
+
+def test_birth_year_bound() -> None:
+    from pydantic import ValidationError
+
+    from app.domain.birth.contracts import RawBirthInput
+
+    with pytest.raises(ValidationError, match="1583"):
+        RawBirthInput(
+            date=dt.date(1200, 1, 1),
+            time=dt.time(8, 0),
+            gender="male",
+            trueSolarTimeEnabled=False,
+        )
+
+
+def test_yearly_target_year_bound(session: Session, snapshot) -> None:
+    client = TestClient(create_app())
+    client.app.state.llm_provider = FakeProvider("x [E001].")
+    client.app.dependency_overrides[get_session] = lambda: session
+    resp = client.post(
+        f"/api/charts/{snapshot.id}/interpret",
+        json={"topic": "career", "target": {"scope": "yearly", "year": 1200}},
+    )
+    assert resp.status_code == 422

@@ -63,10 +63,11 @@ def test_career_with_year_target(engine, birth, profile, dto):
     ctx = ContextComposer(engine).compose(
         birth, profile, dto, "career", target_date=date(2028, 3, 1)
     )
-    assert set(ctx.scopes_included) == {"decadal", "yearly", "age"}
+    expected = {"decadal", "yearly", "monthly", "daily", "age"}
+    assert set(ctx.scopes_included) == expected
     horo = [i for i in ctx.items if i.kind == "horoscope_fact"]
-    assert {i.entity_key for i in horo} == {"decadal", "yearly", "age"}
-    assert all(i.scope.startswith(("decadal", "yearly", "age")) for i in horo)
+    assert {i.entity_key for i in horo} == expected
+    assert all(i.scope.startswith(tuple(expected)) for i in horo)
 
 
 def test_evidence_bundle_stable_ids(engine, birth, profile, dto):

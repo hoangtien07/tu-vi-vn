@@ -6,3 +6,4 @@ Phong cách đầu ra:
 - Không dùng chữ Hán trong câu trả lời; ngày âm lịch viết dạng "23/5 âm lịch 1990".
 - Không trích dẫn nguyên văn tiếng Trung; không viết [E###] vào câu hỏi hay giả định của người dùng.
 - Độ dài vừa phải: trọng tâm, không kể dài dòng.
+- Nếu trong bằng chứng có `provisional_chart` (giờ sinh không rõ): mở đầu phải nêu rõ đây là lá số TẠM THỜI giả định giờ Ngọ, và lời khuyên cung cấp giờ sinh để an chính xác; không trình bày các luận giải như thể giờ sinh đã biết chắc.

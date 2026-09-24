@@ -63,6 +63,10 @@ def normalize(
 ) -> NormalizedBirthMoment:
     local_dt = civil.civilDateTime
     offset_minutes, warnings = resolve_offset_minutes(local_dt, raw.birthRegion)
+    if raw.timeUnknown:
+        warnings.append(
+            "giờ sinh không rõ — lá số tạm thời (giả định giờ Ngọ 12:00)"
+        )
 
     longitude_correction = 0.0
     eot = 0.0
@@ -98,5 +102,7 @@ def normalize(
         resolvedOffsetMinutes=offset_minutes,
         normalizationMode="true-solar" if solar_enabled else "civil",
         normalizerVersion=NORMALIZER_VERSION,
+        calendarConverterVersion=civil.calendarConverterVersion,
+        provisional=raw.timeUnknown,
         warnings=warnings,
     )

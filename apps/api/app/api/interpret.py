@@ -5,7 +5,7 @@ from typing import Literal
 
 from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import StreamingResponse
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 
 from app.domain.birth.contracts import NormalizedBirthMoment
@@ -25,7 +25,7 @@ ALLOWED_TOPICS = {"overview", "career", "wealth", "love", "health"}
 
 class YearlyTarget(BaseModel):
     scope: Literal["yearly"]
-    year: int
+    year: int = Field(ge=1583, le=9999)
 
 
 class InterpretRequest(BaseModel):

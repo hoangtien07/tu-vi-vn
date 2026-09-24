@@ -13,9 +13,11 @@ const TOPICS: { key: string; label: string }[] = [
 interface EvidenceRef {
   id: string;
   kind: string;
+  source: string;
   scope: string;
   palace_key: string;
   entity_key: string;
+  data: Record<string, unknown>;
 }
 
 const REF_RE = /\[E(\d{3})\]/g;
@@ -74,6 +76,7 @@ export function InterpretPanel({ chartId }: { chartId: string }) {
             if (!ev || !data) continue;
             const payload = JSON.parse(data);
             if (ev === "delta") setText((x) => x + payload);
+            else if (ev === "replace") setText(payload);
             else if (ev === "evidence") setEvidence(payload.items);
             else if (ev === "done") setState("done");
             else if (ev === "error") {
@@ -82,7 +85,10 @@ export function InterpretPanel({ chartId }: { chartId: string }) {
             }
           }
         }
-        setState((s) => (s === "streaming" ? "done" : s));
+        setState((s) => (s === "streaming" ? "error" : s));
+        setError(
+          (s) => s || "Luồng luận giải kết thúc trước khi hoàn tất.",
+        );
       } catch (e) {
         setState("error");
         setError(String(e));
@@ -117,6 +123,9 @@ export function InterpretPanel({ chartId }: { chartId: string }) {
             >
               {id} · {item.kind} · {item.scope}
               {item.entity_key ? ` · ${item.entity_key}` : ""}
+              <span className="mt-1 block whitespace-pre-wrap font-mono text-[10px] text-zinc-500">
+                {JSON.stringify(item.data)}
+              </span>
             </span>,
           );
         }

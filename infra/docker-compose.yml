@@ -18,7 +18,8 @@ services:
 
   migrate:
     build:
-      context: ../apps/api
+      context: ..
+      dockerfile: apps/api/Dockerfile
     command: ["uv", "run", "--no-dev", "alembic", "upgrade", "head"]
     environment:
       DATABASE_URL: postgresql+psycopg://postgres:${POSTGRES_PASSWORD:-postgres}@postgres:5432/tuvi
@@ -29,7 +30,8 @@ services:
 
   api:
     build:
-      context: ../apps/api
+      context: ..
+      dockerfile: apps/api/Dockerfile
     environment:
       DATABASE_URL: postgresql+psycopg://postgres:${POSTGRES_PASSWORD:-postgres}@postgres:5432/tuvi
       AI_BASE_URL: ${AI_BASE_URL:-}

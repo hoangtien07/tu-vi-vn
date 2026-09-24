@@ -61,9 +61,25 @@ def _context_hash(bundle: EvidenceBundle) -> str:
 
 
 def _idempotency_key(
-    chart_id: str, topic: str, target: dt.date | None, prompt_ver: str, model: str
+    chart_id: str,
+    topic: str,
+    target: dt.date | None,
+    prompt_ver: str,
+    model: str,
+    template_sha: str,
+    context_hash: str,
 ) -> str:
-    raw = "|".join([chart_id, topic, str(target or ""), prompt_ver, model])
+    raw = "|".join(
+        [
+            chart_id,
+            topic,
+            str(target or ""),
+            prompt_ver,
+            model,
+            template_sha,
+            context_hash,
+        ]
+    )
     return hashlib.sha256(raw.encode()).hexdigest()[:40]
 
 
@@ -133,7 +149,13 @@ class InterpretationService:
         messages, prompt_ver, template_sha = self._renderer.render(topic, bundle)
         model = getattr(self._provider, "model", "") or ""
         ikey = _idempotency_key(
-            snapshot.id, topic, target_date, prompt_ver, model
+            snapshot.id,
+            topic,
+            target_date,
+            prompt_ver,
+            model,
+            template_sha,
+            context_hash,
         )
 
         existing = session.scalar(
@@ -153,12 +175,24 @@ class InterpretationService:
                     "replay": True,
                 },
             )
-            yield _sse("evidence", self._evidence_payload(bundle))
+            replay_bundle = bundle
+            if existing.evidence_bundle_id:
+                stored = session.get(
+                    EvidenceBundleRow, existing.evidence_bundle_id
+                )
+                if stored is not None:
+                    replay_bundle = EvidenceBundle.model_validate(stored.payload)
+            yield _sse("evidence", self._evidence_payload(replay_bundle))
             yield _sse("delta", existing.output_text)
             yield _sse("done", {"runId": existing.id, "replay": True})
             return
 
-        run = existing or InterpretationRun(
+        # Failed/abandoned attempts keep their row for the audit trail: free
+        # the idempotency key so the retry can claim it on a fresh run row.
+        if existing is not None:
+            existing.idempotency_key = None
+
+        run = InterpretationRun(
             id=new_id("ir"),
             chart_snapshot_id=snapshot.id,
             evidence_bundle_id=bundle.id,
@@ -168,11 +202,6 @@ class InterpretationService:
             status="pending",
             version_meta={},
         )
-        if existing is not None:
-            run.status = "pending"
-            run.output_text = None
-            run.claims = []
-            run.evidence_bundle_id = bundle.id
         run.version_meta = {
             "contextComposerVersion": CONTEXT_COMPOSER_VERSION,
             "knowledgePacks": [KnowledgeRegistry.version_info()],
@@ -239,8 +268,9 @@ class InterpretationService:
                 break
             result = validate(output, bundle)
             if result.ok:
-                yield _sse("delta", "\n\n---\n\n")
-                yield _sse("delta", output)
+                # The streamed draft was rejected — replace it wholesale so
+                # displayed output matches the audited output.
+                yield _sse("replace", output)
 
         if not result.ok:
             run.status = "failed"
@@ -274,9 +304,11 @@ class InterpretationService:
                 {
                     "id": i.id,
                     "kind": i.kind,
+                    "source": i.source,
                     "scope": i.scope,
                     "palace_key": i.palace_key,
                     "entity_key": i.entity_key,
+                    "data": i.data,
                 }
                 for i in bundle.items
             ],

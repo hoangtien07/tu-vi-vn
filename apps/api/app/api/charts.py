@@ -9,7 +9,10 @@ from app.domain.birth.contracts import RawBirthInput
 from app.domain.birth.normalizer import SolarCoordinateRequiredError, civil_moment, normalize
 from app.domain.birth.vn_timezone import BirthRegionRequiredError
 from app.domain.chart.service import ChartService, load_engine_profile
-from app.infrastructure.db.models import ChartSnapshot
+from app.infrastructure.db.models import (
+    ChartSnapshot,
+    NormalizedBirthMomentRow,
+)
 from app.infrastructure.db.session import get_session
 from app.infrastructure.xiztro.calendar import (
     InvalidLunarDateError,
@@ -25,7 +28,13 @@ def get_chart_service(request: Request) -> ChartService:
     return ChartService(request.app.state.ziwei_engine)
 
 
-def _serialize(snapshot: ChartSnapshot) -> dict[str, object]:
+def _serialize(
+    snapshot: ChartSnapshot, session: Session
+) -> dict[str, object]:
+    norm = session.get(
+        NormalizedBirthMomentRow, snapshot.normalized_birth_moment_id
+    )
+    normalized = norm.payload if norm is not None else None
     return {
         "id": snapshot.id,
         "engine": snapshot.engine,
@@ -34,6 +43,8 @@ def _serialize(snapshot: ChartSnapshot) -> dict[str, object]:
         "chartHash": snapshot.chart_hash,
         "dtoSchemaVersion": snapshot.dto_schema_version,
         "shareToken": snapshot.share_token,
+        "provisional": bool((normalized or {}).get("provisional")),
+        "warnings": (normalized or {}).get("warnings", []),
         "chart": snapshot.chart_json,
         "patternHits": snapshot.pattern_hits,
         "createdAt": snapshot.created_at,
@@ -65,7 +76,7 @@ def create_chart(
     snapshot = service.cast_and_persist(
         session, raw.model_dump(mode="json"), normalized, load_engine_profile(session)
     )
-    data = _serialize(snapshot)
+    data = _serialize(snapshot, session)
     data["birth"] = {
         "raw": raw.model_dump(mode="json"),
         "normalized": normalized.model_dump(mode="json"),
@@ -78,7 +89,7 @@ def get_chart(chart_id: str, session: Session = Depends(get_session)) -> dict[st
     snapshot = session.get(ChartSnapshot, chart_id)
     if snapshot is None:
         raise HTTPException(status_code=404, detail="chart not found")
-    return _serialize(snapshot)
+    return _serialize(snapshot, session)
 
 
 class CompatibilityRequest(BaseModel):
@@ -102,6 +113,6 @@ def get_shared_chart(token: str, session: Session = Depends(get_session)) -> dic
     )
     if snapshot is None:
         raise HTTPException(status_code=404, detail="chart not found")
-    data = _serialize(snapshot)
+    data = _serialize(snapshot, session)
     data.pop("shareToken")
     return data

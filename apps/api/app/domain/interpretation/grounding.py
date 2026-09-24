@@ -8,10 +8,10 @@
 """
 
 import re
-from pathlib import Path
 from typing import NamedTuple
 
 from app.domain.evidence.builder import EvidenceBundle
+from app.repo_root import repo_file
 
 REF_RE = re.compile(r"\[E(\d{3})\]")
 SENTENCE_SPLIT = re.compile(r"(?<=[.!?…。；\n])\s*")
@@ -20,9 +20,7 @@ TEMPORAL_RE = re.compile(
     r"sắp tới|tương lai|hiện tại)"
 )
 
-GLOSSARY_PATH = (
-    Path(__file__).resolve().parents[4] / "packages" / "knowledge" / "glossary-vi.md"
-)
+GLOSSARY_PATH = repo_file("packages", "knowledge", "glossary-vi.md")
 
 
 def _load_vi_names() -> dict[str, str]:
@@ -42,29 +40,56 @@ def _load_vi_names() -> dict[str, str]:
 _VI_NAMES = _load_vi_names()
 
 
+_VOCAB_KEY_FIELDS = {
+    "key",
+    "nameKey",
+    "starKey",
+    "mutagenKey",
+    "patternKey",
+    "palaceKey",
+    "stemKey",
+    "branchKey",
+    "entity_key",
+}
+_NAME_FIELDS = {"name", "starName", "palaceName"}
+
+
+def _walk(obj: object) -> tuple[set[str], set[str]]:
+    """Recursively collect (vocab keys, display names) from nested data."""
+    keys: set[str] = set()
+    names: set[str] = set()
+    if isinstance(obj, dict):
+        for field, value in obj.items():
+            if isinstance(value, str):
+                if field in _VOCAB_KEY_FIELDS:
+                    keys.add(value)
+                elif field in _NAME_FIELDS:
+                    names.add(value)
+            else:
+                k2, n2 = _walk(value)
+                keys |= k2
+                names |= n2
+    elif isinstance(obj, list):
+        for value in obj:
+            k2, n2 = _walk(value)
+            keys |= k2
+            names |= n2
+    return keys, names
+
+
 def bundle_vocab(bundle: EvidenceBundle) -> set[str]:
     keys: set[str] = set()
     for item in bundle.items:
         if item.entity_key:
             keys.add(item.entity_key)
-        for field in ("majorStars", "minorStars", "stars"):
-            for star in item.data.get(field, []) or []:
-                if isinstance(star, dict) and star.get("key"):
-                    keys.add(star["key"])
+        keys |= _walk(item.data)[0]
     return keys
 
 
 def _bundle_names(bundle: EvidenceBundle) -> set[str]:
     names: set[str] = set()
     for item in bundle.items:
-        for field in ("majorStars", "minorStars", "stars"):
-            for star in item.data.get(field, []) or []:
-                if isinstance(star, dict) and star.get("name"):
-                    names.add(star["name"])
-        if item.data.get("name"):
-            names.add(str(item.data["name"]))
-        if item.data.get("starName"):
-            names.add(str(item.data["starName"]))
+        names |= _walk(item.data)[1]
     return names
 
 

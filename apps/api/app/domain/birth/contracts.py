@@ -1,12 +1,17 @@
 import datetime as dt
 from typing import Literal
 
-from pydantic import BaseModel, Field, model_validator
+from pydantic import BaseModel, Field, field_validator, model_validator
 
 Gender = Literal["male", "female"]
 BirthRegion = Literal["north", "central", "south"]
 
 NORMALIZER_VERSION = "vn-tst-v1"
+MIN_SOLAR_YEAR = 1583
+MAX_SOLAR_YEAR = 9999
+
+# The bundled tz rule table only covers Vietnam civil time (SPEC §5).
+SUPPORTED_TIMEZONES = frozenset({"Asia/Ho_Chi_Minh", "Asia/Saigon"})
 
 
 class RawBirthInput(BaseModel):
@@ -24,6 +29,25 @@ class RawBirthInput(BaseModel):
     longitude: float | None = Field(default=None, ge=-180, le=180)
     leapMonth: bool = False
     trueSolarTimeEnabled: bool = True
+
+    @field_validator("date")
+    @classmethod
+    def date_in_engine_range(cls, v: dt.date) -> dt.date:
+        if not MIN_SOLAR_YEAR <= v.year <= MAX_SOLAR_YEAR:
+            raise ValueError(
+                f"birth year must be within {MIN_SOLAR_YEAR}–{MAX_SOLAR_YEAR}"
+            )
+        return v
+
+    @field_validator("timezone")
+    @classmethod
+    def timezone_supported(cls, v: str) -> str:
+        if v not in SUPPORTED_TIMEZONES:
+            raise ValueError(
+                "unsupported timezone; supported: "
+                + ", ".join(sorted(SUPPORTED_TIMEZONES))
+            )
+        return v
 
     @model_validator(mode="after")
     def time_required_unless_unknown(self) -> "RawBirthInput":
@@ -66,4 +90,6 @@ class NormalizedBirthMoment(BaseModel):
     resolvedOffsetMinutes: int
     normalizationMode: Literal["civil", "true-solar"]
     normalizerVersion: str = NORMALIZER_VERSION
+    calendarConverterVersion: str | None = None
+    provisional: bool = False
     warnings: list[str] = Field(default_factory=list)

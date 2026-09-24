@@ -49,7 +49,7 @@ Nhập ngày giờ sinh
 - [ ] Reference đọc: `Renhuai lib/ziwei/true-solar-time.ts` (MIT). **Không** copy `dst-cn.ts` làm default VN.
 - [ ] Boundary tests bắt buộc: `00:00/00:59/01:00/22:59/23:00/23:59`, index 0 vs 12 (晚子时 + `dayDivide`), correction qua ngày trước/sau, thiếu tọa độ, lunar→solar + `is_leap_month` (pre-validate leapMonth bằng leap-month table → 422), tháng nhuận, ±30 phút quanh mọi hour boundary, ranh giới Tết, longitude cực trị VN (Móng Cái ~107.9°E / Cà Mau ~104.8°E), ngày ranh tz VN `1947-04-01, 1954-10, 1955-07-01, 1959-12-31/1960-01-01, 1975-06-12/13` × `birthRegion`
 - [ ] `NormalizedBirthMoment` persist cặp `(correctedSolarDate, timeIndex 0–12)` — engine input (SPEC §4.3)
-- [ ] `POST /api/charts` trả `{chartId, birth:{raw, normalized}, chart}`; `chart_snapshots.share_token` (unguessable) + `GET /s/{token}` read-only view (share/growth khi chưa có auth)
+- [ ] `POST /api/charts` trả `{id, birth:{raw, normalized}, chart, shareToken}`; `chart_snapshots.share_token` (unguessable) + `GET /s/{token}` read-only view (share/growth khi chưa có auth)
 - [ ] Freeze contract V1.1 ngay trong API surface: `POST /api/charts/{id}/compatibility {other_chart_id, mode: spouse|business}` (stub 501 OK — hợp bàn top-3 feature VN, không breaking sau); giữ `compare_profiles` trong Mode-2 tools
 
 ## Phase 3 — Engine adapter (commit 3)

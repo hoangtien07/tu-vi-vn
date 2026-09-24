@@ -9,11 +9,10 @@ import json
 from pathlib import Path
 
 from app.domain.evidence.builder import EvidenceBundle
+from app.repo_root import repo_file
 
 PROMPTS_DIR = Path(__file__).resolve().parent.parent.parent / "prompts"
-GLOSSARY_PATH = (
-    Path(__file__).resolve().parents[4] / "packages" / "knowledge" / "glossary-vi.md"
-)
+GLOSSARY_PATH = repo_file("packages", "knowledge", "glossary-vi.md")
 PROMPT_VERSION_SUFFIX = "v1"
 
 _FILES = ("system.md", "evidence-policy.md", "output-vi.md")

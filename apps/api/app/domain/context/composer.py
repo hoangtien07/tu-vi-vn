@@ -67,7 +67,7 @@ def temporal_scopes_for(target: dt.date | None) -> list[TemporalScope]:
     """SPEC §9: year topic → yearly+decadal+age; month → +monthly; day → +daily."""
     if target is None:
         return []
-    return ["decadal", "yearly", "age"]
+    return ["decadal", "yearly", "monthly", "daily", "age"]
 
 
 class ContextComposer:
@@ -85,6 +85,21 @@ class ContextComposer:
     ) -> ComposedContext:
         items: list[ContextItem] = []
         scopes: list[TemporalScope] = temporal_scopes_for(target_date)
+
+        if normalized.provisional:
+            items.append(
+                ContextItem(
+                    kind="chart_fact",
+                    scope="natal",
+                    entity_key="provisional_chart",
+                    data={
+                        "warning": (
+                            "Giờ sinh không rõ — lá số tạm thời, "
+                            "giả định giờ Ngọ (12:00)."
+                        )
+                    },
+                )
+            )
 
         main_key = TOPIC_POLICY[topic]
         if main_key is None:

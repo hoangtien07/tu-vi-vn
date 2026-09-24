@@ -3,6 +3,7 @@ import uuid
 from typing import Any
 
 from sqlalchemy import select
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from app.domain.birth.contracts import NormalizedBirthMoment
@@ -76,5 +77,16 @@ class ChartService:
             share_token=secrets.token_urlsafe(24),
         )
         session.add_all([birth_profile, raw, norm, snapshot])
-        session.commit()
+        try:
+            session.commit()
+        except IntegrityError:
+            # Concurrent identical cast won the unique chart_hash race —
+            # deduplicate by returning the winner's snapshot.
+            session.rollback()
+            winner = session.scalar(
+                select(ChartSnapshot).where(ChartSnapshot.chart_hash == digest)
+            )
+            if winner is not None:
+                return winner
+            raise
         return snapshot
