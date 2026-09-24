@@ -55,8 +55,11 @@ def _set_cookie(response: Response, raw: str, expires: datetime) -> None:
         httponly=True,
         samesite="lax",
         secure=False,  # flipped by deployment env in v0.4 hardening
-        path="/api",
-        expires=int(expires.timestamp()),
+        # Path=/ required: SSR apiFetch reads cookies() on document/RSC GETs
+        # (/profiles etc.), not only /api/* — path=/api hides login state
+        # from every server-rendered page.
+        path="/",
+        max_age=int(_SESSION_TTL.total_seconds()),
     )
 
 
@@ -158,7 +161,7 @@ def logout(request: Request, response: Response, session: Session = Depends(get_
             )
         )
         session.commit()
-    response.delete_cookie(_SESSION_COOKIE, path="/api")
+    response.delete_cookie(_SESSION_COOKIE, path="/")
 
 
 @router.get("/me")

@@ -18,12 +18,14 @@ from app.infrastructure.db.session import get_session
 router = APIRouter(prefix="/api/charts", tags=["today"])
 
 # Fixed palace→topic map for highlight extraction (I13 — no heuristics, no LLM).
+# Keys are x-iztro palace nameKeys; each temporal scope exposes `index` into
+# its own `palaceNameKeys`/`palaceNames` arrays (index = hosting palace).
 PALACE_TOPIC_HINT = {
-    "menh": "overview",
-    "quanLoc": "career",
-    "taiBach": "wealth",
-    "phuThe": "love",
-    "tatAch": "health",
+    "soulPalace": "overview",
+    "careerPalace": "career",
+    "wealthPalace": "wealth",
+    "spousePalace": "love",
+    "healthPalace": "health",
 }
 _TOPIC_LABEL = {
     "overview": "Tổng quan",
@@ -43,35 +45,51 @@ def _resolve_date(raw: str | None) -> dt.date:
         raise HTTPException(status_code=422, detail="date must be YYYY-MM-DD") from exc
 
 
+def _palace_at(scope: dict[str, Any]) -> tuple[str, str] | None:
+    """(nameKey, display name) of the palace hosting this temporal scope."""
+    idx = scope.get("index")
+    keys = scope.get("palaceNameKeys") or []
+    names = scope.get("palaceNames") or []
+    if not isinstance(idx, int) or not (0 <= idx < len(keys)):
+        return None
+    name = names[idx] if idx < len(names) else keys[idx]
+    return str(keys[idx]), str(name)
+
+
 def _highlights(daily: dict[str, Any], yearly: dict[str, Any]) -> list[dict[str, str]]:
     """≤3 rule-extracted highlights from the daily layer (I13)."""
     out: list[dict[str, str]] = []
-    palace = str(daily.get("palace") or "")
-    hint = PALACE_TOPIC_HINT.get(palace)
-    if hint:
-        mutagens = daily.get("mutagen") or []
-        mut_txt = (
-            " · tứ hóa lưu nhật: " + ", ".join(str(m) for m in mutagens)
-            if mutagens
-            else ""
-        )
-        out.append(
-            {
-                "palace": palace,
-                "topicHint": hint,
-                "summary": f"Lưu nhật tại cung {palace}{mut_txt}.",
-            }
-        )
-    age_palace = str(yearly.get("palace") or "")
-    y_hint = PALACE_TOPIC_HINT.get(age_palace)
-    if y_hint and y_hint != hint:
-        out.append(
-            {
-                "palace": age_palace,
-                "topicHint": y_hint,
-                "summary": f"Lưu niên tại cung {age_palace}.",
-            }
-        )
+    hint = None
+    d = _palace_at(daily)
+    if d is not None:
+        key, name = d
+        hint = PALACE_TOPIC_HINT.get(key)
+        if hint:
+            mutagens = daily.get("mutagen") or []
+            mut_txt = (
+                " · tứ hóa lưu nhật: " + ", ".join(str(m) for m in mutagens)
+                if mutagens
+                else ""
+            )
+            out.append(
+                {
+                    "palace": name,
+                    "topicHint": hint,
+                    "summary": f"Lưu nhật tại cung {name}{mut_txt}.",
+                }
+            )
+    y = _palace_at(yearly)
+    if y is not None:
+        y_key, y_name = y
+        y_hint = PALACE_TOPIC_HINT.get(y_key)
+        if y_hint and y_hint != hint:
+            out.append(
+                {
+                    "palace": y_name,
+                    "topicHint": y_hint,
+                    "summary": f"Lưu niên tại cung {y_name}.",
+                }
+            )
     return out[:3]
 
 

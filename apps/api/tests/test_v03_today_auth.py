@@ -89,6 +89,11 @@ def test_today_facts_deterministic(client: TestClient, chart) -> None:
     for h in body["highlights"]:
         assert h["topicHint"] in {"overview", "career", "wealth", "love", "health"}
     assert len(body["highlights"]) <= 3
+    # Highlights must derive from the scope's index → palaceNameKeys lookup;
+    # a chart where daily/yearly land on mapped palaces yields ≥1 row.
+    # (Earlier only len<=3 was asserted — the feature could never produce
+    # output while reading a non-existent "palace" key.)
+    assert len(body["highlights"]) >= 1
 
 
 def test_today_invalid_date(client: TestClient, chart) -> None:

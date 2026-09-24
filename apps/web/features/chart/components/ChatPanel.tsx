@@ -7,6 +7,12 @@ import {
   type ChatTarget,
 } from "../../../lib/api";
 
+const SCOPE_LABELS: Record<string, string> = {
+  yearly: "năm",
+  monthly: "tháng",
+  daily: "ngày",
+};
+
 interface Msg {
   role: "user" | "assistant";
   text: string;
@@ -53,7 +59,7 @@ export function ChatPanel({
     <div className="mt-3 rounded-lg border border-zinc-200 p-3 dark:border-zinc-700">
       <div className="mb-2 flex items-center justify-between">
         <span className="text-sm font-medium">
-          Hỏi thêm {target ? `(vận ${target.scope})` : ""}
+          Hỏi thêm {target ? `(vận ${SCOPE_LABELS[target.scope] ?? target.scope})` : ""}
         </span>
         <button
           onClick={onClose}

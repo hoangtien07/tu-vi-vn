@@ -49,3 +49,14 @@ cd apps/web && pnpm dev --port 3000
 - Compatibility testing needs ≥2 saved profiles (create via chart page "Lưu vào hồ sơ" or `POST /api/profiles`).
 - `reading_reopened` fires twice per page open in dev (React StrictMode double-effect) — prod fires once; expected, not a bug.
 - Time Navigator facts render after clicking "Xem vận trình" (button-driven, not on open).
+
+## v0.3 learnings (auth + today)
+
+- `tv_session` cookie is set with **Path=/api** → browser sends it ONLY on /api/* fetches. Document/RSC GETs (e.g. /profiles) never carry it, so server-rendered pages see anonymous state regardless of login. Consequence (bug): profiles saved while logged in get owner_key=`user:{id}` and are INVISIBLE on /profiles — the server render can only list the anonymous `local` bucket. When testing auth-dependent views, expect this asymmetry; verify rows via `uv run python -c "import sqlite3; …SELECT … FROM profiles"` owner_key column.
+- `AuthNav` reads /api/auth/me once on mount ([] deps); the root layout persists across client-side navigation → header shows stale "Đăng nhập" right after register/login until a full reload (F5 then shows email + "Đăng xuất").
+- Set-Cookie for tv_session shows `expires=<year+57>` — `_set_cookie` passes an int timestamp where Starlette interprets it as max-age seconds; session row still expires in 30d server-side.
+- GET /api/charts/{id}/today `facts.<scope>` objects have `palaceNames`/`palaceNameKeys` arrays but NO `palace` key — `_highlights()` reads `.get("palace")` → highlights is always [] → TodayCard always shows "Ngày bình thường, không điểm nổi." (verify with `curl .../today | python3 -c "import json,sys;print(json.load(sys.stdin)['highlights'])"`).
+- `chat_sent` product_event is committed BEFORE the LLM call → it lands in product_events even when chat 503s; assert via sqlite not just HTTP status.
+- DevTools Application→Cookies may show an empty grid for localhost:3000 even when tv_session exists — prove the cookie via Network tab (any /api/* request 200 that requires auth, e.g. /api/auth/me) instead.
+- Auth throttle: POST /api/auth/login is rate-limited 10 attempts/5min/IP → 429; keep wrong-password tests to 1-2 attempts per run.
+- Register/login pages: email + password (min 8) inputs only; 401 → "Email hoặc mật khẩu chưa đúng.", 409 → "Email đã được đăng ký.", success → router.push("/profiles").

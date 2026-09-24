@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { authLogout, authMe, type AuthUser } from "../../../lib/api";
@@ -10,13 +10,16 @@ export function AuthNav() {
   const [user, setUser] = useState<AuthUser | null>(null);
   const [loaded, setLoaded] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     authMe()
       .then(setUser)
       .catch(() => setUser(null))
       .finally(() => setLoaded(true));
-  }, []);
+    // Root layout persists across client nav — re-check on every route
+    // change so login/logout/register redirects refresh the header.
+  }, [pathname]);
 
   const logout = async () => {
     await authLogout().catch(() => {});
