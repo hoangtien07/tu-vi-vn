@@ -23,6 +23,7 @@ import argparse
 import asyncio
 import datetime as dt
 import json
+import os
 import statistics
 import time
 from pathlib import Path
@@ -35,6 +36,7 @@ TOPIC_VI = {
     "wealth": "tài chính",
     "love": "tình duyện",
     "health": "sức khỏe",
+    "compatibility": "hợp bàn hai lá số",
 }
 
 JUDGE_PROMPT = """Chấm điểm luận giải tử vi tiếng Việt sau theo thang 1-5.
@@ -112,7 +114,7 @@ async def run_one(
         r = await client.post(
             f"{api}/api/charts/{chart_id}/interpret",
             json={"topic": topic, "target": target, "namespace": namespace},
-            timeout=180,
+            timeout=float(os.environ.get("BENCH_HTTP_TIMEOUT", "300")),
         )
         elapsed = time.monotonic() - t0
         if r.status_code != 200:
@@ -122,7 +124,38 @@ async def run_one(
         parsed["topic"] = topic
         return parsed
     except Exception as exc:  # noqa: BLE001
-        return {"topic": topic, "status": "client_error", "latency": time.monotonic() - t0, "detail": str(exc)[:200]}
+        return {"topic": topic, "status": "client_error", "latency": time.monotonic() - t0, "detail": repr(exc)[:200]}
+
+
+async def run_pair(
+    client: httpx.AsyncClient,
+    api: str,
+    chart_a_id: str,
+    chart_b_id: str,
+    target: dict | None,
+    namespace: str | None,
+) -> dict:
+    t0 = time.monotonic()
+    try:
+        r = await client.post(
+            f"{api}/api/compatibility",
+            json={
+                "chart_a_id": chart_a_id,
+                "chart_b_id": chart_b_id,
+                "target": target,
+                "namespace": namespace,
+            },
+            timeout=float(os.environ.get("BENCH_HTTP_TIMEOUT", "300")),
+        )
+        elapsed = time.monotonic() - t0
+        if r.status_code != 200:
+            return {"topic": "compatibility", "status": f"http_{r.status_code}", "latency": elapsed, "detail": r.text[:200]}
+        parsed = parse_sse(r.text)
+        parsed["latency"] = elapsed
+        parsed["topic"] = "compatibility"
+        return parsed
+    except Exception as exc:  # noqa: BLE001
+        return {"topic": "compatibility", "status": "client_error", "latency": time.monotonic() - t0, "detail": repr(exc)[:200]}
 
 
 # timeIndex 0..12 → representative civil times (branch midpoints)
@@ -176,11 +209,13 @@ async def main() -> None:
     ap.add_argument("--charts", default="eval/bench/charts.json")
     ap.add_argument(
         "--suite",
-        choices=["static", "yearly"],
+        choices=["static", "yearly", "compat"],
         default="static",
-        help="static: no target (E1). yearly: scope=yearly target (E2).",
+        help="static: no target (E1). yearly: scope=yearly target (E2). "
+        "compat: consecutive chart pairs → POST /api/compatibility (E3).",
     )
     ap.add_argument("--year", type=int, default=2028)
+    ap.add_argument("--pairs", type=int, default=10, help="compat suite: number of chart pairs")
     ap.add_argument("--topics", nargs="+", default=["overview", "career", "wealth", "love", "health"])
     ap.add_argument("--concurrency", type=int, default=2)
     ap.add_argument("--out", default="eval/bench/reports")
@@ -198,7 +233,7 @@ async def main() -> None:
     stamp = dt.datetime.now(dt.UTC).strftime("%Y%m%d-%H%M%S")
     target = (
         None
-        if args.suite == "static"
+        if args.suite != "yearly"
         else {"scope": "yearly", "year": args.year}
     )
     namespace = None if args.replay else f"bench-{stamp}"
@@ -209,19 +244,42 @@ async def main() -> None:
     results: list[dict] = []
 
     async with httpx.AsyncClient() as client:
-        ids = await asyncio.gather(*[cast_chart(client, args.api, c) for c in charts])
-        print(f"cast {len(ids)} charts")
+        if args.suite == "compat":
+            pairs_charts = charts[: args.pairs * 2]
+            ids = await asyncio.gather(*[cast_chart(client, args.api, c) for c in pairs_charts])
+            print(f"cast {len(ids)} charts")
+            compat = True
+        else:
+            ids = await asyncio.gather(*[cast_chart(client, args.api, c) for c in charts])
+            print(f"cast {len(ids)} charts")
+            pairs_charts = charts
+            compat = False
 
         async def task(i: int, chart_id: str, topic: str) -> dict:
             async with sem:
                 res = await run_one(
                     client, args.api, chart_id, topic, target, namespace
                 )
-                res["chart"] = charts[i]["id"]
+                res["chart"] = pairs_charts[i]["id"]
                 res["chart_id"] = chart_id
                 return res
 
-        jobs = [task(i, cid, t) for i, cid in enumerate(ids) for t in args.topics]
+        async def pair_task(i: int, chart_a_id: str, chart_b_id: str) -> dict:
+            async with sem:
+                res = await run_pair(
+                    client, args.api, chart_a_id, chart_b_id, target, namespace
+                )
+                res["chart"] = f"{pairs_charts[2 * i]['id']}+{pairs_charts[2 * i + 1]['id']}"
+                res["chart_id"] = f"{chart_a_id}|{chart_b_id}"
+                return res
+
+        if compat:
+            jobs = [
+                pair_task(i, ids[2 * i], ids[2 * i + 1])
+                for i in range(len(ids) // 2)
+            ]
+        else:
+            jobs = [task(i, cid, t) for i, cid in enumerate(ids) for t in args.topics]
         for i, coro in enumerate(asyncio.as_completed(jobs)):
             res = await coro
             results.append(res)
@@ -253,7 +311,7 @@ async def main() -> None:
     lines = [
         f"# Gate E benchmark — suite {args.suite} — {stamp}",
         "",
-        f"- charts: {len(charts)}  topics: {len(args.topics)}  runs: {len(results)}",
+        f"- charts: {len(charts)}  topics: {len(results) if args.suite == 'compat' else len(args.topics)}  runs: {len(results)}",
         f"- target: {target or 'none'}  namespace: {namespace or '(replay allowed)'}",
         f"- fresh: {len(fresh)}  replay: {len(replayed)}  done: {len(done)} "
         f"(repaired/replaced: {len(replaced)})  failed: {len(failed)}",
