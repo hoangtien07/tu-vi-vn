@@ -40,6 +40,6 @@ jobs:
       - name: ESLint
         run: pnpm -C apps/web lint
       - name: Typecheck
-        run: pnpm -C apps/web exec tsc --noEmit
+        run: pnpm -C apps/web exec next typegen && pnpm -C apps/web exec tsc --noEmit
       - name: Build
         run: pnpm -C apps/web build
