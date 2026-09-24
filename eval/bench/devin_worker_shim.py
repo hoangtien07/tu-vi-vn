@@ -76,8 +76,21 @@ async def _worker_turn(client: httpx.AsyncClient, worker: str, prompt: str) -> s
             f"{url}\nĐọc kỹ phần [SYSTEM] trong file rồi trả lời đúng phần "
             "assistant output cho [USER] theo quy tắc worker."
         )
-    resp = await client.post(f"{base}/message", headers=headers, json={"message": message})
-    resp.raise_for_status()
+    n_users = sum(1 for m in before.get("messages", []) if m.get("type") == "user_message")
+
+    async def _send() -> None:
+        resp = await client.post(f"{base}/message", headers=headers, json={"message": message})
+        resp.raise_for_status()
+
+    try:
+        await _send()
+    except Exception:
+        await asyncio.sleep(5)
+        snap = (await client.get(base, headers=headers)).json()
+        landed = sum(1 for m in snap.get("messages", []) if m.get("type") == "user_message")
+        if landed <= n_users:
+            await _send()  # first POST never landed — retry once
+
     deadline = time.monotonic() + TURN_TIMEOUT
     while time.monotonic() < deadline:
         await asyncio.sleep(POLL_SECONDS)

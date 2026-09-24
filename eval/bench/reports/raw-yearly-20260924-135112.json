@@ -1,0 +1,1097 @@
+[
+  {
+    "status": "done",
+    "events": [
+      {
+        "event": "metadata",
+        "data": "{\"runId\": \"ir_289532efed63489d9df2fcd9\", \"topic\": \"overview\", \"promptVersion\": \"overview-v1\", \"model\": \"swe-2-worker\"}"
+      },
+      {
+        "event": "evidence",
+        "data": "{\"bundleId\": \"ev_d351c6a818364a7eb992af8e\", \"items\": [{\"id\": \"E001\", \"kind\": \"chart_fact\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"astrolabe\", \"data\": {\"sign\": \"Cung Bạch Dương\", \"signKey\": \"aries\", \"zodiac\": \"Chuột\", \"zodiacKey\": \"rat\", \"fiveElementsClass\": \"Thổ Ngũ Cục\", \"fiveElementsClassKey\": \"earth5th\", \"soul\": \"Phá Quân\", \"soulKey\": \"pojunMaj\", \"body\": \"Hỏa Tinh\", \"bodyKey\": \"huoxingMin\", \"solarDate\": \"1984-04-03\", \"lunarDate\": {\"isLeap\": false, \"lunarDay\": 3, \"lunarMonth\": 3, \"lunarYear\": 1984}, \"palaces\": [{\"index\": 0, \"nameKey\": \"wealthPalace\", \"name\": \"Tài Bạch\", \"stemBranch\": \"Bính Dần\", \"isBodyPalace\": true, \"majorStars\": [{\"key\": \"tanlangMaj\", \"name\": \"Tham Lang\", \"brightness\": \"Bình\", \"mutagen\": null}], \"minorStars\": [{\"key\": \"wenquMin\", \"name\": \"Văn Khúc\"}, {\"key\": \"lucunMin\", \"name\": \"Lộc Tồn\"}, {\"key\": \"tianmaMin\", \"name\": \"Thiên Mã\"}], \"decadal\": {\"earthlyBranch\": \"Dần\", \"earthlyBranchKey\": \"yinEarthly\", \"heavenlyStem\": \"Bính\", \"heavenlyStemKey\": \"bingHeavenly\", \"range\": [85, 94]}}, {\"index\": 1, \"nameKey\": \"childrenPalace\", \"name\": \"Tử Nữ\", \"stemBranch\": \"Đinh Mão\", \"isBodyPalace\": false, \"majorStars\": [{\"key\": \"tianjiMaj\", \"name\": \"Thiên Cơ\", \"brightness\": \"Vượng\", \"mutagen\": null}, {\"key\": \"jumenMaj\", \"name\": \"Cự Môn\", \"brightness\": \"Miếu\", \"mutagen\": null}], \"minorStars\": [{\"key\": \"qingyangMin\", \"name\": \"Kình Dương\"}], \"decadal\": {\"earthlyBranch\": \"Mão\", \"earthlyBranchKey\": \"maoEarthly\", \"heavenlyStem\": \"Đinh\", \"heavenlyStemKey\": \"dingHeavenly\", \"range\": [95, 104]}}, {\"index\": 2, \"nameKey\": \"spousePalace\", \"name\": \"Phu Thê\", \"stemBranch\": \"Mậu Thìn\", \"isBodyPalace\": false, \"majorStars\": [{\"key\": \"ziweiMaj\", \"name\": \"Tử Vi\", \"brightness\": \"Đắc\", \"mutagen\": null}, {\"key\": \"tianxiangMaj\", \"name\": \"Thiên Tướng\", \"brightness\": \"Đắc\", \"mutagen\": null}], \"minorStars\": [], \"decadal\": {\"earthlyBranch\": \"Thìn\", \"earthlyBranchKey\": \"chenEarthly\", \"heavenlyStem\": \"Mậu\", \"heavenlyStemKey\": \"wuHeavenly\", \"range\": [105, 114]}}, {\"index\": 3, \"nameKey\": \"siblingsPalace\", \"name\": \"Huynh Đệ\", \"stemBranch\": \"Kỷ Tỵ\", \"isBodyPalace\": false, \"majorStars\": [{\"key\": \"tianliangMaj\", \"name\": \"Thiên Lương\", \"brightness\": \"Hạn\", \"mutagen\": null}], \"minorStars\": [], \"decadal\": {\"earthlyBranch\": \"Tỵ\", \"earthlyBranchKey\": \"siEarthly\", \"heavenlyStem\": \"Kỷ\", \"heavenlyStemKey\": \"jiHeavenly\", \"range\": [115, 124]}}, {\"index\": 4, \"nameKey\": \"soulPalace\", \"name\": \"Mệnh\", \"stemBranch\": \"Canh Ngọ\", \"isBodyPalace\": false, \"majorStars\": [{\"key\": \"qishaMaj\", \"name\": \"Thất Sát\", \"brightness\": \"Vượng\", \"mutagen\": null}], \"minorStars\": [{\"key\": \"zuofuMin\", \"name\": \"Tả Phù\"}], \"decadal\": {\"earthlyBranch\": \"Ngọ\", \"earthlyBranchKey\": \"wuEarthly\", \"heavenlyStem\": \"Canh\", \"heavenlyStemKey\": \"gengHeavenly\", \"range\": [5, 14]}}, {\"index\": 5, \"nameKey\": \"parentsPalace\", \"name\": \"Phụ Mẫu\", \"stemBranch\": \"Tân Mùi\", \"isBodyPalace\": false, \"majorStars\": [], \"minorStars\": [{\"key\": \"tianyueMin\", \"name\": \"Thiên Việt\"}], \"decadal\": {\"earthlyBranch\": \"Mùi\", \"earthlyBranchKey\": \"weiEarthly\", \"heavenlyStem\": \"Tân\", \"heavenlyStemKey\": \"xinHeavenly\", \"range\": [15, 24]}}, {\"index\": 6, \"nameKey\": \"spiritPalace\", \"name\": \"Phúc Đức\", \"stemBranch\": \"Nhâm Thân\", \"isBodyPalace\": false, \"majorStars\": [{\"key\": \"lianzhenMaj\", \"name\": \"Liêm Trinh\", \"brightness\": \"Miếu\", \"mutagen\": \"Lộc\"}], \"minorStars\": [{\"key\": \"youbiMin\", \"name\": \"Hữu Bật\"}, {\"key\": \"lingxingMin\", \"name\": \"Linh Tinh\"}], \"decadal\": {\"earthlyBranch\": \"Thân\", \"earthlyBranchKey\": \"shenEarthly\", \"heavenlyStem\": \"Nhâm\", \"heavenlyStemKey\": \"renHeavenly\", \"range\": [25, 34]}}, {\"index\": 7, \"nameKey\": \"propertyPalace\", \"name\": \"Điền Trạch\", \"stemBranch\": \"Quý Dậu\", \"isBodyPalace\": false, \"majorStars\": [], \"minorStars\": [{\"key\": \"dijieMin\", \"name\": \"Địa Kiếp\"}], \"decadal\": {\"earthlyBranch\": \"Dậu\", \"earthlyBranchKey\": \"youEarthly\", \"heavenlyStem\": \"Quý\", \"heavenlyStemKey\": \"guiHeavenly\", \"range\": [35, 44]}}, {\"index\": 8, \"nameKey\": \"careerPalace\", \"name\": \"Quan Lộc\", \"stemBranch\": \"Giáp Tuất\", \"isBodyPalace\": false, \"majorStars\": [{\"key\": \"pojunMaj\", \"name\": \"Phá Quân\", \"brightness\": \"Vượng\", \"mutagen\": \"Quyền\"}], \"minorStars\": [], \"decadal\": {\"earthlyBranch\": \"Tuất\", \"earthlyBranchKey\": \"xuEarthly\", \"heavenlyStem\": \"Giáp\", \"heavenlyStemKey\": \"jiaHeavenly\", \"range\": [45, 54]}}, {\"index\": 9, \"nameKey\": \"friendsPalace\", \"name\": \"Nô Bộc\", \"stemBranch\": \"Ất Hợi\", \"isBodyPalace\": false, \"majorStars\": [{\"key\": \"tiantongMaj\", \"name\": \"Thiên Đồng\", \"brightness\": \"Miếu\", \"mutagen\": null}], \"minorStars\": [], \"decadal\": {\"earthlyBranch\": \"Hợi\", \"earthlyBranchKey\": \"haiEarthly\", \"heavenlyStem\": \"Ất\", \"heavenlyStemKey\": \"yiHeavenly\", \"range\": [55, 64]}}, {\"index\": 10, \"nameKey\": \"surfacePalace\", \"name\": \"Thiên Di\", \"stemBranch\": \"Bính Tý\", \"isBodyPalace\": false, \"majorStars\": [{\"key\": \"wuquMaj\", \"name\": \"Vũ Khúc\", \"brightness\": \"Vượng\", \"mutagen\": \"Khoa\"}, {\"key\": \"tianfuMaj\", \"name\": \"Thiên Phủ\", \"brightness\": \"Miếu\", \"mutagen\": null}], \"minorStars\": [{\"key\": \"wenchangMin\", \"name\": \"Văn Xương\"}, {\"key\": \"huoxingMin\", \"name\": \"Hỏa Tinh\"}], \"decadal\": {\"earthlyBranch\": \"Tý\", \"earthlyBranchKey\": \"ziEarthly\", \"heavenlyStem\": \"Bính\", \"heavenlyStemKey\": \"bingHeavenly\", \"range\": [65, 74]}}, {\"index\": 11, \"nameKey\": \"healthPalace\", \"name\": \"Tật Ách\", \"stemBranch\": \"Đinh Sửu\", \"isBodyPalace\": false, \"majorStars\": [{\"key\": \"taiyangMaj\", \"name\": \"Thái Dương\", \"brightness\": \"Bất\", \"mutagen\": \"Kỵ\"}, {\"key\": \"taiyinMaj\", \"name\": \"Thái Âm\", \"brightness\": \"Miếu\", \"mutagen\": null}], \"minorStars\": [{\"key\": \"tiankuiMin\", \"name\": \"Thiên Khôi\"}, {\"key\": \"dikongMin\", \"name\": \"Địa Không\"}, {\"key\": \"tuoluoMin\", \"name\": \"Đà La\"}], \"decadal\": {\"earthlyBranch\": \"Sửu\", \"earthlyBranchKey\": \"chouEarthly\", \"heavenlyStem\": \"Đinh\", \"heavenlyStemKey\": \"dingHeavenly\", \"range\": [75, 84]}}]}}, {\"id\": \"E002\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"careerPalace\", \"entity_key\": \"pojunMaj\", \"data\": {\"starName\": \"Phá Quân\", \"starKey\": \"pojunMaj\", \"mutagen\": \"Quyền\", \"mutagenKey\": \"sihuaQuan\", \"palace\": \"Quan Lộc\", \"palaceKey\": \"careerPalace\"}}, {\"id\": \"E003\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"healthPalace\", \"entity_key\": \"taiyangMaj\", \"data\": {\"starName\": \"Thái Dương\", \"starKey\": \"taiyangMaj\", \"mutagen\": \"Kỵ\", \"mutagenKey\": \"sihuaJi\", \"palace\": \"Tật Ách\", \"palaceKey\": \"healthPalace\"}}, {\"id\": \"E004\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"spiritPalace\", \"entity_key\": \"lianzhenMaj\", \"data\": {\"starName\": \"Liêm Trinh\", \"starKey\": \"lianzhenMaj\", \"mutagen\": \"Lộc\", \"mutagenKey\": \"sihuaLu\", \"palace\": \"Phúc Đức\", \"palaceKey\": \"spiritPalace\"}}, {\"id\": \"E005\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"surfacePalace\", \"entity_key\": \"wuquMaj\", \"data\": {\"starName\": \"Vũ Khúc\", \"starKey\": \"wuquMaj\", \"mutagen\": \"Khoa\", \"mutagenKey\": \"sihuaKe\", \"palace\": \"Thiên Di\", \"palaceKey\": \"surfacePalace\"}}, {\"id\": \"E006\", \"kind\": \"pattern\", \"source\": \"x-iztro-pattern-engine\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"lu_ma_jiao_chi\", \"data\": {\"name\": \"Lộc Mã Giao Trì\", \"scope\": \"origin\", \"broken\": false, \"stars\": [{\"key\": \"lucunMin\", \"name\": \"Lộc Tồn\", \"palace_index\": 0, \"brightness\": null, \"brightness_key\": null, \"mutagen\": null, \"mutagen_key\": null}, {\"key\": \"tianmaMin\", \"name\": \"Thiên Mã\", \"palace_index\": 0, \"brightness\": null, \"brightness_key\": null, \"mutagen\": null, \"mutagen_key\": null}]}}, {\"id\": \"E007\", \"kind\": \"pattern\", \"source\": \"x-iztro-pattern-engine\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"lu_ma_jiao_chi\", \"data\": {\"name\": \"Lộc Mã Giao Trì\", \"scope\": \"origin\", \"broken\": false, \"stars\": [{\"key\": \"lucunMin\", \"name\": \"Lộc Tồn\", \"palace_index\": 0, \"brightness\": null, \"brightness_key\": null, \"mutagen\": null, \"mutagen_key\": null}, {\"key\": \"tianmaMin\", \"name\": \"Thiên Mã\", \"palace_index\": 0, \"brightness\": null, \"brightness_key\": null, \"mutagen\": null, \"mutagen_key\": null}]}}, {\"id\": \"E008\", \"kind\": \"pattern\", \"source\": \"x-iztro-pattern-engine\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"qi_sha_chao_dou\", \"data\": {\"name\": \"Thất Sát Triều Đẩu\", \"scope\": \"origin\", \"broken\": false, \"stars\": [{\"key\": \"qishaMaj\", \"name\": \"Thất Sát\", \"palace_index\": 4, \"brightness\": \"Vượng\", \"brightness_key\": \"wang\", \"mutagen\": null, \"mutagen_key\": null}]}}, {\"id\": \"E009\", \"kind\": \"pattern\", \"source\": \"x-iztro-pattern-engine\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"sha_po_lang\", \"data\": {\"name\": \"Sát Phá Lang\", \"scope\": \"origin\", \"broken\": false, \"stars\": [{\"key\": \"qishaMaj\", \"name\": \"Thất Sát\", \"palace_index\": 4, \"brightness\": \"Vượng\", \"brightness_key\": \"wang\", \"mutagen\": null, \"mutagen_key\": null}, {\"key\": \"pojunMaj\", \"name\": \"Phá Quân\", \"palace_index\": 8, \"brightness\": \"Vượng\", \"brightness_key\": \"wang\", \"mutagen\": \"Quyền\", \"mutagen_key\": \"sihuaQuan\"}, {\"key\": \"tanlangMaj\", \"name\": \"Tham Lang\", \"palace_index\": 0, \"brightness\": \"Bình\", \"brightness_key\": \"ping\", \"mutagen\": null, \"mutagen_key\": null}]}}, {\"id\": \"E010\", \"kind\": \"pattern\", \"source\": \"x-iztro-pattern-engine\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"sha_po_lang\", \"data\": {\"name\": \"Sát Phá Lang\", \"scope\": \"origin\", \"broken\": false, \"stars\": [{\"key\": \"qishaMaj\", \"name\": \"Thất Sát\", \"palace_index\": 4, \"brightness\": \"Vượng\", \"brightness_key\": \"wang\", \"mutagen\": null, \"mutagen_key\": null}, {\"key\": \"pojunMaj\", \"name\": \"Phá Quân\", \"palace_index\": 8, \"brightness\": \"Vượng\", \"brightness_key\": \"wang\", \"mutagen\": \"Quyền\", \"mutagen_key\": \"sihuaQuan\"}, {\"key\": \"tanlangMaj\", \"name\": \"Tham Lang\", \"palace_index\": 0, \"brightness\": \"Bình\", \"brightness_key\": \"ping\", \"mutagen\": null, \"mutagen_key\": null}]}}, {\"id\": \"E011\", \"kind\": \"pattern\", \"source\": \"x-iztro-pattern-engine\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"wen_xing_an_gong\", \"data\": {\"name\": \"Văn Tinh Ám Củng\", \"scope\": \"origin\", \"broken\": false, \"stars\": [{\"key\": \"wenchangMin\", \"name\": \"Văn Xương\", \"palace_index\": 10, \"brightness\": \"Đắc\", \"brightness_key\": \"de\", \"mutagen\": null, \"mutagen_key\": null}, {\"key\": \"wenquMin\", \"name\": \"Văn Khúc\", \"palace_index\": 0, \"brightness\": \"Bình\", \"brightness_key\": \"ping\", \"mutagen\": null, \"mutagen_key\": null}]}}, {\"id\": \"E012\", \"kind\": \"pattern\", \"source\": \"x-iztro-pattern-engine\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"wen_xing_chao_ming\", \"data\": {\"name\": \"Văn Tinh Triều Mệnh\", \"scope\": \"origin\", \"broken\": true, \"stars\": [{\"key\": \"wenchangMin\", \"name\": \"Văn Xương\", \"palace_index\": 10, \"brightness\": \"Đắc\", \"brightness_key\": \"de\", \"mutagen\": null, \"mutagen_key\": null}, {\"key\": \"wenquMin\", \"name\": \"Văn Khúc\", \"palace_index\": 0, \"brightness\": \"Bình\", \"brightness_key\": \"ping\", \"mutagen\": null, \"mutagen_key\": null}]}}, {\"id\": \"E013\", \"kind\": \"horoscope_fact\", \"source\": \"x-iztro\", \"scope\": \"age:2028-01-26\", \"palace_key\": \"\", \"entity_key\": \"age\", \"data\": {\"earthlyBranch\": \"Ngọ\", \"earthlyBranchKey\": \"wuEarthly\", \"heavenlyStem\": \"Canh\", \"heavenlyStemKey\": \"gengHeavenly\", \"index\": 4, \"mutagen\": [\"Thái Dương\", \"Vũ Khúc\", \"Thái Âm\", \"Thiên Đồng\"], \"mutagenStarKeys\": [\"taiyangMaj\", \"wuquMaj\", \"taiyinMaj\", \"tiantongMaj\"], \"name\": \"Tiểu Hạn\", \"nameKey\": \"turn\", \"nominalAge\": 45, \"palaceNameKeys\": [\"wealthPalace\", \"childrenPalace\", \"spousePalace\", \"siblingsPalace\", \"soulPalace\", \"parentsPalace\", \"spiritPalace\", \"propertyPalace\", \"careerPalace\", \"friendsPalace\", \"surfacePalace\", \"healthPalace\"], \"palaceNames\": [\"Tài Bạch\", \"Tử Nữ\", \"Phu Thê\", \"Huynh Đệ\", \"Mệnh\", \"Phụ Mẫu\", \"Phúc Đức\", \"Điền Trạch\", \"Quan Lộc\", \"Nô Bộc\", \"Thiên Di\", \"Tật Ách\"], \"sihuaKeys\": [\"sihuaLu\", \"sihuaQuan\", \"sihuaKe\", \"sihuaJi\"]}}, {\"id\": \"E014\", \"kind\": \"horoscope_fact\", \"source\": \"x-iztro\", \"scope\": \"decadal:2028-01-26\", \"palace_key\": \"\", \"entity_key\": \"decadal\", \"data\": {\"earthlyBranch\": \"Tuất\", \"earthlyBranchKey\": \"xuEarthly\", \"heavenlyStem\": \"Giáp\", \"heavenlyStemKey\": \"jiaHeavenly\", \"index\": 8, \"mutagen\": [\"Liêm Trinh\", \"Phá Quân\", \"Vũ Khúc\", \"Thái Dương\"], \"mutagenStarKeys\": [\"lianzhenMaj\", \"pojunMaj\", \"wuquMaj\", \"taiyangMaj\"], \"name\": \"Đại Hạn\", \"nameKey\": \"decadal\", \"palaceNameKeys\": [\"careerPalace\", \"friendsPalace\", \"surfacePalace\", \"healthPalace\", \"wealthPalace\", \"childrenPalace\", \"spousePalace\", \"siblingsPalace\", \"soulPalace\", \"parentsPalace\", \"spiritPalace\", \"propertyPalace\"], \"palaceNames\": [\"Quan Lộc\", \"Nô Bộc\", \"Thiên Di\", \"Tật Ách\", \"Tài Bạch\", \"Tử Nữ\", \"Phu Thê\", \"Huynh Đệ\", \"Mệnh\", \"Phụ Mẫu\", \"Phúc Đức\", \"Điền Trạch\"], \"stars\": [[{\"key\": \"yunlu\", \"name\": \"Vận Lộc\", \"scope\": \"decadal\", \"type\": \"lucun\"}], [{\"key\": \"yunyang\", \"name\": \"Vận Dương\", \"scope\": \"decadal\", \"type\": \"tough\"}], [], [{\"key\": \"yunchang\", \"name\": \"Vận Xương\", \"scope\": \"decadal\", \"type\": \"soft\"}, {\"key\": \"yunluan\", \"name\": \"Vận Loan\", \"scope\": \"decadal\", \"type\": \"flower\"}], [], [{\"key\": \"yunyue\", \"name\": \"Vận Việt\", \"scope\": \"decadal\", \"type\": \"soft\"}], [{\"key\": \"yunma\", \"name\": \"Vận Mã\", \"scope\": \"decadal\", \"type\": \"tianma\"}], [{\"key\": \"yunqu\", \"name\": \"Vận Khúc\", \"scope\": \"decadal\", \"type\": \"soft\"}], [], [{\"key\": \"yunxi\", \"name\": \"Vận Hỷ\", \"scope\": \"decadal\", \"type\": \"flower\"}], [], [{\"key\": \"yunkui\", \"name\": \"Vận Khôi\", \"scope\": \"decadal\", \"type\": \"soft\"}, {\"key\": \"yuntuo\", \"name\": \"Vận Đà\", \"scope\": \"decadal\", \"type\": \"tough\"}]], \"sihuaKeys\": [\"sihuaLu\", \"sihuaQuan\", \"sihuaKe\", \"sihuaJi\"]}}, {\"id\": \"E015\", \"kind\": \"horoscope_fact\", \"source\": \"x-iztro\", \"scope\": \"yearly:2028-01-26\", \"palace_key\": \"\", \"entity_key\": \"yearly\", \"data\": {\"earthlyBranch\": \"Thân\", \"earthlyBranchKey\": \"shenEarthly\", \"heavenlyStem\": \"Mậu\", \"heavenlyStemKey\": \"wuHeavenly\", \"index\": 6, \"mutagen\": [\"Tham Lang\", \"Thái Âm\", \"Hữu Bật\", \"Thiên Cơ\"], \"mutagenStarKeys\": [\"tanlangMaj\", \"taiyinMaj\", \"youbiMin\", \"tianjiMaj\"], \"name\": \"Lưu Niên\", \"nameKey\": \"yearly\", \"palaceNameKeys\": [\"surfacePalace\", \"healthPalace\", \"wealthPalace\", \"childrenPalace\", \"spousePalace\", \"siblingsPalace\", \"soulPalace\", \"parentsPalace\", \"spiritPalace\", \"propertyPalace\", \"careerPalace\", \"friendsPalace\"], \"palaceNames\": [\"Thiên Di\", \"Tật Ách\", \"Tài Bạch\", \"Tử Nữ\", \"Phu Thê\", \"Huynh Đệ\", \"Mệnh\", \"Phụ Mẫu\", \"Phúc Đức\", \"Điền Trạch\", \"Quan Lộc\", \"Nô Bộc\"], \"stars\": [[{\"key\": \"nianjie\", \"name\": \"Niên Giải\", \"scope\": \"yearly\", \"type\": \"helper\"}, {\"key\": \"liuma\", \"name\": \"Lưu Mã\", \"scope\": \"yearly\", \"type\": \"tianma\"}], [], [{\"key\": \"liutuo\", \"name\": \"Lưu Đà\", \"scope\": \"yearly\", \"type\": \"tough\"}], [{\"key\": \"liulu\", \"name\": \"Lưu Lộc\", \"scope\": \"yearly\", \"type\": \"lucun\"}], [{\"key\": \"liuqu\", \"name\": \"Lưu Khúc\", \"scope\": \"yearly\", \"type\": \"soft\"}, {\"key\": \"liuyang\", \"name\": \"Lưu Dương\", \"scope\": \"yearly\", \"type\": \"tough\"}], [{\"key\": \"liuyue\", \"name\": \"Lưu Việt\", \"scope\": \"yearly\", \"type\": \"soft\"}, {\"key\": \"liuluan\", \"name\": \"Lưu Loan\", \"scope\": \"yearly\", \"type\": \"flower\"}], [{\"key\": \"liuchang\", \"name\": \"Lưu Xương\", \"scope\": \"yearly\", \"type\": \"soft\"}], [], [], [], [], [{\"key\": \"liukui\", \"name\": \"Lưu Khôi\", \"scope\": \"yearly\", \"type\": \"soft\"}, {\"key\": \"liuxi\", \"name\": \"Lưu Hỷ\", \"scope\": \"yearly\", \"type\": \"flower\"}]], \"yearlyDecStar\": {\"jiangqian12\": [\"Tuế Dịch\", \"Tức Thần\", \"Hoa Cái\", \"Kiếp Sát\", \"Tai Sát\", \"Thiên Sát\", \"Chỉ Bối\", \"Hàm Trì\", \"Nguyệt Sát\", \"Vong Thần\", \"Tướng Tinh\", \"Phan Án\"], \"jiangqian12Keys\": [\"suiyi\", \"xiishen\", \"huagai\", \"jiesha\", \"zhaisha\", \"tiansha\", \"zhibei\", \"xianchi\", \"yuesha\", \"wangshen\", \"jiangxing\", \"panan\"], \"suiqian12\": [\"Đại Hao\", \"Long Đức\", \"Bạch Hổ\", \"Thiên Đức\", \"Điếu Khách\", \"Bệnh Phù\", \"Tuế Kiện\", \"Hối Khí\", \"Tang Môn\", \"Quán Tác\", \"Quan Phù\", \"Tiểu Hao\"], \"suiqian12Keys\": [\"dahao\", \"longde\", \"baihu\", \"tiande\", \"diaoke\", \"bingfu\", \"suijian\", \"huiqi\", \"sangmen\", \"guansuo\", \"gwanfu\", \"xiaohao\"]}, \"sihuaKeys\": [\"sihuaLu\", \"sihuaQuan\", \"sihuaKe\", \"sihuaJi\"]}}, {\"id\": \"E016\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"lu_ma_jiao_chi\", \"data\": {\"key\": \"lu_ma_jiao_chi\", \"name\": \"禄马交驰\", \"quotes\": [\"武曲禄马交驰发财远郡\", \"禄马最喜交驰 忌见杀羊火截路空亡，多主劳苦。\", \"天马如与禄存同宫，谓之禄马交驰，又曰折鞭马。\"]}}, {\"id\": \"E017\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"qi_sha_chao_dou\", \"data\": {\"key\": \"qi_sha_chao_dou\", \"name\": \"七杀朝斗\", \"quotes\": [\"七杀朝斗爵禄荣昌，紫府同宫终身福厚。\", \"朝斗仰斗爵禄荣昌，文桂文华九重贵显。\", \"七杀朝斗 寅申子午一生爵禄荣昌\"]}}, {\"id\": \"E018\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"sha_po_lang\", \"data\": {\"key\": \"sha_po_lang\", \"name\": \"杀破狼\", \"quotes\": [\"武贞羊杀破狼，居陷地则丧命夭折， 若与同梁武曲会旺宫，聪明果决，如羊陀火铃冲破，只宜空门。\", \"紫微入限本为祥，只恐三方杀破狼，常庶逢之多不利，官员降谪有惊伤。\", \"七杀破军宜出外，机月同梁作吏人。\"]}}, {\"id\": \"E019\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"wen_xing_an_gong\", \"data\": {\"key\": \"wen_xing_an_gong\", \"name\": \"文星暗拱\", \"quotes\": [\"文星暗拱，贾谊允矣登科。\"]}}, {\"id\": \"E020\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"wen_xing_chao_ming\", \"data\": {\"key\": \"wen_xing_chao_ming\", \"name\": \"文星朝命\", \"quotes\": [\"文科拱照，贾谊年少登科。\"]}}]}"
+      },
+      {
+        "event": "done",
+        "data": "{\"runId\": \"ir_289532efed63489d9df2fcd9\", \"orphanFlags\": 0}"
+      }
+    ],
+    "replaced": false,
+    "replay": false,
+    "output": "Lá số người sinh 3/3 âm lịch 1984 (tuổi Chuột, Cung Bạch Dương), thuộc Thổ Ngũ Cục, mệnh chủ Phá Quân, thân chủ Hỏa Tinh [E001]. Đây là lá có trục thế rất mạnh — cách Sát Phá Lang hoàn chỉnh — kèm Thân cư Tài Bạch thành Lộc Mã Giao Trì, nên trọng tâm cuộc đời nghiêng hẳn về sự nghiệp và tiền bạc [E009][E006][E001].\n\n## Tổng quan Mệnh — Thân\n\nCung Mệnh an tại Canh Ngọ, ngự Thất Sát ở độ Vượng, kèm Tả Phù — tính quyết đoán, độc lập, dám đổi thay, có trợ lực sát bên [E001]. Cách cục chính là Thất Sát Triều Đẩu, lại rơi đúng bộ ba Sát Phá Lang: Thất Sát tại Mệnh, Phá Quân hóa Quyền tại Quan Lộc, Tham Lang tại Tài Bạch — đời người thiên về phá lập, biến động lớn nhưng càng động càng ra [E008][E009][E002]. Thân cung cư tại Tài Bạch Bính Dần, ngự Tham Lang ở Bình cùng Văn Khúc, Lộc Tồn, Thiên Mã — hậu vận gắn chặt với tiền bạc, và cụm Lộc Tồn–Thiên Mã tạo thành cách Lộc Mã Giao Trì ngay nơi Thân: tiền lộc đến theo đường động, đường xã giao [E001][E006]. Văn khí có cả Văn Xương lẫn Văn Khúc thành Văn Tinh Ám Củng, song cách Văn Tinh Triều Mệnh lại bị phá — tri thức, chữ nghĩa là thế phụ chứ không phải trục chính của lá này [E011][E012].\n\n## Trục mạnh — trục yếu\n\nTrục mạnh rõ nhất là tam hợp Mệnh–Tài–Quan–Di: Mệnh Thất Sát Vượng có Tả Phù [E001]; Quan Lộc Giáp Tuất ngự Phá Quân Vượng hóa Quyền — sự nghiệp đi lên bằng cải cách, đổi mới, nắm quyền chủ động [E001][E002]; Thiên Di Bính Tý ngự Vũ Khúc Vượng hóa Khoa đồng cung Thiên Phủ Miếu, kèm Văn Xương, Hỏa Tinh — ra ngoài dễ có danh, có lộc, có chữ nghĩa phù trợ [E001][E005]. Trục phụ rất đẹp là Phúc Đức Nhâm Thân ngự Liêm Trinh Miếu hóa Lộc cùng Hữu Bật, Linh Tinh — nội tâm có nền phúc và trợ lực, dù đôi lúc nóng ngầm [E001][E004].\n\nTrục yếu nhất là Tật Ách Đinh Sửu: Thái Dương ở độ Bất bị hóa Kỵ đồng cung Thái Âm Miếu, kèm Địa Không, Đà La và Thiên Khôi — phần sức khỏe, tinh thần và thị lực là điểm dễ hao tổn, dù có quý nhân và Thái Âm sáng đỡ lại [E001][E003]. Trục phụ yếu thứ hai là Điền Trạch Quý Dậu trống chính tinh, chỉ có Địa Kiếp — khả năng giữ nhà, tích sản mỏng hơn so với khả năng kiếm tiền [E001].\n\n## Đại vận\n\nĐại hạn hiện tại từ 45 đến 54 tuổi mụ lạc trên cung Quan Lộc Giáp Tuất của bản mệnh — nơi Phá Quân Vượng vốn đã hóa Quyền sẵn, nên toàn bộ thập vận này xoay quanh sự nghiệp và những quyết định phá lập lớn [E014][E001][E002]. Can hạn Giáp phát Liêm Trinh hóa Lộc rơi vào Phúc Đức nơi Liêm Trinh đã hóa Lộc bản mệnh — phúc khí được nhân đôi; Phá Quân hóa Quyền trùng vào đúng cung hạn — quyền chủ động trong nghề nghiệp rất mạnh; Vũ Khúc hóa Khoa rơi vào Thiên Di — danh tiếng ra ngoài sáng [E014][E001]. Điểm cần giữ: Thái Dương hóa Kỵ của hạn rơi vào đúng Tật Ách nơi Thái Dương đang hóa Kỵ — phần sức khỏe là mặt trận phải chủ động chăm trong suốt thập vận [E014][E003]. Vận tinh có Vận Lộc rơi vào cung Tài Bạch kiêm Thân cung và Vận Mã rơi vào Phúc Đức — lộc và động khí vẫn đi cùng nhau trong giai đoạn này [E014].\n\nNăm Mậu Thân 2028 (tuổi m�� 45), lưu niên an tại Thân, trùng lên Phúc Đức bản mệnh có Liêm Trinh Miếu hóa Lộc — năm này phúc khí được kích hoạt [E015][E001]. Can năm Mậu phát Tham Lang hóa Lộc rơi vào Tài Bạch kiêm Thân cung nơi Tham Lang đang đóng — tài lộc có tín hiệu tăng; Thái Âm hóa Quyền và Hữu Bật hóa Khoa đều rơi vào các cung có sẵn Thái Âm, Hữu Bật — quyền và danh được tiếp nối; chỉ có Thiên Cơ hóa Kỵ rơi vào Tử Nữ — phương diện con cái, sáng tạo cần nhẹ tay [E015][E001]. Tiểu hạn 45 về đúng cung Mệnh Canh Ngọ có Thất Sát Vượng và Tả Phù — bản mệnh được củng cố; can tiểu hạn Canh phát Thái Dương hóa Lộc và Thái Âm hóa Khoa cùng rơi vào Tật Ách nơi Thái Dương đang hóa Kỵ — năm này có yếu tố hóa giải phần nóng sức khỏe, còn Thiên Đồng hóa Kỵ rơi vào Nô Bộc nên vòng người giúp đỡ đôi lúc có gợn [E013][E001].\n\nĐại hạn kế tiếp từ 55 đến 64 tuổi mụ lạc trên cung Nô Bộc Ất Hợi của bản mệnh, nơi Thiên Đồng ở Miếu đang đóng — thập vận sau nghiêng về an hưởng, nương tựa, được người phụ trợ, nhịp sống nhẹ hơn hạn hiện tại [E014][E001].\n\n## Lưu ý\n\nLuận giải theo nguyên lý mệnh lý truyền thống, chỉ mang tính xu hướng — không phải khẳng định tất yếu. Các nhận định chạm đến sức khỏe và tiền bạc chỉ nên dùng để tham khảo, không thay thế chẩn đoán y khoa hay tư vấn tài chính chuyên môn.",
+    "latency": 519.6976448230125,
+    "topic": "overview",
+    "chart": "b09",
+    "chart_id": "cs_0ef542983a834c95b8d811c7"
+  },
+  {
+    "status": "error",
+    "events": [
+      {
+        "event": "metadata",
+        "data": "{\"runId\": \"ir_620528bc3c1e45e9a07213ef\", \"topic\": \"love\", \"promptVersion\": \"love-v1\", \"model\": \"swe-2-worker\"}"
+      },
+      {
+        "event": "evidence",
+        "data": "{\"bundleId\": \"ev_a1967f5430e340f4a073a754\", \"items\": [{\"id\": \"E001\", \"kind\": \"palace_fact\", \"source\": \"x-iztro\", \"scope\": \"surrounded:opposite\", \"palace_key\": \"careerPalace\", \"entity_key\": \"careerPalace\", \"data\": {\"index\": 9, \"name\": \"Quan Lộc\", \"stemBranch\": \"Quý Hợi\", \"majorStars\": [], \"minorStars\": []}}, {\"id\": \"E002\", \"kind\": \"palace_fact\", \"source\": \"x-iztro\", \"scope\": \"surrounded:career\", \"palace_key\": \"spiritPalace\", \"entity_key\": \"spiritPalace\", \"data\": {\"index\": 7, \"name\": \"Phúc Đức\", \"stemBranch\": \"Tân Dậu\", \"majorStars\": [{\"key\": \"wuquMaj\", \"name\": \"Vũ Khúc\"}, {\"key\": \"qishaMaj\", \"name\": \"Thất Sát\"}], \"minorStars\": []}}, {\"id\": \"E003\", \"kind\": \"palace_fact\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"spousePalace\", \"entity_key\": \"spousePalace\", \"data\": {\"index\": 3, \"name\": \"Phu Thê\", \"stemBranch\": \"Đinh Tỵ\", \"isBodyPalace\": false, \"majorStars\": [{\"key\": \"lianzhenMaj\", \"name\": \"Liêm Trinh\", \"brightness\": \"Hạn\", \"mutagen\": null}, {\"key\": \"tanlangMaj\", \"name\": \"Tham Lang\", \"brightness\": \"Hạn\", \"mutagen\": \"Lộc\"}], \"minorStars\": [{\"key\": \"lucunMin\", \"name\": \"Lộc Tồn\", \"mutagen\": null}, {\"key\": \"huoxingMin\", \"name\": \"Hỏa Tinh\", \"mutagen\": null}], \"decadal\": {\"earthlyBranch\": \"Tỵ\", \"earthlyBranchKey\": \"siEarthly\", \"heavenlyStem\": \"Đinh\", \"heavenlyStemKey\": \"dingHeavenly\", \"range\": [106, 115]}, \"ages\": [2, 14, 26, 38, 50, 62, 74, 86, 98, 110]}}, {\"id\": \"E004\", \"kind\": \"palace_fact\", \"source\": \"x-iztro\", \"scope\": \"surrounded:wealth\", \"palace_key\": \"surfacePalace\", \"entity_key\": \"surfacePalace\", \"data\": {\"index\": 11, \"name\": \"Thiên Di\", \"stemBranch\": \"Ất Sửu\", \"majorStars\": [{\"key\": \"ziweiMaj\", \"name\": \"Tử Vi\"}, {\"key\": \"pojunMaj\", \"name\": \"Phá Quân\"}], \"minorStars\": [{\"key\": \"zuofuMin\", \"name\": \"Tả Phù\"}, {\"key\": \"youbiMin\", \"name\": \"Hữu Bật\"}, {\"key\": \"tiankuiMin\", \"name\": \"Thiên Khôi\"}]}}, {\"id\": \"E005\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"childrenPalace\", \"entity_key\": \"taiyinMaj\", \"data\": {\"starName\": \"Thái Âm\", \"starKey\": \"taiyinMaj\", \"mutagen\": \"Quyền\", \"mutagenKey\": \"sihuaQuan\", \"palace\": \"Tử Nữ\", \"palaceKey\": \"childrenPalace\"}}, {\"id\": \"E006\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"friendsPalace\", \"entity_key\": \"tianjiMaj\", \"data\": {\"starName\": \"Thiên Cơ\", \"starKey\": \"tianjiMaj\", \"mutagen\": \"Kỵ\", \"mutagenKey\": \"sihuaJi\", \"palace\": \"Nô Bộc\", \"palaceKey\": \"friendsPalace\"}}, {\"id\": \"E007\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"spousePalace\", \"entity_key\": \"tanlangMaj\", \"data\": {\"starName\": \"Tham Lang\", \"starKey\": \"tanlangMaj\", \"mutagen\": \"Lộc\", \"mutagenKey\": \"sihuaLu\", \"palace\": \"Phu Thê\", \"palaceKey\": \"spousePalace\"}}, {\"id\": \"E008\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"surfacePalace\", \"entity_key\": \"youbiMin\", \"data\": {\"starName\": \"Hữu Bật\", \"starKey\": \"youbiMin\", \"mutagen\": \"Khoa\", \"mutagenKey\": \"sihuaKe\", \"palace\": \"Thiên Di\", \"palaceKey\": \"surfacePalace\"}}, {\"id\": \"E009\", \"kind\": \"horoscope_fact\", \"source\": \"x-iztro\", \"scope\": \"age:2028-01-26\", \"palace_key\": \"\", \"entity_key\": \"age\", \"data\": {\"earthlyBranch\": \"Tuất\", \"earthlyBranchKey\": \"xuEarthly\", \"heavenlyStem\": \"Nhâm\", \"heavenlyStemKey\": \"renHeavenly\", \"index\": 8, \"mutagen\": [\"Thiên Lương\", \"Tử Vi\", \"Tả Phù\", \"Vũ Khúc\"], \"mutagenStarKeys\": [\"tianliangMaj\", \"ziweiMaj\", \"zuofuMin\", \"wuquMaj\"], \"name\": \"Tiểu Hạn\", \"nameKey\": \"turn\", \"nominalAge\": 31, \"palaceNameKeys\": [\"careerPalace\", \"friendsPalace\", \"surfacePalace\", \"healthPalace\", \"wealthPalace\", \"childrenPalace\", \"spousePalace\", \"siblingsPalace\", \"soulPalace\", \"parentsPalace\", \"spiritPalace\", \"propertyPalace\"], \"palaceNames\": [\"Quan Lộc\", \"Nô Bộc\", \"Thiên Di\", \"Tật Ách\", \"Tài Bạch\", \"Tử Nữ\", \"Phu Thê\", \"Huynh Đệ\", \"Mệnh\", \"Phụ Mẫu\", \"Phúc Đức\", \"Điền Trạch\"], \"sihuaKeys\": [\"sihuaLu\", \"sihuaQuan\", \"sihuaKe\", \"sihuaJi\"]}}, {\"id\": \"E010\", \"kind\": \"horoscope_fact\", \"source\": \"x-iztro\", \"scope\": \"decadal:2028-01-26\", \"palace_key\": \"\", \"entity_key\": \"decadal\", \"data\": {\"earthlyBranch\": \"Dậu\", \"earthlyBranchKey\": \"youEarthly\", \"heavenlyStem\": \"Tân\", \"heavenlyStemKey\": \"xinHeavenly\", \"index\": 7, \"mutagen\": [\"Cự Môn\", \"Thái Dương\", \"Văn Khúc\", \"Văn Xương\"], \"mutagenStarKeys\": [\"jumenMaj\", \"taiyangMaj\", \"wenquMin\", \"wenchangMin\"], \"name\": \"Đại Hạn\", \"nameKey\": \"decadal\", \"palaceNameKeys\": [\"friendsPalace\", \"surfacePalace\", \"healthPalace\", \"wealthPalace\", \"childrenPalace\", \"spousePalace\", \"siblingsPalace\", \"soulPalace\", \"parentsPalace\", \"spiritPalace\", \"propertyPalace\", \"careerPalace\"], \"palaceNames\": [\"Nô Bộc\", \"Thiên Di\", \"Tật Ách\", \"Tài Bạch\", \"Tử Nữ\", \"Phu Thê\", \"Huynh Đệ\", \"Mệnh\", \"Phụ Mẫu\", \"Phúc Đức\", \"Điền Trạch\", \"Quan Lộc\"], \"stars\": [[{\"key\": \"yunyue\", \"name\": \"Vận Việt\", \"scope\": \"decadal\", \"type\": \"soft\"}, {\"key\": \"yunqu\", \"name\": \"Vận Khúc\", \"scope\": \"decadal\", \"type\": \"soft\"}], [], [], [], [{\"key\": \"yunkui\", \"name\": \"Vận Khôi\", \"scope\": \"decadal\", \"type\": \"soft\"}, {\"key\": \"yunluan\", \"name\": \"Vận Loan\", \"scope\": \"decadal\", \"type\": \"flower\"}], [], [{\"key\": \"yuntuo\", \"name\": \"Vận Đà\", \"scope\": \"decadal\", \"type\": \"tough\"}], [{\"key\": \"yunlu\", \"name\": \"Vận Lộc\", \"scope\": \"decadal\", \"type\": \"lucun\"}], [{\"key\": \"yunyang\", \"name\": \"Vận Dương\", \"scope\": \"decadal\", \"type\": \"tough\"}], [{\"key\": \"yunma\", \"name\": \"Vận Mã\", \"scope\": \"decadal\", \"type\": \"tianma\"}], [{\"key\": \"yunchang\", \"name\": \"Vận Xương\", \"scope\": \"decadal\", \"type\": \"soft\"}, {\"key\": \"yunxi\", \"name\": \"Vận Hỷ\", \"scope\": \"decadal\", \"type\": \"flower\"}], []], \"sihuaKeys\": [\"sihuaLu\", \"sihuaQuan\", \"sihuaKe\", \"sihuaJi\"]}}, {\"id\": \"E011\", \"kind\": \"horoscope_fact\", \"source\": \"x-iztro\", \"scope\": \"yearly:2028-01-26\", \"palace_key\": \"\", \"entity_key\": \"yearly\", \"data\": {\"earthlyBranch\": \"Thân\", \"earthlyBranchKey\": \"shenEarthly\", \"heavenlyStem\": \"Mậu\", \"heavenlyStemKey\": \"wuHeavenly\", \"index\": 6, \"mutagen\": [\"Tham Lang\", \"Thái Âm\", \"Hữu Bật\", \"Thiên Cơ\"], \"mutagenStarKeys\": [\"tanlangMaj\", \"taiyinMaj\", \"youbiMin\", \"tianjiMaj\"], \"name\": \"Lưu Niên\", \"nameKey\": \"yearly\", \"palaceNameKeys\": [\"surfacePalace\", \"healthPalace\", \"wealthPalace\", \"childrenPalace\", \"spousePalace\", \"siblingsPalace\", \"soulPalace\", \"parentsPalace\", \"spiritPalace\", \"propertyPalace\", \"careerPalace\", \"friendsPalace\"], \"palaceNames\": [\"Thiên Di\", \"Tật Ách\", \"Tài Bạch\", \"Tử Nữ\", \"Phu Thê\", \"Huynh Đệ\", \"Mệnh\", \"Phụ Mẫu\", \"Phúc Đức\", \"Điền Trạch\", \"Quan Lộc\", \"Nô Bộc\"], \"stars\": [[{\"key\": \"nianjie\", \"name\": \"Niên Giải\", \"scope\": \"yearly\", \"type\": \"helper\"}, {\"key\": \"liuma\", \"name\": \"Lưu Mã\", \"scope\": \"yearly\", \"type\": \"tianma\"}], [], [{\"key\": \"liutuo\", \"name\": \"Lưu Đà\", \"scope\": \"yearly\", \"type\": \"tough\"}], [{\"key\": \"liulu\", \"name\": \"Lưu Lộc\", \"scope\": \"yearly\", \"type\": \"lucun\"}], [{\"key\": \"liuqu\", \"name\": \"Lưu Khúc\", \"scope\": \"yearly\", \"type\": \"soft\"}, {\"key\": \"liuyang\", \"name\": \"Lưu Dương\", \"scope\": \"yearly\", \"type\": \"tough\"}], [{\"key\": \"liuyue\", \"name\": \"Lưu Việt\", \"scope\": \"yearly\", \"type\": \"soft\"}, {\"key\": \"liuluan\", \"name\": \"Lưu Loan\", \"scope\": \"yearly\", \"type\": \"flower\"}], [{\"key\": \"liuchang\", \"name\": \"Lưu Xương\", \"scope\": \"yearly\", \"type\": \"soft\"}], [], [], [], [], [{\"key\": \"liukui\", \"name\": \"Lưu Khôi\", \"scope\": \"yearly\", \"type\": \"soft\"}, {\"key\": \"liuxi\", \"name\": \"Lưu Hỷ\", \"scope\": \"yearly\", \"type\": \"flower\"}]], \"yearlyDecStar\": {\"jiangqian12\": [\"Tuế Dịch\", \"Tức Thần\", \"Hoa Cái\", \"Kiếp Sát\", \"Tai Sát\", \"Thiên Sát\", \"Chỉ Bối\", \"Hàm Trì\", \"Nguyệt Sát\", \"Vong Thần\", \"Tướng Tinh\", \"Phan Án\"], \"jiangqian12Keys\": [\"suiyi\", \"xiishen\", \"huagai\", \"jiesha\", \"zhaisha\", \"tiansha\", \"zhibei\", \"xianchi\", \"yuesha\", \"wangshen\", \"jiangxing\", \"panan\"], \"suiqian12\": [\"Đại Hao\", \"Long Đức\", \"Bạch Hổ\", \"Thiên Đức\", \"Điếu Khách\", \"Bệnh Phù\", \"Tuế Kiện\", \"Hối Khí\", \"Tang Môn\", \"Quán Tác\", \"Quan Phù\", \"Tiểu Hao\"], \"suiqian12Keys\": [\"dahao\", \"longde\", \"baihu\", \"tiande\", \"diaoke\", \"bingfu\", \"suijian\", \"huiqi\", \"sangmen\", \"guansuo\", \"gwanfu\", \"xiaohao\"]}, \"sihuaKeys\": [\"sihuaLu\", \"sihuaQuan\", \"sihuaKe\", \"sihuaJi\"]}}, {\"id\": \"E012\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"careerPalace\", \"data\": {\"key\": \"careerPalace\", \"name\": \"官禄\", \"excerpt\": \"官禄宫又叫 `事业宫`，展示星盘主人的 `做事态度` 和对工作的态度。即便对未来职业尚无规划和想法，官禄宫也能给出一个方向，指出适合什么类型的工作，从而有针对性地查缺补漏，补足预设工作所需而尚未掌握的技能。尚未工作、全职持家或依赖伴侣生活的人也不例外——官禄宫展示的是一种 `处事态度`，无论有无工作都有影响：对学生而言，`学习` 就是日常工作；对全职持家者而言，`照顾家庭` 就是日常工作；对依赖伴侣生活者而言，把这份依赖经营稳固便是其日常之事。\"}}, {\"id\": \"E013\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"huoxingMin\", \"data\": {\"key\": \"huoxingMin\", \"name\": \"火星\", \"category\": \"minor\", \"attributes\": {\"yin_yang\": \"yang\", \"five_elements\": \"fire\", \"stem\": \"bing\", \"five_elements_note\": null, \"dipper\": \"南斗浮星\", \"chemistry\": \"暴烈之气\", \"career\": null, \"duty\": \"暴躁破坏\", \"aliases\": [\"冲动星\"], \"element_color\": \"红色\", \"energy_color\": \"赤光\"}, \"excerpt\": \"火星星名听起来便很“冲动”，也确实会让人变得冲动，但这种冲动是思想上的。火星在做决定时容易欠缺考虑，比较容易随心而行。这种冲动的思维方式使其常常充满活力和决心，乐于追求自己的目标，不轻易妥协；但也可能导致在做出决定时缺乏充分的考虑，更容易受到情绪的影响而做出冲动的选择。\\n\\n相比追求长期的成就和坚实的基础，火星更倾向于追求即时的满足和快速的结果，不太愿意花时间去等待或延迟享受。这种性格特点使其在追求梦想的过程中表现出高于常人的精力与热情，但也需要注意在冲动行事时多加思考，以避免后悔或不必要的风险。\\n\\n火星对情绪的影响极大：开心时热情似火，愤怒时犹如狂风暴雨。\"}}, {\"id\": \"E014\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"lianzhenMaj\", \"data\": {\"key\": \"lianzhenMaj\", \"name\": \"廉贞\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"fire\", \"stem\": \"ding\", \"five_elements_note\": null, \"dipper\": \"北斗第五星\", \"chemistry\": \"囚\", \"career\": \"官禄主(行政)\", \"duty\": \"邪恶\", \"aliases\": [\"次桃花星（纠缠性）\", \"次财星\"], \"element_color\": \"红色\", \"energy_color\": \"赤光\"}, \"excerpt\": \"提起廉贞，许多有经验的命理师都会不禁摇头，古籍对廉贞的评价也不算好，还有 `自古廉贞最难明` 的说法，使廉贞星人无端蒙受许多偏见。人们对廉贞星偏见颇多，是因为廉贞与武曲一样不喜社交、不太懂人情世故。她们虽化气为 `囚`，但大部分时候“囚禁”的是自己。\\n\\n廉贞星不易与人交心，是因为自我保护意识太强。旁人嬉笑怒骂之际，廉贞常显得格格不入——她对任何事情都抱着非常理性认真的态度，有时分不清对方是认真还是玩笑。也正是这份“认真”，让廉贞星看起来多了一分高冷、少了一分亲和。尤其廉贞星会因过于强大的自尊心，无意中做出许多伤害别人的事、说出伤害别人感情的话，颇令人烦恼。\"}}, {\"id\": \"E015\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"lucunMin\", \"data\": {\"key\": \"lucunMin\", \"name\": \"禄存\", \"category\": \"minor\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"earth\", \"stem\": \"ji\", \"five_elements_note\": null, \"dipper\": \"北斗第三星\", \"chemistry\": \"财富\", \"career\": \"财帛主\", \"duty\": \"人寿，贵爵\", \"aliases\": [\"财星\"], \"element_color\": \"黄色\", \"energy_color\": \"绿光\"}, \"excerpt\": \"若论紫微斗数中最受欢迎的星曜，禄存星当属其一——因为这是颗财星，鲜有人对其没有好感。但禄存的这个财，其实是一种类似“本钱”的财。人对自己的本钱总是比较谨慎的，所以禄存星会增加稳定性，也因此被赋予一种谨慎的气质。\\n\\n对于财务的支出，禄存星是非常谨慎的，这种谨慎的态度确实可以避免很多经济上的损失，但同时也容易错失很多机会。由此不难推断，禄存星也是风险厌恶型的星曜，能够稳定一些浮躁的主星，所以古籍上常把禄存星作为一种解煞的星曜来看待。\\n\\n> **提示**\\n>\\n> 辅星的主要作用是对主星的辅助，而且很多辅星会同宫，此时特质上会产生一些冲突，这种冲突并非矛盾。\"}}, {\"id\": \"E016\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"pojunMaj\", \"data\": {\"key\": \"pojunMaj\", \"name\": \"破军\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"water\", \"stem\": \"gui\", \"five_elements_note\": null, \"dipper\": \"北斗第七星\", \"chemistry\": \"耗\", \"career\": \"迁移主\", \"duty\": \"破损消耗\", \"aliases\": [\"消耗星\", \"垃圾星\", \"远洋星\", \"流氓星\", \"先锋星\"], \"element_color\": \"黑色\", \"energy_color\": \"黑光\"}, \"excerpt\": \"破军代表士兵，在阵前冲锋陷阵，故化气为 `耗`，代表着一种消耗。破军有 `先破后立`、`破釜沉舟` 的魄力：一旦认定一件事，便不太在意既定规则；若规则不容，便打破旧规、建立自己的新规则。\\n\\n`杀破狼` 格局的人一般不喜欢平凡而碌碌无为的人生，喜欢拼搏闯荡，人生因此过得比较精彩、大起大落。破军星并非四肢发达、头脑简单的形象，而是企划与执行兼具的星曜，其企划能力多显现在艺术领域；且破军一旦看中某个领域，很容易在其中深耕下去。\\n\\n杀破狼格局天生自带反骨，给人桀骜不驯之感，其中以破军星最甚。这种明知不可为而为之的个性，容易让其登上云端，也更容易让其跌入谷底。\"}}, {\"id\": \"E017\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"qishaMaj\", \"data\": {\"key\": \"qishaMaj\", \"name\": \"七杀\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"metal\", \"stem\": \"xin\", \"five_elements_note\": null, \"dipper\": \"南斗第六星\", \"chemistry\": \"肃杀\", \"career\": \"迁移主\", \"duty\": \"威猛，肃杀，变动\", \"aliases\": [\"死亡星\", \"变动星\", \"酷星\"], \"element_color\": \"白色\", \"energy_color\": \"黑光\"}, \"excerpt\": \"七杀之名听来“杀气很重”，实则不然——七杀星虽亲和力不强，却未必是凶神恶煞的模样。在 `杀破狼` 的组合里，若贪狼是指挥官，七杀星便是带兵的将领，破军则是冲锋陷阵的士兵。\\n\\n作为一个“将领”，七杀星需要坚定不移的信念方能带队向前，故七杀星代表 `坚持` 与 `执着` 的力量。然而执行力过于强大便会想得少，常给人“愣头青”的感觉。这只是七杀单星的特质，与其他策划型星曜组合时，其策划能力也会随之增强。\\n\\n七杀星缺少亲和力，社交上给人一种“不敢主动靠近”的感觉。七杀坐命者宜多保持笑容、社交中主动一些，并多听取他人的建议与劝导，勿闷头一条道走到黑。\"}}, {\"id\": \"E018\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"spiritPalace\", \"data\": {\"key\": \"spiritPalace\", \"name\": \"福德\", \"excerpt\": \"迁移宫代表外在，相当于游戏里的 `皮肤`；命宫代表本质属性，相当于游戏角色的 `初始属性点`，属 `力量型`、`智力型` 还是 `敏捷型`，从命宫体现出来；疾厄宫代表身体的强弱，相当于物理抗性；而 `福德宫`，代表的是星盘主人的 `思想`。紫微斗数中常有 `修福德宫` 的说法，说的就是锻炼出一颗强大的心脏，不以物喜、不以己悲，做一个情绪稳定的人，从而不易受外界刺激而做出冲动或错误的决定和行为。其他宫位很多时候处于一种 `潜意识` 的状态去互动，`福德宫` 做出的行为却是经过思考的行为，所以福德宫锻炼得越强大，人生的容错性就越高。\"}}, {\"id\": \"E019\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"spousePalace\", \"data\": {\"key\": \"spousePalace\", \"name\": \"夫妻\", \"excerpt\": \"夫妻宫是代表 `感情` 的宫位，展示星盘主人的择偶观和对感情的态度。它虽不在命宫的 `三方四正` 内，但因感情和婚姻而影响自己一生的人大有人在，所以十二宫讲求的是平衡，而非某一宫独好。寻觅伴侣时若不清楚自己喜欢什么样的人、什么个性的人对自己有吸引力，可排出自己的紫微斗数星盘参考。所谓 `合盘`，就是拿出男女双方星盘的命宫及夫妻宫进行对比，看双方三观与对待感情的态度是否相合。另外，夫妻宫常被认为是看 `桃花` 的宫位，其实不然，代表 `桃花` 的宫位是 `子女宫`，而不是夫妻宫。\"}}, {\"id\": \"E020\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"surfacePalace\", \"data\": {\"key\": \"surfacePalace\", \"name\": \"迁移\", \"excerpt\": \"迁移宫是以一个 `入口` 的存在而展现在紫微斗数星盘上的：人需要“伪装”来保护自己，`迁移宫` 展现出来的特质就是一种 `伪装`，或者是 `包装`。社交中常听到“我刚认识他的时候他不是这样的”“你现在咋变成这样了呢，你以前不这样的”，正是因为相处久了以后，透过 `迁移宫` 看到了 `命宫` 甚至 `福德宫` 的个性。\"}}, {\"id\": \"E021\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"tanlangMaj\", \"data\": {\"key\": \"tanlangMaj\", \"name\": \"贪狼\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yang\", \"five_elements\": \"wood\", \"stem\": \"jia\", \"five_elements_note\": \"气为水\", \"dipper\": \"北斗第一星\", \"chemistry\": \"桃花\", \"career\": \"子女主\", \"duty\": \"欲望，物质\", \"aliases\": [\"桃花星\", \"交际星\", \"标准星\", \"才艺星\", \"赌星（闹财星）\", \"武术星\", \"宗教星\", \"幻想星\"], \"element_color\": \"青色\", \"energy_color\": \"赤蓝光\"}, \"excerpt\": \"贪狼是紫微斗数里的第一桃花星。桃花星的本质是 `社交` 与 `受欢迎`，而非许多人理解的男女之情。贪狼星另一个广为人知的特性是代表 `欲望`，这里的 `欲望` 也常被曲解为 `男欢女爱`，这是对贪狼星最大的误解。贪狼星的欲望取决于其兴趣所在：对感兴趣的东西会深究到底、想方设法去探索研究。它是人类欲望的源头——人有了欲望，才会去奋斗，才会去拼搏。\\n\\n贪狼是一颗充满好奇心的星曜，热爱思考，对感兴趣的事情有着非常浓烈的热情。当贪狼星喜欢上一个人、一件东西或一件事时，比较容易上瘾。这种特质若用在正确的地方，贪狼星的成就不可限量。\"}}, {\"id\": \"E022\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"tiankuiMin\", \"data\": {\"key\": \"tiankuiMin\", \"name\": \"天魁\", \"category\": \"minor\", \"attributes\": {\"yin_yang\": \"yang\", \"five_elements\": \"fire\", \"stem\": \"bing\", \"five_elements_note\": null, \"dipper\": \"南斗助星\", \"chemistry\": \"贵人\", \"career\": null, \"duty\": \"助力，成就\", \"aliases\": [\"天乙贵人\", \"文星\", \"才星\", \"科甲星\"], \"element_color\": \"红色\", \"energy_color\": \"赤光\"}, \"excerpt\": \"天魁星是 `天乙贵人`，通常被认为是“男性”贵人。若说左辅星散发的是长辈的气质，天魁星散发的便是领导的气质。这颗星有较强的领导欲望，通俗地说就是比较喜欢“管人”，在决策上也比较果断。魁钺都比较容易打官腔，深谙咬文嚼字之道。\\n\\n古籍对魁钺赞赏有加，仿佛得了魁钺便富贵双全。在当时的社会背景下，精通文墨、有领导欲并且深谙为人处世之道的人，确实比较容易有机会出人头地；而在当今社会，德不配位者则为人所不齿。\\n\\n在贵人星里面，天魁星的助力需要自己去争取，并且只帮忙解决眼下的事情，属于头痛医头、脚痛医脚，故天魁星的帮助只能解燃眉之急。打铁还须自身硬，天魁星的助力直接与自身的能力和认知挂钩。\"}}, {\"id\": \"E023\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"wuquMaj\", \"data\": {\"key\": \"wuquMaj\", \"name\": \"武曲\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"metal\", \"stem\": \"xin\", \"five_elements_note\": null, \"dipper\": \"北斗第六星\", \"chemistry\": \"财富\", \"career\": \"财帛主\", \"duty\": \"执掌财富，勇武之将\", \"aliases\": [\"正财星\", \"寡宿星\", \"战争星\", \"将星\"], \"element_color\": \"白色\", \"energy_color\": \"乳白光\"}, \"excerpt\": \"武曲星是紫微斗数中有名的“独行侠”，因个性孤傲刚直，被传统命理师冠以 `刑克之星` 的名头。实际上武曲星只是不善表达、不喜社交，直来直往的个性常在无意间中伤他人，久而久之便给人独来独往的印象。\\n\\n除性格刚直外，武曲还是一颗怕麻烦的星曜——怕的不是费力，而是怕麻烦别人、怕人情世故。这种个性造就了武曲星强大的执行力与行动力：自己能动手的绝不去麻烦别人，是武曲星的行事准则。\\n\\n有强项自然也有短板，策划能力便是武曲星最大的短板。倔强的个性加上说干就干的执行力，方向正确时如鱼得水，缺点则是不太听劝。武曲坐命者宜多听取周围人的意见，即使不采纳，也能从中吸取自己未曾考虑到的经验。\"}}, {\"id\": \"E024\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"youbiMin\", \"data\": {\"key\": \"youbiMin\", \"name\": \"右弼\", \"category\": \"minor\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"water\", \"stem\": \"gui\", \"five_elements_note\": null, \"dipper\": null, \"chemistry\": \"助力\", \"career\": null, \"duty\": \"司制令\", \"aliases\": [\"贵人星\"], \"element_color\": \"黑色\", \"energy_color\": \"米黄光\"}, \"excerpt\": \"相比左辅星的直接，右弼星显得较为柔和，而且右弼的帮助是在背后默默付出的那种，常常令人感受不深，因此被冠以“女性”贵人的名头。温柔、善良、体贴、善解人意，这些美好的词都可用来修饰右弼星。\\n\\n右弼星善于倾听他人的需求，并愿意给予帮助和支持，在人际关系中扮演和善的角色，能够给予他人安慰和鼓励。也因此，右弼星常被认为“耳根子软”——容易被别人的意见左右，立场与想法都不够坚定。\\n\\n很多强势的星曜都适合与右弼星搭档：有了右弼星的加入，会柔化那些强势星曜的棱角，使其变得比较听得进劝告。然而，本身意志就不坚定的星曜若与右弼星组合，则会变得过于优柔寡断。\\n\\n这些特质让右弼星收获不少好评，成为颇受喜爱的一颗星曜。\"}}, {\"id\": \"E025\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"ziweiMaj\", \"data\": {\"key\": \"ziweiMaj\", \"name\": \"紫微\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"earth\", \"stem\": \"ji\", \"five_elements_note\": null, \"dipper\": \"中天星系\", \"chemistry\": \"尊贵\", \"career\": \"官禄主\", \"duty\": \"众星枢纽，长五行，孕万物\", \"aliases\": [\"帝王星\", \"老板星\", \"俸禄星\"], \"element_color\": \"黄色\", \"energy_color\": \"紫光\"}, \"excerpt\": \"紫微星号称 `帝王星`，并非指紫微坐命者能成帝王，而是指其个性带有“王者”特质：控制欲与占有欲较强，偏爱华美的事物与称赞，重视体面甚于实际，也因此常给人较强的距离感。紫微星具备许多领导型人格所需的特质：目标长远、大局观强、好为人师等。\\n\\n紫微是一颗非常“吃资源”的星曜：若能获得足够的支持与培养条件，使其能力与自身气场相匹配，便会发挥出强大的控场与规划能力；若自身认知水平不足，缺乏足以支撑这颗星的知识与能力，则容易变得眼高手低、高不成低不就。\\n\\n故 `紫微星` 坐命者宜扩展知识的广度，把自身基础打牢，如此在工作与生活中便容易成为受人尊敬的人。\"}}, {\"id\": \"E026\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"zuofuMin\", \"data\": {\"key\": \"zuofuMin\", \"name\": \"左辅\", \"category\": \"minor\", \"attributes\": {\"yin_yang\": \"yang\", \"five_elements\": \"earth\", \"stem\": \"wu\", \"five_elements_note\": null, \"dipper\": null, \"chemistry\": \"助力\", \"career\": null, \"duty\": \"行善令\", \"aliases\": [\"贵人星\"], \"element_color\": \"黄色\", \"energy_color\": \"黄光\"}, \"excerpt\": \"世人多喜“贵人”，但对贵人常有误解，以为贵人必定是对自己帮助很大的人；实际上贵人未必是朋友，甚至未必是具体的人。左辅的特质是助力，因此左辅星在命宫的人特别喜欢帮助、提拔别人，这种帮助带有“长辈视角”、自上而下的意味。\\n\\n因此，左辅星有“提高身份地位”的作用。许多人把左辅星视为“男性”贵人，是因为其帮助比较直接且强势，感受明显。由此不难推断，左辅比较容易有“架子”：左辅星的人在工作或社交场合中会展现出自信和权威，喜欢扮演引领者的角色，愿意为他人提供指导和支持。\\n\\n然而，这种直接和强势有时会让人觉得有些“高冷”、不易接近。\"}}]}"
+      },
+      {
+        "event": "error",
+        "data": "{\"type\": \"llm_upstream\", \"detail\": \"LLM upstream error\"}"
+      }
+    ],
+    "replaced": false,
+    "replay": false,
+    "violations": null,
+    "output": "",
+    "latency": 600.1080600109999,
+    "topic": "love",
+    "chart": "b20",
+    "chart_id": "cs_76d539c3867544a4813d39c9"
+  },
+  {
+    "status": "error",
+    "events": [
+      {
+        "event": "metadata",
+        "data": "{\"runId\": \"ir_78a8297846e845e8aaa0fe2f\", \"topic\": \"overview\", \"promptVersion\": \"overview-v1\", \"model\": \"swe-2-worker\"}"
+      },
+      {
+        "event": "evidence",
+        "data": "{\"bundleId\": \"ev_060b16dd8b80404e98fb0d3f\", \"items\": [{\"id\": \"E001\", \"kind\": \"chart_fact\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"astrolabe\", \"data\": {\"sign\": \"Cung Sư Tử\", \"signKey\": \"leo\", \"zodiac\": \"Mèo\", \"zodiacKey\": \"rabbit\", \"fiveElementsClass\": \"Kim Tứ Cục\", \"fiveElementsClassKey\": \"metal4th\", \"soul\": \"Cự Môn\", \"soulKey\": \"jumenMaj\", \"body\": \"Thiên Đồng\", \"bodyKey\": \"tiantongMaj\", \"solarDate\": \"1963-07-28\", \"lunarDate\": {\"isLeap\": false, \"lunarDay\": 8, \"lunarMonth\": 6, \"lunarYear\": 1963}, \"palaces\": [{\"index\": 0, \"nameKey\": \"parentsPalace\", \"name\": \"Phụ Mẫu\", \"stemBranch\": \"Giáp Dần\", \"isBodyPalace\": false, \"majorStars\": [{\"key\": \"tianjiMaj\", \"name\": \"Thiên Cơ\", \"brightness\": \"Đắc\", \"mutagen\": null}, {\"key\": \"taiyinMaj\", \"name\": \"Thái Âm\", \"brightness\": \"Vượng\", \"mutagen\": \"Khoa\"}], \"minorStars\": [], \"decadal\": {\"earthlyBranch\": \"Dần\", \"earthlyBranchKey\": \"yinEarthly\", \"heavenlyStem\": \"Giáp\", \"heavenlyStemKey\": \"jiaHeavenly\", \"range\": [14, 23]}}, {\"index\": 1, \"nameKey\": \"spiritPalace\", \"name\": \"Phúc Đức\", \"stemBranch\": \"Ất Mão\", \"isBodyPalace\": false, \"majorStars\": [{\"key\": \"ziweiMaj\", \"name\": \"Tử Vi\", \"brightness\": \"Vượng\", \"mutagen\": null}, {\"key\": \"tanlangMaj\", \"name\": \"Tham Lang\", \"brightness\": \"Lợi\", \"mutagen\": \"Kỵ\"}], \"minorStars\": [{\"key\": \"tiankuiMin\", \"name\": \"Thiên Khôi\"}, {\"key\": \"huoxingMin\", \"name\": \"Hỏa Tinh\"}], \"decadal\": {\"earthlyBranch\": \"Mão\", \"earthlyBranchKey\": \"maoEarthly\", \"heavenlyStem\": \"Ất\", \"heavenlyStemKey\": \"yiHeavenly\", \"range\": [24, 33]}}, {\"index\": 2, \"nameKey\": \"propertyPalace\", \"name\": \"Điền Trạch\", \"stemBranch\": \"Bính Thìn\", \"isBodyPalace\": false, \"majorStars\": [{\"key\": \"jumenMaj\", \"name\": \"Cự Môn\", \"brightness\": \"Hạn\", \"mutagen\": \"Quyền\"}], \"minorStars\": [{\"key\": \"wenchangMin\", \"name\": \"Văn Xương\"}, {\"key\": \"lingxingMin\", \"name\": \"Linh Tinh\"}], \"decadal\": {\"earthlyBranch\": \"Thìn\", \"earthlyBranchKey\": \"chenEarthly\", \"heavenlyStem\": \"Bính\", \"heavenlyStemKey\": \"bingHeavenly\", \"range\": [34, 43]}}, {\"index\": 3, \"nameKey\": \"careerPalace\", \"name\": \"Quan Lộc\", \"stemBranch\": \"Đinh Tỵ\", \"isBodyPalace\": false, \"majorStars\": [{\"key\": \"tianxiangMaj\", \"name\": \"Thiên Tướng\", \"brightness\": \"Đắc\", \"mutagen\": null}], \"minorStars\": [{\"key\": \"youbiMin\", \"name\": \"Hữu Bật\"}, {\"key\": \"tianyueMin\", \"name\": \"Thiên Việt\"}, {\"key\": \"tianmaMin\", \"name\": \"Thiên Mã\"}, {\"key\": \"dikongMin\", \"name\": \"Địa Không\"}, {\"key\": \"dijieMin\", \"name\": \"Địa Kiếp\"}], \"decadal\": {\"earthlyBranch\": \"Tỵ\", \"earthlyBranchKey\": \"siEarthly\", \"heavenlyStem\": \"Đinh\", \"heavenlyStemKey\": \"dingHeavenly\", \"range\": [44, 53]}}, {\"index\": 4, \"nameKey\": \"friendsPalace\", \"name\": \"Nô Bộc\", \"stemBranch\": \"Mậu Ngọ\", \"isBodyPalace\": false, \"majorStars\": [{\"key\": \"tianliangMaj\", \"name\": \"Thiên Lương\", \"brightness\": \"Miếu\", \"mutagen\": null}], \"minorStars\": [], \"decadal\": {\"earthlyBranch\": \"Ngọ\", \"earthlyBranchKey\": \"wuEarthly\", \"heavenlyStem\": \"Mậu\", \"heavenlyStemKey\": \"wuHeavenly\", \"range\": [54, 63]}}, {\"index\": 5, \"nameKey\": \"surfacePalace\", \"name\": \"Thiên Di\", \"stemBranch\": \"Kỷ Mùi\", \"isBodyPalace\": false, \"majorStars\": [{\"key\": \"lianzhenMaj\", \"name\": \"Liêm Trinh\", \"brightness\": \"Lợi\", \"mutagen\": null}, {\"key\": \"qishaMaj\", \"name\": \"Thất Sát\", \"brightness\": \"Miếu\", \"mutagen\": null}], \"minorStars\": [], \"decadal\": {\"earthlyBranch\": \"Mùi\", \"earthlyBranchKey\": \"weiEarthly\", \"heavenlyStem\": \"Kỷ\", \"heavenlyStemKey\": \"jiHeavenly\", \"range\": [64, 73]}}, {\"index\": 6, \"nameKey\": \"healthPalace\", \"name\": \"Tật Ách\", \"stemBranch\": \"Canh Thân\", \"isBodyPalace\": false, \"majorStars\": [], \"minorStars\": [], \"decadal\": {\"earthlyBranch\": \"Thân\", \"earthlyBranchKey\": \"shenEarthly\", \"heavenlyStem\": \"Canh\", \"heavenlyStemKey\": \"gengHeavenly\", \"range\": [74, 83]}}, {\"index\": 7, \"nameKey\": \"wealthPalace\", \"name\": \"Tài Bạch\", \"stemBranch\": \"Tân Dậu\", \"isBodyPalace\": false, \"majorStars\": [], \"minorStars\": [{\"key\": \"zuofuMin\", \"name\": \"Tả Phù\"}], \"decadal\": {\"earthlyBranch\": \"Dậu\", \"earthlyBranchKey\": \"youEarthly\", \"heavenlyStem\": \"Tân\", \"heavenlyStemKey\": \"xinHeavenly\", \"range\": [84, 93]}}, {\"index\": 8, \"nameKey\": \"childrenPalace\", \"name\": \"Tử Nữ\", \"stemBranch\": \"Nhâm Tuất\", \"isBodyPalace\": false, \"majorStars\": [{\"key\": \"tiantongMaj\", \"name\": \"Thiên Đồng\", \"brightness\": \"Bình\", \"mutagen\": null}], \"minorStars\": [{\"key\": \"wenquMin\", \"name\": \"Văn Khúc\"}], \"decadal\": {\"earthlyBranch\": \"Tuất\", \"earthlyBranchKey\": \"xuEarthly\", \"heavenlyStem\": \"Nhâm\", \"heavenlyStemKey\": \"renHeavenly\", \"range\": [94, 103]}}, {\"index\": 9, \"nameKey\": \"spousePalace\", \"name\": \"Phu Thê\", \"stemBranch\": \"Quý Hợi\", \"isBodyPalace\": false, \"majorStars\": [{\"key\": \"wuquMaj\", \"name\": \"Vũ Khúc\", \"brightness\": \"Bình\", \"mutagen\": null}, {\"key\": \"pojunMaj\", \"name\": \"Phá Quân\", \"brightness\": \"Bình\", \"mutagen\": \"Lộc\"}], \"minorStars\": [{\"key\": \"tuoluoMin\", \"name\": \"Đà La\"}], \"decadal\": {\"earthlyBranch\": \"Hợi\", \"earthlyBranchKey\": \"haiEarthly\", \"heavenlyStem\": \"Quý\", \"heavenlyStemKey\": \"guiHeavenly\", \"range\": [104, 113]}}, {\"index\": 10, \"nameKey\": \"siblingsPalace\", \"name\": \"Huynh Đệ\", \"stemBranch\": \"Giáp Tý\", \"isBodyPalace\": false, \"majorStars\": [{\"key\": \"taiyangMaj\", \"name\": \"Thái Dương\", \"brightness\": \"Hạn\", \"mutagen\": null}], \"minorStars\": [{\"key\": \"lucunMin\", \"name\": \"Lộc Tồn\"}], \"decadal\": {\"earthlyBranch\": \"Tý\", \"earthlyBranchKey\": \"ziEarthly\", \"heavenlyStem\": \"Giáp\", \"heavenlyStemKey\": \"jiaHeavenly\", \"range\": [114, 123]}}, {\"index\": 11, \"nameKey\": \"soulPalace\", \"name\": \"Mệnh\", \"stemBranch\": \"Ất Sửu\", \"isBodyPalace\": true, \"majorStars\": [{\"key\": \"tianfuMaj\", \"name\": \"Thiên Phủ\", \"brightness\": \"Miếu\", \"mutagen\": null}], \"minorStars\": [{\"key\": \"qingyangMin\", \"name\": \"Kình Dương\"}], \"decadal\": {\"earthlyBranch\": \"Sửu\", \"earthlyBranchKey\": \"chouEarthly\", \"heavenlyStem\": \"Ất\", \"heavenlyStemKey\": \"yiHeavenly\", \"range\": [4, 13]}}]}}, {\"id\": \"E002\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"parentsPalace\", \"entity_key\": \"taiyinMaj\", \"data\": {\"starName\": \"Thái Âm\", \"starKey\": \"taiyinMaj\", \"mutagen\": \"Khoa\", \"mutagenKey\": \"sihuaKe\", \"palace\": \"Phụ Mẫu\", \"palaceKey\": \"parentsPalace\"}}, {\"id\": \"E003\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"propertyPalace\", \"entity_key\": \"jumenMaj\", \"data\": {\"starName\": \"Cự Môn\", \"starKey\": \"jumenMaj\", \"mutagen\": \"Quyền\", \"mutagenKey\": \"sihuaQuan\", \"palace\": \"Điền Trạch\", \"palaceKey\": \"propertyPalace\"}}, {\"id\": \"E004\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"spiritPalace\", \"entity_key\": \"tanlangMaj\", \"data\": {\"starName\": \"Tham Lang\", \"starKey\": \"tanlangMaj\", \"mutagen\": \"Kỵ\", \"mutagenKey\": \"sihuaJi\", \"palace\": \"Phúc Đức\", \"palaceKey\": \"spiritPalace\"}}, {\"id\": \"E005\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"spousePalace\", \"entity_key\": \"pojunMaj\", \"data\": {\"starName\": \"Phá Quân\", \"starKey\": \"pojunMaj\", \"mutagen\": \"Lộc\", \"mutagenKey\": \"sihuaLu\", \"palace\": \"Phu Thê\", \"palaceKey\": \"spousePalace\"}}, {\"id\": \"E006\", \"kind\": \"pattern\", \"source\": \"x-iztro-pattern-engine\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"jin_yu_fu_jia\", \"data\": {\"name\": \"Kim Dư Phù Giá\", \"scope\": \"origin\", \"broken\": false, \"stars\": [{\"key\": \"tianfuMaj\", \"name\": \"Thiên Phủ\", \"palace_index\": 11, \"brightness\": \"Miếu\", \"brightness_key\": \"miao\", \"mutagen\": null, \"mutagen_key\": null}, {\"key\": \"taiyangMaj\", \"name\": \"Thái Dương\", \"palace_index\": 10, \"brightness\": \"Hạn\", \"brightness_key\": \"xian\", \"mutagen\": null, \"mutagen_key\": null}, {\"key\": \"taiyinMaj\", \"name\": \"Thái Âm\", \"palace_index\": 0, \"brightness\": \"Vượng\", \"brightness_key\": \"wang\", \"mutagen\": \"Khoa\", \"mutagen_key\": \"sihuaKe\"}]}}, {\"id\": \"E007\", \"kind\": \"horoscope_fact\", \"source\": \"x-iztro\", \"scope\": \"age:2028-01-26\", \"palace_key\": \"\", \"entity_key\": \"age\", \"data\": {\"earthlyBranch\": \"Thân\", \"earthlyBranchKey\": \"shenEarthly\", \"heavenlyStem\": \"Canh\", \"heavenlyStemKey\": \"gengHeavenly\", \"index\": 6, \"mutagen\": [\"Thái Dương\", \"Vũ Khúc\", \"Thái Âm\", \"Thiên Đồng\"], \"mutagenStarKeys\": [\"taiyangMaj\", \"wuquMaj\", \"taiyinMaj\", \"tiantongMaj\"], \"name\": \"Tiểu Hạn\", \"nameKey\": \"turn\", \"nominalAge\": 66, \"palaceNameKeys\": [\"surfacePalace\", \"healthPalace\", \"wealthPalace\", \"childrenPalace\", \"spousePalace\", \"siblingsPalace\", \"soulPalace\", \"parentsPalace\", \"spiritPalace\", \"propertyPalace\", \"careerPalace\", \"friendsPalace\"], \"palaceNames\": [\"Thiên Di\", \"Tật Ách\", \"Tài Bạch\", \"Tử Nữ\", \"Phu Thê\", \"Huynh Đệ\", \"Mệnh\", \"Phụ Mẫu\", \"Phúc Đức\", \"Điền Trạch\", \"Quan Lộc\", \"Nô Bộc\"], \"sihuaKeys\": [\"sihuaLu\", \"sihuaQuan\", \"sihuaKe\", \"sihuaJi\"]}}, {\"id\": \"E008\", \"kind\": \"horoscope_fact\", \"source\": \"x-iztro\", \"scope\": \"decadal:2028-01-26\", \"palace_key\": \"\", \"entity_key\": \"decadal\", \"data\": {\"earthlyBranch\": \"Mùi\", \"earthlyBranchKey\": \"weiEarthly\", \"heavenlyStem\": \"Kỷ\", \"heavenlyStemKey\": \"jiHeavenly\", \"index\": 5, \"mutagen\": [\"Vũ Khúc\", \"Tham Lang\", \"Thiên Lương\", \"Văn Khúc\"], \"mutagenStarKeys\": [\"wuquMaj\", \"tanlangMaj\", \"tianliangMaj\", \"wenquMin\"], \"name\": \"Đại Hạn\", \"nameKey\": \"decadal\", \"palaceNameKeys\": [\"healthPalace\", \"wealthPalace\", \"childrenPalace\", \"spousePalace\", \"siblingsPalace\", \"soulPalace\", \"parentsPalace\", \"spiritPalace\", \"propertyPalace\", \"careerPalace\", \"friendsPalace\", \"surfacePalace\"], \"palaceNames\": [\"Tật Ách\", \"Tài Bạch\", \"Tử Nữ\", \"Phu Thê\", \"Huynh Đệ\", \"Mệnh\", \"Phụ Mẫu\", \"Phúc Đức\", \"Điền Trạch\", \"Quan Lộc\", \"Nô Bộc\", \"Thiên Di\"], \"stars\": [[{\"key\": \"yunxi\", \"name\": \"Vận Hỷ\", \"scope\": \"decadal\", \"type\": \"flower\"}], [], [], [{\"key\": \"yunqu\", \"name\": \"Vận Khúc\", \"scope\": \"decadal\", \"type\": \"soft\"}, {\"key\": \"yuntuo\", \"name\": \"Vận Đà\", \"scope\": \"decadal\", \"type\": \"tough\"}, {\"key\": \"yunma\", \"name\": \"Vận Mã\", \"scope\": \"decadal\", \"type\": \"tianma\"}], [{\"key\": \"yunlu\", \"name\": \"Vận Lộc\", \"scope\": \"decadal\", \"type\": \"lucun\"}], [{\"key\": \"yunyang\", \"name\": \"Vận Dương\", \"scope\": \"decadal\", \"type\": \"tough\"}], [{\"key\": \"yunyue\", \"name\": \"Vận Việt\", \"scope\": \"decadal\", \"type\": \"soft\"}, {\"key\": \"yunluan\", \"name\": \"Vận Loan\", \"scope\": \"decadal\", \"type\": \"flower\"}], [{\"key\": \"yunchang\", \"name\": \"Vận Xương\", \"scope\": \"decadal\", \"type\": \"soft\"}], [], [], [{\"key\": \"yunkui\", \"name\": \"Vận Khôi\", \"scope\": \"decadal\", \"type\": \"soft\"}], []], \"sihuaKeys\": [\"sihuaLu\", \"sihuaQuan\", \"sihuaKe\", \"sihuaJi\"]}}, {\"id\": \"E009\", \"kind\": \"horoscope_fact\", \"source\": \"x-iztro\", \"scope\": \"yearly:2028-01-26\", \"palace_key\": \"\", \"entity_key\": \"yearly\", \"data\": {\"earthlyBranch\": \"Thân\", \"earthlyBranchKey\": \"shenEarthly\", \"heavenlyStem\": \"Mậu\", \"heavenlyStemKey\": \"wuHeavenly\", \"index\": 6, \"mutagen\": [\"Tham Lang\", \"Thái Âm\", \"Hữu Bật\", \"Thiên Cơ\"], \"mutagenStarKeys\": [\"tanlangMaj\", \"taiyinMaj\", \"youbiMin\", \"tianjiMaj\"], \"name\": \"Lưu Niên\", \"nameKey\": \"yearly\", \"palaceNameKeys\": [\"surfacePalace\", \"healthPalace\", \"wealthPalace\", \"childrenPalace\", \"spousePalace\", \"siblingsPalace\", \"soulPalace\", \"parentsPalace\", \"spiritPalace\", \"propertyPalace\", \"careerPalace\", \"friendsPalace\"], \"palaceNames\": [\"Thiên Di\", \"Tật Ách\", \"Tài Bạch\", \"Tử Nữ\", \"Phu Thê\", \"Huynh Đệ\", \"Mệnh\", \"Phụ Mẫu\", \"Phúc Đức\", \"Điền Trạch\", \"Quan Lộc\", \"Nô Bộc\"], \"stars\": [[{\"key\": \"nianjie\", \"name\": \"Niên Giải\", \"scope\": \"yearly\", \"type\": \"helper\"}, {\"key\": \"liuma\", \"name\": \"Lưu Mã\", \"scope\": \"yearly\", \"type\": \"tianma\"}], [], [{\"key\": \"liutuo\", \"name\": \"Lưu Đà\", \"scope\": \"yearly\", \"type\": \"tough\"}], [{\"key\": \"liulu\", \"name\": \"Lưu Lộc\", \"scope\": \"yearly\", \"type\": \"lucun\"}], [{\"key\": \"liuqu\", \"name\": \"Lưu Khúc\", \"scope\": \"yearly\", \"type\": \"soft\"}, {\"key\": \"liuyang\", \"name\": \"Lưu Dương\", \"scope\": \"yearly\", \"type\": \"tough\"}], [{\"key\": \"liuyue\", \"name\": \"Lưu Việt\", \"scope\": \"yearly\", \"type\": \"soft\"}, {\"key\": \"liuluan\", \"name\": \"Lưu Loan\", \"scope\": \"yearly\", \"type\": \"flower\"}], [{\"key\": \"liuchang\", \"name\": \"Lưu Xương\", \"scope\": \"yearly\", \"type\": \"soft\"}], [], [], [], [], [{\"key\": \"liukui\", \"name\": \"Lưu Khôi\", \"scope\": \"yearly\", \"type\": \"soft\"}, {\"key\": \"liuxi\", \"name\": \"Lưu Hỷ\", \"scope\": \"yearly\", \"type\": \"flower\"}]], \"yearlyDecStar\": {\"jiangqian12\": [\"Tuế Dịch\", \"Tức Thần\", \"Hoa Cái\", \"Kiếp Sát\", \"Tai Sát\", \"Thiên Sát\", \"Chỉ Bối\", \"Hàm Trì\", \"Nguyệt Sát\", \"Vong Thần\", \"Tướng Tinh\", \"Phan Án\"], \"jiangqian12Keys\": [\"suiyi\", \"xiishen\", \"huagai\", \"jiesha\", \"zhaisha\", \"tiansha\", \"zhibei\", \"xianchi\", \"yuesha\", \"wangshen\", \"jiangxing\", \"panan\"], \"suiqian12\": [\"Đại Hao\", \"Long Đức\", \"Bạch Hổ\", \"Thiên Đức\", \"Điếu Khách\", \"Bệnh Phù\", \"Tuế Kiện\", \"Hối Khí\", \"Tang Môn\", \"Quán Tác\", \"Quan Phù\", \"Tiểu Hao\"], \"suiqian12Keys\": [\"dahao\", \"longde\", \"baihu\", \"tiande\", \"diaoke\", \"bingfu\", \"suijian\", \"huiqi\", \"sangmen\", \"guansuo\", \"gwanfu\", \"xiaohao\"]}, \"sihuaKeys\": [\"sihuaLu\", \"sihuaQuan\", \"sihuaKe\", \"sihuaJi\"]}}, {\"id\": \"E010\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"jin_yu_fu_jia\", \"data\": {\"key\": \"jin_yu_fu_jia\", \"name\": \"金舆扶驾\", \"quotes\": [\"金舆扶驾 紫微守命前后有日月来夹是也。\"]}}]}"
+      },
+      {
+        "event": "error",
+        "data": "{\"type\": \"llm_upstream\", \"detail\": \"LLM upstream error\"}"
+      }
+    ],
+    "replaced": false,
+    "replay": false,
+    "violations": null,
+    "output": "",
+    "latency": 600.0488584190025,
+    "topic": "overview",
+    "chart": "b02",
+    "chart_id": "cs_13ee742cf060486e97316e12"
+  },
+  {
+    "status": "error",
+    "events": [
+      {
+        "event": "metadata",
+        "data": "{\"runId\": \"ir_01c11916132541fd8b790a85\", \"topic\": \"wealth\", \"promptVersion\": \"wealth-v1\", \"model\": \"swe-2-worker\"}"
+      },
+      {
+        "event": "evidence",
+        "data": "{\"bundleId\": \"ev_1d90b7916abf46d78e089a15\", \"items\": [{\"id\": \"E001\", \"kind\": \"palace_fact\", \"source\": \"x-iztro\", \"scope\": \"surrounded:wealth\", \"palace_key\": \"careerPalace\", \"entity_key\": \"careerPalace\", \"data\": {\"index\": 4, \"name\": \"Quan Lộc\", \"stemBranch\": \"Bính Ngọ\", \"majorStars\": [], \"minorStars\": []}}, {\"id\": \"E002\", \"kind\": \"palace_fact\", \"source\": \"x-iztro\", \"scope\": \"surrounded:career\", \"palace_key\": \"soulPalace\", \"entity_key\": \"soulPalace\", \"data\": {\"index\": 0, \"name\": \"Mệnh\", \"stemBranch\": \"Nhâm Dần\", \"majorStars\": [{\"key\": \"taiyangMaj\", \"name\": \"Thái Dương\"}, {\"key\": \"jumenMaj\", \"name\": \"Cự Môn\"}], \"minorStars\": [{\"key\": \"tianmaMin\", \"name\": \"Thiên Mã\"}, {\"key\": \"dikongMin\", \"name\": \"Địa Không\"}]}}, {\"id\": \"E003\", \"kind\": \"palace_fact\", \"source\": \"x-iztro\", \"scope\": \"surrounded:opposite\", \"palace_key\": \"spiritPalace\", \"entity_key\": \"spiritPalace\", \"data\": {\"index\": 2, \"name\": \"Phúc Đức\", \"stemBranch\": \"Giáp Thìn\", \"majorStars\": [{\"key\": \"tianjiMaj\", \"name\": \"Thiên Cơ\"}, {\"key\": \"tianliangMaj\", \"name\": \"Thiên Lương\"}], \"minorStars\": []}}, {\"id\": \"E004\", \"kind\": \"palace_fact\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"wealthPalace\", \"entity_key\": \"wealthPalace\", \"data\": {\"index\": 8, \"name\": \"Tài Bạch\", \"stemBranch\": \"Canh Tuất\", \"isBodyPalace\": false, \"majorStars\": [], \"minorStars\": [{\"key\": \"tuoluoMin\", \"name\": \"Đà La\", \"mutagen\": null}], \"decadal\": {\"earthlyBranch\": \"Tuất\", \"earthlyBranchKey\": \"xuEarthly\", \"heavenlyStem\": \"Canh\", \"heavenlyStemKey\": \"gengHeavenly\", \"range\": [84, 93]}, \"ages\": [1, 13, 25, 37, 49, 61, 73, 85, 97, 109]}}, {\"id\": \"E005\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"propertyPalace\", \"entity_key\": \"ziweiMaj\", \"data\": {\"starName\": \"Tử Vi\", \"starKey\": \"ziweiMaj\", \"mutagen\": \"Quyền\", \"mutagenKey\": \"sihuaQuan\", \"palace\": \"Điền Trạch\", \"palaceKey\": \"propertyPalace\"}}, {\"id\": \"E006\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"siblingsPalace\", \"entity_key\": \"wuquMaj\", \"data\": {\"starName\": \"Vũ Khúc\", \"starKey\": \"wuquMaj\", \"mutagen\": \"Kỵ\", \"mutagenKey\": \"sihuaJi\", \"palace\": \"Huynh Đệ\", \"palaceKey\": \"siblingsPalace\"}}, {\"id\": \"E007\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"siblingsPalace\", \"entity_key\": \"zuofuMin\", \"data\": {\"starName\": \"Tả Phù\", \"starKey\": \"zuofuMin\", \"mutagen\": \"Khoa\", \"mutagenKey\": \"sihuaKe\", \"palace\": \"Huynh Đệ\", \"palaceKey\": \"siblingsPalace\"}}, {\"id\": \"E008\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"spiritPalace\", \"entity_key\": \"tianliangMaj\", \"data\": {\"starName\": \"Thiên Lương\", \"starKey\": \"tianliangMaj\", \"mutagen\": \"Lộc\", \"mutagenKey\": \"sihuaLu\", \"palace\": \"Phúc Đức\", \"palaceKey\": \"spiritPalace\"}}, {\"id\": \"E009\", \"kind\": \"pattern\", \"source\": \"x-iztro-pattern-engine\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"ji_yue_tong_liang\", \"data\": {\"name\": \"Cơ Nguyệt Đồng Lương\", \"scope\": \"origin\", \"broken\": false, \"stars\": [{\"key\": \"tianjiMaj\", \"name\": \"Thiên Cơ\", \"palace_index\": 2, \"brightness\": \"Lợi\", \"brightness_key\": \"li\", \"mutagen\": null, \"mutagen_key\": null}, {\"key\": \"taiyinMaj\", \"name\": \"Thái Âm\", \"palace_index\": 10, \"brightness\": \"Miếu\", \"brightness_key\": \"miao\", \"mutagen\": null, \"mutagen_key\": null}, {\"key\": \"tiantongMaj\", \"name\": \"Thiên Đồng\", \"palace_index\": 10, \"brightness\": \"Vượng\", \"brightness_key\": \"wang\", \"mutagen\": null, \"mutagen_key\": null}, {\"key\": \"tianliangMaj\", \"name\": \"Thiên Lương\", \"palace_index\": 2, \"brightness\": \"Miếu\", \"brightness_key\": \"miao\", \"mutagen\": \"Lộc\", \"mutagen_key\": \"sihuaLu\"}]}}, {\"id\": \"E010\", \"kind\": \"pattern\", \"source\": \"x-iztro-pattern-engine\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"ju_ri_tong_gong\", \"data\": {\"name\": \"Cự Nhật Đồng Cung\", \"scope\": \"origin\", \"broken\": false, \"stars\": [{\"key\": \"taiyangMaj\", \"name\": \"Thái Dương\", \"palace_index\": 0, \"brightness\": \"Vượng\", \"brightness_key\": \"wang\", \"mutagen\": null, \"mutagen_key\": null}, {\"key\": \"jumenMaj\", \"name\": \"Cự Môn\", \"palace_index\": 0, \"brightness\": \"Miếu\", \"brightness_key\": \"miao\", \"mutagen\": null, \"mutagen_key\": null}]}}, {\"id\": \"E011\", \"kind\": \"horoscope_fact\", \"source\": \"x-iztro\", \"scope\": \"age:2028-01-26\", \"palace_key\": \"\", \"entity_key\": \"age\", \"data\": {\"earthlyBranch\": \"Tuất\", \"earthlyBranchKey\": \"xuEarthly\", \"heavenlyStem\": \"Canh\", \"heavenlyStemKey\": \"gengHeavenly\", \"index\": 8, \"mutagen\": [\"Thái Dương\", \"Vũ Khúc\", \"Thái Âm\", \"Thiên Đồng\"], \"mutagenStarKeys\": [\"taiyangMaj\", \"wuquMaj\", \"taiyinMaj\", \"tiantongMaj\"], \"name\": \"Tiểu Hạn\", \"nameKey\": \"turn\", \"nominalAge\": 37, \"palaceNameKeys\": [\"careerPalace\", \"friendsPalace\", \"surfacePalace\", \"healthPalace\", \"wealthPalace\", \"childrenPalace\", \"spousePalace\", \"siblingsPalace\", \"soulPalace\", \"parentsPalace\", \"spiritPalace\", \"propertyPalace\"], \"palaceNames\": [\"Quan Lộc\", \"Nô Bộc\", \"Thiên Di\", \"Tật Ách\", \"Tài Bạch\", \"Tử Nữ\", \"Phu Thê\", \"Huynh Đệ\", \"Mệnh\", \"Phụ Mẫu\", \"Phúc Đức\", \"Điền Trạch\"], \"sihuaKeys\": [\"sihuaLu\", \"sihuaQuan\", \"sihuaKe\", \"sihuaJi\"]}}, {\"id\": \"E012\", \"kind\": \"horoscope_fact\", \"source\": \"x-iztro\", \"scope\": \"decadal:2028-01-26\", \"palace_key\": \"\", \"entity_key\": \"decadal\", \"data\": {\"earthlyBranch\": \"Tỵ\", \"earthlyBranchKey\": \"siEarthly\", \"heavenlyStem\": \"Ất\", \"heavenlyStemKey\": \"yiHeavenly\", \"index\": 3, \"mutagen\": [\"Thiên Cơ\", \"Thiên Lương\", \"Tử Vi\", \"Thái Âm\"], \"mutagenStarKeys\": [\"tianjiMaj\", \"tianliangMaj\", \"ziweiMaj\", \"taiyinMaj\"], \"name\": \"Đại Hạn\", \"nameKey\": \"decadal\", \"palaceNameKeys\": [\"childrenPalace\", \"spousePalace\", \"siblingsPalace\", \"soulPalace\", \"parentsPalace\", \"spiritPalace\", \"propertyPalace\", \"careerPalace\", \"friendsPalace\", \"surfacePalace\", \"healthPalace\", \"wealthPalace\"], \"palaceNames\": [\"Tử Nữ\", \"Phu Thê\", \"Huynh Đệ\", \"Mệnh\", \"Phụ Mẫu\", \"Phúc Đức\", \"Điền Trạch\", \"Quan Lộc\", \"Nô Bộc\", \"Thiên Di\", \"Tật Ách\", \"Tài Bạch\"], \"stars\": [[{\"key\": \"yuntuo\", \"name\": \"Vận Đà\", \"scope\": \"decadal\", \"type\": \"tough\"}], [{\"key\": \"yunlu\", \"name\": \"Vận Lộc\", \"scope\": \"decadal\", \"type\": \"lucun\"}], [{\"key\": \"yunyang\", \"name\": \"Vận Dương\", \"scope\": \"decadal\", \"type\": \"tough\"}, {\"key\": \"yunxi\", \"name\": \"Vận Hỷ\", \"scope\": \"decadal\", \"type\": \"flower\"}], [], [{\"key\": \"yunchang\", \"name\": \"Vận Xương\", \"scope\": \"decadal\", \"type\": \"soft\"}], [], [{\"key\": \"yunyue\", \"name\": \"Vận Việt\", \"scope\": \"decadal\", \"type\": \"soft\"}, {\"key\": \"yunqu\", \"name\": \"Vận Khúc\", \"scope\": \"decadal\", \"type\": \"soft\"}], [], [{\"key\": \"yunluan\", \"name\": \"Vận Loan\", \"scope\": \"decadal\", \"type\": \"flower\"}], [{\"key\": \"yunma\", \"name\": \"Vận Mã\", \"scope\": \"decadal\", \"type\": \"tianma\"}], [{\"key\": \"yunkui\", \"name\": \"Vận Khôi\", \"scope\": \"decadal\", \"type\": \"soft\"}], []], \"sihuaKeys\": [\"sihuaLu\", \"sihuaQuan\", \"sihuaKe\", \"sihuaJi\"]}}, {\"id\": \"E013\", \"kind\": \"horoscope_fact\", \"source\": \"x-iztro\", \"scope\": \"yearly:2028-01-26\", \"palace_key\": \"\", \"entity_key\": \"yearly\", \"data\": {\"earthlyBranch\": \"Thân\", \"earthlyBranchKey\": \"shenEarthly\", \"heavenlyStem\": \"Mậu\", \"heavenlyStemKey\": \"wuHeavenly\", \"index\": 6, \"mutagen\": [\"Tham Lang\", \"Thái Âm\", \"Hữu Bật\", \"Thiên Cơ\"], \"mutagenStarKeys\": [\"tanlangMaj\", \"taiyinMaj\", \"youbiMin\", \"tianjiMaj\"], \"name\": \"Lưu Niên\", \"nameKey\": \"yearly\", \"palaceNameKeys\": [\"surfacePalace\", \"healthPalace\", \"wealthPalace\", \"childrenPalace\", \"spousePalace\", \"siblingsPalace\", \"soulPalace\", \"parentsPalace\", \"spiritPalace\", \"propertyPalace\", \"careerPalace\", \"friendsPalace\"], \"palaceNames\": [\"Thiên Di\", \"Tật Ách\", \"Tài Bạch\", \"Tử Nữ\", \"Phu Thê\", \"Huynh Đệ\", \"Mệnh\", \"Phụ Mẫu\", \"Phúc Đức\", \"Điền Trạch\", \"Quan Lộc\", \"Nô Bộc\"], \"stars\": [[{\"key\": \"nianjie\", \"name\": \"Niên Giải\", \"scope\": \"yearly\", \"type\": \"helper\"}, {\"key\": \"liuma\", \"name\": \"Lưu Mã\", \"scope\": \"yearly\", \"type\": \"tianma\"}], [], [{\"key\": \"liutuo\", \"name\": \"Lưu Đà\", \"scope\": \"yearly\", \"type\": \"tough\"}], [{\"key\": \"liulu\", \"name\": \"Lưu Lộc\", \"scope\": \"yearly\", \"type\": \"lucun\"}], [{\"key\": \"liuqu\", \"name\": \"Lưu Khúc\", \"scope\": \"yearly\", \"type\": \"soft\"}, {\"key\": \"liuyang\", \"name\": \"Lưu Dương\", \"scope\": \"yearly\", \"type\": \"tough\"}], [{\"key\": \"liuyue\", \"name\": \"Lưu Việt\", \"scope\": \"yearly\", \"type\": \"soft\"}, {\"key\": \"liuluan\", \"name\": \"Lưu Loan\", \"scope\": \"yearly\", \"type\": \"flower\"}], [{\"key\": \"liuchang\", \"name\": \"Lưu Xương\", \"scope\": \"yearly\", \"type\": \"soft\"}], [], [], [], [], [{\"key\": \"liukui\", \"name\": \"Lưu Khôi\", \"scope\": \"yearly\", \"type\": \"soft\"}, {\"key\": \"liuxi\", \"name\": \"Lưu Hỷ\", \"scope\": \"yearly\", \"type\": \"flower\"}]], \"yearlyDecStar\": {\"jiangqian12\": [\"Tuế Dịch\", \"Tức Thần\", \"Hoa Cái\", \"Kiếp Sát\", \"Tai Sát\", \"Thiên Sát\", \"Chỉ Bối\", \"Hàm Trì\", \"Nguyệt Sát\", \"Vong Thần\", \"Tướng Tinh\", \"Phan Án\"], \"jiangqian12Keys\": [\"suiyi\", \"xiishen\", \"huagai\", \"jiesha\", \"zhaisha\", \"tiansha\", \"zhibei\", \"xianchi\", \"yuesha\", \"wangshen\", \"jiangxing\", \"panan\"], \"suiqian12\": [\"Đại Hao\", \"Long Đức\", \"Bạch Hổ\", \"Thiên Đức\", \"Điếu Khách\", \"Bệnh Phù\", \"Tuế Kiện\", \"Hối Khí\", \"Tang Môn\", \"Quán Tác\", \"Quan Phù\", \"Tiểu Hao\"], \"suiqian12Keys\": [\"dahao\", \"longde\", \"baihu\", \"tiande\", \"diaoke\", \"bingfu\", \"suijian\", \"huiqi\", \"sangmen\", \"guansuo\", \"gwanfu\", \"xiaohao\"]}, \"sihuaKeys\": [\"sihuaLu\", \"sihuaQuan\", \"sihuaKe\", \"sihuaJi\"]}}, {\"id\": \"E014\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"careerPalace\", \"data\": {\"key\": \"careerPalace\", \"name\": \"官禄\", \"excerpt\": \"官禄宫又叫 `事业宫`，展示星盘主人的 `做事态度` 和对工作的态度。即便对未来职业尚无规划和想法，官禄宫也能给出一个方向，指出适合什么类型的工作，从而有针对性地查缺补漏，补足预设工作所需而尚未掌握的技能。尚未工作、全职持家或依赖伴侣生活的人也不例外——官禄宫展示的是一种 `处事态度`，无论有无工作都有影响：对学生而言，`学习` 就是日常工作；对全职持家者而言，`照顾家庭` 就是日常工作；对依赖伴侣生活者而言，把这份依赖经营稳固便是其日常之事。\"}}, {\"id\": \"E015\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"dikongMin\", \"data\": {\"key\": \"dikongMin\", \"name\": \"地空\", \"category\": \"minor\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"fire\", \"stem\": \"ding\", \"five_elements_note\": null, \"dipper\": \"28星宿\", \"chemistry\": \"空亡之气\", \"career\": null, \"duty\": null, \"aliases\": [\"破财星\", \"中断星\", \"归零星\", \"宗教星\", \"幻想星\", \"创意星\"], \"element_color\": null, \"energy_color\": null}, \"excerpt\": \"古籍中以“半空折翅”形容地空星，字面听来颇为严重，但地空其实算是比较“中性”的一颗星。之所以给人半空折翅之感，是因为这颗星重点在想，而不在做。\\n\\n地空星比较怕麻烦，一旦一件事情步骤多、顾虑多，地空就容易选择逃避。万事开头难，面对各种挑战时地空常选择退缩，从而产生“中断”的感觉，这也是地空被称为“中断星”的由来。\\n\\n这颗星善于思考，想法特别多，如果再加上 `天马星`，就形成了“天马行空”，思维不仅活跃，跳跃性还很强。这些奇思妙想使地空星在艺术创作、文案策划方面天赋较高。然而在实际生活和工作中，想法是需要落地的，地空星的奇想常因无法落地而产生“别人笑我太疯癫，我笑他人看不穿”的感觉。\"}}, {\"id\": \"E016\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"ji_yue_tong_liang\", \"data\": {\"key\": \"ji_yue_tong_liang\", \"name\": \"机月同梁\", \"quotes\": [\"梁同机月寅申位一生利业聪明 声多不论。\", \"机月同梁作吏人 命在寅申方论，加吉不论，无吉无杀亦是平常人，凶杀空劫化忌为下格。\"]}}, {\"id\": \"E017\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"ju_ri_tong_gong\", \"data\": {\"key\": \"ju_ri_tong_gong\", \"name\": \"巨日同宫\", \"quotes\": [\"巨日同宫官封三代\", \"寅宫巨日足丰隆\", \"巨日寅宫立命申先驰名而食禄\"]}}, {\"id\": \"E018\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"jumenMaj\", \"data\": {\"key\": \"jumenMaj\", \"name\": \"巨门\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"water\", \"stem\": \"gui\", \"five_elements_note\": \"己土(藏金、木)\", \"dipper\": \"北斗第二星\", \"chemistry\": \"暗\", \"career\": \"疾厄主\", \"duty\": \"是非，疑惑，挑剔，口舌\", \"aliases\": [\"口舌星\", \"代沟星\", \"中药星\", \"挑剔星\", \"谣言星\", \"法律星\", \"宗教星\"], \"element_color\": \"褐色\", \"energy_color\": \"灰光（影子）\"}, \"excerpt\": \"巨门星有一颗八卦之魂，对东家长西家短之事特别感兴趣。若说 `天机星` 是脑快，巨门星便是嘴快——但嘴快不等于话多。巨门受四化星的影响特别大：当巨门 `化权` 时，言语变得有公信力、有“权威性”，令人觉得其言可信度高，语言便是他的武器，滔滔雄辩、万夫莫敌。\\n\\n而当巨门 `化忌` 时，说话就不太讨喜，给人一种语言上的“压迫感”——即使觉得其言无理，也辩不过他。唯与 `天同星` 同宫时是个例外，反而容易变得沉默寡言：天同没有争强好胜之心，化忌的巨门又易出口伤人，为避免伤人，便选择少说话或不说话。\\n\\n从五行属性可以看出，巨门星是一颗多属性的星曜。\"}}, {\"id\": \"E019\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"soulPalace\", \"data\": {\"key\": \"soulPalace\", \"name\": \"命宫\", \"excerpt\": \"命宫是决定星盘主人属性的宫位，类似于游戏中的职业，显示其个性偏向。但人的性格是立体的，命宫的个性只能说是星盘主人的 `本质`。俗话说 `性格决定命运`，其实决定命运的从来都不是性格，而是 `认知`：同一类型性格的人，会因自身认知的不同，对同一件事产生完全不同的想法。所以现代社会不能用老传统的 `好` 与 `差`、`吉` 与 `凶` 武断评定一张盘的好坏。另外，虽然命宫是人个性特质的展现，但对大多数人而言，别人最先接触到的个性特质往往不是命宫展现出来的，而是 `迁移宫`。\"}}, {\"id\": \"E020\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"spiritPalace\", \"data\": {\"key\": \"spiritPalace\", \"name\": \"福德\", \"excerpt\": \"迁移宫代表外在，相当于游戏里的 `皮肤`；命宫代表本质属性，相当于游戏角色的 `初始属性点`，属 `力量型`、`智力型` 还是 `敏捷型`，从命宫体现出来；疾厄宫代表身体的强弱，相当于物理抗性；而 `福德宫`，代表的是星盘主人的 `思想`。紫微斗数中常有 `修福德宫` 的说法，说的就是锻炼出一颗强大的心脏，不以物喜、不以己悲，做一个情绪稳定的人，从而不易受外界刺激而做出冲动或错误的决定和行为。其他宫位很多时候处于一种 `潜意识` 的状态去互动，`福德宫` 做出的行为却是经过思考的行为，所以福德宫锻炼得越强大，人生的容错性就越高。\"}}, {\"id\": \"E021\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"taiyangMaj\", \"data\": {\"key\": \"taiyangMaj\", \"name\": \"太阳\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yang\", \"five_elements\": \"fire\", \"stem\": \"bing\", \"five_elements_note\": null, \"dipper\": \"中天星系\", \"chemistry\": \"权贵\", \"career\": \"官禄主\", \"duty\": \"执掌光明，博爱，付出\", \"aliases\": [\"政治星\", \"名誉星\", \"驿马星\", \"法律星\", \"父星\", \"夫星\", \"子星\", \"公关星\", \"老板星\"], \"element_color\": \"红色\", \"energy_color\": \"橘红光\"}, \"excerpt\": \"太阳星是一颗“太子星”，因为他永远出现在紫微星的 `子女位`。太阳星继承了紫微星的一部分特质，如希望得到尊重、好为人师等；但因自己还不是“皇帝”，太阳星比紫微更有亲和力，这也是太阳星能代表光明与博爱的原因。同样因为还不是“皇帝”，太阳星更渴望“权利”，故化气为 `权贵`。\\n\\n正是内心对“权利”的渴望，造就了太阳星喜欢“争”的个性。当合法权益受到侵害时，太阳星会毫不犹豫地拿起法律武器维护自身权益，`政治星` 与 `法律星` 的别号即由此而来。\\n\\n太阳坐命者在人际关系中须注意边界感——自认为的对别人好，可能因过于强势而让对方倍感压力。\"}}, {\"id\": \"E022\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"tianjiMaj\", \"data\": {\"key\": \"tianjiMaj\", \"name\": \"天机\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"wood\", \"stem\": \"yi\", \"five_elements_note\": null, \"dipper\": \"南斗第三星\", \"chemistry\": \"善\", \"career\": \"兄弟主\", \"duty\": \"掌管智慧，精神\", \"aliases\": [\"驿马星\", \"宗教星\", \"定轴星\", \"智慧星\", \"益寿星\"], \"element_color\": \"青色\", \"energy_color\": \"蓝光\"}, \"excerpt\": \"天机星是一颗“策划型”星曜，也是 `第六感` 的来源。其思维非常活跃，能以常人难以发现的角度看待人、事、物。但也正因过于聪明，执行力受到了压制——能想办法让别人做的，自己便懒得动手。这并非天机没有执行力，而是比起动手，更喜欢动脑与动嘴。\\n\\n天机星为 `兄弟主`，号召力与社交能力都非常强。有天机星在的场合一般不会冷场，其能恰如其分地带动现场气氛，故又称 `定轴星`。但天机很难静下心深入研究一件事，常出现知识宽度有余而深度不足的问题。\\n\\n天机星特别不喜欢“笨蛋”，又因耐心不足，很不愿带着其眼中愚钝的人一起行事，常对其认为蠢的人事物流露不屑。\"}}, {\"id\": \"E023\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"tianliangMaj\", \"data\": {\"key\": \"tianliangMaj\", \"name\": \"天梁\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yang\", \"five_elements\": \"earth\", \"stem\": \"wu\", \"five_elements_note\": null, \"dipper\": \"南斗第二星\", \"chemistry\": \"荫\", \"career\": \"父母主\", \"duty\": \"统帅、庇荫\", \"aliases\": [\"荫星\", \"长辈星\", \"状元星（阳梁昌禄格）\", \"医药星\", \"赌气星\", \"吹牛星\", \"寿星\"], \"element_color\": \"黄色\", \"energy_color\": \"正黄光\"}, \"excerpt\": \"天梁星有着 `武曲星` 一般的倔犟，形象犹如一头牛；但与武曲不同的是，天梁星喜欢与人打交道。天梁与人相处的方式带着浓浓的江湖气，有着乔峰一般的豪气干云。若被天梁当作兄弟相待，对方却客客气气，他反而会很不舒服。\\n\\n天梁星的人天然给人一种“稳重”“老成”的感觉。化气为 `荫` 的天梁非常喜欢庇荫弱小，反而不太给比自己强势的人面子。也正因这些特质，天梁显得格外清高。同为不争：天同星是不敢去争，天府星是不想去争，天梁星则是不屑去争。\\n\\n由此不难看出，交友不慎对天梁的影响非常巨大：愿为朋友两肋插刀的个性让天梁星看似朋友众多，但现实中真正能为对方着想的朋友很少。\"}}, {\"id\": \"E024\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"tianmaMin\", \"data\": {\"key\": \"tianmaMin\", \"name\": \"天马\", \"category\": \"minor\", \"attributes\": {\"yin_yang\": \"yang\", \"five_elements\": \"fire\", \"stem\": \"bing\", \"five_elements_note\": null, \"dipper\": \"中天星系\", \"chemistry\": \"驿马\", \"career\": \"迁移主\", \"duty\": \"变动，变迁\", \"aliases\": [\"驿马星\", \"动星\", \"财星\", \"司禄之星\"], \"element_color\": null, \"energy_color\": null}, \"excerpt\": \"若论紫微斗数里最坐不住的星曜，非天马莫属，它会增加很多变数和不确定性。天马星精力旺盛，充满活力，喜欢追求刺激和变化，通常难以安坐，不断寻找新的挑战和机遇。天马星充满冒险精神，喜欢尝试新鲜事物，对枯燥乏味的生活缺乏耐心，渴望自由和多样性，不愿受到束缚和限制。\\n\\n天马星会积极主动地追求自己内心的目标，喜欢自由自在的氛围，渴望探索未知，追求个人的成长和发展。对喜欢四处奔走的人来说，天马星无疑是加分的；但对想安定下来的人而言，就比较痛苦了。\\n\\n比起在一个目标上坚持到底，天马星更喜欢寻找不同的机遇和可能性，这也使天马星比一般人更容易发现成功的机会。\"}}, {\"id\": \"E025\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"tuoluoMin\", \"data\": {\"key\": \"tuoluoMin\", \"name\": \"陀罗\", \"category\": \"minor\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"metal\", \"stem\": \"xin\", \"five_elements_note\": null, \"dipper\": \"北斗浮星\", \"chemistry\": \"忌\", \"career\": null, \"duty\": \"是非，残忍\", \"aliases\": [\"是非星\", \"纠缠星\"], \"element_color\": \"白色\", \"energy_color\": \"暗红光\"}, \"excerpt\": \"陀罗星，其名通“陀螺”，即孩童抽打的那种旋转玩具，是一颗不停旋转的星曜。这颗星会带来一种容易纠结的情绪，而纠结就容易拖延。陀罗星在做决定时比较容易陷入纠结和犹豫之中，难以迅速做出抉择，行动上因而显得犹豫不决，容易拖延或错失时机。\\n\\n诚然，三思而后行确实可以避免很多风险，很多时候也能增加事情的成功率，但陀罗星仍需学会克服纠结、勇敢面对抉择，以免错失机会或陷入无休止的循环之中。星曜的特质并没有优劣，只是一种特点，善用这种特点也会收到意想不到的效果。\\n\\n陀罗星善于研究，做事循序渐进，不骄不躁，适合接触一些长线任务；比起眼前的利益，更在意长足的进步和沉淀。\"}}, {\"id\": \"E026\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"wealthPalace\", \"data\": {\"key\": \"wealthPalace\", \"name\": \"财帛\", \"excerpt\": \"财帛宫常被直接联想为财富，以为财帛宫好就是财运好，其实不然：财帛宫展现的是星盘主人对财务的态度、理财观念、物质欲望等。从原理上说，财帛宫是星盘主人的 `养分`，是维持其生活或生存的宫位。财帛宫在星盘上表现突出，代表星盘主人比较“吃资源”，需要比一般人更多的物质条件才能过得和一般人一样好，从而在理财和对赚钱机会的敏感度上会比普通人更好，以满足自己的物质需求，`会花钱才会挣钱` 说的就是这类人。真正财富的积累，看的是 `田宅宫`。\"}}]}"
+      },
+      {
+        "event": "error",
+        "data": "{\"type\": \"llm_upstream\", \"detail\": \"LLM upstream error\"}"
+      }
+    ],
+    "replaced": false,
+    "replay": false,
+    "violations": null,
+    "output": "",
+    "latency": 600.0514460159902,
+    "topic": "wealth",
+    "chart": "b14",
+    "chart_id": "cs_dc5f1823e68b46829ea6a410"
+  },
+  {
+    "status": "error",
+    "events": [
+      {
+        "event": "metadata",
+        "data": "{\"runId\": \"ir_fe137288c12f4ae5b347bdbe\", \"topic\": \"love\", \"promptVersion\": \"love-v1\", \"model\": \"swe-2-worker\"}"
+      },
+      {
+        "event": "evidence",
+        "data": "{\"bundleId\": \"ev_88bf5b2d351e41d7987903f3\", \"items\": [{\"id\": \"E001\", \"kind\": \"palace_fact\", \"source\": \"x-iztro\", \"scope\": \"surrounded:opposite\", \"palace_key\": \"careerPalace\", \"entity_key\": \"careerPalace\", \"data\": {\"index\": 4, \"name\": \"Quan Lộc\", \"stemBranch\": \"Bính Ngọ\", \"majorStars\": [{\"key\": \"ziweiMaj\", \"name\": \"Tử Vi\"}], \"minorStars\": [{\"key\": \"zuofuMin\", \"name\": \"Tả Phù\"}, {\"key\": \"wenquMin\", \"name\": \"Văn Khúc\"}]}}, {\"id\": \"E002\", \"kind\": \"palace_fact\", \"source\": \"x-iztro\", \"scope\": \"surrounded:career\", \"palace_key\": \"spiritPalace\", \"entity_key\": \"spiritPalace\", \"data\": {\"index\": 2, \"name\": \"Phúc Đức\", \"stemBranch\": \"Giáp Thìn\", \"majorStars\": [{\"key\": \"qishaMaj\", \"name\": \"Thất Sát\"}], \"minorStars\": []}}, {\"id\": \"E003\", \"kind\": \"palace_fact\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"spousePalace\", \"entity_key\": \"spousePalace\", \"data\": {\"index\": 10, \"name\": \"Phu Thê\", \"stemBranch\": \"Nhâm Tý\", \"isBodyPalace\": false, \"majorStars\": [{\"key\": \"tanlangMaj\", \"name\": \"Tham Lang\", \"brightness\": \"Vượng\", \"mutagen\": null}], \"minorStars\": [{\"key\": \"qingyangMin\", \"name\": \"Kình Dương\", \"mutagen\": null}], \"decadal\": {\"earthlyBranch\": \"Tý\", \"earthlyBranchKey\": \"ziEarthly\", \"heavenlyStem\": \"Nhâm\", \"heavenlyStemKey\": \"renHeavenly\", \"range\": [104, 113]}, \"ages\": [9, 21, 33, 45, 57, 69, 81, 93, 105, 117]}}, {\"id\": \"E004\", \"kind\": \"palace_fact\", \"source\": \"x-iztro\", \"scope\": \"surrounded:wealth\", \"palace_key\": \"surfacePalace\", \"entity_key\": \"surfacePalace\", \"data\": {\"index\": 6, \"name\": \"Thiên Di\", \"stemBranch\": \"Mậu Thân\", \"majorStars\": [{\"key\": \"pojunMaj\", \"name\": \"Phá Quân\"}], \"minorStars\": [{\"key\": \"youbiMin\", \"name\": \"Hữu Bật\"}, {\"key\": \"wenchangMin\", \"name\": \"Văn Xương\"}, {\"key\": \"tianmaMin\", \"name\": \"Thiên Mã\"}]}}, {\"id\": \"E005\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"careerPalace\", \"entity_key\": \"ziweiMaj\", \"data\": {\"starName\": \"Tử Vi\", \"starKey\": \"ziweiMaj\", \"mutagen\": \"Quyền\", \"mutagenKey\": \"sihuaQuan\", \"palace\": \"Quan Lộc\", \"palaceKey\": \"careerPalace\"}}, {\"id\": \"E006\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"careerPalace\", \"entity_key\": \"zuofuMin\", \"data\": {\"starName\": \"Tả Phù\", \"starKey\": \"zuofuMin\", \"mutagen\": \"Khoa\", \"mutagenKey\": \"sihuaKe\", \"palace\": \"Quan Lộc\", \"palaceKey\": \"careerPalace\"}}, {\"id\": \"E007\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"parentsPalace\", \"entity_key\": \"tianliangMaj\", \"data\": {\"starName\": \"Thiên Lương\", \"starKey\": \"tianliangMaj\", \"mutagen\": \"Lộc\", \"mutagenKey\": \"sihuaLu\", \"palace\": \"Phụ Mẫu\", \"palaceKey\": \"parentsPalace\"}}, {\"id\": \"E008\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"soulPalace\", \"entity_key\": \"wuquMaj\", \"data\": {\"starName\": \"Vũ Khúc\", \"starKey\": \"wuquMaj\", \"mutagen\": \"Kỵ\", \"mutagenKey\": \"sihuaJi\", \"palace\": \"Mệnh\", \"palaceKey\": \"soulPalace\"}}, {\"id\": \"E009\", \"kind\": \"horoscope_fact\", \"source\": \"x-iztro\", \"scope\": \"age:2028-01-26\", \"palace_key\": \"\", \"entity_key\": \"age\", \"data\": {\"earthlyBranch\": \"Ngọ\", \"earthlyBranchKey\": \"wuEarthly\", \"heavenlyStem\": \"Bính\", \"heavenlyStemKey\": \"bingHeavenly\", \"index\": 4, \"mutagen\": [\"Thiên Đồng\", \"Thiên Cơ\", \"Văn Xương\", \"Liêm Trinh\"], \"mutagenStarKeys\": [\"tiantongMaj\", \"tianjiMaj\", \"wenchangMin\", \"lianzhenMaj\"], \"name\": \"Tiểu Hạn\", \"nameKey\": \"turn\", \"nominalAge\": 27, \"palaceNameKeys\": [\"wealthPalace\", \"childrenPalace\", \"spousePalace\", \"siblingsPalace\", \"soulPalace\", \"parentsPalace\", \"spiritPalace\", \"propertyPalace\", \"careerPalace\", \"friendsPalace\", \"surfacePalace\", \"healthPalace\"], \"palaceNames\": [\"Tài Bạch\", \"Tử Nữ\", \"Phu Thê\", \"Huynh Đệ\", \"Mệnh\", \"Phụ Mẫu\", \"Phúc Đức\", \"Điền Trạch\", \"Quan Lộc\", \"Nô Bộc\", \"Thiên Di\", \"Tật Ách\"], \"sihuaKeys\": [\"sihuaLu\", \"sihuaQuan\", \"sihuaKe\", \"sihuaJi\"]}}, {\"id\": \"E010\", \"kind\": \"horoscope_fact\", \"source\": \"x-iztro\", \"scope\": \"decadal:2028-01-26\", \"palace_key\": \"\", \"entity_key\": \"decadal\", \"data\": {\"earthlyBranch\": \"Thìn\", \"earthlyBranchKey\": \"chenEarthly\", \"heavenlyStem\": \"Giáp\", \"heavenlyStemKey\": \"jiaHeavenly\", \"index\": 2, \"mutagen\": [\"Liêm Trinh\", \"Phá Quân\", \"Vũ Khúc\", \"Thái Dương\"], \"mutagenStarKeys\": [\"lianzhenMaj\", \"pojunMaj\", \"wuquMaj\", \"taiyangMaj\"], \"name\": \"Đại Hạn\", \"nameKey\": \"decadal\", \"palaceNameKeys\": [\"spousePalace\", \"siblingsPalace\", \"soulPalace\", \"parentsPalace\", \"spiritPalace\", \"propertyPalace\", \"careerPalace\", \"friendsPalace\", \"surfacePalace\", \"healthPalace\", \"wealthPalace\", \"childrenPalace\"], \"palaceNames\": [\"Phu Thê\", \"Huynh Đệ\", \"Mệnh\", \"Phụ Mẫu\", \"Phúc Đức\", \"Điền Trạch\", \"Quan Lộc\", \"Nô Bộc\", \"Thiên Di\", \"Tật Ách\", \"Tài Bạch\", \"Tử Nữ\"], \"stars\": [[{\"key\": \"yunlu\", \"name\": \"Vận Lộc\", \"scope\": \"decadal\", \"type\": \"lucun\"}, {\"key\": \"yunma\", \"name\": \"Vận Mã\", \"scope\": \"decadal\", \"type\": \"tianma\"}], [{\"key\": \"yunyang\", \"name\": \"Vận Dương\", \"scope\": \"decadal\", \"type\": \"tough\"}], [], [{\"key\": \"yunchang\", \"name\": \"Vận Xương\", \"scope\": \"decadal\", \"type\": \"soft\"}, {\"key\": \"yunxi\", \"name\": \"Vận Hỷ\", \"scope\": \"decadal\", \"type\": \"flower\"}], [], [{\"key\": \"yunyue\", \"name\": \"Vận Việt\", \"scope\": \"decadal\", \"type\": \"soft\"}], [], [{\"key\": \"yunqu\", \"name\": \"Vận Khúc\", \"scope\": \"decadal\", \"type\": \"soft\"}], [], [{\"key\": \"yunluan\", \"name\": \"Vận Loan\", \"scope\": \"decadal\", \"type\": \"flower\"}], [], [{\"key\": \"yunkui\", \"name\": \"Vận Khôi\", \"scope\": \"decadal\", \"type\": \"soft\"}, {\"key\": \"yuntuo\", \"name\": \"Vận Đà\", \"scope\": \"decadal\", \"type\": \"tough\"}]], \"sihuaKeys\": [\"sihuaLu\", \"sihuaQuan\", \"sihuaKe\", \"sihuaJi\"]}}, {\"id\": \"E011\", \"kind\": \"horoscope_fact\", \"source\": \"x-iztro\", \"scope\": \"yearly:2028-01-26\", \"palace_key\": \"\", \"entity_key\": \"yearly\", \"data\": {\"earthlyBranch\": \"Thân\", \"earthlyBranchKey\": \"shenEarthly\", \"heavenlyStem\": \"Mậu\", \"heavenlyStemKey\": \"wuHeavenly\", \"index\": 6, \"mutagen\": [\"Tham Lang\", \"Thái Âm\", \"Hữu Bật\", \"Thiên Cơ\"], \"mutagenStarKeys\": [\"tanlangMaj\", \"taiyinMaj\", \"youbiMin\", \"tianjiMaj\"], \"name\": \"Lưu Niên\", \"nameKey\": \"yearly\", \"palaceNameKeys\": [\"surfacePalace\", \"healthPalace\", \"wealthPalace\", \"childrenPalace\", \"spousePalace\", \"siblingsPalace\", \"soulPalace\", \"parentsPalace\", \"spiritPalace\", \"propertyPalace\", \"careerPalace\", \"friendsPalace\"], \"palaceNames\": [\"Thiên Di\", \"Tật Ách\", \"Tài Bạch\", \"Tử Nữ\", \"Phu Thê\", \"Huynh Đệ\", \"Mệnh\", \"Phụ Mẫu\", \"Phúc Đức\", \"Điền Trạch\", \"Quan Lộc\", \"Nô Bộc\"], \"stars\": [[{\"key\": \"nianjie\", \"name\": \"Niên Giải\", \"scope\": \"yearly\", \"type\": \"helper\"}, {\"key\": \"liuma\", \"name\": \"Lưu Mã\", \"scope\": \"yearly\", \"type\": \"tianma\"}], [], [{\"key\": \"liutuo\", \"name\": \"Lưu Đà\", \"scope\": \"yearly\", \"type\": \"tough\"}], [{\"key\": \"liulu\", \"name\": \"Lưu Lộc\", \"scope\": \"yearly\", \"type\": \"lucun\"}], [{\"key\": \"liuqu\", \"name\": \"Lưu Khúc\", \"scope\": \"yearly\", \"type\": \"soft\"}, {\"key\": \"liuyang\", \"name\": \"Lưu Dương\", \"scope\": \"yearly\", \"type\": \"tough\"}], [{\"key\": \"liuyue\", \"name\": \"Lưu Việt\", \"scope\": \"yearly\", \"type\": \"soft\"}, {\"key\": \"liuluan\", \"name\": \"Lưu Loan\", \"scope\": \"yearly\", \"type\": \"flower\"}], [{\"key\": \"liuchang\", \"name\": \"Lưu Xương\", \"scope\": \"yearly\", \"type\": \"soft\"}], [], [], [], [], [{\"key\": \"liukui\", \"name\": \"Lưu Khôi\", \"scope\": \"yearly\", \"type\": \"soft\"}, {\"key\": \"liuxi\", \"name\": \"Lưu Hỷ\", \"scope\": \"yearly\", \"type\": \"flower\"}]], \"yearlyDecStar\": {\"jiangqian12\": [\"Tuế Dịch\", \"Tức Thần\", \"Hoa Cái\", \"Kiếp Sát\", \"Tai Sát\", \"Thiên Sát\", \"Chỉ Bối\", \"Hàm Trì\", \"Nguyệt Sát\", \"Vong Thần\", \"Tướng Tinh\", \"Phan Án\"], \"jiangqian12Keys\": [\"suiyi\", \"xiishen\", \"huagai\", \"jiesha\", \"zhaisha\", \"tiansha\", \"zhibei\", \"xianchi\", \"yuesha\", \"wangshen\", \"jiangxing\", \"panan\"], \"suiqian12\": [\"Đại Hao\", \"Long Đức\", \"Bạch Hổ\", \"Thiên Đức\", \"Điếu Khách\", \"Bệnh Phù\", \"Tuế Kiện\", \"Hối Khí\", \"Tang Môn\", \"Quán Tác\", \"Quan Phù\", \"Tiểu Hao\"], \"suiqian12Keys\": [\"dahao\", \"longde\", \"baihu\", \"tiande\", \"diaoke\", \"bingfu\", \"suijian\", \"huiqi\", \"sangmen\", \"guansuo\", \"gwanfu\", \"xiaohao\"]}, \"sihuaKeys\": [\"sihuaLu\", \"sihuaQuan\", \"sihuaKe\", \"sihuaJi\"]}}, {\"id\": \"E012\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"careerPalace\", \"data\": {\"key\": \"careerPalace\", \"name\": \"官禄\", \"excerpt\": \"官禄宫又叫 `事业宫`，展示星盘主人的 `做事态度` 和对工作的态度。即便对未来职业尚无规划和想法，官禄宫也能给出一个方向，指出适合什么类型的工作，从而有针对性地查缺补漏，补足预设工作所需而尚未掌握的技能。尚未工作、全职持家或依赖伴侣生活的人也不例外——官禄宫展示的是一种 `处事态度`，无论有无工作都有影响：对学生而言，`学习` 就是日常工作；对全职持家者而言，`照顾家庭` 就是日常工作；对依赖伴侣生活者而言，把这份依赖经营稳固便是其日常之事。\"}}, {\"id\": \"E013\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"pojunMaj\", \"data\": {\"key\": \"pojunMaj\", \"name\": \"破军\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"water\", \"stem\": \"gui\", \"five_elements_note\": null, \"dipper\": \"北斗第七星\", \"chemistry\": \"耗\", \"career\": \"迁移主\", \"duty\": \"破损消耗\", \"aliases\": [\"消耗星\", \"垃圾星\", \"远洋星\", \"流氓星\", \"先锋星\"], \"element_color\": \"黑色\", \"energy_color\": \"黑光\"}, \"excerpt\": \"破军代表士兵，在阵前冲锋陷阵，故化气为 `耗`，代表着一种消耗。破军有 `先破后立`、`破釜沉舟` 的魄力：一旦认定一件事，便不太在意既定规则；若规则不容，便打破旧规、建立自己的新规则。\\n\\n`杀破狼` 格局的人一般不喜欢平凡而碌碌无为的人生，喜欢拼搏闯荡，人生因此过得比较精彩、大起大落。破军星并非四肢发达、头脑简单的形象，而是企划与执行兼具的星曜，其企划能力多显现在艺术领域；且破军一旦看中某个领域，很容易在其中深耕下去。\\n\\n杀破狼格局天生自带反骨，给人桀骜不驯之感，其中以破军星最甚。这种明知不可为而为之的个性，容易让其登上云端，也更容易让其跌入谷底。\"}}, {\"id\": \"E014\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"qingyangMin\", \"data\": {\"key\": \"qingyangMin\", \"name\": \"擎羊\", \"category\": \"minor\", \"attributes\": {\"yin_yang\": \"yang\", \"five_elements\": \"metal\", \"stem\": \"geng\", \"five_elements_note\": \"丙火\", \"dipper\": \"北斗浮星\", \"chemistry\": \"刑\", \"career\": null, \"duty\": \"粗暴，残忍\", \"aliases\": [\"加工星\", \"叛逆星\"], \"element_color\": \"白色\", \"energy_color\": \"红白光\"}, \"excerpt\": \"若说火星是思想上的冲动，擎羊便是行为上的冲动，是典型的行动派。擎羊星更倾向于通过实际行动来表达自己，而不是空谈或空想；喜欢迅速采取行动，勇于面对挑战，不畏艰难。这种行为上的冲动使其在处理问题时更加果断和勇敢，善于迅速做出决策并付诸行动。\\n\\n“三思而后行”在擎羊星这里是不存在的，所以需要注意在行动之前多加思考，避免因冲动而犯下错误。行动派的特质使其在实现目标和克服困难时显得坚定而果断，但也需要在行动之前充分考虑各种可能的后果。\\n\\n擎羊星通常更注重自己的行动和目标，相对不太在意他人的看法或期待，倾向于按照自己的方式和节奏生活，不太受外界影响。\"}}, {\"id\": \"E015\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"qishaMaj\", \"data\": {\"key\": \"qishaMaj\", \"name\": \"七杀\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"metal\", \"stem\": \"xin\", \"five_elements_note\": null, \"dipper\": \"南斗第六星\", \"chemistry\": \"肃杀\", \"career\": \"迁移主\", \"duty\": \"威猛，肃杀，变动\", \"aliases\": [\"死亡星\", \"变动星\", \"酷星\"], \"element_color\": \"白色\", \"energy_color\": \"黑光\"}, \"excerpt\": \"七杀之名听来“杀气很重”，实则不然——七杀星虽亲和力不强，却未必是凶神恶煞的模样。在 `杀破狼` 的组合里，若贪狼是指挥官，七杀星便是带兵的将领，破军则是冲锋陷阵的士兵。\\n\\n作为一个“将领”，七杀星需要坚定不移的信念方能带队向前，故七杀星代表 `坚持` 与 `执着` 的力量。然而执行力过于强大便会想得少，常给人“愣头青”的感觉。这只是七杀单星的特质，与其他策划型星曜组合时，其策划能力也会随之增强。\\n\\n七杀星缺少亲和力，社交上给人一种“不敢主动靠近”的感觉。七杀坐命者宜多保持笑容、社交中主动一些，并多听取他人的建议与劝导，勿闷头一条道走到黑。\"}}, {\"id\": \"E016\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"spiritPalace\", \"data\": {\"key\": \"spiritPalace\", \"name\": \"福德\", \"excerpt\": \"迁移宫代表外在，相当于游戏里的 `皮肤`；命宫代表本质属性，相当于游戏角色的 `初始属性点`，属 `力量型`、`智力型` 还是 `敏捷型`，从命宫体现出来；疾厄宫代表身体的强弱，相当于物理抗性；而 `福德宫`，代表的是星盘主人的 `思想`。紫微斗数中常有 `修福德宫` 的说法，说的就是锻炼出一颗强大的心脏，不以物喜、不以己悲，做一个情绪稳定的人，从而不易受外界刺激而做出冲动或错误的决定和行为。其他宫位很多时候处于一种 `潜意识` 的状态去互动，`福德宫` 做出的行为却是经过思考的行为，所以福德宫锻炼得越强大，人生的容错性就越高。\"}}, {\"id\": \"E017\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"spousePalace\", \"data\": {\"key\": \"spousePalace\", \"name\": \"夫妻\", \"excerpt\": \"夫妻宫是代表 `感情` 的宫位，展示星盘主人的择偶观和对感情的态度。它虽不在命宫的 `三方四正` 内，但因感情和婚姻而影响自己一生的人大有人在，所以十二宫讲求的是平衡，而非某一宫独好。寻觅伴侣时若不清楚自己喜欢什么样的人、什么个性的人对自己有吸引力，可排出自己的紫微斗数星盘参考。所谓 `合盘`，就是拿出男女双方星盘的命宫及夫妻宫进行对比，看双方三观与对待感情的态度是否相合。另外，夫妻宫常被认为是看 `桃花` 的宫位，其实不然，代表 `桃花` 的宫位是 `子女宫`，而不是夫妻宫。\"}}, {\"id\": \"E018\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"surfacePalace\", \"data\": {\"key\": \"surfacePalace\", \"name\": \"迁移\", \"excerpt\": \"迁移宫是以一个 `入口` 的存在而展现在紫微斗数星盘上的：人需要“伪装”来保护自己，`迁移宫` 展现出来的特质就是一种 `伪装`，或者是 `包装`。社交中常听到“我刚认识他的时候他不是这样的”“你现在咋变成这样了呢，你以前不这样的”，正是因为相处久了以后，透过 `迁移宫` 看到了 `命宫` 甚至 `福德宫` 的个性。\"}}, {\"id\": \"E019\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"tanlangMaj\", \"data\": {\"key\": \"tanlangMaj\", \"name\": \"贪狼\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yang\", \"five_elements\": \"wood\", \"stem\": \"jia\", \"five_elements_note\": \"气为水\", \"dipper\": \"北斗第一星\", \"chemistry\": \"桃花\", \"career\": \"子女主\", \"duty\": \"欲望，物质\", \"aliases\": [\"桃花星\", \"交际星\", \"标准星\", \"才艺星\", \"赌星（闹财星）\", \"武术星\", \"宗教星\", \"幻想星\"], \"element_color\": \"青色\", \"energy_color\": \"赤蓝光\"}, \"excerpt\": \"贪狼是紫微斗数里的第一桃花星。桃花星的本质是 `社交` 与 `受欢迎`，而非许多人理解的男女之情。贪狼星另一个广为人知的特性是代表 `欲望`，这里的 `欲望` 也常被曲解为 `男欢女爱`，这是对贪狼星最大的误解。贪狼星的欲望取决于其兴趣所在：对感兴趣的东西会深究到底、想方设法去探索研究。它是人类欲望的源头——人有了欲望，才会去奋斗，才会去拼搏。\\n\\n贪狼是一颗充满好奇心的星曜，热爱思考，对感兴趣的事情有着非常浓烈的热情。当贪狼星喜欢上一个人、一件东西或一件事时，比较容易上瘾。这种特质若用在正确的地方，贪狼星的成就不可限量。\"}}, {\"id\": \"E020\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"tianmaMin\", \"data\": {\"key\": \"tianmaMin\", \"name\": \"天马\", \"category\": \"minor\", \"attributes\": {\"yin_yang\": \"yang\", \"five_elements\": \"fire\", \"stem\": \"bing\", \"five_elements_note\": null, \"dipper\": \"中天星系\", \"chemistry\": \"驿马\", \"career\": \"迁移主\", \"duty\": \"变动，变迁\", \"aliases\": [\"驿马星\", \"动星\", \"财星\", \"司禄之星\"], \"element_color\": null, \"energy_color\": null}, \"excerpt\": \"若论紫微斗数里最坐不住的星曜，非天马莫属，它会增加很多变数和不确定性。天马星精力旺盛，充满活力，喜欢追求刺激和变化，通常难以安坐，不断寻找新的挑战和机遇。天马星充满冒险精神，喜欢尝试新鲜事物，对枯燥乏味的生活缺乏耐心，渴望自由和多样性，不愿受到束缚和限制。\\n\\n天马星会积极主动地追求自己内心的目标，喜欢自由自在的氛围，渴望探索未知，追求个人的成长和发展。对喜欢四处奔走的人来说，天马星无疑是加分的；但对想安定下来的人而言，就比较痛苦了。\\n\\n比起在一个目标上坚持到底，天马星更喜欢寻找不同的机遇和可能性，这也使天马星比一般人更容易发现成功的机会。\"}}, {\"id\": \"E021\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"wenchangMin\", \"data\": {\"key\": \"wenchangMin\", \"name\": \"文昌\", \"category\": \"minor\", \"attributes\": {\"yin_yang\": \"yang\", \"five_elements\": \"metal\", \"stem\": \"geng\", \"five_elements_note\": null, \"dipper\": \"南斗之星\", \"chemistry\": \"文贵\", \"career\": null, \"duty\": \"正途功名，科甲\", \"aliases\": [\"科甲星\", \"文书星\", \"风流星\", \"桃花星\"], \"element_color\": \"白色\", \"energy_color\": \"青白光\"}, \"excerpt\": \"文昌星是紫微斗数第一科甲之星，代表文书类的事务，可视作“小天梁”，有着天梁的清高和倔强。古籍中把文昌星叫做“正途功名”，即家庭与社会普遍认可、循正规路径求取的功名。\\n\\n这颗星比较喜欢文学，会给人文质彬彬的感觉。单独而论，文昌并不属于桃花星，反而会给人比较呆板、缺乏变通的感觉；但一旦和其他桃花星组合，就变成了桃花星，从呆板变为风流倜傥。\\n\\n文昌星的记忆力比较好，听过的话、看过的书都比较容易记住，当然这是相对而言。文昌的科甲之名也由此而来：在旧时的社会环境下，文学功底与记忆力是考取功名的利器；这些能力在当今社会依然强势，只是已没有当初那种不可取代的地位。\"}}, {\"id\": \"E022\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"wenquMin\", \"data\": {\"key\": \"wenquMin\", \"name\": \"文曲\", \"category\": \"minor\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"water\", \"stem\": \"gui\", \"five_elements_note\": null, \"dipper\": \"北斗第四星\", \"chemistry\": \"文华\", \"career\": null, \"duty\": \"异途功名，优雅，口才，才华\", \"aliases\": [\"八卦星\", \"才艺星\", \"偏房星\", \"才华星\", \"艺术星\", \"桃花星\", \"浪漫星\", \"细姨星\"], \"element_color\": \"黑色\", \"energy_color\": \"米黄光\"}, \"excerpt\": \"文曲星是紫微斗数里第一文艺之星，代表艺术修养与浪漫，被称作“异途功名”，亦不妨理解为“艺途功名”。异途与正途相对：正途是家庭与社会普遍认可的功名之路，异途则是长辈与世俗往往并不看好的路子，多与艺术等非传统科目相关。\\n\\n文曲星通常比较善于变通，内心多愁善感。也因为文曲星会增加一些表达能力，所以在紫微斗数里引申出了口舌是非的意象。\\n\\n文曲星需要增加自己的文化底蕴，让艺术气息有根基，否则容易给人无病呻吟、故作深沉之感。紫微斗数中有很多“对星”，同宫相会会产生共振、带来额外加成：文昌文曲在一起会形成文贵文华格，表示才华出众；但不宜太过依赖格局，否则容易造成误判。\"}}, {\"id\": \"E023\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"youbiMin\", \"data\": {\"key\": \"youbiMin\", \"name\": \"右弼\", \"category\": \"minor\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"water\", \"stem\": \"gui\", \"five_elements_note\": null, \"dipper\": null, \"chemistry\": \"助力\", \"career\": null, \"duty\": \"司制令\", \"aliases\": [\"贵人星\"], \"element_color\": \"黑色\", \"energy_color\": \"米黄光\"}, \"excerpt\": \"相比左辅星的直接，右弼星显得较为柔和，而且右弼的帮助是在背后默默付出的那种，常常令人感受不深，因此被冠以“女性”贵人的名头。温柔、善良、体贴、善解人意，这些美好的词都可用来修饰右弼星。\\n\\n右弼星善于倾听他人的需求，并愿意给予帮助和支持，在人际关系中扮演和善的角色，能够给予他人安慰和鼓励。也因此，右弼星常被认为“耳根子软”——容易被别人的意见左右，立场与想法都不够坚定。\\n\\n很多强势的星曜都适合与右弼星搭档：有了右弼星的加入，会柔化那些强势星曜的棱角，使其变得比较听得进劝告。然而，本身意志就不坚定的星曜若与右弼星组合，则会变得过于优柔寡断。\\n\\n这些特质让右弼星收获不少好评，成为颇受喜爱的一颗星曜。\"}}, {\"id\": \"E024\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"ziweiMaj\", \"data\": {\"key\": \"ziweiMaj\", \"name\": \"紫微\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"earth\", \"stem\": \"ji\", \"five_elements_note\": null, \"dipper\": \"中天星系\", \"chemistry\": \"尊贵\", \"career\": \"官禄主\", \"duty\": \"众星枢纽，长五行，孕万物\", \"aliases\": [\"帝王星\", \"老板星\", \"俸禄星\"], \"element_color\": \"黄色\", \"energy_color\": \"紫光\"}, \"excerpt\": \"紫微星号称 `帝王星`，并非指紫微坐命者能成帝王，而是指其个性带有“王者”特质：控制欲与占有欲较强，偏爱华美的事物与称赞，重视体面甚于实际，也因此常给人较强的距离感。紫微星具备许多领导型人格所需的特质：目标长远、大局观强、好为人师等。\\n\\n紫微是一颗非常“吃资源”的星曜：若能获得足够的支持与培养条件，使其能力与自身气场相匹配，便会发挥出强大的控场与规划能力；若自身认知水平不足，缺乏足以支撑这颗星的知识与能力，则容易变得眼高手低、高不成低不就。\\n\\n故 `紫微星` 坐命者宜扩展知识的广度，把自身基础打牢，如此在工作与生活中便容易成为受人尊敬的人。\"}}, {\"id\": \"E025\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"zuofuMin\", \"data\": {\"key\": \"zuofuMin\", \"name\": \"左辅\", \"category\": \"minor\", \"attributes\": {\"yin_yang\": \"yang\", \"five_elements\": \"earth\", \"stem\": \"wu\", \"five_elements_note\": null, \"dipper\": null, \"chemistry\": \"助力\", \"career\": null, \"duty\": \"行善令\", \"aliases\": [\"贵人星\"], \"element_color\": \"黄色\", \"energy_color\": \"黄光\"}, \"excerpt\": \"世人多喜“贵人”，但对贵人常有误解，以为贵人必定是对自己帮助很大的人；实际上贵人未必是朋友，甚至未必是具体的人。左辅的特质是助力，因此左辅星在命宫的人特别喜欢帮助、提拔别人，这种帮助带有“长辈视角”、自上而下的意味。\\n\\n因此，左辅星有“提高身份地位”的作用。许多人把左辅星视为“男性”贵人，是因为其帮助比较直接且强势，感受明显。由此不难推断，左辅比较容易有“架子”：左辅星的人在工作或社交场合中会展现出自信和权威，喜欢扮演引领者的角色，愿意为他人提供指导和支持。\\n\\n然而，这种直接和强势有时会让人觉得有些“高冷”、不易接近。\"}}]}"
+      },
+      {
+        "event": "error",
+        "data": "{\"type\": \"llm_upstream\", \"detail\": \"LLM upstream error\"}"
+      }
+    ],
+    "replaced": false,
+    "replay": false,
+    "violations": null,
+    "output": "",
+    "latency": 191.9817991949967,
+    "topic": "love",
+    "chart": "b24",
+    "chart_id": "cs_60cd3d2a154b43bc823c3867"
+  },
+  {
+    "status": "error",
+    "events": [
+      {
+        "event": "metadata",
+        "data": "{\"runId\": \"ir_afe085f5259d429d9e793075\", \"topic\": \"wealth\", \"promptVersion\": \"wealth-v1\", \"model\": \"swe-2-worker\"}"
+      },
+      {
+        "event": "evidence",
+        "data": "{\"bundleId\": \"ev_507f462aa606432ba5cfbefd\", \"items\": [{\"id\": \"E001\", \"kind\": \"palace_fact\", \"source\": \"x-iztro\", \"scope\": \"surrounded:wealth\", \"palace_key\": \"careerPalace\", \"entity_key\": \"careerPalace\", \"data\": {\"index\": 8, \"name\": \"Quan Lộc\", \"stemBranch\": \"Giáp Tuất\", \"majorStars\": [{\"key\": \"pojunMaj\", \"name\": \"Phá Quân\"}], \"minorStars\": []}}, {\"id\": \"E002\", \"kind\": \"palace_fact\", \"source\": \"x-iztro\", \"scope\": \"surrounded:career\", \"palace_key\": \"soulPalace\", \"entity_key\": \"soulPalace\", \"data\": {\"index\": 4, \"name\": \"Mệnh\", \"stemBranch\": \"Canh Ngọ\", \"majorStars\": [{\"key\": \"qishaMaj\", \"name\": \"Thất Sát\"}], \"minorStars\": [{\"key\": \"zuofuMin\", \"name\": \"Tả Phù\"}]}}, {\"id\": \"E003\", \"kind\": \"palace_fact\", \"source\": \"x-iztro\", \"scope\": \"surrounded:opposite\", \"palace_key\": \"spiritPalace\", \"entity_key\": \"spiritPalace\", \"data\": {\"index\": 6, \"name\": \"Phúc Đức\", \"stemBranch\": \"Nhâm Thân\", \"majorStars\": [{\"key\": \"lianzhenMaj\", \"name\": \"Liêm Trinh\"}], \"minorStars\": [{\"key\": \"youbiMin\", \"name\": \"Hữu Bật\"}, {\"key\": \"lingxingMin\", \"name\": \"Linh Tinh\"}]}}, {\"id\": \"E004\", \"kind\": \"palace_fact\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"wealthPalace\", \"entity_key\": \"wealthPalace\", \"data\": {\"index\": 0, \"name\": \"Tài Bạch\", \"stemBranch\": \"Bính Dần\", \"isBodyPalace\": true, \"majorStars\": [{\"key\": \"tanlangMaj\", \"name\": \"Tham Lang\", \"brightness\": \"Bình\", \"mutagen\": null}], \"minorStars\": [{\"key\": \"wenquMin\", \"name\": \"Văn Khúc\", \"mutagen\": null}, {\"key\": \"lucunMin\", \"name\": \"Lộc Tồn\", \"mutagen\": null}, {\"key\": \"tianmaMin\", \"name\": \"Thiên Mã\", \"mutagen\": null}], \"decadal\": {\"earthlyBranch\": \"Dần\", \"earthlyBranchKey\": \"yinEarthly\", \"heavenlyStem\": \"Bính\", \"heavenlyStemKey\": \"bingHeavenly\", \"range\": [85, 94]}, \"ages\": [5, 17, 29, 41, 53, 65, 77, 89, 101, 113]}}, {\"id\": \"E005\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"careerPalace\", \"entity_key\": \"pojunMaj\", \"data\": {\"starName\": \"Phá Quân\", \"starKey\": \"pojunMaj\", \"mutagen\": \"Quyền\", \"mutagenKey\": \"sihuaQuan\", \"palace\": \"Quan Lộc\", \"palaceKey\": \"careerPalace\"}}, {\"id\": \"E006\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"healthPalace\", \"entity_key\": \"taiyangMaj\", \"data\": {\"starName\": \"Thái Dương\", \"starKey\": \"taiyangMaj\", \"mutagen\": \"Kỵ\", \"mutagenKey\": \"sihuaJi\", \"palace\": \"Tật Ách\", \"palaceKey\": \"healthPalace\"}}, {\"id\": \"E007\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"spiritPalace\", \"entity_key\": \"lianzhenMaj\", \"data\": {\"starName\": \"Liêm Trinh\", \"starKey\": \"lianzhenMaj\", \"mutagen\": \"Lộc\", \"mutagenKey\": \"sihuaLu\", \"palace\": \"Phúc Đức\", \"palaceKey\": \"spiritPalace\"}}, {\"id\": \"E008\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"surfacePalace\", \"entity_key\": \"wuquMaj\", \"data\": {\"starName\": \"Vũ Khúc\", \"starKey\": \"wuquMaj\", \"mutagen\": \"Khoa\", \"mutagenKey\": \"sihuaKe\", \"palace\": \"Thiên Di\", \"palaceKey\": \"surfacePalace\"}}, {\"id\": \"E009\", \"kind\": \"pattern\", \"source\": \"x-iztro-pattern-engine\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"lu_ma_jiao_chi\", \"data\": {\"name\": \"Lộc Mã Giao Trì\", \"scope\": \"origin\", \"broken\": false, \"stars\": [{\"key\": \"lucunMin\", \"name\": \"Lộc Tồn\", \"palace_index\": 0, \"brightness\": null, \"brightness_key\": null, \"mutagen\": null, \"mutagen_key\": null}, {\"key\": \"tianmaMin\", \"name\": \"Thiên Mã\", \"palace_index\": 0, \"brightness\": null, \"brightness_key\": null, \"mutagen\": null, \"mutagen_key\": null}]}}, {\"id\": \"E010\", \"kind\": \"pattern\", \"source\": \"x-iztro-pattern-engine\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"lu_ma_jiao_chi\", \"data\": {\"name\": \"Lộc Mã Giao Trì\", \"scope\": \"origin\", \"broken\": false, \"stars\": [{\"key\": \"lucunMin\", \"name\": \"Lộc Tồn\", \"palace_index\": 0, \"brightness\": null, \"brightness_key\": null, \"mutagen\": null, \"mutagen_key\": null}, {\"key\": \"tianmaMin\", \"name\": \"Thiên Mã\", \"palace_index\": 0, \"brightness\": null, \"brightness_key\": null, \"mutagen\": null, \"mutagen_key\": null}]}}, {\"id\": \"E011\", \"kind\": \"pattern\", \"source\": \"x-iztro-pattern-engine\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"qi_sha_chao_dou\", \"data\": {\"name\": \"Thất Sát Triều Đẩu\", \"scope\": \"origin\", \"broken\": false, \"stars\": [{\"key\": \"qishaMaj\", \"name\": \"Thất Sát\", \"palace_index\": 4, \"brightness\": \"Vượng\", \"brightness_key\": \"wang\", \"mutagen\": null, \"mutagen_key\": null}]}}, {\"id\": \"E012\", \"kind\": \"pattern\", \"source\": \"x-iztro-pattern-engine\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"sha_po_lang\", \"data\": {\"name\": \"Sát Phá Lang\", \"scope\": \"origin\", \"broken\": false, \"stars\": [{\"key\": \"qishaMaj\", \"name\": \"Thất Sát\", \"palace_index\": 4, \"brightness\": \"Vượng\", \"brightness_key\": \"wang\", \"mutagen\": null, \"mutagen_key\": null}, {\"key\": \"pojunMaj\", \"name\": \"Phá Quân\", \"palace_index\": 8, \"brightness\": \"Vượng\", \"brightness_key\": \"wang\", \"mutagen\": \"Quyền\", \"mutagen_key\": \"sihuaQuan\"}, {\"key\": \"tanlangMaj\", \"name\": \"Tham Lang\", \"palace_index\": 0, \"brightness\": \"Bình\", \"brightness_key\": \"ping\", \"mutagen\": null, \"mutagen_key\": null}]}}, {\"id\": \"E013\", \"kind\": \"pattern\", \"source\": \"x-iztro-pattern-engine\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"sha_po_lang\", \"data\": {\"name\": \"Sát Phá Lang\", \"scope\": \"origin\", \"broken\": false, \"stars\": [{\"key\": \"qishaMaj\", \"name\": \"Thất Sát\", \"palace_index\": 4, \"brightness\": \"Vượng\", \"brightness_key\": \"wang\", \"mutagen\": null, \"mutagen_key\": null}, {\"key\": \"pojunMaj\", \"name\": \"Phá Quân\", \"palace_index\": 8, \"brightness\": \"Vượng\", \"brightness_key\": \"wang\", \"mutagen\": \"Quyền\", \"mutagen_key\": \"sihuaQuan\"}, {\"key\": \"tanlangMaj\", \"name\": \"Tham Lang\", \"palace_index\": 0, \"brightness\": \"Bình\", \"brightness_key\": \"ping\", \"mutagen\": null, \"mutagen_key\": null}]}}, {\"id\": \"E014\", \"kind\": \"pattern\", \"source\": \"x-iztro-pattern-engine\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"wen_xing_an_gong\", \"data\": {\"name\": \"Văn Tinh Ám Củng\", \"scope\": \"origin\", \"broken\": false, \"stars\": [{\"key\": \"wenchangMin\", \"name\": \"Văn Xương\", \"palace_index\": 10, \"brightness\": \"Đắc\", \"brightness_key\": \"de\", \"mutagen\": null, \"mutagen_key\": null}, {\"key\": \"wenquMin\", \"name\": \"Văn Khúc\", \"palace_index\": 0, \"brightness\": \"Bình\", \"brightness_key\": \"ping\", \"mutagen\": null, \"mutagen_key\": null}]}}, {\"id\": \"E015\", \"kind\": \"pattern\", \"source\": \"x-iztro-pattern-engine\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"wen_xing_chao_ming\", \"data\": {\"name\": \"Văn Tinh Triều Mệnh\", \"scope\": \"origin\", \"broken\": true, \"stars\": [{\"key\": \"wenchangMin\", \"name\": \"Văn Xương\", \"palace_index\": 10, \"brightness\": \"Đắc\", \"brightness_key\": \"de\", \"mutagen\": null, \"mutagen_key\": null}, {\"key\": \"wenquMin\", \"name\": \"Văn Khúc\", \"palace_index\": 0, \"brightness\": \"Bình\", \"brightness_key\": \"ping\", \"mutagen\": null, \"mutagen_key\": null}]}}, {\"id\": \"E016\", \"kind\": \"horoscope_fact\", \"source\": \"x-iztro\", \"scope\": \"age:2028-01-26\", \"palace_key\": \"\", \"entity_key\": \"age\", \"data\": {\"earthlyBranch\": \"Ngọ\", \"earthlyBranchKey\": \"wuEarthly\", \"heavenlyStem\": \"Canh\", \"heavenlyStemKey\": \"gengHeavenly\", \"index\": 4, \"mutagen\": [\"Thái Dương\", \"Vũ Khúc\", \"Thái Âm\", \"Thiên Đồng\"], \"mutagenStarKeys\": [\"taiyangMaj\", \"wuquMaj\", \"taiyinMaj\", \"tiantongMaj\"], \"name\": \"Tiểu Hạn\", \"nameKey\": \"turn\", \"nominalAge\": 45, \"palaceNameKeys\": [\"wealthPalace\", \"childrenPalace\", \"spousePalace\", \"siblingsPalace\", \"soulPalace\", \"parentsPalace\", \"spiritPalace\", \"propertyPalace\", \"careerPalace\", \"friendsPalace\", \"surfacePalace\", \"healthPalace\"], \"palaceNames\": [\"Tài Bạch\", \"Tử Nữ\", \"Phu Thê\", \"Huynh Đệ\", \"Mệnh\", \"Phụ Mẫu\", \"Phúc Đức\", \"Điền Trạch\", \"Quan Lộc\", \"Nô Bộc\", \"Thiên Di\", \"Tật Ách\"], \"sihuaKeys\": [\"sihuaLu\", \"sihuaQuan\", \"sihuaKe\", \"sihuaJi\"]}}, {\"id\": \"E017\", \"kind\": \"horoscope_fact\", \"source\": \"x-iztro\", \"scope\": \"decadal:2028-01-26\", \"palace_key\": \"\", \"entity_key\": \"decadal\", \"data\": {\"earthlyBranch\": \"Tuất\", \"earthlyBranchKey\": \"xuEarthly\", \"heavenlyStem\": \"Giáp\", \"heavenlyStemKey\": \"jiaHeavenly\", \"index\": 8, \"mutagen\": [\"Liêm Trinh\", \"Phá Quân\", \"Vũ Khúc\", \"Thái Dương\"], \"mutagenStarKeys\": [\"lianzhenMaj\", \"pojunMaj\", \"wuquMaj\", \"taiyangMaj\"], \"name\": \"Đại Hạn\", \"nameKey\": \"decadal\", \"palaceNameKeys\": [\"careerPalace\", \"friendsPalace\", \"surfacePalace\", \"healthPalace\", \"wealthPalace\", \"childrenPalace\", \"spousePalace\", \"siblingsPalace\", \"soulPalace\", \"parentsPalace\", \"spiritPalace\", \"propertyPalace\"], \"palaceNames\": [\"Quan Lộc\", \"Nô Bộc\", \"Thiên Di\", \"Tật Ách\", \"Tài Bạch\", \"Tử Nữ\", \"Phu Thê\", \"Huynh Đệ\", \"Mệnh\", \"Phụ Mẫu\", \"Phúc Đức\", \"Điền Trạch\"], \"stars\": [[{\"key\": \"yunlu\", \"name\": \"Vận Lộc\", \"scope\": \"decadal\", \"type\": \"lucun\"}], [{\"key\": \"yunyang\", \"name\": \"Vận Dương\", \"scope\": \"decadal\", \"type\": \"tough\"}], [], [{\"key\": \"yunchang\", \"name\": \"Vận Xương\", \"scope\": \"decadal\", \"type\": \"soft\"}, {\"key\": \"yunluan\", \"name\": \"Vận Loan\", \"scope\": \"decadal\", \"type\": \"flower\"}], [], [{\"key\": \"yunyue\", \"name\": \"Vận Việt\", \"scope\": \"decadal\", \"type\": \"soft\"}], [{\"key\": \"yunma\", \"name\": \"Vận Mã\", \"scope\": \"decadal\", \"type\": \"tianma\"}], [{\"key\": \"yunqu\", \"name\": \"Vận Khúc\", \"scope\": \"decadal\", \"type\": \"soft\"}], [], [{\"key\": \"yunxi\", \"name\": \"Vận Hỷ\", \"scope\": \"decadal\", \"type\": \"flower\"}], [], [{\"key\": \"yunkui\", \"name\": \"Vận Khôi\", \"scope\": \"decadal\", \"type\": \"soft\"}, {\"key\": \"yuntuo\", \"name\": \"Vận Đà\", \"scope\": \"decadal\", \"type\": \"tough\"}]], \"sihuaKeys\": [\"sihuaLu\", \"sihuaQuan\", \"sihuaKe\", \"sihuaJi\"]}}, {\"id\": \"E018\", \"kind\": \"horoscope_fact\", \"source\": \"x-iztro\", \"scope\": \"yearly:2028-01-26\", \"palace_key\": \"\", \"entity_key\": \"yearly\", \"data\": {\"earthlyBranch\": \"Thân\", \"earthlyBranchKey\": \"shenEarthly\", \"heavenlyStem\": \"Mậu\", \"heavenlyStemKey\": \"wuHeavenly\", \"index\": 6, \"mutagen\": [\"Tham Lang\", \"Thái Âm\", \"Hữu Bật\", \"Thiên Cơ\"], \"mutagenStarKeys\": [\"tanlangMaj\", \"taiyinMaj\", \"youbiMin\", \"tianjiMaj\"], \"name\": \"Lưu Niên\", \"nameKey\": \"yearly\", \"palaceNameKeys\": [\"surfacePalace\", \"healthPalace\", \"wealthPalace\", \"childrenPalace\", \"spousePalace\", \"siblingsPalace\", \"soulPalace\", \"parentsPalace\", \"spiritPalace\", \"propertyPalace\", \"careerPalace\", \"friendsPalace\"], \"palaceNames\": [\"Thiên Di\", \"Tật Ách\", \"Tài Bạch\", \"Tử Nữ\", \"Phu Thê\", \"Huynh Đệ\", \"Mệnh\", \"Phụ Mẫu\", \"Phúc Đức\", \"Điền Trạch\", \"Quan Lộc\", \"Nô Bộc\"], \"stars\": [[{\"key\": \"nianjie\", \"name\": \"Niên Giải\", \"scope\": \"yearly\", \"type\": \"helper\"}, {\"key\": \"liuma\", \"name\": \"Lưu Mã\", \"scope\": \"yearly\", \"type\": \"tianma\"}], [], [{\"key\": \"liutuo\", \"name\": \"Lưu Đà\", \"scope\": \"yearly\", \"type\": \"tough\"}], [{\"key\": \"liulu\", \"name\": \"Lưu Lộc\", \"scope\": \"yearly\", \"type\": \"lucun\"}], [{\"key\": \"liuqu\", \"name\": \"Lưu Khúc\", \"scope\": \"yearly\", \"type\": \"soft\"}, {\"key\": \"liuyang\", \"name\": \"Lưu Dương\", \"scope\": \"yearly\", \"type\": \"tough\"}], [{\"key\": \"liuyue\", \"name\": \"Lưu Việt\", \"scope\": \"yearly\", \"type\": \"soft\"}, {\"key\": \"liuluan\", \"name\": \"Lưu Loan\", \"scope\": \"yearly\", \"type\": \"flower\"}], [{\"key\": \"liuchang\", \"name\": \"Lưu Xương\", \"scope\": \"yearly\", \"type\": \"soft\"}], [], [], [], [], [{\"key\": \"liukui\", \"name\": \"Lưu Khôi\", \"scope\": \"yearly\", \"type\": \"soft\"}, {\"key\": \"liuxi\", \"name\": \"Lưu Hỷ\", \"scope\": \"yearly\", \"type\": \"flower\"}]], \"yearlyDecStar\": {\"jiangqian12\": [\"Tuế Dịch\", \"Tức Thần\", \"Hoa Cái\", \"Kiếp Sát\", \"Tai Sát\", \"Thiên Sát\", \"Chỉ Bối\", \"Hàm Trì\", \"Nguyệt Sát\", \"Vong Thần\", \"Tướng Tinh\", \"Phan Án\"], \"jiangqian12Keys\": [\"suiyi\", \"xiishen\", \"huagai\", \"jiesha\", \"zhaisha\", \"tiansha\", \"zhibei\", \"xianchi\", \"yuesha\", \"wangshen\", \"jiangxing\", \"panan\"], \"suiqian12\": [\"Đại Hao\", \"Long Đức\", \"Bạch Hổ\", \"Thiên Đức\", \"Điếu Khách\", \"Bệnh Phù\", \"Tuế Kiện\", \"Hối Khí\", \"Tang Môn\", \"Quán Tác\", \"Quan Phù\", \"Tiểu Hao\"], \"suiqian12Keys\": [\"dahao\", \"longde\", \"baihu\", \"tiande\", \"diaoke\", \"bingfu\", \"suijian\", \"huiqi\", \"sangmen\", \"guansuo\", \"gwanfu\", \"xiaohao\"]}, \"sihuaKeys\": [\"sihuaLu\", \"sihuaQuan\", \"sihuaKe\", \"sihuaJi\"]}}, {\"id\": \"E019\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"careerPalace\", \"data\": {\"key\": \"careerPalace\", \"name\": \"官禄\", \"excerpt\": \"官禄宫又叫 `事业宫`，展示星盘主人的 `做事态度` 和对工作的态度。即便对未来职业尚无规划和想法，官禄宫也能给出一个方向，指出适合什么类型的工作，从而有针对性地查缺补漏，补足预设工作所需而尚未掌握的技能。尚未工作、全职持家或依赖伴侣生活的人也不例外——官禄宫展示的是一种 `处事态度`，无论有无工作都有影响：对学生而言，`学习` 就是日常工作；对全职持家者而言，`照顾家庭` 就是日常工作；对依赖伴侣生活者而言，把这份依赖经营稳固便是其日常之事。\"}}, {\"id\": \"E020\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"lianzhenMaj\", \"data\": {\"key\": \"lianzhenMaj\", \"name\": \"廉贞\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"fire\", \"stem\": \"ding\", \"five_elements_note\": null, \"dipper\": \"北斗第五星\", \"chemistry\": \"囚\", \"career\": \"官禄主(行政)\", \"duty\": \"邪恶\", \"aliases\": [\"次桃花星（纠缠性）\", \"次财星\"], \"element_color\": \"红色\", \"energy_color\": \"赤光\"}, \"excerpt\": \"提起廉贞，许多有经验的命理师都会不禁摇头，古籍对廉贞的评价也不算好，还有 `自古廉贞最难明` 的说法，使廉贞星人无端蒙受许多偏见。人们对廉贞星偏见颇多，是因为廉贞与武曲一样不喜社交、不太懂人情世故。她们虽化气为 `囚`，但大部分时候“囚禁”的是自己。\\n\\n廉贞星不易与人交心，是因为自我保护意识太强。旁人嬉笑怒骂之际，廉贞常显得格格不入——她对任何事情都抱着非常理性认真的态度，有时分不清对方是认真还是玩笑。也正是这份“认真”，让廉贞星看起来多了一分高冷、少了一分亲和。尤其廉贞星会因过于强大的自尊心，无意中做出许多伤害别人的事、说出伤害别人感情的话，颇令人烦恼。\"}}, {\"id\": \"E021\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"lingxingMin\", \"data\": {\"key\": \"lingxingMin\", \"name\": \"铃星\", \"category\": \"minor\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"fire\", \"stem\": \"ding\", \"five_elements_note\": null, \"dipper\": \"南斗浮星\", \"chemistry\": \"刚烈之气\", \"career\": null, \"duty\": \"刚强惊吓\", \"aliases\": [\"闷骚星\", \"顽石星\"], \"element_color\": \"红色\", \"energy_color\": \"暗红光\"}, \"excerpt\": \"与火星的直接表达不同，铃星不会将情绪一股脑释放出来，而是积压在内心慢慢释放，因此通常给人一种内敛、深沉的印象。铃星更倾向于在内心深处思考和消化情绪，不轻易将情感展露于外。\\n\\n这种内敛的特点使其在处理情绪时更加冷静和克制，不易被外界情绪所左右；然而过度的内敛也可能导致情绪积压，需要学会适当地表达和释放情感，以维持心理健康和人际关系的平衡。\\n\\n铃星比较喜欢精打细算，善于考虑周全，不轻易冲动行事，通常会在做出决定之前深思熟虑，喜欢有条不紊地规划和安排生活中的方方面面。这种谨慎的性格使其在处理问题时更加稳健和可靠，但有时也可能因过于谨慎而错失一些机会。\"}}, {\"id\": \"E022\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"lu_ma_jiao_chi\", \"data\": {\"key\": \"lu_ma_jiao_chi\", \"name\": \"禄马交驰\", \"quotes\": [\"武曲禄马交驰发财远郡\", \"禄马最喜交驰 忌见杀羊火截路空亡，多主劳苦。\", \"天马如与禄存同宫，谓之禄马交驰，又曰折鞭马。\"]}}, {\"id\": \"E023\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"lucunMin\", \"data\": {\"key\": \"lucunMin\", \"name\": \"禄存\", \"category\": \"minor\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"earth\", \"stem\": \"ji\", \"five_elements_note\": null, \"dipper\": \"北斗第三星\", \"chemistry\": \"财富\", \"career\": \"财帛主\", \"duty\": \"人寿，贵爵\", \"aliases\": [\"财星\"], \"element_color\": \"黄色\", \"energy_color\": \"绿光\"}, \"excerpt\": \"若论紫微斗数中最受欢迎的星曜，禄存星当属其一——因为这是颗财星，鲜有人对其没有好感。但禄存的这个财，其实是一种类似“本钱”的财。人对自己的本钱总是比较谨慎的，所以禄存星会增加稳定性，也因此被赋予一种谨慎的气质。\\n\\n对于财务的支出，禄存星是非常谨慎的，这种谨慎的态度确实可以避免很多经济上的损失，但同时也容易错失很多机会。由此不难推断，禄存星也是风险厌恶型的星曜，能够稳定一些浮躁的主星，所以古籍上常把禄存星作为一种解煞的星曜来看待。\\n\\n> **提示**\\n>\\n> 辅星的主要作用是对主星的辅助，而且很多辅星会同宫，此时特质上会产生一些冲突，这种冲突并非矛盾。\"}}, {\"id\": \"E024\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"pojunMaj\", \"data\": {\"key\": \"pojunMaj\", \"name\": \"破军\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"water\", \"stem\": \"gui\", \"five_elements_note\": null, \"dipper\": \"北斗第七星\", \"chemistry\": \"耗\", \"career\": \"迁移主\", \"duty\": \"破损消耗\", \"aliases\": [\"消耗星\", \"垃圾星\", \"远洋星\", \"流氓星\", \"先锋星\"], \"element_color\": \"黑色\", \"energy_color\": \"黑光\"}, \"excerpt\": \"破军代表士兵，在阵前冲锋陷阵，故化气为 `耗`，代表着一种消耗。破军有 `先破后立`、`破釜沉舟` 的魄力：一旦认定一件事，便不太在意既定规则；若规则不容，便打破旧规、建立自己的新规则。\\n\\n`杀破狼` 格局的人一般不喜欢平凡而碌碌无为的人生，喜欢拼搏闯荡，人生因此过得比较精彩、大起大落。破军星并非四肢发达、头脑简单的形象，而是企划与执行兼具的星曜，其企划能力多显现在艺术领域；且破军一旦看中某个领域，很容易在其中深耕下去。\\n\\n杀破狼格局天生自带反骨，给人桀骜不驯之感，其中以破军星最甚。这种明知不可为而为之的个性，容易让其登上云端，也更容易让其跌入谷底。\"}}, {\"id\": \"E025\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"qi_sha_chao_dou\", \"data\": {\"key\": \"qi_sha_chao_dou\", \"name\": \"七杀朝斗\", \"quotes\": [\"七杀朝斗爵禄荣昌，紫府同宫终身福厚。\", \"朝斗仰斗爵禄荣昌，文桂文华九重贵显。\", \"七杀朝斗 寅申子午一生爵禄荣昌\"]}}, {\"id\": \"E026\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"qishaMaj\", \"data\": {\"key\": \"qishaMaj\", \"name\": \"七杀\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"metal\", \"stem\": \"xin\", \"five_elements_note\": null, \"dipper\": \"南斗第六星\", \"chemistry\": \"肃杀\", \"career\": \"迁移主\", \"duty\": \"威猛，肃杀，变动\", \"aliases\": [\"死亡星\", \"变动星\", \"酷星\"], \"element_color\": \"白色\", \"energy_color\": \"黑光\"}, \"excerpt\": \"七杀之名听来“杀气很重”，实则不然——七杀星虽亲和力不强，却未必是凶神恶煞的模样。在 `杀破狼` 的组合里，若贪狼是指挥官，七杀星便是带兵的将领，破军则是冲锋陷阵的士兵。\\n\\n作为一个“将领”，七杀星需要坚定不移的信念方能带队向前，故七杀星代表 `坚持` 与 `执着` 的力量。然而执行力过于强大便会想得少，常给人“愣头青”的感觉。这只是七杀单星的特质，与其他策划型星曜组合时，其策划能力也会随之增强。\\n\\n七杀星缺少亲和力，社交上给人一种“不敢主动靠近”的感觉。七杀坐命者宜多保持笑容、社交中主动一些，并多听取他人的建议与劝导，勿闷头一条道走到黑。\"}}, {\"id\": \"E027\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"sha_po_lang\", \"data\": {\"key\": \"sha_po_lang\", \"name\": \"杀破狼\", \"quotes\": [\"武贞羊杀破狼，居陷地则丧命夭折， 若与同梁武曲会旺宫，聪明果决，如羊陀火铃冲破，只宜空门。\", \"紫微入限本为祥，只恐三方杀破狼，常庶逢之多不利，官员降谪有惊伤。\", \"七杀破军宜出外，机月同梁作吏人。\"]}}, {\"id\": \"E028\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"soulPalace\", \"data\": {\"key\": \"soulPalace\", \"name\": \"命宫\", \"excerpt\": \"命宫是决定星盘主人属性的宫位，类似于游戏中的职业，显示其个性偏向。但人的性格是立体的，命宫的个性只能说是星盘主人的 `本质`。俗话说 `性格决定命运`，其实决定命运的从来都不是性格，而是 `认知`：同一类型性格的人，会因自身认知的不同，对同一件事产生完全不同的想法。所以现代社会不能用老传统的 `好` 与 `差`、`吉` 与 `凶` 武断评定一张盘的好坏。另外，虽然命宫是人个性特质的展现，但对大多数人而言，别人最先接触到的个性特质往往不是命宫展现出来的，而是 `迁移宫`。\"}}, {\"id\": \"E029\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"spiritPalace\", \"data\": {\"key\": \"spiritPalace\", \"name\": \"福德\", \"excerpt\": \"迁移宫代表外在，相当于游戏里的 `皮肤`；命宫代表本质属性，相当于游戏角色的 `初始属性点`，属 `力量型`、`智力型` 还是 `敏捷型`，从命宫体现出来；疾厄宫代表身体的强弱，相当于物理抗性；而 `福德宫`，代表的是星盘主人的 `思想`。紫微斗数中常有 `修福德宫` 的说法，说的就是锻炼出一颗强大的心脏，不以物喜、不以己悲，做一个情绪稳定的人，从而不易受外界刺激而做出冲动或错误的决定和行为。其他宫位很多时候处于一种 `潜意识` 的状态去互动，`福德宫` 做出的行为却是经过思考的行为，所以福德宫锻炼得越强大，人生的容错性就越高。\"}}, {\"id\": \"E030\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"tanlangMaj\", \"data\": {\"key\": \"tanlangMaj\", \"name\": \"贪狼\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yang\", \"five_elements\": \"wood\", \"stem\": \"jia\", \"five_elements_note\": \"气为水\", \"dipper\": \"北斗第一星\", \"chemistry\": \"桃花\", \"career\": \"子女主\", \"duty\": \"欲望，物质\", \"aliases\": [\"桃花星\", \"交际星\", \"标准星\", \"才艺星\", \"赌星（闹财星）\", \"武术星\", \"宗教星\", \"幻想星\"], \"element_color\": \"青色\", \"energy_color\": \"赤蓝光\"}, \"excerpt\": \"贪狼是紫微斗数里的第一桃花星。桃花星的本质是 `社交` 与 `受欢迎`，而非许多人理解的男女之情。贪狼星另一个广为人知的特性是代表 `欲望`，这里的 `欲望` 也常被曲解为 `男欢女爱`，这是对贪狼星最大的误解。贪狼星的欲望取决于其兴趣所在：对感兴趣的东西会深究到底、想方设法去探索研究。它是人类欲望的源头——人有了欲望，才会去奋斗，才会去拼搏。\\n\\n贪狼是一颗充满好奇心的星曜，热爱思考，对感兴趣的事情有着非常浓烈的热情。当贪狼星喜欢上一个人、一件东西或一件事时，比较容易上瘾。这种特质若用在正确的地方，贪狼星的成就不可限量。\"}}, {\"id\": \"E031\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"tianmaMin\", \"data\": {\"key\": \"tianmaMin\", \"name\": \"天马\", \"category\": \"minor\", \"attributes\": {\"yin_yang\": \"yang\", \"five_elements\": \"fire\", \"stem\": \"bing\", \"five_elements_note\": null, \"dipper\": \"中天星系\", \"chemistry\": \"驿马\", \"career\": \"迁移主\", \"duty\": \"变动，变迁\", \"aliases\": [\"驿马星\", \"动星\", \"财星\", \"司禄之星\"], \"element_color\": null, \"energy_color\": null}, \"excerpt\": \"若论紫微斗数里最坐不住的星曜，非天马莫属，它会增加很多变数和不确定性。天马星精力旺盛，充满活力，喜欢追求刺激和变化，通常难以安坐，不断寻找新的挑战和机遇。天马星充满冒险精神，喜欢尝试新鲜事物，对枯燥乏味的生活缺乏耐心，渴望自由和多样性，不愿受到束缚和限制。\\n\\n天马星会积极主动地追求自己内心的目标，喜欢自由自在的氛围，渴望探索未知，追求个人的成长和发展。对喜欢四处奔走的人来说，天马星无疑是加分的；但对想安定下来的人而言，就比较痛苦了。\\n\\n比起在一个目标上坚持到底，天马星更喜欢寻找不同的机遇和可能性，这也使天马星比一般人更容易发现成功的机会。\"}}, {\"id\": \"E032\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"wealthPalace\", \"data\": {\"key\": \"wealthPalace\", \"name\": \"财帛\", \"excerpt\": \"财帛宫常被直接联想为财富，以为财帛宫好就是财运好，其实不然：财帛宫展现的是星盘主人对财务的态度、理财观念、物质欲望等。从原理上说，财帛宫是星盘主人的 `养分`，是维持其生活或生存的宫位。财帛宫在星盘上表现突出，代表星盘主人比较“吃资源”，需要比一般人更多的物质条件才能过得和一般人一样好，从而在理财和对赚钱机会的敏感度上会比普通人更好，以满足自己的物质需求，`会花钱才会挣钱` 说的就是这类人。真正财富的积累，看的是 `田宅宫`。\"}}, {\"id\": \"E033\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"wen_xing_an_gong\", \"data\": {\"key\": \"wen_xing_an_gong\", \"name\": \"文星暗拱\", \"quotes\": [\"文星暗拱，贾谊允矣登科。\"]}}, {\"id\": \"E034\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"wen_xing_chao_ming\", \"data\": {\"key\": \"wen_xing_chao_ming\", \"name\": \"文星朝命\", \"quotes\": [\"文科拱照，贾谊年少登科。\"]}}, {\"id\": \"E035\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"wenquMin\", \"data\": {\"key\": \"wenquMin\", \"name\": \"文曲\", \"category\": \"minor\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"water\", \"stem\": \"gui\", \"five_elements_note\": null, \"dipper\": \"北斗第四星\", \"chemistry\": \"文华\", \"career\": null, \"duty\": \"异途功名，优雅，口才，才华\", \"aliases\": [\"八卦星\", \"才艺星\", \"偏房星\", \"才华星\", \"艺术星\", \"桃花星\", \"浪漫星\", \"细姨星\"], \"element_color\": \"黑色\", \"energy_color\": \"米黄光\"}, \"excerpt\": \"文曲星是紫微斗数里第一文艺之星，代表艺术修养与浪漫，被称作“异途功名”，亦不妨理解为“艺途功名”。异途与正途相对：正途是家庭与社会普遍认可的功名之路，异途则是长辈与世俗往往并不看好的路子，多与艺术等非传统科目相关。\\n\\n文曲星通常比较善于变通，内心多愁善感。也因为文曲星会增加一些表达能力，所以在紫微斗数里引申出了口舌是非的意象。\\n\\n文曲星需要增加自己的文化底蕴，让艺术气息有根基，否则容易给人无病呻吟、故作深沉之感。紫微斗数中有很多“对星”，同宫相会会产生共振、带来额外加成：文昌文曲在一起会形成文贵文华格，表示才华出众；但不宜太过依赖格局，否则容易造成误判。\"}}, {\"id\": \"E036\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"youbiMin\", \"data\": {\"key\": \"youbiMin\", \"name\": \"右弼\", \"category\": \"minor\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"water\", \"stem\": \"gui\", \"five_elements_note\": null, \"dipper\": null, \"chemistry\": \"助力\", \"career\": null, \"duty\": \"司制令\", \"aliases\": [\"贵人星\"], \"element_color\": \"黑色\", \"energy_color\": \"米黄光\"}, \"excerpt\": \"相比左辅星的直接，右弼星显得较为柔和，而且右弼的帮助是在背后默默付出的那种，常常令人感受不深，因此被冠以“女性”贵人的名头。温柔、善良、体贴、善解人意，这些美好的词都可用来修饰右弼星。\\n\\n右弼星善于倾听他人的需求，并愿意给予帮助和支持，在人际关系中扮演和善的角色，能够给予他人安慰和鼓励。也因此，右弼星常被认为“耳根子软”——容易被别人的意见左右，立场与想法都不够坚定。\\n\\n很多强势的星曜都适合与右弼星搭档：有了右弼星的加入，会柔化那些强势星曜的棱角，使其变得比较听得进劝告。然而，本身意志就不坚定的星曜若与右弼星组合，则会变得过于优柔寡断。\\n\\n这些特质让右弼星收获不少好评，成为颇受喜爱的一颗星曜。\"}}, {\"id\": \"E037\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"zuofuMin\", \"data\": {\"key\": \"zuofuMin\", \"name\": \"左辅\", \"category\": \"minor\", \"attributes\": {\"yin_yang\": \"yang\", \"five_elements\": \"earth\", \"stem\": \"wu\", \"five_elements_note\": null, \"dipper\": null, \"chemistry\": \"助力\", \"career\": null, \"duty\": \"行善令\", \"aliases\": [\"贵人星\"], \"element_color\": \"黄色\", \"energy_color\": \"黄光\"}, \"excerpt\": \"世人多喜“贵人”，但对贵人常有误解，以为贵人必定是对自己帮助很大的人；实际上贵人未必是朋友，甚至未必是具体的人。左辅的特质是助力，因此左辅星在命宫的人特别喜欢帮助、提拔别人，这种帮助带有“长辈视角”、自上而下的意味。\\n\\n因此，左辅星有“提高身份地位”的作用。许多人把左辅星视为“男性”贵人，是因为其帮助比较直接且强势，感受明显。由此不难推断，左辅比较容易有“架子”：左辅星的人在工作或社交场合中会展现出自信和权威，喜欢扮演引领者的角色，愿意为他人提供指导和支持。\\n\\n然而，这种直接和强势有时会让人觉得有些“高冷”、不易接近。\"}}]}"
+      },
+      {
+        "event": "error",
+        "data": "{\"type\": \"llm_upstream\", \"detail\": \"LLM upstream error\"}"
+      }
+    ],
+    "replaced": false,
+    "replay": false,
+    "violations": null,
+    "output": "",
+    "latency": 111.5698690420104,
+    "topic": "wealth",
+    "chart": "b09",
+    "chart_id": "cs_0ef542983a834c95b8d811c7"
+  },
+  {
+    "status": "error",
+    "events": [
+      {
+        "event": "metadata",
+        "data": "{\"runId\": \"ir_c81b5dcb74c547cb9bbf919f\", \"topic\": \"wealth\", \"promptVersion\": \"wealth-v1\", \"model\": \"swe-2-worker\"}"
+      },
+      {
+        "event": "evidence",
+        "data": "{\"bundleId\": \"ev_2045f819af8d41c586078c30\", \"items\": [{\"id\": \"E001\", \"kind\": \"palace_fact\", \"source\": \"x-iztro\", \"scope\": \"surrounded:wealth\", \"palace_key\": \"careerPalace\", \"entity_key\": \"careerPalace\", \"data\": {\"index\": 9, \"name\": \"Quan Lộc\", \"stemBranch\": \"Quý Hợi\", \"majorStars\": [], \"minorStars\": []}}, {\"id\": \"E002\", \"kind\": \"palace_fact\", \"source\": \"x-iztro\", \"scope\": \"surrounded:career\", \"palace_key\": \"soulPalace\", \"entity_key\": \"soulPalace\", \"data\": {\"index\": 5, \"name\": \"Mệnh\", \"stemBranch\": \"Kỷ Mùi\", \"majorStars\": [{\"key\": \"tianxiangMaj\", \"name\": \"Thiên Tướng\"}], \"minorStars\": [{\"key\": \"tianyueMin\", \"name\": \"Thiên Việt\"}, {\"key\": \"dikongMin\", \"name\": \"Địa Không\"}, {\"key\": \"lingxingMin\", \"name\": \"Linh Tinh\"}]}}, {\"id\": \"E003\", \"kind\": \"palace_fact\", \"source\": \"x-iztro\", \"scope\": \"surrounded:opposite\", \"palace_key\": \"spiritPalace\", \"entity_key\": \"spiritPalace\", \"data\": {\"index\": 7, \"name\": \"Phúc Đức\", \"stemBranch\": \"Tân Dậu\", \"majorStars\": [{\"key\": \"wuquMaj\", \"name\": \"Vũ Khúc\"}, {\"key\": \"qishaMaj\", \"name\": \"Thất Sát\"}], \"minorStars\": []}}, {\"id\": \"E004\", \"kind\": \"palace_fact\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"wealthPalace\", \"entity_key\": \"wealthPalace\", \"data\": {\"index\": 1, \"name\": \"Tài Bạch\", \"stemBranch\": \"Ất Mão\", \"isBodyPalace\": true, \"majorStars\": [{\"key\": \"tianfuMaj\", \"name\": \"Thiên Phủ\", \"brightness\": \"Đắc\", \"mutagen\": null}], \"minorStars\": [{\"key\": \"dijieMin\", \"name\": \"Địa Kiếp\", \"mutagen\": null}], \"decadal\": {\"earthlyBranch\": \"Mão\", \"earthlyBranchKey\": \"maoEarthly\", \"heavenlyStem\": \"Ất\", \"heavenlyStemKey\": \"yiHeavenly\", \"range\": [86, 95]}, \"ages\": [12, 24, 36, 48, 60, 72, 84, 96, 108, 120]}}, {\"id\": \"E005\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"childrenPalace\", \"entity_key\": \"taiyinMaj\", \"data\": {\"starName\": \"Thái Âm\", \"starKey\": \"taiyinMaj\", \"mutagen\": \"Quyền\", \"mutagenKey\": \"sihuaQuan\", \"palace\": \"Tử Nữ\", \"palaceKey\": \"childrenPalace\"}}, {\"id\": \"E006\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"friendsPalace\", \"entity_key\": \"tianjiMaj\", \"data\": {\"starName\": \"Thiên Cơ\", \"starKey\": \"tianjiMaj\", \"mutagen\": \"Kỵ\", \"mutagenKey\": \"sihuaJi\", \"palace\": \"Nô Bộc\", \"palaceKey\": \"friendsPalace\"}}, {\"id\": \"E007\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"spousePalace\", \"entity_key\": \"tanlangMaj\", \"data\": {\"starName\": \"Tham Lang\", \"starKey\": \"tanlangMaj\", \"mutagen\": \"Lộc\", \"mutagenKey\": \"sihuaLu\", \"palace\": \"Phu Thê\", \"palaceKey\": \"spousePalace\"}}, {\"id\": \"E008\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"surfacePalace\", \"entity_key\": \"youbiMin\", \"data\": {\"starName\": \"Hữu Bật\", \"starKey\": \"youbiMin\", \"mutagen\": \"Khoa\", \"mutagenKey\": \"sihuaKe\", \"palace\": \"Thiên Di\", \"palaceKey\": \"surfacePalace\"}}, {\"id\": \"E009\", \"kind\": \"pattern\", \"source\": \"x-iztro-pattern-engine\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"chang_qu_jia_ming\", \"data\": {\"name\": \"Xương Khúc Giáp Mệnh\", \"scope\": \"origin\", \"broken\": true, \"stars\": [{\"key\": \"wenchangMin\", \"name\": \"Văn Xương\", \"palace_index\": 4, \"brightness\": \"Hạn\", \"brightness_key\": \"xian\", \"mutagen\": null, \"mutagen_key\": null}, {\"key\": \"wenquMin\", \"name\": \"Văn Khúc\", \"palace_index\": 6, \"brightness\": \"Đắc\", \"brightness_key\": \"de\", \"mutagen\": null, \"mutagen_key\": null}]}}, {\"id\": \"E010\", \"kind\": \"pattern\", \"source\": \"x-iztro-pattern-engine\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"wen_xing_an_gong\", \"data\": {\"name\": \"Văn Tinh Ám Củng\", \"scope\": \"origin\", \"broken\": false, \"stars\": [{\"key\": \"wenchangMin\", \"name\": \"Văn Xương\", \"palace_index\": 4, \"brightness\": \"Hạn\", \"brightness_key\": \"xian\", \"mutagen\": null, \"mutagen_key\": null}, {\"key\": \"wenquMin\", \"name\": \"Văn Khúc\", \"palace_index\": 6, \"brightness\": \"Đắc\", \"brightness_key\": \"de\", \"mutagen\": null, \"mutagen_key\": null}]}}, {\"id\": \"E011\", \"kind\": \"pattern\", \"source\": \"x-iztro-pattern-engine\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"zuo_gui_xiang_gui\", \"data\": {\"name\": \"Tọa Quý Hướng Quý\", \"scope\": \"origin\", \"broken\": false, \"stars\": [{\"key\": \"tianyueMin\", \"name\": \"Thiên Việt\", \"palace_index\": 5, \"brightness\": null, \"brightness_key\": null, \"mutagen\": null, \"mutagen_key\": null}, {\"key\": \"tiankuiMin\", \"name\": \"Thiên Khôi\", \"palace_index\": 11, \"brightness\": null, \"brightness_key\": null, \"mutagen\": null, \"mutagen_key\": null}]}}, {\"id\": \"E012\", \"kind\": \"horoscope_fact\", \"source\": \"x-iztro\", \"scope\": \"age:2028-01-26\", \"palace_key\": \"\", \"entity_key\": \"age\", \"data\": {\"earthlyBranch\": \"Tuất\", \"earthlyBranchKey\": \"xuEarthly\", \"heavenlyStem\": \"Nhâm\", \"heavenlyStemKey\": \"renHeavenly\", \"index\": 8, \"mutagen\": [\"Thiên Lương\", \"Tử Vi\", \"Tả Phù\", \"Vũ Khúc\"], \"mutagenStarKeys\": [\"tianliangMaj\", \"ziweiMaj\", \"zuofuMin\", \"wuquMaj\"], \"name\": \"Tiểu Hạn\", \"nameKey\": \"turn\", \"nominalAge\": 31, \"palaceNameKeys\": [\"careerPalace\", \"friendsPalace\", \"surfacePalace\", \"healthPalace\", \"wealthPalace\", \"childrenPalace\", \"spousePalace\", \"siblingsPalace\", \"soulPalace\", \"parentsPalace\", \"spiritPalace\", \"propertyPalace\"], \"palaceNames\": [\"Quan Lộc\", \"Nô Bộc\", \"Thiên Di\", \"Tật Ách\", \"Tài Bạch\", \"Tử Nữ\", \"Phu Thê\", \"Huynh Đệ\", \"Mệnh\", \"Phụ Mẫu\", \"Phúc Đức\", \"Điền Trạch\"], \"sihuaKeys\": [\"sihuaLu\", \"sihuaQuan\", \"sihuaKe\", \"sihuaJi\"]}}, {\"id\": \"E013\", \"kind\": \"horoscope_fact\", \"source\": \"x-iztro\", \"scope\": \"decadal:2028-01-26\", \"palace_key\": \"\", \"entity_key\": \"decadal\", \"data\": {\"earthlyBranch\": \"Dậu\", \"earthlyBranchKey\": \"youEarthly\", \"heavenlyStem\": \"Tân\", \"heavenlyStemKey\": \"xinHeavenly\", \"index\": 7, \"mutagen\": [\"Cự Môn\", \"Thái Dương\", \"Văn Khúc\", \"Văn Xương\"], \"mutagenStarKeys\": [\"jumenMaj\", \"taiyangMaj\", \"wenquMin\", \"wenchangMin\"], \"name\": \"Đại Hạn\", \"nameKey\": \"decadal\", \"palaceNameKeys\": [\"friendsPalace\", \"surfacePalace\", \"healthPalace\", \"wealthPalace\", \"childrenPalace\", \"spousePalace\", \"siblingsPalace\", \"soulPalace\", \"parentsPalace\", \"spiritPalace\", \"propertyPalace\", \"careerPalace\"], \"palaceNames\": [\"Nô Bộc\", \"Thiên Di\", \"Tật Ách\", \"Tài Bạch\", \"Tử Nữ\", \"Phu Thê\", \"Huynh Đệ\", \"Mệnh\", \"Phụ Mẫu\", \"Phúc Đức\", \"Điền Trạch\", \"Quan Lộc\"], \"stars\": [[{\"key\": \"yunyue\", \"name\": \"Vận Việt\", \"scope\": \"decadal\", \"type\": \"soft\"}, {\"key\": \"yunqu\", \"name\": \"Vận Khúc\", \"scope\": \"decadal\", \"type\": \"soft\"}], [], [], [], [{\"key\": \"yunkui\", \"name\": \"Vận Khôi\", \"scope\": \"decadal\", \"type\": \"soft\"}, {\"key\": \"yunluan\", \"name\": \"Vận Loan\", \"scope\": \"decadal\", \"type\": \"flower\"}], [], [{\"key\": \"yuntuo\", \"name\": \"Vận Đà\", \"scope\": \"decadal\", \"type\": \"tough\"}], [{\"key\": \"yunlu\", \"name\": \"Vận Lộc\", \"scope\": \"decadal\", \"type\": \"lucun\"}], [{\"key\": \"yunyang\", \"name\": \"Vận Dương\", \"scope\": \"decadal\", \"type\": \"tough\"}], [{\"key\": \"yunma\", \"name\": \"Vận Mã\", \"scope\": \"decadal\", \"type\": \"tianma\"}], [{\"key\": \"yunchang\", \"name\": \"Vận Xương\", \"scope\": \"decadal\", \"type\": \"soft\"}, {\"key\": \"yunxi\", \"name\": \"Vận Hỷ\", \"scope\": \"decadal\", \"type\": \"flower\"}], []], \"sihuaKeys\": [\"sihuaLu\", \"sihuaQuan\", \"sihuaKe\", \"sihuaJi\"]}}, {\"id\": \"E014\", \"kind\": \"horoscope_fact\", \"source\": \"x-iztro\", \"scope\": \"yearly:2028-01-26\", \"palace_key\": \"\", \"entity_key\": \"yearly\", \"data\": {\"earthlyBranch\": \"Thân\", \"earthlyBranchKey\": \"shenEarthly\", \"heavenlyStem\": \"Mậu\", \"heavenlyStemKey\": \"wuHeavenly\", \"index\": 6, \"mutagen\": [\"Tham Lang\", \"Thái Âm\", \"Hữu Bật\", \"Thiên Cơ\"], \"mutagenStarKeys\": [\"tanlangMaj\", \"taiyinMaj\", \"youbiMin\", \"tianjiMaj\"], \"name\": \"Lưu Niên\", \"nameKey\": \"yearly\", \"palaceNameKeys\": [\"surfacePalace\", \"healthPalace\", \"wealthPalace\", \"childrenPalace\", \"spousePalace\", \"siblingsPalace\", \"soulPalace\", \"parentsPalace\", \"spiritPalace\", \"propertyPalace\", \"careerPalace\", \"friendsPalace\"], \"palaceNames\": [\"Thiên Di\", \"Tật Ách\", \"Tài Bạch\", \"Tử Nữ\", \"Phu Thê\", \"Huynh Đệ\", \"Mệnh\", \"Phụ Mẫu\", \"Phúc Đức\", \"Điền Trạch\", \"Quan Lộc\", \"Nô Bộc\"], \"stars\": [[{\"key\": \"nianjie\", \"name\": \"Niên Giải\", \"scope\": \"yearly\", \"type\": \"helper\"}, {\"key\": \"liuma\", \"name\": \"Lưu Mã\", \"scope\": \"yearly\", \"type\": \"tianma\"}], [], [{\"key\": \"liutuo\", \"name\": \"Lưu Đà\", \"scope\": \"yearly\", \"type\": \"tough\"}], [{\"key\": \"liulu\", \"name\": \"Lưu Lộc\", \"scope\": \"yearly\", \"type\": \"lucun\"}], [{\"key\": \"liuqu\", \"name\": \"Lưu Khúc\", \"scope\": \"yearly\", \"type\": \"soft\"}, {\"key\": \"liuyang\", \"name\": \"Lưu Dương\", \"scope\": \"yearly\", \"type\": \"tough\"}], [{\"key\": \"liuyue\", \"name\": \"Lưu Việt\", \"scope\": \"yearly\", \"type\": \"soft\"}, {\"key\": \"liuluan\", \"name\": \"Lưu Loan\", \"scope\": \"yearly\", \"type\": \"flower\"}], [{\"key\": \"liuchang\", \"name\": \"Lưu Xương\", \"scope\": \"yearly\", \"type\": \"soft\"}], [], [], [], [], [{\"key\": \"liukui\", \"name\": \"Lưu Khôi\", \"scope\": \"yearly\", \"type\": \"soft\"}, {\"key\": \"liuxi\", \"name\": \"Lưu Hỷ\", \"scope\": \"yearly\", \"type\": \"flower\"}]], \"yearlyDecStar\": {\"jiangqian12\": [\"Tuế Dịch\", \"Tức Thần\", \"Hoa Cái\", \"Kiếp Sát\", \"Tai Sát\", \"Thiên Sát\", \"Chỉ Bối\", \"Hàm Trì\", \"Nguyệt Sát\", \"Vong Thần\", \"Tướng Tinh\", \"Phan Án\"], \"jiangqian12Keys\": [\"suiyi\", \"xiishen\", \"huagai\", \"jiesha\", \"zhaisha\", \"tiansha\", \"zhibei\", \"xianchi\", \"yuesha\", \"wangshen\", \"jiangxing\", \"panan\"], \"suiqian12\": [\"Đại Hao\", \"Long Đức\", \"Bạch Hổ\", \"Thiên Đức\", \"Điếu Khách\", \"Bệnh Phù\", \"Tuế Kiện\", \"Hối Khí\", \"Tang Môn\", \"Quán Tác\", \"Quan Phù\", \"Tiểu Hao\"], \"suiqian12Keys\": [\"dahao\", \"longde\", \"baihu\", \"tiande\", \"diaoke\", \"bingfu\", \"suijian\", \"huiqi\", \"sangmen\", \"guansuo\", \"gwanfu\", \"xiaohao\"]}, \"sihuaKeys\": [\"sihuaLu\", \"sihuaQuan\", \"sihuaKe\", \"sihuaJi\"]}}, {\"id\": \"E015\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"careerPalace\", \"data\": {\"key\": \"careerPalace\", \"name\": \"官禄\", \"excerpt\": \"官禄宫又叫 `事业宫`，展示星盘主人的 `做事态度` 和对工作的态度。即便对未来职业尚无规划和想法，官禄宫也能给出一个方向，指出适合什么类型的工作，从而有针对性地查缺补漏，补足预设工作所需而尚未掌握的技能。尚未工作、全职持家或依赖伴侣生活的人也不例外——官禄宫展示的是一种 `处事态度`，无论有无工作都有影响：对学生而言，`学习` 就是日常工作；对全职持家者而言，`照顾家庭` 就是日常工作；对依赖伴侣生活者而言，把这份依赖经营稳固便是其日常之事。\"}}, {\"id\": \"E016\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"chang_qu_jia_ming\", \"data\": {\"key\": \"chang_qu_jia_ming\", \"name\": \"昌曲夹命\", \"quotes\": [\"昌曲夹命最为奇，假若命在丑宫，文昌在寅，文曲在子是也。不贵即富，吉多方论此为贵。\"]}}, {\"id\": \"E017\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"dijieMin\", \"data\": {\"key\": \"dijieMin\", \"name\": \"地劫\", \"category\": \"minor\", \"attributes\": {\"yin_yang\": \"yang\", \"five_elements\": \"fire\", \"stem\": \"bing\", \"five_elements_note\": null, \"dipper\": \"28星宿\", \"chemistry\": \"劫煞之气\", \"career\": null, \"duty\": null, \"aliases\": [\"破财星\", \"谣言星\"], \"element_color\": null, \"energy_color\": null}, \"excerpt\": \"地空星有“半空折翅”之喻，地劫星则叫“浪里行舟”。二者的区别在于：地空星主要作用在思想上，地劫星则作用在物质上。地劫星之所以给人这种感觉，是因为其对机会比较挑剔，就算面对一个看起来十分诱人的机会，也会思虑再三。\\n\\n也正因为对机会的挑剔，地劫星会错过一些不错的时机，给人守着现成机遇却视而不见的印象。这种不是什么钱都赚的心态，使地劫星成了个“劳碌命”，不停地在自己定义好的规则范围内寻找出路；不过，挣踏实之财本身并无不妥。\\n\\n地劫星是颗风险厌恶型的星曜，需要看长期效果的事情对其是个不小的挑战：初期投入之后，在出现风险告警时未能坚持下去，便有了“为他人做嫁衣”的感觉。\"}}, {\"id\": \"E018\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"dikongMin\", \"data\": {\"key\": \"dikongMin\", \"name\": \"地空\", \"category\": \"minor\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"fire\", \"stem\": \"ding\", \"five_elements_note\": null, \"dipper\": \"28星宿\", \"chemistry\": \"空亡之气\", \"career\": null, \"duty\": null, \"aliases\": [\"破财星\", \"中断星\", \"归零星\", \"宗教星\", \"幻想星\", \"创意星\"], \"element_color\": null, \"energy_color\": null}, \"excerpt\": \"古籍中以“半空折翅”形容地空星，字面听来颇为严重，但地空其实算是比较“中性”的一颗星。之所以给人半空折翅之感，是因为这颗星重点在想，而不在做。\\n\\n地空星比较怕麻烦，一旦一件事情步骤多、顾虑多，地空就容易选择逃避。万事开头难，面对各种挑战时地空常选择退缩，从而产生“中断”的感觉，这也是地空被称为“中断星”的由来。\\n\\n这颗星善于思考，想法特别多，如果再加上 `天马星`，就形成了“天马行空”，思维不仅活跃，跳跃性还很强。这些奇思妙想使地空星在艺术创作、文案策划方面天赋较高。然而在实际生活和工作中，想法是需要落地的，地空星的奇想常因无法落地而产生“别人笑我太疯癫，我笑他人看不穿”的感觉。\"}}, {\"id\": \"E019\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"lingxingMin\", \"data\": {\"key\": \"lingxingMin\", \"name\": \"铃星\", \"category\": \"minor\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"fire\", \"stem\": \"ding\", \"five_elements_note\": null, \"dipper\": \"南斗浮星\", \"chemistry\": \"刚烈之气\", \"career\": null, \"duty\": \"刚强惊吓\", \"aliases\": [\"闷骚星\", \"顽石星\"], \"element_color\": \"红色\", \"energy_color\": \"暗红光\"}, \"excerpt\": \"与火星的直接表达不同，铃星不会将情绪一股脑释放出来，而是积压在内心慢慢释放，因此通常给人一种内敛、深沉的印象。铃星更倾向于在内心深处思考和消化情绪，不轻易将情感展露于外。\\n\\n这种内敛的特点使其在处理情绪时更加冷静和克制，不易被外界情绪所左右；然而过度的内敛也可能导致情绪积压，需要学会适当地表达和释放情感，以维持心理健康和人际关系的平衡。\\n\\n铃星比较喜欢精打细算，善于考虑周全，不轻易冲动行事，通常会在做出决定之前深思熟虑，喜欢有条不紊地规划和安排生活中的方方面面。这种谨慎的性格使其在处理问题时更加稳健和可靠，但有时也可能因过于谨慎而错失一些机会。\"}}, {\"id\": \"E020\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"qishaMaj\", \"data\": {\"key\": \"qishaMaj\", \"name\": \"七杀\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"metal\", \"stem\": \"xin\", \"five_elements_note\": null, \"dipper\": \"南斗第六星\", \"chemistry\": \"肃杀\", \"career\": \"迁移主\", \"duty\": \"威猛，肃杀，变动\", \"aliases\": [\"死亡星\", \"变动星\", \"酷星\"], \"element_color\": \"白色\", \"energy_color\": \"黑光\"}, \"excerpt\": \"七杀之名听来“杀气很重”，实则不然——七杀星虽亲和力不强，却未必是凶神恶煞的模样。在 `杀破狼` 的组合里，若贪狼是指挥官，七杀星便是带兵的将领，破军则是冲锋陷阵的士兵。\\n\\n作为一个“将领”，七杀星需要坚定不移的信念方能带队向前，故七杀星代表 `坚持` 与 `执着` 的力量。然而执行力过于强大便会想得少，常给人“愣头青”的感觉。这只是七杀单星的特质，与其他策划型星曜组合时，其策划能力也会随之增强。\\n\\n七杀星缺少亲和力，社交上给人一种“不敢主动靠近”的感觉。七杀坐命者宜多保持笑容、社交中主动一些，并多听取他人的建议与劝导，勿闷头一条道走到黑。\"}}, {\"id\": \"E021\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"soulPalace\", \"data\": {\"key\": \"soulPalace\", \"name\": \"命宫\", \"excerpt\": \"命宫是决定星盘主人属性的宫位，类似于游戏中的职业，显示其个性偏向。但人的性格是立体的，命宫的个性只能说是星盘主人的 `本质`。俗话说 `性格决定命运`，其实决定命运的从来都不是性格，而是 `认知`：同一类型性格的人，会因自身认知的不同，对同一件事产生完全不同的想法。所以现代社会不能用老传统的 `好` 与 `差`、`吉` 与 `凶` 武断评定一张盘的好坏。另外，虽然命宫是人个性特质的展现，但对大多数人而言，别人最先接触到的个性特质往往不是命宫展现出来的，而是 `迁移宫`。\"}}, {\"id\": \"E022\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"spiritPalace\", \"data\": {\"key\": \"spiritPalace\", \"name\": \"福德\", \"excerpt\": \"迁移宫代表外在，相当于游戏里的 `皮肤`；命宫代表本质属性，相当于游戏角色的 `初始属性点`，属 `力量型`、`智力型` 还是 `敏捷型`，从命宫体现出来；疾厄宫代表身体的强弱，相当于物理抗性；而 `福德宫`，代表的是星盘主人的 `思想`。紫微斗数中常有 `修福德宫` 的说法，说的就是锻炼出一颗强大的心脏，不以物喜、不以己悲，做一个情绪稳定的人，从而不易受外界刺激而做出冲动或错误的决定和行为。其他宫位很多时候处于一种 `潜意识` 的状态去互动，`福德宫` 做出的行为却是经过思考的行为，所以福德宫锻炼得越强大，人生的容错性就越高。\"}}, {\"id\": \"E023\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"tianfuMaj\", \"data\": {\"key\": \"tianfuMaj\", \"name\": \"天府\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yang\", \"five_elements\": \"earth\", \"stem\": \"wu\", \"five_elements_note\": null, \"dipper\": \"南斗主星\", \"chemistry\": \"库\", \"career\": \"田宅主、财帛主\", \"duty\": \"贤能，包容，慈悲\", \"aliases\": [\"令星\", \"库星\", \"藏星\"], \"element_color\": \"黄色\", \"energy_color\": \"黄绿光\"}, \"excerpt\": \"同为 `帝星`，天府星与紫微星差别很大：天府虽也喜欢被吹捧、喜欢众星捧月的感觉，但总体上低调许多。天府是一个 `务实的` 帝王，相比紫微重“面子”不重“里子”的个性，天府更注重“面子”与“里子”的平衡。\\n\\n`只扫自家门前雪，不管他人瓦上霜` 用来形容天府星十分贴切：不喜欢管闲事，也不像紫微那样好为人师，反而带点天同“不争不抢”的意味。但天府的不争不抢源于不想，而非不敢，不可把天府的退让理解为懦弱。天府的迁移宫必是 `七杀星`，既让天府自带不怒而威的气场，也让其在真正想拼抢时毫不退让。\\n\\n天府星的福德宫必是 `贪狼星`，故其欲望其实不小，偏爱精神层面的享受，也对各类神秘事物感兴趣。\"}}, {\"id\": \"E024\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"tianxiangMaj\", \"data\": {\"key\": \"tianxiangMaj\", \"name\": \"天相\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yang\", \"five_elements\": \"water\", \"stem\": \"ren\", \"five_elements_note\": null, \"dipper\": \"南斗第五星\", \"chemistry\": \"印\", \"career\": \"官禄主\", \"duty\": \"辅佐，慈爱，服务，文凭\", \"aliases\": [\"印星\", \"文凭星\", \"马屁星\", \"寿星（加禄存）\", \"辅星\", \"衣食星\", \"细姨星\"], \"element_color\": \"黑色\", \"energy_color\": \"绿白光\"}, \"excerpt\": \"天相星以左右逢源、八面玲珑著称，论知人善用，天相星无疑是群星中的佼佼者。天相的迁移宫必是 `破军星`，故表面看起来颇为强硬；但其“和事佬”的个性使熟络之后反差较大——不拘一格的外壳之下，是细腻的处事风格，总能在合适的场合做合适的事情，且显得十分自然。\\n\\n天相星的执行力与 `亮度` 息息相关：亮度越高执行力越强，反之则变得犹豫不决、畏首畏尾。对一位“丞相”而言，粉饰太平是基本技能——无论事情多么糟糕，天相星首先想到的是如何让它看起来没那么糟，这也让天相成为一颗很会找方法的星曜。\"}}, {\"id\": \"E025\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"tianyueMin\", \"data\": {\"key\": \"tianyueMin\", \"name\": \"天钺\", \"category\": \"minor\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"fire\", \"stem\": \"ding\", \"five_elements_note\": null, \"dipper\": \"南斗助星\", \"chemistry\": \"贵人\", \"career\": null, \"duty\": \"助力，成就\", \"aliases\": [\"玉堂贵人\", \"细姨星\", \"手术星\"], \"element_color\": \"红色\", \"energy_color\": \"紫光\"}, \"excerpt\": \"天钺星叫 `玉堂贵人`，通常被认为是“女性”贵人，因为天钺星的帮助与右弼星一样较为间接。天魁星善于领导，天钺星则善于策划，长于思考、分析和制定方案。若说天魁星喜欢“管人”，天钺星便是喜欢“管事”，不喜欢别人对其负责的事务指手画脚。\\n\\n在助人方式上，天钺与天魁的头痛医头、脚痛医脚不同，更容易直接解决问题的源头，把“麻烦”化解于无形。以借款凑购车首付为喻：天魁星的助力是直接把差额借出、补齐首付；天钺星的做法则可能是恰好帮忙把优惠谈下来，让这笔钱直接省掉。\\n\\n天钺星的助力同样需要通过自己的努力去争取。这颗星能增加聪慧和洞察力。\"}}, {\"id\": \"E026\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"wealthPalace\", \"data\": {\"key\": \"wealthPalace\", \"name\": \"财帛\", \"excerpt\": \"财帛宫常被直接联想为财富，以为财帛宫好就是财运好，其实不然：财帛宫展现的是星盘主人对财务的态度、理财观念、物质欲望等。从原理上说，财帛宫是星盘主人的 `养分`，是维持其生活或生存的宫位。财帛宫在星盘上表现突出，代表星盘主人比较“吃资源”，需要比一般人更多的物质条件才能过得和一般人一样好，从而在理财和对赚钱机会的敏感度上会比普通人更好，以满足自己的物质需求，`会花钱才会挣钱` 说的就是这类人。真正财富的积累，看的是 `田宅宫`。\"}}, {\"id\": \"E027\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"wen_xing_an_gong\", \"data\": {\"key\": \"wen_xing_an_gong\", \"name\": \"文星暗拱\", \"quotes\": [\"文星暗拱，贾谊允矣登科。\"]}}, {\"id\": \"E028\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"wuquMaj\", \"data\": {\"key\": \"wuquMaj\", \"name\": \"武曲\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"metal\", \"stem\": \"xin\", \"five_elements_note\": null, \"dipper\": \"北斗第六星\", \"chemistry\": \"财富\", \"career\": \"财帛主\", \"duty\": \"执掌财富，勇武之将\", \"aliases\": [\"正财星\", \"寡宿星\", \"战争星\", \"将星\"], \"element_color\": \"白色\", \"energy_color\": \"乳白光\"}, \"excerpt\": \"武曲星是紫微斗数中有名的“独行侠”，因个性孤傲刚直，被传统命理师冠以 `刑克之星` 的名头。实际上武曲星只是不善表达、不喜社交，直来直往的个性常在无意间中伤他人，久而久之便给人独来独往的印象。\\n\\n除性格刚直外，武曲还是一颗怕麻烦的星曜——怕的不是费力，而是怕麻烦别人、怕人情世故。这种个性造就了武曲星强大的执行力与行动力：自己能动手的绝不去麻烦别人，是武曲星的行事准则。\\n\\n有强项自然也有短板，策划能力便是武曲星最大的短板。倔强的个性加上说干就干的执行力，方向正确时如鱼得水，缺点则是不太听劝。武曲坐命者宜多听取周围人的意见，即使不采纳，也能从中吸取自己未曾考虑到的经验。\"}}, {\"id\": \"E029\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"zuo_gui_xiang_gui\", \"data\": {\"key\": \"zuo_gui_xiang_gui\", \"name\": \"坐贵向贵\", \"quotes\": [\"坐贵向贵，谓魁钺在命迭相坐拱是也。\"]}}]}"
+      },
+      {
+        "event": "error",
+        "data": "{\"type\": \"llm_upstream\", \"detail\": \"LLM upstream error\"}"
+      }
+    ],
+    "replaced": false,
+    "replay": false,
+    "violations": null,
+    "output": "",
+    "latency": 0.0902094799967017,
+    "topic": "wealth",
+    "chart": "b20",
+    "chart_id": "cs_76d539c3867544a4813d39c9"
+  },
+  {
+    "topic": "love",
+    "status": "client_error",
+    "latency": 0.001119626991567202,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b14",
+    "chart_id": "cs_dc5f1823e68b46829ea6a410"
+  },
+  {
+    "status": "error",
+    "events": [
+      {
+        "event": "metadata",
+        "data": "{\"runId\": \"ir_94b43735fb87401486b2bba0\", \"topic\": \"wealth\", \"promptVersion\": \"wealth-v1\", \"model\": \"swe-2-worker\"}"
+      },
+      {
+        "event": "evidence",
+        "data": "{\"bundleId\": \"ev_f85fe840681949ad9c1adba0\", \"items\": [{\"id\": \"E001\", \"kind\": \"palace_fact\", \"source\": \"x-iztro\", \"scope\": \"surrounded:wealth\", \"palace_key\": \"careerPalace\", \"entity_key\": \"careerPalace\", \"data\": {\"index\": 7, \"name\": \"Quan Lộc\", \"stemBranch\": \"Kỷ Dậu\", \"majorStars\": [{\"key\": \"ziweiMaj\", \"name\": \"Tử Vi\"}, {\"key\": \"tanlangMaj\", \"name\": \"Tham Lang\"}], \"minorStars\": [{\"key\": \"wenquMin\", \"name\": \"Văn Khúc\"}]}}, {\"id\": \"E002\", \"kind\": \"palace_fact\", \"source\": \"x-iztro\", \"scope\": \"surrounded:career\", \"palace_key\": \"soulPalace\", \"entity_key\": \"soulPalace\", \"data\": {\"index\": 3, \"name\": \"Mệnh\", \"stemBranch\": \"Ất Tỵ\", \"majorStars\": [{\"key\": \"wuquMaj\", \"name\": \"Vũ Khúc\"}, {\"key\": \"pojunMaj\", \"name\": \"Phá Quân\"}], \"minorStars\": [{\"key\": \"wenchangMin\", \"name\": \"Văn Xương\"}, {\"key\": \"tianyueMin\", \"name\": \"Thiên Việt\"}]}}, {\"id\": \"E003\", \"kind\": \"palace_fact\", \"source\": \"x-iztro\", \"scope\": \"surrounded:opposite\", \"palace_key\": \"spiritPalace\", \"entity_key\": \"spiritPalace\", \"data\": {\"index\": 5, \"name\": \"Phúc Đức\", \"stemBranch\": \"Đinh Mùi\", \"majorStars\": [{\"key\": \"tianfuMaj\", \"name\": \"Thiên Phủ\"}], \"minorStars\": []}}, {\"id\": \"E004\", \"kind\": \"palace_fact\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"wealthPalace\", \"entity_key\": \"wealthPalace\", \"data\": {\"index\": 11, \"name\": \"Tài Bạch\", \"stemBranch\": \"Quý Sửu\", \"isBodyPalace\": false, \"majorStars\": [{\"key\": \"lianzhenMaj\", \"name\": \"Liêm Trinh\", \"brightness\": \"Lợi\", \"mutagen\": null}, {\"key\": \"qishaMaj\", \"name\": \"Thất Sát\", \"brightness\": \"Miếu\", \"mutagen\": null}], \"minorStars\": [], \"decadal\": {\"earthlyBranch\": \"Sửu\", \"earthlyBranchKey\": \"chouEarthly\", \"heavenlyStem\": \"Quý\", \"heavenlyStemKey\": \"guiHeavenly\", \"range\": [46, 55]}, \"ages\": [4, 16, 28, 40, 52, 64, 76, 88, 100, 112]}}, {\"id\": \"E005\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"careerPalace\", \"entity_key\": \"ziweiMaj\", \"data\": {\"starName\": \"Tử Vi\", \"starKey\": \"ziweiMaj\", \"mutagen\": \"Quyền\", \"mutagenKey\": \"sihuaQuan\", \"palace\": \"Quan Lộc\", \"palaceKey\": \"careerPalace\"}}, {\"id\": \"E006\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"healthPalace\", \"entity_key\": \"tianliangMaj\", \"data\": {\"starName\": \"Thiên Lương\", \"starKey\": \"tianliangMaj\", \"mutagen\": \"Lộc\", \"mutagenKey\": \"sihuaLu\", \"palace\": \"Tật Ách\", \"palaceKey\": \"healthPalace\"}}, {\"id\": \"E007\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"healthPalace\", \"entity_key\": \"zuofuMin\", \"data\": {\"starName\": \"Tả Phù\", \"starKey\": \"zuofuMin\", \"mutagen\": \"Khoa\", \"mutagenKey\": \"sihuaKe\", \"palace\": \"Tật Ách\", \"palaceKey\": \"healthPalace\"}}, {\"id\": \"E008\", \"kind\": \"mutagen\", \"source\": \"x-iztro\", \"scope\": \"natal\", \"palace_key\": \"soulPalace\", \"entity_key\": \"wuquMaj\", \"data\": {\"starName\": \"Vũ Khúc\", \"starKey\": \"wuquMaj\", \"mutagen\": \"Kỵ\", \"mutagenKey\": \"sihuaJi\", \"palace\": \"Mệnh\", \"palaceKey\": \"soulPalace\"}}, {\"id\": \"E009\", \"kind\": \"pattern\", \"source\": \"x-iztro-pattern-engine\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"jie_kong_jia_ming\", \"data\": {\"name\": \"Kiếp Không Giáp Mệnh\", \"scope\": \"origin\", \"broken\": false, \"stars\": [{\"key\": \"dijieMin\", \"name\": \"Địa Kiếp\", \"palace_index\": 2, \"brightness\": null, \"brightness_key\": null, \"mutagen\": null, \"mutagen_key\": null}, {\"key\": \"dikongMin\", \"name\": \"Địa Không\", \"palace_index\": 4, \"brightness\": null, \"brightness_key\": null, \"mutagen\": null, \"mutagen_key\": null}]}}, {\"id\": \"E010\", \"kind\": \"pattern\", \"source\": \"x-iztro-pattern-engine\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"sha_po_lang\", \"data\": {\"name\": \"Sát Phá Lang\", \"scope\": \"origin\", \"broken\": false, \"stars\": [{\"key\": \"qishaMaj\", \"name\": \"Thất Sát\", \"palace_index\": 11, \"brightness\": \"Miếu\", \"brightness_key\": \"miao\", \"mutagen\": null, \"mutagen_key\": null}, {\"key\": \"pojunMaj\", \"name\": \"Phá Quân\", \"palace_index\": 3, \"brightness\": \"Bình\", \"brightness_key\": \"ping\", \"mutagen\": null, \"mutagen_key\": null}, {\"key\": \"tanlangMaj\", \"name\": \"Tham Lang\", \"palace_index\": 7, \"brightness\": \"Lợi\", \"brightness_key\": \"li\", \"mutagen\": null, \"mutagen_key\": null}]}}, {\"id\": \"E011\", \"kind\": \"pattern\", \"source\": \"x-iztro-pattern-engine\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"wen_xing_an_gong\", \"data\": {\"name\": \"Văn Tinh Ám Củng\", \"scope\": \"origin\", \"broken\": false, \"stars\": [{\"key\": \"wenchangMin\", \"name\": \"Văn Xương\", \"palace_index\": 3, \"brightness\": \"Miếu\", \"brightness_key\": \"miao\", \"mutagen\": null, \"mutagen_key\": null}, {\"key\": \"wenquMin\", \"name\": \"Văn Khúc\", \"palace_index\": 7, \"brightness\": \"Miếu\", \"brightness_key\": \"miao\", \"mutagen\": null, \"mutagen_key\": null}]}}, {\"id\": \"E012\", \"kind\": \"pattern\", \"source\": \"x-iztro-pattern-engine\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"wen_xing_chao_ming\", \"data\": {\"name\": \"Văn Tinh Triều Mệnh\", \"scope\": \"origin\", \"broken\": true, \"stars\": [{\"key\": \"wenchangMin\", \"name\": \"Văn Xương\", \"palace_index\": 3, \"brightness\": \"Miếu\", \"brightness_key\": \"miao\", \"mutagen\": null, \"mutagen_key\": null}, {\"key\": \"wenquMin\", \"name\": \"Văn Khúc\", \"palace_index\": 7, \"brightness\": \"Miếu\", \"brightness_key\": \"miao\", \"mutagen\": null, \"mutagen_key\": null}]}}, {\"id\": \"E013\", \"kind\": \"horoscope_fact\", \"source\": \"x-iztro\", \"scope\": \"age:2028-01-26\", \"palace_key\": \"\", \"entity_key\": \"age\", \"data\": {\"earthlyBranch\": \"Ngọ\", \"earthlyBranchKey\": \"wuEarthly\", \"heavenlyStem\": \"Bính\", \"heavenlyStemKey\": \"bingHeavenly\", \"index\": 4, \"mutagen\": [\"Thiên Đồng\", \"Thiên Cơ\", \"Văn Xương\", \"Liêm Trinh\"], \"mutagenStarKeys\": [\"tiantongMaj\", \"tianjiMaj\", \"wenchangMin\", \"lianzhenMaj\"], \"name\": \"Tiểu Hạn\", \"nameKey\": \"turn\", \"nominalAge\": 47, \"palaceNameKeys\": [\"wealthPalace\", \"childrenPalace\", \"spousePalace\", \"siblingsPalace\", \"soulPalace\", \"parentsPalace\", \"spiritPalace\", \"propertyPalace\", \"careerPalace\", \"friendsPalace\", \"surfacePalace\", \"healthPalace\"], \"palaceNames\": [\"Tài Bạch\", \"Tử Nữ\", \"Phu Thê\", \"Huynh Đệ\", \"Mệnh\", \"Phụ Mẫu\", \"Phúc Đức\", \"Điền Trạch\", \"Quan Lộc\", \"Nô Bộc\", \"Thiên Di\", \"Tật Ách\"], \"sihuaKeys\": [\"sihuaLu\", \"sihuaQuan\", \"sihuaKe\", \"sihuaJi\"]}}, {\"id\": \"E014\", \"kind\": \"horoscope_fact\", \"source\": \"x-iztro\", \"scope\": \"decadal:2028-01-26\", \"palace_key\": \"\", \"entity_key\": \"decadal\", \"data\": {\"earthlyBranch\": \"Sửu\", \"earthlyBranchKey\": \"chouEarthly\", \"heavenlyStem\": \"Quý\", \"heavenlyStemKey\": \"guiHeavenly\", \"index\": 11, \"mutagen\": [\"Phá Quân\", \"Cự Môn\", \"Thái Âm\", \"Tham Lang\"], \"mutagenStarKeys\": [\"pojunMaj\", \"jumenMaj\", \"taiyinMaj\", \"tanlangMaj\"], \"name\": \"Đại Hạn\", \"nameKey\": \"decadal\", \"palaceNameKeys\": [\"parentsPalace\", \"spiritPalace\", \"propertyPalace\", \"careerPalace\", \"friendsPalace\", \"surfacePalace\", \"healthPalace\", \"wealthPalace\", \"childrenPalace\", \"spousePalace\", \"siblingsPalace\", \"soulPalace\"], \"palaceNames\": [\"Phụ Mẫu\", \"Phúc Đức\", \"Điền Trạch\", \"Quan Lộc\", \"Nô Bộc\", \"Thiên Di\", \"Tật Ách\", \"Tài Bạch\", \"Tử Nữ\", \"Phu Thê\", \"Huynh Đệ\", \"Mệnh\"], \"stars\": [[{\"key\": \"yunluan\", \"name\": \"Vận Loan\", \"scope\": \"decadal\", \"type\": \"flower\"}], [{\"key\": \"yunkui\", \"name\": \"Vận Khôi\", \"scope\": \"decadal\", \"type\": \"soft\"}, {\"key\": \"yunchang\", \"name\": \"Vận Xương\", \"scope\": \"decadal\", \"type\": \"soft\"}], [], [{\"key\": \"yunyue\", \"name\": \"Vận Việt\", \"scope\": \"decadal\", \"type\": \"soft\"}], [], [], [{\"key\": \"yunxi\", \"name\": \"Vận Hỷ\", \"scope\": \"decadal\", \"type\": \"flower\"}], [], [], [{\"key\": \"yunqu\", \"name\": \"Vận Khúc\", \"scope\": \"decadal\", \"type\": \"soft\"}, {\"key\": \"yuntuo\", \"name\": \"Vận Đà\", \"scope\": \"decadal\", \"type\": \"tough\"}, {\"key\": \"yunma\", \"name\": \"Vận Mã\", \"scope\": \"decadal\", \"type\": \"tianma\"}], [{\"key\": \"yunlu\", \"name\": \"Vận Lộc\", \"scope\": \"decadal\", \"type\": \"lucun\"}], [{\"key\": \"yunyang\", \"name\": \"Vận Dương\", \"scope\": \"decadal\", \"type\": \"tough\"}]], \"sihuaKeys\": [\"sihuaLu\", \"sihuaQuan\", \"sihuaKe\", \"sihuaJi\"]}}, {\"id\": \"E015\", \"kind\": \"horoscope_fact\", \"source\": \"x-iztro\", \"scope\": \"yearly:2028-01-26\", \"palace_key\": \"\", \"entity_key\": \"yearly\", \"data\": {\"earthlyBranch\": \"Thân\", \"earthlyBranchKey\": \"shenEarthly\", \"heavenlyStem\": \"Mậu\", \"heavenlyStemKey\": \"wuHeavenly\", \"index\": 6, \"mutagen\": [\"Tham Lang\", \"Thái Âm\", \"Hữu Bật\", \"Thiên Cơ\"], \"mutagenStarKeys\": [\"tanlangMaj\", \"taiyinMaj\", \"youbiMin\", \"tianjiMaj\"], \"name\": \"Lưu Niên\", \"nameKey\": \"yearly\", \"palaceNameKeys\": [\"surfacePalace\", \"healthPalace\", \"wealthPalace\", \"childrenPalace\", \"spousePalace\", \"siblingsPalace\", \"soulPalace\", \"parentsPalace\", \"spiritPalace\", \"propertyPalace\", \"careerPalace\", \"friendsPalace\"], \"palaceNames\": [\"Thiên Di\", \"Tật Ách\", \"Tài Bạch\", \"Tử Nữ\", \"Phu Thê\", \"Huynh Đệ\", \"Mệnh\", \"Phụ Mẫu\", \"Phúc Đức\", \"Điền Trạch\", \"Quan Lộc\", \"Nô Bộc\"], \"stars\": [[{\"key\": \"nianjie\", \"name\": \"Niên Giải\", \"scope\": \"yearly\", \"type\": \"helper\"}, {\"key\": \"liuma\", \"name\": \"Lưu Mã\", \"scope\": \"yearly\", \"type\": \"tianma\"}], [], [{\"key\": \"liutuo\", \"name\": \"Lưu Đà\", \"scope\": \"yearly\", \"type\": \"tough\"}], [{\"key\": \"liulu\", \"name\": \"Lưu Lộc\", \"scope\": \"yearly\", \"type\": \"lucun\"}], [{\"key\": \"liuqu\", \"name\": \"Lưu Khúc\", \"scope\": \"yearly\", \"type\": \"soft\"}, {\"key\": \"liuyang\", \"name\": \"Lưu Dương\", \"scope\": \"yearly\", \"type\": \"tough\"}], [{\"key\": \"liuyue\", \"name\": \"Lưu Việt\", \"scope\": \"yearly\", \"type\": \"soft\"}, {\"key\": \"liuluan\", \"name\": \"Lưu Loan\", \"scope\": \"yearly\", \"type\": \"flower\"}], [{\"key\": \"liuchang\", \"name\": \"Lưu Xương\", \"scope\": \"yearly\", \"type\": \"soft\"}], [], [], [], [], [{\"key\": \"liukui\", \"name\": \"Lưu Khôi\", \"scope\": \"yearly\", \"type\": \"soft\"}, {\"key\": \"liuxi\", \"name\": \"Lưu Hỷ\", \"scope\": \"yearly\", \"type\": \"flower\"}]], \"yearlyDecStar\": {\"jiangqian12\": [\"Tuế Dịch\", \"Tức Thần\", \"Hoa Cái\", \"Kiếp Sát\", \"Tai Sát\", \"Thiên Sát\", \"Chỉ Bối\", \"Hàm Trì\", \"Nguyệt Sát\", \"Vong Thần\", \"Tướng Tinh\", \"Phan Án\"], \"jiangqian12Keys\": [\"suiyi\", \"xiishen\", \"huagai\", \"jiesha\", \"zhaisha\", \"tiansha\", \"zhibei\", \"xianchi\", \"yuesha\", \"wangshen\", \"jiangxing\", \"panan\"], \"suiqian12\": [\"Đại Hao\", \"Long Đức\", \"Bạch Hổ\", \"Thiên Đức\", \"Điếu Khách\", \"Bệnh Phù\", \"Tuế Kiện\", \"Hối Khí\", \"Tang Môn\", \"Quán Tác\", \"Quan Phù\", \"Tiểu Hao\"], \"suiqian12Keys\": [\"dahao\", \"longde\", \"baihu\", \"tiande\", \"diaoke\", \"bingfu\", \"suijian\", \"huiqi\", \"sangmen\", \"guansuo\", \"gwanfu\", \"xiaohao\"]}, \"sihuaKeys\": [\"sihuaLu\", \"sihuaQuan\", \"sihuaKe\", \"sihuaJi\"]}}, {\"id\": \"E016\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"careerPalace\", \"data\": {\"key\": \"careerPalace\", \"name\": \"官禄\", \"excerpt\": \"官禄宫又叫 `事业宫`，展示星盘主人的 `做事态度` 和对工作的态度。即便对未来职业尚无规划和想法，官禄宫也能给出一个方向，指出适合什么类型的工作，从而有针对性地查缺补漏，补足预设工作所需而尚未掌握的技能。尚未工作、全职持家或依赖伴侣生活的人也不例外——官禄宫展示的是一种 `处事态度`，无论有无工作都有影响：对学生而言，`学习` 就是日常工作；对全职持家者而言，`照顾家庭` 就是日常工作；对依赖伴侣生活者而言，把这份依赖经营稳固便是其日常之事。\"}}, {\"id\": \"E017\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"jie_kong_jia_ming\", \"data\": {\"key\": \"jie_kong_jia_ming\", \"name\": \"劫空夹命\", \"quotes\": [\"劫空夹命为败局，假如命安在亥宫，劫在子宫，空在戌宫是也。岁限行到亦凶，夹忌亦凶孤贫刑伤。\"]}}, {\"id\": \"E018\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"lianzhenMaj\", \"data\": {\"key\": \"lianzhenMaj\", \"name\": \"廉贞\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"fire\", \"stem\": \"ding\", \"five_elements_note\": null, \"dipper\": \"北斗第五星\", \"chemistry\": \"囚\", \"career\": \"官禄主(行政)\", \"duty\": \"邪恶\", \"aliases\": [\"次桃花星（纠缠性）\", \"次财星\"], \"element_color\": \"红色\", \"energy_color\": \"赤光\"}, \"excerpt\": \"提起廉贞，许多有经验的命理师都会不禁摇头，古籍对廉贞的评价也不算好，还有 `自古廉贞最难明` 的说法，使廉贞星人无端蒙受许多偏见。人们对廉贞星偏见颇多，是因为廉贞与武曲一样不喜社交、不太懂人情世故。她们虽化气为 `囚`，但大部分时候“囚禁”的是自己。\\n\\n廉贞星不易与人交心，是因为自我保护意识太强。旁人嬉笑怒骂之际，廉贞常显得格格不入——她对任何事情都抱着非常理性认真的态度，有时分不清对方是认真还是玩笑。也正是这份“认真”，让廉贞星看起来多了一分高冷、少了一分亲和。尤其廉贞星会因过于强大的自尊心，无意中做出许多伤害别人的事、说出伤害别人感情的话，颇令人烦恼。\"}}, {\"id\": \"E019\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"pojunMaj\", \"data\": {\"key\": \"pojunMaj\", \"name\": \"破军\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"water\", \"stem\": \"gui\", \"five_elements_note\": null, \"dipper\": \"北斗第七星\", \"chemistry\": \"耗\", \"career\": \"迁移主\", \"duty\": \"破损消耗\", \"aliases\": [\"消耗星\", \"垃圾星\", \"远洋星\", \"流氓星\", \"先锋星\"], \"element_color\": \"黑色\", \"energy_color\": \"黑光\"}, \"excerpt\": \"破军代表士兵，在阵前冲锋陷阵，故化气为 `耗`，代表着一种消耗。破军有 `先破后立`、`破釜沉舟` 的魄力：一旦认定一件事，便不太在意既定规则；若规则不容，便打破旧规、建立自己的新规则。\\n\\n`杀破狼` 格局的人一般不喜欢平凡而碌碌无为的人生，喜欢拼搏闯荡，人生因此过得比较精彩、大起大落。破军星并非四肢发达、头脑简单的形象，而是企划与执行兼具的星曜，其企划能力多显现在艺术领域；且破军一旦看中某个领域，很容易在其中深耕下去。\\n\\n杀破狼格局天生自带反骨，给人桀骜不驯之感，其中以破军星最甚。这种明知不可为而为之的个性，容易让其登上云端，也更容易让其跌入谷底。\"}}, {\"id\": \"E020\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"qishaMaj\", \"data\": {\"key\": \"qishaMaj\", \"name\": \"七杀\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"metal\", \"stem\": \"xin\", \"five_elements_note\": null, \"dipper\": \"南斗第六星\", \"chemistry\": \"肃杀\", \"career\": \"迁移主\", \"duty\": \"威猛，肃杀，变动\", \"aliases\": [\"死亡星\", \"变动星\", \"酷星\"], \"element_color\": \"白色\", \"energy_color\": \"黑光\"}, \"excerpt\": \"七杀之名听来“杀气很重”，实则不然——七杀星虽亲和力不强，却未必是凶神恶煞的模样。在 `杀破狼` 的组合里，若贪狼是指挥官，七杀星便是带兵的将领，破军则是冲锋陷阵的士兵。\\n\\n作为一个“将领”，七杀星需要坚定不移的信念方能带队向前，故七杀星代表 `坚持` 与 `执着` 的力量。然而执行力过于强大便会想得少，常给人“愣头青”的感觉。这只是七杀单星的特质，与其他策划型星曜组合时，其策划能力也会随之增强。\\n\\n七杀星缺少亲和力，社交上给人一种“不敢主动靠近”的感觉。七杀坐命者宜多保持笑容、社交中主动一些，并多听取他人的建议与劝导，勿闷头一条道走到黑。\"}}, {\"id\": \"E021\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"sha_po_lang\", \"data\": {\"key\": \"sha_po_lang\", \"name\": \"杀破狼\", \"quotes\": [\"武贞羊杀破狼，居陷地则丧命夭折， 若与同梁武曲会旺宫，聪明果决，如羊陀火铃冲破，只宜空门。\", \"紫微入限本为祥，只恐三方杀破狼，常庶逢之多不利，官员降谪有惊伤。\", \"七杀破军宜出外，机月同梁作吏人。\"]}}, {\"id\": \"E022\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"soulPalace\", \"data\": {\"key\": \"soulPalace\", \"name\": \"命宫\", \"excerpt\": \"命宫是决定星盘主人属性的宫位，类似于游戏中的职业，显示其个性偏向。但人的性格是立体的，命宫的个性只能说是星盘主人的 `本质`。俗话说 `性格决定命运`，其实决定命运的从来都不是性格，而是 `认知`：同一类型性格的人，会因自身认知的不同，对同一件事产生完全不同的想法。所以现代社会不能用老传统的 `好` 与 `差`、`吉` 与 `凶` 武断评定一张盘的好坏。另外，虽然命宫是人个性特质的展现，但对大多数人而言，别人最先接触到的个性特质往往不是命宫展现出来的，而是 `迁移宫`。\"}}, {\"id\": \"E023\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"spiritPalace\", \"data\": {\"key\": \"spiritPalace\", \"name\": \"福德\", \"excerpt\": \"迁移宫代表外在，相当于游戏里的 `皮肤`；命宫代表本质属性，相当于游戏角色的 `初始属性点`，属 `力量型`、`智力型` 还是 `敏捷型`，从命宫体现出来；疾厄宫代表身体的强弱，相当于物理抗性；而 `福德宫`，代表的是星盘主人的 `思想`。紫微斗数中常有 `修福德宫` 的说法，说的就是锻炼出一颗强大的心脏，不以物喜、不以己悲，做一个情绪稳定的人，从而不易受外界刺激而做出冲动或错误的决定和行为。其他宫位很多时候处于一种 `潜意识` 的状态去互动，`福德宫` 做出的行为却是经过思考的行为，所以福德宫锻炼得越强大，人生的容错性就越高。\"}}, {\"id\": \"E024\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"tanlangMaj\", \"data\": {\"key\": \"tanlangMaj\", \"name\": \"贪狼\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yang\", \"five_elements\": \"wood\", \"stem\": \"jia\", \"five_elements_note\": \"气为水\", \"dipper\": \"北斗第一星\", \"chemistry\": \"桃花\", \"career\": \"子女主\", \"duty\": \"欲望，物质\", \"aliases\": [\"桃花星\", \"交际星\", \"标准星\", \"才艺星\", \"赌星（闹财星）\", \"武术星\", \"宗教星\", \"幻想星\"], \"element_color\": \"青色\", \"energy_color\": \"赤蓝光\"}, \"excerpt\": \"贪狼是紫微斗数里的第一桃花星。桃花星的本质是 `社交` 与 `受欢迎`，而非许多人理解的男女之情。贪狼星另一个广为人知的特性是代表 `欲望`，这里的 `欲望` 也常被曲解为 `男欢女爱`，这是对贪狼星最大的误解。贪狼星的欲望取决于其兴趣所在：对感兴趣的东西会深究到底、想方设法去探索研究。它是人类欲望的源头——人有了欲望，才会去奋斗，才会去拼搏。\\n\\n贪狼是一颗充满好奇心的星曜，热爱思考，对感兴趣的事情有着非常浓烈的热情。当贪狼星喜欢上一个人、一件东西或一件事时，比较容易上瘾。这种特质若用在正确的地方，贪狼星的成就不可限量。\"}}, {\"id\": \"E025\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"tianfuMaj\", \"data\": {\"key\": \"tianfuMaj\", \"name\": \"天府\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yang\", \"five_elements\": \"earth\", \"stem\": \"wu\", \"five_elements_note\": null, \"dipper\": \"南斗主星\", \"chemistry\": \"库\", \"career\": \"田宅主、财帛主\", \"duty\": \"贤能，包容，慈悲\", \"aliases\": [\"令星\", \"库星\", \"藏星\"], \"element_color\": \"黄色\", \"energy_color\": \"黄绿光\"}, \"excerpt\": \"同为 `帝星`，天府星与紫微星差别很大：天府虽也喜欢被吹捧、喜欢众星捧月的感觉，但总体上低调许多。天府是一个 `务实的` 帝王，相比紫微重“面子”不重“里子”的个性，天府更注重“面子”与“里子”的平衡。\\n\\n`只扫自家门前雪，不管他人瓦上霜` 用来形容天府星十分贴切：不喜欢管闲事，也不像紫微那样好为人师，反而带点天同“不争不抢”的意味。但天府的不争不抢源于不想，而非不敢，不可把天府的退让理解为懦弱。天府的迁移宫必是 `七杀星`，既让天府自带不怒而威的气场，也让其在真正想拼抢时毫不退让。\\n\\n天府星的福德宫必是 `贪狼星`，故其欲望其实不小，偏爱精神层面的享受，也对各类神秘事物感兴趣。\"}}, {\"id\": \"E026\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"tianyueMin\", \"data\": {\"key\": \"tianyueMin\", \"name\": \"天钺\", \"category\": \"minor\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"fire\", \"stem\": \"ding\", \"five_elements_note\": null, \"dipper\": \"南斗助星\", \"chemistry\": \"贵人\", \"career\": null, \"duty\": \"助力，成就\", \"aliases\": [\"玉堂贵人\", \"细姨星\", \"手术星\"], \"element_color\": \"红色\", \"energy_color\": \"紫光\"}, \"excerpt\": \"天钺星叫 `玉堂贵人`，通常被认为是“女性”贵人，因为天钺星的帮助与右弼星一样较为间接。天魁星善于领导，天钺星则善于策划，长于思考、分析和制定方案。若说天魁星喜欢“管人”，天钺星便是喜欢“管事”，不喜欢别人对其负责的事务指手画脚。\\n\\n在助人方式上，天钺与天魁的头痛医头、脚痛医脚不同，更容易直接解决问题的源头，把“麻烦”化解于无形。以借款凑购车首付为喻：天魁星的助力是直接把差额借出、补齐首付；天钺星的做法则可能是恰好帮忙把优惠谈下来，让这笔钱直接省掉。\\n\\n天钺星的助力同样需要通过自己的努力去争取。这颗星能增加聪慧和洞察力。\"}}, {\"id\": \"E027\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"wealthPalace\", \"data\": {\"key\": \"wealthPalace\", \"name\": \"财帛\", \"excerpt\": \"财帛宫常被直接联想为财富，以为财帛宫好就是财运好，其实不然：财帛宫展现的是星盘主人对财务的态度、理财观念、物质欲望等。从原理上说，财帛宫是星盘主人的 `养分`，是维持其生活或生存的宫位。财帛宫在星盘上表现突出，代表星盘主人比较“吃资源”，需要比一般人更多的物质条件才能过得和一般人一样好，从而在理财和对赚钱机会的敏感度上会比普通人更好，以满足自己的物质需求，`会花钱才会挣钱` 说的就是这类人。真正财富的积累，看的是 `田宅宫`。\"}}, {\"id\": \"E028\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"wen_xing_an_gong\", \"data\": {\"key\": \"wen_xing_an_gong\", \"name\": \"文星暗拱\", \"quotes\": [\"文星暗拱，贾谊允矣登科。\"]}}, {\"id\": \"E029\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"wen_xing_chao_ming\", \"data\": {\"key\": \"wen_xing_chao_ming\", \"name\": \"文星朝命\", \"quotes\": [\"文科拱照，贾谊年少登科。\"]}}, {\"id\": \"E030\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"wenchangMin\", \"data\": {\"key\": \"wenchangMin\", \"name\": \"文昌\", \"category\": \"minor\", \"attributes\": {\"yin_yang\": \"yang\", \"five_elements\": \"metal\", \"stem\": \"geng\", \"five_elements_note\": null, \"dipper\": \"南斗之星\", \"chemistry\": \"文贵\", \"career\": null, \"duty\": \"正途功名，科甲\", \"aliases\": [\"科甲星\", \"文书星\", \"风流星\", \"桃花星\"], \"element_color\": \"白色\", \"energy_color\": \"青白光\"}, \"excerpt\": \"文昌星是紫微斗数第一科甲之星，代表文书类的事务，可视作“小天梁”，有着天梁的清高和倔强。古籍中把文昌星叫做“正途功名”，即家庭与社会普遍认可、循正规路径求取的功名。\\n\\n这颗星比较喜欢文学，会给人文质彬彬的感觉。单独而论，文昌并不属于桃花星，反而会给人比较呆板、缺乏变通的感觉；但一旦和其他桃花星组合，就变成了桃花星，从呆板变为风流倜傥。\\n\\n文昌星的记忆力比较好，听过的话、看过的书都比较容易记住，当然这是相对而言。文昌的科甲之名也由此而来：在旧时的社会环境下，文学功底与记忆力是考取功名的利器；这些能力在当今社会依然强势，只是已没有当初那种不可取代的地位。\"}}, {\"id\": \"E031\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"wenquMin\", \"data\": {\"key\": \"wenquMin\", \"name\": \"文曲\", \"category\": \"minor\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"water\", \"stem\": \"gui\", \"five_elements_note\": null, \"dipper\": \"北斗第四星\", \"chemistry\": \"文华\", \"career\": null, \"duty\": \"异途功名，优雅，口才，才华\", \"aliases\": [\"八卦星\", \"才艺星\", \"偏房星\", \"才华星\", \"艺术星\", \"桃花星\", \"浪漫星\", \"细姨星\"], \"element_color\": \"黑色\", \"energy_color\": \"米黄光\"}, \"excerpt\": \"文曲星是紫微斗数里第一文艺之星，代表艺术修养与浪漫，被称作“异途功名”，亦不妨理解为“艺途功名”。异途与正途相对：正途是家庭与社会普遍认可的功名之路，异途则是长辈与世俗往往并不看好的路子，多与艺术等非传统科目相关。\\n\\n文曲星通常比较善于变通，内心多愁善感。也因为文曲星会增加一些表达能力，所以在紫微斗数里引申出了口舌是非的意象。\\n\\n文曲星需要增加自己的文化底蕴，让艺术气息有根基，否则容易给人无病呻吟、故作深沉之感。紫微斗数中有很多“对星”，同宫相会会产生共振、带来额外加成：文昌文曲在一起会形成文贵文华格，表示才华出众；但不宜太过依赖格局，否则容易造成误判。\"}}, {\"id\": \"E032\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"wuquMaj\", \"data\": {\"key\": \"wuquMaj\", \"name\": \"武曲\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"metal\", \"stem\": \"xin\", \"five_elements_note\": null, \"dipper\": \"北斗第六星\", \"chemistry\": \"财富\", \"career\": \"财帛主\", \"duty\": \"执掌财富，勇武之将\", \"aliases\": [\"正财星\", \"寡宿星\", \"战争星\", \"将星\"], \"element_color\": \"白色\", \"energy_color\": \"乳白光\"}, \"excerpt\": \"武曲星是紫微斗数中有名的“独行侠”，因个性孤傲刚直，被传统命理师冠以 `刑克之星` 的名头。实际上武曲星只是不善表达、不喜社交，直来直往的个性常在无意间中伤他人，久而久之便给人独来独往的印象。\\n\\n除性格刚直外，武曲还是一颗怕麻烦的星曜——怕的不是费力，而是怕麻烦别人、怕人情世故。这种个性造就了武曲星强大的执行力与行动力：自己能动手的绝不去麻烦别人，是武曲星的行事准则。\\n\\n有强项自然也有短板，策划能力便是武曲星最大的短板。倔强的个性加上说干就干的执行力，方向正确时如鱼得水，缺点则是不太听劝。武曲坐命者宜多听取周围人的意见，即使不采纳，也能从中吸取自己未曾考虑到的经验。\"}}, {\"id\": \"E033\", \"kind\": \"knowledge\", \"source\": \"iztro-docs\", \"scope\": \"natal\", \"palace_key\": \"\", \"entity_key\": \"ziweiMaj\", \"data\": {\"key\": \"ziweiMaj\", \"name\": \"紫微\", \"category\": \"major\", \"attributes\": {\"yin_yang\": \"yin\", \"five_elements\": \"earth\", \"stem\": \"ji\", \"five_elements_note\": null, \"dipper\": \"中天星系\", \"chemistry\": \"尊贵\", \"career\": \"官禄主\", \"duty\": \"众星枢纽，长五行，孕万物\", \"aliases\": [\"帝王星\", \"老板星\", \"俸禄星\"], \"element_color\": \"黄色\", \"energy_color\": \"紫光\"}, \"excerpt\": \"紫微星号称 `帝王星`，并非指紫微坐命者能成帝王，而是指其个性带有“王者”特质：控制欲与占有欲较强，偏爱华美的事物与称赞，重视体面甚于实际，也因此常给人较强的距离感。紫微星具备许多领导型人格所需的特质：目标长远、大局观强、好为人师等。\\n\\n紫微是一颗非常“吃资源”的星曜：若能获得足够的支持与培养条件，使其能力与自身气场相匹配，便会发挥出强大的控场与规划能力；若自身认知水平不足，缺乏足以支撑这颗星的知识与能力，则容易变得眼高手低、高不成低不就。\\n\\n故 `紫微星` 坐命者宜扩展知识的广度，把自身基础打牢，如此在工作与生活中便容易成为受人尊敬的人。\"}}]}"
+      },
+      {
+        "event": "error",
+        "data": "{\"type\": \"llm_upstream\", \"detail\": \"LLM upstream error\"}"
+      }
+    ],
+    "replaced": false,
+    "replay": false,
+    "violations": null,
+    "output": "",
+    "latency": 0.09091347799403593,
+    "topic": "wealth",
+    "chart": "b08",
+    "chart_id": "cs_7d415acffddc4a91831ac9d5"
+  },
+  {
+    "topic": "health",
+    "status": "client_error",
+    "latency": 0.0020814380113733932,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b24",
+    "chart_id": "cs_60cd3d2a154b43bc823c3867"
+  },
+  {
+    "topic": "love",
+    "status": "client_error",
+    "latency": 0.0015539739979431033,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b09",
+    "chart_id": "cs_0ef542983a834c95b8d811c7"
+  },
+  {
+    "topic": "wealth",
+    "status": "client_error",
+    "latency": 0.0013241830019978806,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b19",
+    "chart_id": "cs_b0ae4eb277a14b368d5a8322"
+  },
+  {
+    "topic": "health",
+    "status": "client_error",
+    "latency": 0.0016049469995778054,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b07",
+    "chart_id": "cs_a92826636d204bd3b9840211"
+  },
+  {
+    "topic": "health",
+    "status": "client_error",
+    "latency": 0.0020054009946761653,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b14",
+    "chart_id": "cs_dc5f1823e68b46829ea6a410"
+  },
+  {
+    "topic": "health",
+    "status": "client_error",
+    "latency": 0.0012690400035353377,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b09",
+    "chart_id": "cs_0ef542983a834c95b8d811c7"
+  },
+  {
+    "topic": "overview",
+    "status": "client_error",
+    "latency": 0.0016646069998387247,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b20",
+    "chart_id": "cs_76d539c3867544a4813d39c9"
+  },
+  {
+    "topic": "love",
+    "status": "client_error",
+    "latency": 0.001420448999851942,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b03",
+    "chart_id": "cs_8699d44dc2384afcba858910"
+  },
+  {
+    "topic": "overview",
+    "status": "client_error",
+    "latency": 0.001599819996044971,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b15",
+    "chart_id": "cs_75640a30555944c69452cd1b"
+  },
+  {
+    "topic": "overview",
+    "status": "client_error",
+    "latency": 0.0013595709897344932,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b10",
+    "chart_id": "cs_d4b33edc132a4b96b52a09b4"
+  },
+  {
+    "topic": "love",
+    "status": "client_error",
+    "latency": 0.0015755479980725795,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b19",
+    "chart_id": "cs_b0ae4eb277a14b368d5a8322"
+  },
+  {
+    "topic": "health",
+    "status": "client_error",
+    "latency": 0.0013690650084754452,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b01",
+    "chart_id": "cs_2cc1b7bfb42c4888916b1c54"
+  },
+  {
+    "topic": "career",
+    "status": "client_error",
+    "latency": 0.001265890008653514,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b15",
+    "chart_id": "cs_75640a30555944c69452cd1b"
+  },
+  {
+    "topic": "career",
+    "status": "client_error",
+    "latency": 0.0010566089913481846,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b10",
+    "chart_id": "cs_d4b33edc132a4b96b52a09b4"
+  },
+  {
+    "topic": "career",
+    "status": "client_error",
+    "latency": 0.0013642850099131465,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b20",
+    "chart_id": "cs_76d539c3867544a4813d39c9"
+  },
+  {
+    "topic": "wealth",
+    "status": "client_error",
+    "latency": 0.0012104600027669221,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b04",
+    "chart_id": "cs_2c974c60ca544e489e314758"
+  },
+  {
+    "topic": "wealth",
+    "status": "client_error",
+    "latency": 0.0015980360039975494,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b15",
+    "chart_id": "cs_75640a30555944c69452cd1b"
+  },
+  {
+    "topic": "wealth",
+    "status": "client_error",
+    "latency": 0.0016972830053418875,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b10",
+    "chart_id": "cs_d4b33edc132a4b96b52a09b4"
+  },
+  {
+    "topic": "health",
+    "status": "client_error",
+    "latency": 0.0015191060083452612,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b19",
+    "chart_id": "cs_b0ae4eb277a14b368d5a8322"
+  },
+  {
+    "topic": "love",
+    "status": "client_error",
+    "latency": 0.001512068003648892,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b04",
+    "chart_id": "cs_2c974c60ca544e489e314758"
+  },
+  {
+    "topic": "love",
+    "status": "client_error",
+    "latency": 0.0016208860033657402,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b15",
+    "chart_id": "cs_75640a30555944c69452cd1b"
+  },
+  {
+    "topic": "love",
+    "status": "client_error",
+    "latency": 0.0012299449881538749,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b10",
+    "chart_id": "cs_d4b33edc132a4b96b52a09b4"
+  },
+  {
+    "topic": "health",
+    "status": "client_error",
+    "latency": 0.0014886540011502802,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b20",
+    "chart_id": "cs_76d539c3867544a4813d39c9"
+  },
+  {
+    "topic": "health",
+    "status": "client_error",
+    "latency": 0.0013056320021860301,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b03",
+    "chart_id": "cs_8699d44dc2384afcba858910"
+  },
+  {
+    "topic": "health",
+    "status": "client_error",
+    "latency": 0.001294086003326811,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b15",
+    "chart_id": "cs_75640a30555944c69452cd1b"
+  },
+  {
+    "topic": "health",
+    "status": "client_error",
+    "latency": 0.0015285779954865575,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b10",
+    "chart_id": "cs_d4b33edc132a4b96b52a09b4"
+  },
+  {
+    "topic": "overview",
+    "status": "client_error",
+    "latency": 0.0012108069931855425,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b21",
+    "chart_id": "cs_fc75706fa266479e953464de"
+  },
+  {
+    "topic": "health",
+    "status": "client_error",
+    "latency": 0.0016580200026510283,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b06",
+    "chart_id": "cs_eaf36977ee3744699deb9d2d"
+  },
+  {
+    "topic": "overview",
+    "status": "client_error",
+    "latency": 0.0010373099939897656,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b16",
+    "chart_id": "cs_e4b0f7e546d54a5babf037d2"
+  },
+  {
+    "topic": "overview",
+    "status": "client_error",
+    "latency": 0.001450986004783772,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b11",
+    "chart_id": "cs_0b4a3db3d3ad4d69b72d5822"
+  },
+  {
+    "topic": "career",
+    "status": "client_error",
+    "latency": 0.0017327750101685524,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b21",
+    "chart_id": "cs_fc75706fa266479e953464de"
+  },
+  {
+    "topic": "career",
+    "status": "client_error",
+    "latency": 0.001364653988275677,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b05",
+    "chart_id": "cs_f2f30fc28d5645cda2a04505"
+  },
+  {
+    "topic": "career",
+    "status": "client_error",
+    "latency": 0.0009038400021381676,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b16",
+    "chart_id": "cs_e4b0f7e546d54a5babf037d2"
+  },
+  {
+    "topic": "career",
+    "status": "client_error",
+    "latency": 0.0012871100043412298,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b03",
+    "chart_id": "cs_8699d44dc2384afcba858910"
+  },
+  {
+    "topic": "career",
+    "status": "client_error",
+    "latency": 0.0015346849977504462,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b11",
+    "chart_id": "cs_0b4a3db3d3ad4d69b72d5822"
+  },
+  {
+    "topic": "wealth",
+    "status": "client_error",
+    "latency": 0.001902022006106563,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b21",
+    "chart_id": "cs_fc75706fa266479e953464de"
+  },
+  {
+    "topic": "wealth",
+    "status": "client_error",
+    "latency": 0.0018934169929707423,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b07",
+    "chart_id": "cs_a92826636d204bd3b9840211"
+  },
+  {
+    "topic": "wealth",
+    "status": "client_error",
+    "latency": 0.0014827520062681288,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b16",
+    "chart_id": "cs_e4b0f7e546d54a5babf037d2"
+  },
+  {
+    "topic": "wealth",
+    "status": "client_error",
+    "latency": 0.0010621749970596284,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b11",
+    "chart_id": "cs_0b4a3db3d3ad4d69b72d5822"
+  },
+  {
+    "topic": "love",
+    "status": "client_error",
+    "latency": 0.0010439249890623614,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b06",
+    "chart_id": "cs_eaf36977ee3744699deb9d2d"
+  },
+  {
+    "topic": "love",
+    "status": "client_error",
+    "latency": 0.001411457997164689,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b21",
+    "chart_id": "cs_fc75706fa266479e953464de"
+  },
+  {
+    "topic": "love",
+    "status": "client_error",
+    "latency": 0.0014440310042118654,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b16",
+    "chart_id": "cs_e4b0f7e546d54a5babf037d2"
+  },
+  {
+    "topic": "health",
+    "status": "client_error",
+    "latency": 0.0012557559966808185,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b04",
+    "chart_id": "cs_2c974c60ca544e489e314758"
+  },
+  {
+    "topic": "love",
+    "status": "client_error",
+    "latency": 0.0015383680001832545,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b11",
+    "chart_id": "cs_0b4a3db3d3ad4d69b72d5822"
+  },
+  {
+    "topic": "health",
+    "status": "client_error",
+    "latency": 0.0017430900043109432,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b21",
+    "chart_id": "cs_fc75706fa266479e953464de"
+  },
+  {
+    "topic": "overview",
+    "status": "client_error",
+    "latency": 0.0013997439964441583,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b05",
+    "chart_id": "cs_f2f30fc28d5645cda2a04505"
+  },
+  {
+    "topic": "health",
+    "status": "client_error",
+    "latency": 0.0014117550017545,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b16",
+    "chart_id": "cs_e4b0f7e546d54a5babf037d2"
+  },
+  {
+    "topic": "health",
+    "status": "client_error",
+    "latency": 0.0013462509959936142,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b11",
+    "chart_id": "cs_0b4a3db3d3ad4d69b72d5822"
+  },
+  {
+    "topic": "overview",
+    "status": "client_error",
+    "latency": 0.0011811799922725186,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b22",
+    "chart_id": "cs_26b01cda78154346a90a71a4"
+  },
+  {
+    "topic": "career",
+    "status": "client_error",
+    "latency": 0.0017367830005241558,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b07",
+    "chart_id": "cs_a92826636d204bd3b9840211"
+  },
+  {
+    "topic": "overview",
+    "status": "client_error",
+    "latency": 0.001425170004949905,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b17",
+    "chart_id": "cs_2d83ff5cea1f483cb43379da"
+  },
+  {
+    "topic": "overview",
+    "status": "client_error",
+    "latency": 0.001319778006291017,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b12",
+    "chart_id": "cs_3f3dd3a02c4e46fa8fa0be6f"
+  },
+  {
+    "topic": "career",
+    "status": "client_error",
+    "latency": 0.0010719770070863888,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b22",
+    "chart_id": "cs_26b01cda78154346a90a71a4"
+  },
+  {
+    "topic": "love",
+    "status": "client_error",
+    "latency": 0.0013041500060353428,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b02",
+    "chart_id": "cs_13ee742cf060486e97316e12"
+  },
+  {
+    "topic": "career",
+    "status": "client_error",
+    "latency": 0.0011260860046604648,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b17",
+    "chart_id": "cs_2d83ff5cea1f483cb43379da"
+  },
+  {
+    "topic": "wealth",
+    "status": "client_error",
+    "latency": 0.0015573379932902753,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b02",
+    "chart_id": "cs_13ee742cf060486e97316e12"
+  },
+  {
+    "topic": "career",
+    "status": "client_error",
+    "latency": 0.001367602002574131,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b12",
+    "chart_id": "cs_3f3dd3a02c4e46fa8fa0be6f"
+  },
+  {
+    "topic": "wealth",
+    "status": "client_error",
+    "latency": 0.0016138009959831834,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b22",
+    "chart_id": "cs_26b01cda78154346a90a71a4"
+  },
+  {
+    "topic": "overview",
+    "status": "client_error",
+    "latency": 0.0014126210007816553,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b01",
+    "chart_id": "cs_2cc1b7bfb42c4888916b1c54"
+  },
+  {
+    "topic": "overview",
+    "status": "client_error",
+    "latency": 0.0013560160004999489,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b06",
+    "chart_id": "cs_eaf36977ee3744699deb9d2d"
+  },
+  {
+    "topic": "wealth",
+    "status": "client_error",
+    "latency": 0.0011335760063957423,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b17",
+    "chart_id": "cs_2d83ff5cea1f483cb43379da"
+  },
+  {
+    "topic": "overview",
+    "status": "client_error",
+    "latency": 0.0015752649924252182,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b07",
+    "chart_id": "cs_a92826636d204bd3b9840211"
+  },
+  {
+    "topic": "wealth",
+    "status": "client_error",
+    "latency": 0.0013983480021124706,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b12",
+    "chart_id": "cs_3f3dd3a02c4e46fa8fa0be6f"
+  },
+  {
+    "topic": "love",
+    "status": "client_error",
+    "latency": 0.0015824500005692244,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b22",
+    "chart_id": "cs_26b01cda78154346a90a71a4"
+  },
+  {
+    "topic": "love",
+    "status": "client_error",
+    "latency": 0.0018125369970221072,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b07",
+    "chart_id": "cs_a92826636d204bd3b9840211"
+  },
+  {
+    "topic": "love",
+    "status": "client_error",
+    "latency": 0.001692478996119462,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b17",
+    "chart_id": "cs_2d83ff5cea1f483cb43379da"
+  },
+  {
+    "topic": "wealth",
+    "status": "client_error",
+    "latency": 0.0012605670053744689,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b01",
+    "chart_id": "cs_2cc1b7bfb42c4888916b1c54"
+  },
+  {
+    "topic": "career",
+    "status": "client_error",
+    "latency": 0.0013375630078371614,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b09",
+    "chart_id": "cs_0ef542983a834c95b8d811c7"
+  },
+  {
+    "topic": "love",
+    "status": "client_error",
+    "latency": 0.0011201680026715621,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b12",
+    "chart_id": "cs_3f3dd3a02c4e46fa8fa0be6f"
+  },
+  {
+    "topic": "health",
+    "status": "client_error",
+    "latency": 0.001448283001082018,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b22",
+    "chart_id": "cs_26b01cda78154346a90a71a4"
+  },
+  {
+    "topic": "wealth",
+    "status": "client_error",
+    "latency": 0.0023461709934053943,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b06",
+    "chart_id": "cs_eaf36977ee3744699deb9d2d"
+  },
+  {
+    "topic": "health",
+    "status": "client_error",
+    "latency": 0.0012693539902102202,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b17",
+    "chart_id": "cs_2d83ff5cea1f483cb43379da"
+  },
+  {
+    "topic": "health",
+    "status": "client_error",
+    "latency": 0.0012659559870371595,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b05",
+    "chart_id": "cs_f2f30fc28d5645cda2a04505"
+  },
+  {
+    "topic": "health",
+    "status": "client_error",
+    "latency": 0.001063802992575802,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b12",
+    "chart_id": "cs_3f3dd3a02c4e46fa8fa0be6f"
+  },
+  {
+    "topic": "overview",
+    "status": "client_error",
+    "latency": 0.0012093890109099448,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b23",
+    "chart_id": "cs_839ac1b77dde478aa7e962a8"
+  },
+  {
+    "topic": "health",
+    "status": "client_error",
+    "latency": 0.001024201003019698,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b08",
+    "chart_id": "cs_7d415acffddc4a91831ac9d5"
+  },
+  {
+    "topic": "overview",
+    "status": "client_error",
+    "latency": 0.0014059969980735332,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b18",
+    "chart_id": "cs_9c46add4319142379661ea13"
+  },
+  {
+    "topic": "career",
+    "status": "client_error",
+    "latency": 0.0012510950036812574,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b06",
+    "chart_id": "cs_eaf36977ee3744699deb9d2d"
+  },
+  {
+    "topic": "career",
+    "status": "client_error",
+    "latency": 0.001165088004199788,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b23",
+    "chart_id": "cs_839ac1b77dde478aa7e962a8"
+  },
+  {
+    "topic": "overview",
+    "status": "client_error",
+    "latency": 0.0015332530019804835,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b13",
+    "chart_id": "cs_473a00d96f7d43b2be4f2e65"
+  },
+  {
+    "topic": "career",
+    "status": "client_error",
+    "latency": 0.0014594759995816275,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b04",
+    "chart_id": "cs_2c974c60ca544e489e314758"
+  },
+  {
+    "topic": "career",
+    "status": "client_error",
+    "latency": 0.0012536220019683242,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b18",
+    "chart_id": "cs_9c46add4319142379661ea13"
+  },
+  {
+    "topic": "overview",
+    "status": "client_error",
+    "latency": 0.0016072879952844232,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b08",
+    "chart_id": "cs_7d415acffddc4a91831ac9d5"
+  },
+  {
+    "topic": "career",
+    "status": "client_error",
+    "latency": 0.0013912970025558025,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b13",
+    "chart_id": "cs_473a00d96f7d43b2be4f2e65"
+  },
+  {
+    "topic": "wealth",
+    "status": "client_error",
+    "latency": 0.0014158940030029044,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b23",
+    "chart_id": "cs_839ac1b77dde478aa7e962a8"
+  },
+  {
+    "topic": "career",
+    "status": "client_error",
+    "latency": 0.001205890002893284,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b08",
+    "chart_id": "cs_7d415acffddc4a91831ac9d5"
+  },
+  {
+    "topic": "wealth",
+    "status": "client_error",
+    "latency": 0.0014870479935780168,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b18",
+    "chart_id": "cs_9c46add4319142379661ea13"
+  },
+  {
+    "topic": "love",
+    "status": "client_error",
+    "latency": 0.0012844559969380498,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b08",
+    "chart_id": "cs_7d415acffddc4a91831ac9d5"
+  },
+  {
+    "topic": "wealth",
+    "status": "client_error",
+    "latency": 0.0011310849949950352,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b13",
+    "chart_id": "cs_473a00d96f7d43b2be4f2e65"
+  },
+  {
+    "topic": "love",
+    "status": "client_error",
+    "latency": 0.0008969310001702979,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b23",
+    "chart_id": "cs_839ac1b77dde478aa7e962a8"
+  },
+  {
+    "topic": "love",
+    "status": "client_error",
+    "latency": 0.0014694150013383478,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b05",
+    "chart_id": "cs_f2f30fc28d5645cda2a04505"
+  },
+  {
+    "topic": "love",
+    "status": "client_error",
+    "latency": 0.0017421730008209124,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b18",
+    "chart_id": "cs_9c46add4319142379661ea13"
+  },
+  {
+    "topic": "overview",
+    "status": "client_error",
+    "latency": 0.0012184009974589571,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b04",
+    "chart_id": "cs_2c974c60ca544e489e314758"
+  },
+  {
+    "topic": "love",
+    "status": "client_error",
+    "latency": 0.0014496399962808937,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b13",
+    "chart_id": "cs_473a00d96f7d43b2be4f2e65"
+  },
+  {
+    "topic": "health",
+    "status": "client_error",
+    "latency": 0.001238439988810569,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b23",
+    "chart_id": "cs_839ac1b77dde478aa7e962a8"
+  },
+  {
+    "topic": "overview",
+    "status": "client_error",
+    "latency": 0.0016595449997112155,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b03",
+    "chart_id": "cs_8699d44dc2384afcba858910"
+  },
+  {
+    "topic": "health",
+    "status": "client_error",
+    "latency": 0.0012752379989251494,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b18",
+    "chart_id": "cs_9c46add4319142379661ea13"
+  },
+  {
+    "topic": "wealth",
+    "status": "client_error",
+    "latency": 0.001610246006748639,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b24",
+    "chart_id": "cs_60cd3d2a154b43bc823c3867"
+  },
+  {
+    "topic": "wealth",
+    "status": "client_error",
+    "latency": 0.0014113850047579035,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b05",
+    "chart_id": "cs_f2f30fc28d5645cda2a04505"
+  },
+  {
+    "topic": "health",
+    "status": "client_error",
+    "latency": 0.0011948799947276711,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b13",
+    "chart_id": "cs_473a00d96f7d43b2be4f2e65"
+  },
+  {
+    "topic": "overview",
+    "status": "client_error",
+    "latency": 0.0009627309918869287,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b24",
+    "chart_id": "cs_60cd3d2a154b43bc823c3867"
+  },
+  {
+    "topic": "wealth",
+    "status": "client_error",
+    "latency": 0.001250809000339359,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b03",
+    "chart_id": "cs_8699d44dc2384afcba858910"
+  },
+  {
+    "topic": "career",
+    "status": "client_error",
+    "latency": 0.0017296059959335253,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b01",
+    "chart_id": "cs_2cc1b7bfb42c4888916b1c54"
+  },
+  {
+    "topic": "overview",
+    "status": "client_error",
+    "latency": 0.0018556720024207607,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b19",
+    "chart_id": "cs_b0ae4eb277a14b368d5a8322"
+  },
+  {
+    "topic": "health",
+    "status": "client_error",
+    "latency": 0.0012167359964223579,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b02",
+    "chart_id": "cs_13ee742cf060486e97316e12"
+  },
+  {
+    "topic": "overview",
+    "status": "client_error",
+    "latency": 0.0011509929900057614,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b14",
+    "chart_id": "cs_dc5f1823e68b46829ea6a410"
+  },
+  {
+    "topic": "career",
+    "status": "client_error",
+    "latency": 0.000922268009162508,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b24",
+    "chart_id": "cs_60cd3d2a154b43bc823c3867"
+  },
+  {
+    "topic": "love",
+    "status": "client_error",
+    "latency": 0.0013533559977076948,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b01",
+    "chart_id": "cs_2cc1b7bfb42c4888916b1c54"
+  },
+  {
+    "topic": "career",
+    "status": "client_error",
+    "latency": 0.0011674429988488555,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b02",
+    "chart_id": "cs_13ee742cf060486e97316e12"
+  },
+  {
+    "topic": "career",
+    "status": "client_error",
+    "latency": 0.0015692440065322444,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b19",
+    "chart_id": "cs_b0ae4eb277a14b368d5a8322"
+  },
+  {
+    "topic": "career",
+    "status": "client_error",
+    "latency": 0.0013747390039497986,
+    "detail": "ConnectError('All connection attempts failed')",
+    "chart": "b14",
+    "chart_id": "cs_dc5f1823e68b46829ea6a410"
+  }
+]
