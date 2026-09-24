@@ -89,6 +89,13 @@ class PromptRenderer:
                 "\n\nChỉ được nêu các sao/cung/tứ hóa trong danh sách này "
                 "(nêu tên khác = bịa): " + ", ".join(names)
             )
+        horo = [i.id for i in bundle.items if i.kind == "horoscope_fact"]
+        if horo:
+            allow += (
+                "\n\nMọi nhận định về vận hạn (đại hạn / lưu niên / tiểu hạn / "
+                "năm / tháng cụ thể) bắt buộc cite ít nhất một ref trong: "
+                + ", ".join(horo)
+            )
         return (
             f"Chủ đề: {bundle.topic}\n\n"
             "EvidenceBundle (tham chiếu bằng [E###]):\n"
