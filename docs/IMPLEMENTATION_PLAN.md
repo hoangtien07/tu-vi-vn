@@ -181,8 +181,10 @@ Gate phụ trong Phase 8: ≥1 eval case chạy **non-default mutagen profile** 
   parser nhận citation `[E001, E007]` (đây là nguyên nhân chính của
   "nhận định vận hạn thiếu horoscope_fact").
 - [x] E1 static: **120/120 done, 0 fail** — `eval/bench/reports/gate-e-static-20260924-072822.md`.
-- [ ] E2 yearly: rerun chờ key Gemini nạp credit (402 RESOURCE_EXHAUSTED
-  giữa chừng — 65/68 fail là llm_upstream, không phải grounding).
+- [ ] E2 yearly: **deferred** — key Gemini hết credit (402 giữa chừng;
+  65/68 fail là llm_upstream, không phải grounding; phần chạy được trước
+  đó chỉ còn ~3 grounding residual do citation parser bug — đã fix).
+  Rerun khi có AI budget: `run_bench.py --suite yearly --year 2028`.
 - [x] Human spot-check pack 24 outputs —
   `eval/bench/reports/spotcheck-static-20260924-072822.md`.
 - [x] Release hygiene: MIT LICENSE + THIRD_PARTY_NOTICES + README status.
