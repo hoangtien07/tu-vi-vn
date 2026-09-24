@@ -393,7 +393,7 @@ Mixed-language context cần 3 thứ trong prompt: (a) instruction "đọc-hiể
 ```text
 POST /api/charts
 GET  /api/charts/{id}
-POST /api/charts/{id}/interpret     {topic} | {topic, target:{scope,year}}
+POST /api/charts/{id}/interpret     {topic} | {topic, target:{scope:yearly|monthly|daily, year, month?, day?}} | {topic, target, namespace}
 POST /api/charts/{id}/chat          (sau vertical slice — optional V1)
 GET  /api/charts/{id}/fortune/year/{year}   (anchor-date convention: mặc định Tết Âm lịch của năm đó; API validate target ≥ normalized birth — engine không check)
 GET  /health                        (api + db; KHÔNG phụ thuộc AI)
@@ -409,7 +409,7 @@ SSE events: `metadata → evidence → delta* → done`; failure: `error` event 
 - Model endpoint down/timeout → typed `502/503`, `InterpretationRun` status=`failed`.
 - SSE mid-stream abort → `error` event; retry = **run mới** (không resume).
 - Malformed output / grounding-reject → 1 deterministic repair retry rồi fail-run; log làm eval data.
-- `POST /interpret` idempotency key `(chart_id, topic, target, prompt_version, model)` → dedupe double-click + replay stored run.
+- `POST /interpret` idempotency key `(namespace, chart_id, topic, target_scope, target, prompt_version, model, template_sha, context_hash)` → dedupe double-click + replay stored run. `target.scope` xác định horoscope layers đưa vào context (yearly→đại hạn+lưu niên+tuổi; monthly→+lưu nguyệt; daily→+lưu nhật) — **không suy ra từ việc "có target_date"**; `namespace` (vd. `bench-<stamp>`) cho phép chạy fresh thay vì replay.
 - Typed `422`: `leapMonth=true` trên tháng không nhuận (engine **silent-ignore** — phải pre-validate bằng leap-month table), ngày âm không tồn tại, solar year ngoài `1583–9999`, `timeIndex` ngoài `0–12`, `fortune target < birth`, birth trong tz divergence window thiếu `birthRegion`.
 
 ## 17. Database model (PostgreSQL, JSONB cho object nặng)

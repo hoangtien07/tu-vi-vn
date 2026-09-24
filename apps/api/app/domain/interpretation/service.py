@@ -19,7 +19,7 @@ from sqlalchemy.orm import Session
 from app.domain.birth.contracts import NormalizedBirthMoment
 from app.domain.chart.contracts import CanonicalChartDTO, EngineProfile
 from app.domain.chart.service import new_id
-from app.domain.context.composer import ContextComposer, Topic
+from app.domain.context.composer import ContextComposer, TargetScope, Topic
 from app.domain.evidence.builder import EvidenceBuilder, EvidenceBundle
 from app.domain.interpretation.grounding import extract_claims, validate
 from app.domain.interpretation.prompts import PromptRenderer
@@ -63,7 +63,9 @@ def _context_hash(bundle: EvidenceBundle) -> str:
 def _idempotency_key(
     chart_id: str,
     topic: str,
+    target_scope: str | None,
     target: dt.date | None,
+    namespace: str | None,
     prompt_ver: str,
     model: str,
     template_sha: str,
@@ -71,8 +73,10 @@ def _idempotency_key(
 ) -> str:
     raw = "|".join(
         [
+            namespace or "",
             chart_id,
             topic,
+            target_scope or "",
             str(target or ""),
             prompt_ver,
             model,
@@ -115,6 +119,8 @@ class InterpretationService:
         topic: Topic,
         target_date: dt.date | None,
         *,
+        target_scope: TargetScope | None = None,
+        namespace: str | None = None,
         conversation_id: str | None = None,
     ) -> AsyncIterator[Event]:
         normalized = self._load_normalized(session, snapshot)
@@ -130,6 +136,7 @@ class InterpretationService:
             dto,
             topic,
             target_date,
+            target_scope,
             knowledge=KnowledgeRegistry,
         )
         knowledge_version = KnowledgeRegistry.version_info()["version"]
@@ -151,7 +158,9 @@ class InterpretationService:
         ikey = _idempotency_key(
             snapshot.id,
             topic,
+            target_scope,
             target_date,
+            namespace,
             prompt_ver,
             model,
             template_sha,
@@ -212,6 +221,8 @@ class InterpretationService:
             "decoding": DECODING_REPORT,
             "contextHash": context_hash,
             "targetDate": str(target_date) if target_date else None,
+            "targetScope": target_scope,
+            "namespace": namespace,
         }
         session.add(run)
         session.commit()
@@ -262,7 +273,9 @@ class InterpretationService:
                     break
                 try:
                     output = await self._provider.complete(
-                        self._renderer.repair_messages(messages, result.violations),
+                        self._renderer.repair_messages(
+                            messages, result.violations, bundle
+                        ),
                         **DECODING_REPORT,
                     )
                 except Exception:

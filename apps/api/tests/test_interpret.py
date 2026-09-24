@@ -97,7 +97,12 @@ def bundle():
     engine = XiztroEngine()
     dto = engine.cast_chart(_normalized(), _profile())
     ctx = ContextComposer(engine).compose(
-        _normalized(), _profile(), dto, "career", target_date=dt.date(2028, 3, 1)
+        _normalized(),
+        _profile(),
+        dto,
+        "career",
+        target_date=dt.date(2028, 3, 1),
+        target_scope="yearly",
     )
     return EvidenceBuilder().build(ctx, "ev_t")
 

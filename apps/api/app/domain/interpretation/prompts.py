@@ -72,11 +72,20 @@ class PromptRenderer:
         return messages, prompt_version(topic), template_sha256(topic)
 
     def repair_messages(
-        self, messages: list[dict[str, str]], violations: list[str]
+        self,
+        messages: list[dict[str, str]],
+        violations: list[str],
+        bundle: EvidenceBundle,
     ) -> list[dict[str, str]]:
+        horo = [i.id for i in bundle.items if i.kind == "horoscope_fact"]
         repair = (
             "Bản luận giải trước vi phạm quy tắc căn cứ. Viết lại toàn bộ, "
             "sửa đúng các lỗi sau — chỉ dùng thực thể và [E###] có trong "
             "EvidenceBundle:\n- " + "\n- ".join(violations)
         )
+        if horo:
+            repair += (
+                "\n\nLưu ý: các ref sau là kind=horoscope_fact "
+                "(bắt buộc cho mọi nhận định vận hạn): " + ", ".join(horo)
+            )
         return [*messages, {"role": "user", "content": repair}]
