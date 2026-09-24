@@ -62,20 +62,31 @@ items  = chart_fact(a) + chart_fact(b)                  # soul/body/cục
 `scope` field mang side-tag: `natal:a`, `natal:b`, `cross:a→b`,
 `cross:b→a`. Topic fixed: `"compatibility"` (không phải 12 topics thường).
 
+Khi `target` được set, `compose_pair` nhận thêm `(normalized_a, profile_a,
+normalized_b, profile_b)` và emit `horoscope_fact` cho CẢ HAI charts theo
+đúng `temporal_scopes_for(target.scope)` của V1.1 — scope side-tagged
+(`decadal:a`/`yearly:b`/…). Không có side nào được thiếu horoscope
+evidence, nếu không validator sẽ gạt mọi claim vận hạn.
+`target_anchor` phải thỏa với cả hai birth dates: nếu anchor trước sinh
+của một bên → 422 `target_before_birth` kèm tên side.
+
 ## 3. Persistence & API
 
 ### 3.1 Run model
 
 Mở rộng `InterpretationRun` thay vì bảng mới — một audit trail duy nhất:
 
-- migration: `+ partner_chart_id uuid NULL`
-- `chart_id` = chart_a (request order); `topic` CHECK/`Literal` thêm
+- migration: `+ partner_chart_snapshot_id Text NULL`, FK tới
+  `chart_snapshots.id` — cùng type với `chart_snapshot_id` hiện có
+  (Text `cs_...`, KHÔNG phải uuid).
+- `chart_snapshot_id` = chart_a (request order); `topic` thêm
   `"compatibility"` (chỉ endpoint hợp bàn gán được).
-- `version_meta` thêm `chartB`, `sides:{a:chart_id, b:partner_chart_id}`.
+- `version_meta` thêm `chartB`, `sides:{a:chart_id, b:partner_id}`.
 
-Idempotency key — pair được **canonicalize** (`min(chart_a,chart_b)`,
-`max(...)`) trước `|`-join: bundle đối xứng nên (A,B) và (B,A) hit cùng
-run; thứ tự trình bày lưu trong `version_meta.sides`.
+Idempotency key giữ **request order** `(chart_a, chart_b)`: evidence
+bundle đối xứng nhưng output gắn nhãn A/B theo thứ tự request — nếu
+canonicalize (min,max) thì request ngược (B,A) sẽ replay run cũ với nhãn
+của request trước. Hai chiều = hai run riêng, mỗi cái đúng nhãn của nó.
 
 ### 3.2 Endpoint
 
