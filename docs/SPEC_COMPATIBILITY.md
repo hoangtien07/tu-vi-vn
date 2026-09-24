@@ -113,9 +113,16 @@ của request trước. Hai chiều = hai run riêng, mỗi cái đúng nhãn c�
   nếu `target=None`.
 - `template_sha256("compatibility")` + `prompt_version` chạy đúng cơ chế
   có sẵn (topic là key của chúng).
-- GroundingValidator giữ nguyên: closed-world vocab = hợp của 2 chart
-  (`_walk` trên cả items a/b/cross), invented-entity, ref-existence,
-  temporal↔horoscope (chỉ khi có target).
+- Closed-world vocab = hợp của 2 chart (`_walk` trên items a/b/cross),
+  invented-entity, ref-existence — giữ nguyên.
+- GroundingValidator thêm **side-aware temporal check** cho
+  `bundle.topic == "compatibility"` (items side-tagged qua scope suffix
+  `:a`/`:b`): output bắt buộc gọi hai phía bằng nhãn cố định
+  **"Người A" / "Người B"** (prompt quy định). Một câu temporal chứa
+  "Người A" phải cite ≥1 `horoscope_fact` scope `*:a`; chứa "Người B"
+  phải cite `*:b`; câu nói cả hai bên → cần đủ hai phía. Gộp chung
+  `horoscope_ids` như hiện tại sẽ cho claim về B cite `yearly:a` đi qua —
+  sai closed-world theo side.
 
 ## 5. Eval & gates
 
@@ -124,7 +131,9 @@ của request trước. Hai chiều = hai run riêng, mỗi cái đúng nhãn c�
 - **Gate B**: same pair → same `context_hash`/bundle ids; cross_link
   tứ hóa đúng cung đích trên ≥3 chart fixtures tính tay.
 - **Gate C**: cases `compatibility.json` — invented entity từ chart thứ
-  ba, ref hỗn hợp, claim temporal thiếu horoscope (khi target set).
+  ba, ref hỗn hợp, claim temporal thiếu horoscope (khi target set), và
+  **cross-side citation**: câu về "Người B" chỉ cite `horoscope_fact` của
+  A → `temporal_unverified`.
 - **Gate D**: chat KHÔNG route tới compatibility (topic ngoài
   `V1_TOPICS`) — giữ nguyên routing.
 - **Gate E3** (khi có LLM budget): 6–10 cặp chart × compatibility,
