@@ -35,6 +35,32 @@ def prompt_version(topic: str) -> str:
     return f"{topic}-{PROMPT_VERSION_SUFFIX}"
 
 
+_NAME_FIELDS = {
+    "name", "starName", "palaceName", "mutagen", "sign", "zodiac",
+    "soul", "body", "stemBranch", "fiveElementsClass",
+}
+
+
+def _entity_names(bundle: EvidenceBundle) -> list[str]:
+    """Display names the model may legally mention (entities in bundle data)."""
+    names: set[str] = set()
+
+    def walk(obj: object) -> None:
+        if isinstance(obj, dict):
+            for field, value in obj.items():
+                if isinstance(value, str) and field in _NAME_FIELDS:
+                    names.add(value)
+                else:
+                    walk(value)
+        elif isinstance(obj, list):
+            for elem in obj:
+                walk(elem)
+
+    for item in bundle.items:
+        walk(item.data)
+    return sorted(names)
+
+
 class PromptRenderer:
     def system_prompt(self, topic: str) -> str:
         parts = [_read(PROMPTS_DIR / name) for name in _FILES]
@@ -56,10 +82,18 @@ class PromptRenderer:
             }
             for item in bundle.items
         ]
+        names = _entity_names(bundle)
+        allow = ""
+        if names:
+            allow = (
+                "\n\nChỉ được nêu các sao/cung/tứ hóa trong danh sách này "
+                "(nêu tên khác = bịa): " + ", ".join(names)
+            )
         return (
             f"Chủ đề: {bundle.topic}\n\n"
             "EvidenceBundle (tham chiếu bằng [E###]):\n"
             + json.dumps(evidence, ensure_ascii=False, indent=1)
+            + allow
         )
 
     def render(
@@ -87,5 +121,11 @@ class PromptRenderer:
             repair += (
                 "\n\nLưu ý: các ref sau là kind=horoscope_fact "
                 "(bắt buộc cho mọi nhận định vận hạn): " + ", ".join(horo)
+            )
+        names = _entity_names(bundle)
+        if names:
+            repair += (
+                "\nChỉ được nêu các sao/cung/tứ hóa trong danh sách này "
+                "(mọi tên khác = bịa): " + ", ".join(names)
             )
         return [*messages, {"role": "user", "content": repair}]

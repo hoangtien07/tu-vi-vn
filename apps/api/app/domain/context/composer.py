@@ -140,7 +140,7 @@ class ContextComposer:
             items.extend(self._surrounded_items(normalized, profile, main_key))
 
         items.extend(self._pattern_items(dto, main_key))
-        items.extend(self._mutagen_items(dto, main_key))
+        items.extend(self._mutagen_items(dto))
 
         if scopes:
             items.extend(
@@ -317,13 +317,11 @@ class ContextComposer:
             for p in patterns
         ]
 
-    def _mutagen_items(
-        self, dto: CanonicalChartDTO, palace_key: str | None
-    ) -> list[ContextItem]:
+    def _mutagen_items(self, dto: CanonicalChartDTO) -> list[ContextItem]:
+        # Natal 四化 set is bounded (≤4/chart) and relevant to every topic —
+        # always include all palaces, not just the topic palace.
         items = []
         for palace in dto.chart["palaces"]:
-            if palace_key is not None and palace["nameKey"] != palace_key:
-                continue
             for star in palace["majorStars"] + palace["minorStars"]:
                 if star.get("mutagen"):
                     items.append(
