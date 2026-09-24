@@ -1,0 +1,47 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  api:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+      - name: Sync deps
+        working-directory: apps/api
+        run: uv sync --frozen
+      - name: Ruff
+        working-directory: apps/api
+        run: uv run ruff check .
+      - name: Mypy
+        working-directory: apps/api
+        run: uv run mypy
+      - name: Pytest
+        working-directory: apps/api
+        run: uv run pytest -q
+
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - name: Install
+        run: pnpm install --frozen-lockfile
+      - name: ESLint
+        run: pnpm -C apps/web lint
+      - name: Typecheck
+        run: pnpm -C apps/web exec tsc --noEmit
+      - name: Build
+        run: pnpm -C apps/web build
