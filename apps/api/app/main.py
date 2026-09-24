@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from sqlalchemy import create_engine
 
-from app.api import health
+from app.api import charts, health
 from app.settings import Settings
 
 
@@ -14,6 +14,8 @@ def create_app() -> FastAPI:
     app.state.engine = engine
 
     app.include_router(health.router)
+    app.include_router(charts.router)
+    app.include_router(charts.share_router)
     return app
 
 
