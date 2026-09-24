@@ -36,6 +36,7 @@ jobs:
             const LABEL = 'automerge';
             const CI_WORKFLOW = 'ci.yml';
             const { owner, repo } = context.repo;
+            const mergeErrors = [];
 
             let numbers = [];
             if (context.eventName === 'workflow_run') {
@@ -75,12 +76,28 @@ jobs:
                 branch: pr.head.ref,
                 per_page: 20,
               });
-              // Only runs built from the PR's CURRENT head sha count: a run
-              // for an older commit or a sibling PR sharing this branch must
-              // not satisfy the gate.
-              const runs = wr.workflow_runs.filter(r => r.head_sha === pr.head.sha);
-              const pending = runs.filter(r => r.status !== 'completed');
-              const latest = runs.find(r => r.status === 'completed');
+              const runs = wr.workflow_runs;
+              // A pending run associated with THIS PR means new code is being
+              // tested — wait for it rather than trusting an older green run.
+              const pending = runs.filter(
+                r => r.status !== 'completed'
+                  && (r.pull_requests || []).some(p => p.number === number)
+              );
+              // pull_request CI checks out the synthetic refs/pull/N/merge
+              // commit, so run.head_sha != pr.head.sha. The merge commit's
+              // second parent IS the PR head: require the newest completed
+              // run to have been built from the PR's CURRENT head.
+              let latest = null;
+              for (const r of runs) {
+                if (r.status !== 'completed') continue;
+                const { data: c } = await github.rest.repos.getCommit({
+                  owner, repo, ref: r.head_sha,
+                });
+                if ((c.parents || []).some(p => p.sha === pr.head.sha)) {
+                  latest = r;
+                  break;
+                }
+              }
               if (pending.length || !latest || latest.conclusion !== 'success') {
                 console.log(
                   `#${number}: pending=${pending.length} ` +
@@ -98,6 +115,18 @@ jobs:
                   sha: pr.head.sha,
                 });
               } catch (e) {
-                console.log(`#${number}: merge rejected (${e.status || e.message}), skip`);
+                // Expected rejections: 405 already merged/not mergeable,
+                // 409 head moved, 422 validation. Anything else (502/403/
+                // throttle) is transient — record it and fail the job at
+                // the end so the merge is retried, not silently dropped.
+                if ([405, 409, 422].includes(e.status)) {
+                  console.log(`#${number}: merge rejected (${e.status}), skip`);
+                } else {
+                  console.log(`#${number}: merge failed (${e.status || e.message})`);
+                  mergeErrors.push(`#${number}: ${e.status || e.message}`);
+                }
               }
+            }
+            if (mergeErrors.length) {
+              throw new Error(`merge failures: ${mergeErrors.join('; ')}`);
             }
