@@ -1,0 +1,7 @@
+{
+  "name": "@tu-vi-vn/contracts",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Generated TS types from FastAPI OpenAPI — one-way codegen (openapi-typescript). Do not hand-edit generated files.",
+  "types": "./index.d.ts"
+}
