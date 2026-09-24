@@ -141,12 +141,22 @@ class ValidationResult(NamedTuple):
         return out
 
 
+_BOLD_LABEL_RE = re.compile(r"[-*\s]*\*\*[^*\n]+\*\*:?")
+
+
 def _sentences(text: str) -> list[str]:
-    # Markdown headings are labels, not claims — skip them for temporal checks.
+    # Markdown headings, bold pseudo-headings ("- **Lưu Niên:**"), and
+    # lead-in sentences ending with a colon are labels, not claims.
     body = "\n".join(
         line for line in text.splitlines() if not line.lstrip().startswith("#")
     )
-    return [s.strip() for s in SENTENCE_SPLIT.split(body) if s.strip()]
+    return [
+        s.strip()
+        for s in SENTENCE_SPLIT.split(body)
+        if s.strip()
+        and not _BOLD_LABEL_RE.fullmatch(s.strip())
+        and not s.rstrip().endswith(":")
+    ]
 
 
 def validate(output: str, bundle: EvidenceBundle) -> ValidationResult:

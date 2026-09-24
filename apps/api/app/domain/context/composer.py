@@ -137,11 +137,15 @@ class ContextComposer:
                 entity_key="astrolabe",
                 data={
                     "sign": c.get("sign"),
+                    "signKey": c.get("signKey"),
                     "zodiac": c.get("zodiac"),
+                    "zodiacKey": c.get("zodiacKey"),
                     "fiveElementsClass": c.get("fiveElementsClass"),
                     "fiveElementsClassKey": c.get("fiveElementsClassKey"),
                     "soul": c.get("soul"),
+                    "soulKey": c.get("soulKey"),
                     "body": c.get("body"),
+                    "bodyKey": c.get("bodyKey"),
                     "solarDate": c.get("solarDate"),
                     "lunarDate": c.get("rawDates", {}).get("lunarDate"),
                     "palaces": [

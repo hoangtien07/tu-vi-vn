@@ -30,7 +30,7 @@ TOPIC_VI = {
 }
 
 JUDGE_PROMPT = """Chấm điểm luận giải tử vi tiếng Việt sau theo thang 1-5.
-Trả JSON thuần {"specificity": n, "relevance": n, "consistency": n, "vn_quality": n, "overclaim": true|false}:
+Trả JSON thuần {{"specificity": n, "relevance": n, "consistency": n, "vn_quality": n, "overclaim": true|false}}:
 - specificity: cụ thể, gắn sao/cung, không phải câu Barnum áp dụng cho mọi người
 - relevance: trả đúng chủ đề "{topic_vi}"
 - consistency: không tự mâu thuẫn
