@@ -1,0 +1,29 @@
+{
+  "gate": "D",
+  "description": "ContextComposer routing cases (EVALUATION.md Gate D). `topic` is the API param; `question` documents the user phrasing it maps to (V1 routing is explicit, not LLM-classified). expect: scopes list = temporal_scopes_for(target), requiredKinds = ContextItem kinds that MUST appear, forbiddenKinds = kinds that must NOT appear, mainPalace = entity_key of the topic's main palace item.",
+  "birth": {"correctedSolarDate": "1990-06-15", "timeIndex": 7, "gender": "male"},
+  "cases": [
+    {"id": "tr-001", "question": "Tôi là người thế nào?", "topic": "overview",
+     "expect": {"scopes": [], "requiredKinds": ["chart_fact"], "forbiddenKinds": ["horoscope_fact"]}},
+    {"id": "tr-002", "question": "Sự nghiệp của tôi thế nào?", "topic": "career",
+     "expect": {"scopes": [], "requiredKinds": ["palace_fact"], "mainPalace": "careerPalace", "forbiddenKinds": ["horoscope_fact"]}},
+    {"id": "tr-003", "question": "Năm 2028 sự nghiệp tôi ra sao?", "topic": "career", "target": "2028-03-01",
+     "expect": {"scopes": ["decadal", "yearly", "monthly", "daily", "age"], "requiredKinds": ["palace_fact", "horoscope_fact"], "mainPalace": "careerPalace"}},
+    {"id": "tr-004", "question": "Tài vận của tôi?", "topic": "wealth",
+     "expect": {"requiredKinds": ["palace_fact"], "mainPalace": "wealthPalace"}},
+    {"id": "tr-005", "question": "Chuyện tình cảm thế nào?", "topic": "love",
+     "expect": {"requiredKinds": ["palace_fact"], "mainPalace": "spousePalace"}},
+    {"id": "tr-006", "question": "Sức khỏe tôi cần chú ý gì?", "topic": "health",
+     "expect": {"requiredKinds": ["palace_fact"], "mainPalace": "healthPalace"}},
+    {"id": "tr-007", "question": "Xin chào", "topic": "overview",
+     "expect": {"scopes": [], "forbiddenKinds": ["horoscope_fact"], "note": "greeting maps to compact overview only — no temporal context"}},
+    {"id": "tr-008", "question": "Gia đạo năm 2028?", "topic": "family", "target": "2028-01-01",
+     "expect": {"scopes": ["decadal", "yearly", "monthly", "daily", "age"], "requiredKinds": ["palace_fact", "horoscope_fact"], "mainPalace": "siblingsPalace"}},
+    {"id": "tr-009", "question": "Con cái?", "topic": "children",
+     "expect": {"requiredKinds": ["palace_fact"], "mainPalace": "childrenPalace"}},
+    {"id": "tr-010", "question": "Có nên xuất ngoại?", "topic": "move",
+     "expect": {"requiredKinds": ["palace_fact"], "mainPalace": "surfacePalace"}},
+    {"id": "tr-011", "question": "Năm 2028 tổng quan?", "topic": "overview", "target": "2028-06-15",
+     "expect": {"scopes": ["decadal", "yearly", "monthly", "daily", "age"], "requiredKinds": ["chart_fact", "horoscope_fact"]}}
+  ]
+}
