@@ -13,15 +13,26 @@ from typing import NamedTuple
 from app.domain.evidence.builder import EvidenceBundle
 from app.repo_root import repo_file
 
-REF_RE = re.compile(r"\[E(\d{3})\]")
+# Citations appear as [E001], [E001, E007], [E001][E007] — a ref is any E###
+# token inside a bracketed group.
+_REF_GROUP_RE = re.compile(r"\[([^\]]*)\]")
+_REF_TOKEN_RE = re.compile(r"\bE(\d{3})\b")
+
+
+def _refs(text: str) -> set[str]:
+    return {
+        f"E{n}"
+        for group in _REF_GROUP_RE.findall(text)
+        for n in _REF_TOKEN_RE.findall(group)
+    }
 SENTENCE_SPLIT = re.compile(r"(?<=[.!?…。；\n])\s*")
-# Scope-specific temporal terms only — the generic word "vận hạn" appears in
-# boilerplate ("chỉ mang tính tham khảo về xu hướng vận hạn") where a ref is
-# meaningless; scope-bearing claims (đại hạn/lưu niên/tiểu hạn/năm/tháng)
+# Scope-specific temporal terms only — the generic words "vận hạn" and
+# "tương lai" appear in boilerplate ("chỉ mang tính tham khảo về xu hướng",
+# "không ấn định bất biến tương lai") where a ref is meaningless; only
+# scope-bearing claims (đại hạn/lưu niên/tiểu hạn/năm NNNN/tháng N/sắp tới)
 # are the ones zero-tolerance applies to.
 TEMPORAL_RE = re.compile(
-    r"(?i)(năm\s+\d{4}|tháng\s+\d{1,2}|đại hạn|lưu niên|tiểu hạn|"
-    r"sắp tới|tương lai)"
+    r"(?i)(năm\s+\d{4}|tháng\s+\d{1,2}|đại hạn|lưu niên|tiểu hạn|sắp tới)"
 )
 
 # Glossary surface forms that double as ordinary Vietnamese words — flagging
@@ -32,10 +43,22 @@ TEMPORAL_RE = re.compile(
 # what matters: star/palace/pattern names the model could hallucinate.
 _AMBIGUOUS_NAMES = {
     "Hạn", "Miếu", "Vượng", "Bình", "Hãm", "Lợi", "Đắc", "Địa", "Bất", "Bệnh",
-    "Cục", "Thân",
+    "Cục", "Thân", "Dưỡng", "Thai",
     "Giáp", "Ất", "Bính", "Đinh", "Mậu", "Kỷ", "Canh", "Tân", "Nhâm", "Quý",
     "Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Dậu", "Tuất", "Hợi",
 }
+
+# Fixed boilerplate tail ("## Lưu ý …") and the school name "Tử Vi Đẩu Số" are
+# template text, not entity citations — "Tử Vi" there names the art, not the
+# star in this chart's bundle.
+_BOILERPLATE_RE = re.compile(r"(?m)^\s*[-#*]*\s*Lưu ý\b.*$")
+_SCHOOL_NAME = "Tử Vi Đẩu Số"
+
+
+def _scannable_text(output: str) -> str:
+    m = _BOILERPLATE_RE.search(output)
+    text = output[: m.start()] if m else output
+    return text.replace(_SCHOOL_NAME, "")
 
 GLOSSARY_PATH = repo_file("packages", "knowledge", "glossary-vi.md")
 
@@ -169,20 +192,21 @@ def validate(output: str, bundle: EvidenceBundle) -> ValidationResult:
     vocab = bundle_vocab(bundle)
     entity_names = _bundle_names(bundle)
 
-    refs = {f"E{m}" for m in REF_RE.findall(output)}
+    refs = _refs(output)
     unknown = sorted(refs - known_ids)
 
     invented: set[str] = set()
+    scan = _scannable_text(output)
     for key, vi_name in _VI_NAMES.items():
         if key in vocab or len(vi_name) < 3 or vi_name in _AMBIGUOUS_NAMES:
             continue
-        if vi_name in output:
+        if vi_name in scan:
             invented.add(f"{vi_name}({key})")
 
     temporal: list[str] = []
     orphans: list[str] = []
     for sentence in _sentences(output):
-        s_refs = {f"E{m}" for m in REF_RE.findall(sentence)}
+        s_refs = _refs(sentence)
         if TEMPORAL_RE.search(sentence) and not (s_refs & horoscope_ids):
             temporal.append(sentence[:120])
         if not s_refs and any(name in sentence for name in entity_names):
@@ -200,7 +224,7 @@ def validate(output: str, bundle: EvidenceBundle) -> ValidationResult:
 def extract_claims(output: str) -> list[dict[str, object]]:
     """Post-stream claim↔evidence pairs for the InterpretationRun."""
     return [
-        {"text": s, "refs": [f"E{m}" for m in REF_RE.findall(s)]}
+        {"text": s, "refs": sorted(_refs(s))}
         for s in _sentences(output)
-        if REF_RE.search(s)
+        if _refs(s)
     ]

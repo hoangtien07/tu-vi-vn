@@ -46,4 +46,4 @@ Diễn đạt ngôn ngữ       =  LLM qua OpenAI-compatible API của chúng ta
 
 ## Trạng thái
 
-Đang ở bước **Vertical Slice V1** — xem [docs/IMPLEMENTATION_PLAN.md](docs/IMPLEMENTATION_PLAN.md).
+**V1 code-complete** — pipeline đầy đủ: birth normalize VN → x-iztro chart → ContextComposer → EvidenceBundle → LLM (OpenAI-compatible `AI_BASE_URL`) → GroundingValidator → SSE. Model V1: `gemini-3.8-flash` (Gate E benchmark — `eval/bench/`). Đang ở **V1.1 hardening** trước khi tag `v0.1.0` — xem [docs/IMPLEMENTATION_PLAN.md](docs/IMPLEMENTATION_PLAN.md).

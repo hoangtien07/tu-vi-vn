@@ -7,3 +7,4 @@ Quy tắc căn cứ (bắt buộc):
 - Mỗi bằng chứng chỉ dùng đúng phạm vi của nó (scope): bằng chứng natal không chứng minh cho nhận định vận hạn.
 - Chỉ luận đúng các scope vận hạn có trong bundle (vd. đại hạn/lưu niên/tiểu hạn hiện tại) — không nhận xét các chu kỳ vận hạn khác kể cả để nói "chưa đủ dữ kiện".
 - Nếu EvidenceBundle thiếu thông tin cho một khía cạnh, bỏ qua khía cạnh đó — không diễn giải việc thiếu dữ kiện trong câu trả lời.
+- Bảng glossary/thuật ngữ trong system prompt chỉ là từ điển, KHÔNG phải bằng chứng của lá số — tên sao/cung trong glossary vẫn bị cấm nêu nếu không có trong EvidenceBundle. Không bao giờ viết dạng `Tên(key)` cho key không có trong bundle.

@@ -5,12 +5,16 @@ from typing import Literal
 
 from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import StreamingResponse
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
 from sqlalchemy.orm import Session
 
 from app.domain.birth.contracts import NormalizedBirthMoment
-from app.domain.chart.fortune import year_anchor
-from app.domain.context.composer import ContextComposer, Topic
+from app.domain.context.composer import (
+    ContextComposer,
+    TargetScope,
+    Topic,
+    target_anchor,
+)
 from app.domain.interpretation.service import InterpretationService
 from app.infrastructure.db.models import (
     ChartSnapshot,
@@ -23,22 +27,43 @@ router = APIRouter(prefix="/api/charts", tags=["interpret"])
 ALLOWED_TOPICS = {"overview", "career", "wealth", "love", "health"}
 
 
-class YearlyTarget(BaseModel):
-    scope: Literal["yearly"]
+class InterpretTarget(BaseModel):
+    """SPEC §16: scope drives which horoscope layers enter context — never
+    inferred from a bare date."""
+
+    scope: Literal["yearly", "monthly", "daily"]
     year: int = Field(ge=1583, le=9999)
+    month: int | None = Field(default=None, ge=1, le=12)
+    day: int | None = Field(default=None, ge=1, le=31)
+
+    @model_validator(mode="after")
+    def _scope_fields(self) -> "InterpretTarget":
+        if self.scope == "yearly" and (self.month is not None or self.day is not None):
+            raise ValueError("yearly scope takes year only")
+        if self.scope == "monthly" and (self.month is None or self.day is not None):
+            raise ValueError("monthly scope requires month and no day")
+        if self.scope == "daily" and (self.month is None or self.day is None):
+            raise ValueError("daily scope requires month and day")
+        return self
 
 
 class InterpretRequest(BaseModel):
     topic: Topic
-    target: dt.date | YearlyTarget | None = None
+    target: InterpretTarget | None = None
+    # Distinct ikey namespace → fresh run instead of replaying a completed
+    # one with the same key (used by the eval benchmark).
+    namespace: str | None = Field(default=None, max_length=64)
 
 
 def _resolve_target(
-    target: dt.date | YearlyTarget | None,
-) -> dt.date | None:
-    if isinstance(target, YearlyTarget):
-        return year_anchor(target.year)
-    return target
+    target: InterpretTarget | None,
+) -> tuple[dt.date | None, TargetScope | None]:
+    if target is None:
+        return None, None
+    return (
+        target_anchor(target.scope, target.year, target.month, target.day),
+        target.scope,
+    )
 
 
 @router.post("/{chart_id}/interpret")
@@ -61,7 +86,7 @@ async def interpret(
         raise HTTPException(status_code=404, detail="chart not found")
 
     try:
-        target_date = _resolve_target(body.target)
+        target_date, target_scope = _resolve_target(body.target)
     except Exception as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
 
@@ -85,7 +110,12 @@ async def interpret(
     async def event_stream() -> AsyncIterator[str]:
         try:
             async for ev in service.run(
-                session, snapshot, body.topic, target_date
+                session,
+                snapshot,
+                body.topic,
+                target_date,
+                target_scope=target_scope,
+                namespace=body.namespace,
             ):
                 payload = json.dumps(ev["data"], ensure_ascii=False)
                 yield f"event: {ev['event']}\ndata: {payload}\n\n"

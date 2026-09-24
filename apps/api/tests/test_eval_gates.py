@@ -21,7 +21,7 @@ from app.domain.birth.normalizer import (
 )
 from app.domain.birth.vn_timezone import BirthRegionRequiredError
 from app.domain.chart.contracts import EngineProfile
-from app.domain.context.composer import ContextComposer
+from app.domain.context.composer import ContextComposer, target_anchor
 from app.domain.evidence.builder import EvidenceBundle
 from app.domain.interpretation import grounding
 from app.infrastructure.xiztro.calendar import (
@@ -185,9 +185,21 @@ class TestGateD:
         normalized = _normalized(birth)
         profile = _profile(None)
         dto = self.engine.cast_chart(normalized, profile)
-        target = dt.date.fromisoformat(case["target"]) if case.get("target") else None
+        t = case.get("target")
+        target = (
+            target_anchor(t["scope"], t["year"], t.get("month"), t.get("day"))
+            if t
+            else None
+        )
 
-        ctx = self.composer.compose(normalized, profile, dto, case["topic"], target)
+        ctx = self.composer.compose(
+            normalized,
+            profile,
+            dto,
+            case["topic"],
+            target,
+            t["scope"] if t else None,
+        )
         expect = case["expect"]
 
         if "scopes" in expect:

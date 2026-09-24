@@ -61,9 +61,14 @@ def test_career_selective(engine, birth, profile, dto):
 
 def test_career_with_year_target(engine, birth, profile, dto):
     ctx = ContextComposer(engine).compose(
-        birth, profile, dto, "career", target_date=date(2028, 3, 1)
+        birth,
+        profile,
+        dto,
+        "career",
+        target_date=date(2028, 3, 1),
+        target_scope="yearly",
     )
-    expected = {"decadal", "yearly", "monthly", "daily", "age"}
+    expected = {"decadal", "yearly", "age"}
     assert set(ctx.scopes_included) == expected
     horo = [i for i in ctx.items if i.kind == "horoscope_fact"]
     assert {i.entity_key for i in horo} == expected

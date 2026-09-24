@@ -156,6 +156,9 @@ def test_interpret_target_before_birth_422(session: Session, snapshot) -> None:
     client = _client(session, FakeProvider("x [E001]."))
     resp = client.post(
         f"/api/charts/{snapshot.id}/interpret",
-        json={"topic": "career", "target": "1980-01-01"},
+        json={
+            "topic": "career",
+            "target": {"scope": "daily", "year": 1980, "month": 1, "day": 1},
+        },
     )
     assert resp.status_code == 422

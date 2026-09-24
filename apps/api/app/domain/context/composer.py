@@ -17,6 +17,7 @@ from app.domain.chart.contracts import (
     EngineProfile,
     ZiweiEngine,
 )
+from app.domain.chart.fortune import year_anchor
 
 Topic = Literal[
     "overview", "career", "wealth", "love", "health",
@@ -42,6 +43,10 @@ V1_TOPICS = {"overview", "career", "wealth", "love", "health"}
 
 TemporalScope = Literal["decadal", "yearly", "monthly", "daily", "hourly", "age"]
 
+# API-declared temporal target — the scope the user asked about, NOT inferred
+# from a date (SPEC §16 InterpretTarget).
+TargetScope = Literal["yearly", "monthly", "daily"]
+
 _SIHUA_KEYS = ("sihuaLu", "sihuaQuan", "sihuaKe", "sihuaJi")
 
 
@@ -65,11 +70,34 @@ class ComposedContext(BaseModel):
     items: list[ContextItem]
 
 
-def temporal_scopes_for(target: dt.date | None) -> list[TemporalScope]:
-    """SPEC §9: year topic → yearly+decadal+age; month → +monthly; day → +daily."""
-    if target is None:
-        return []
-    return ["decadal", "yearly", "monthly", "daily", "age"]
+_SCOPE_TEMPORAL: dict[TargetScope, list[TemporalScope]] = {
+    "yearly": ["decadal", "yearly", "age"],
+    "monthly": ["decadal", "yearly", "monthly", "age"],
+    "daily": ["decadal", "yearly", "monthly", "daily", "age"],
+}
+
+
+def temporal_scopes_for(scope: TargetScope | None) -> list[TemporalScope]:
+    """SPEC §9: yearly → decadal+yearly+age; monthly → +monthly; daily → +daily."""
+    return list(_SCOPE_TEMPORAL.get(scope or "", []))  # type: ignore[arg-type]
+
+
+def target_anchor(
+    scope: TargetScope,
+    year: int,
+    month: int | None = None,
+    day: int | None = None,
+) -> dt.date:
+    """Horoscope anchor for a scoped target: yearly anchors at Tết Âm lịch."""
+    if scope == "yearly":
+        return year_anchor(year)
+    if scope == "monthly":
+        if month is None:
+            raise ValueError("monthly scope requires month")
+        return dt.date(year, month, 1)
+    if month is None or day is None:
+        raise ValueError("daily scope requires month and day")
+    return dt.date(year, month, day)
 
 
 class ContextComposer:
@@ -83,10 +111,11 @@ class ContextComposer:
         dto: CanonicalChartDTO,
         topic: Topic = "overview",
         target_date: dt.date | None = None,
+        target_scope: TargetScope | None = None,
         knowledge: Any | None = None,
     ) -> ComposedContext:
         items: list[ContextItem] = []
-        scopes: list[TemporalScope] = temporal_scopes_for(target_date)
+        scopes: list[TemporalScope] = temporal_scopes_for(target_scope)
 
         if normalized.provisional:
             items.append(
@@ -111,7 +140,7 @@ class ContextComposer:
             items.extend(self._surrounded_items(normalized, profile, main_key))
 
         items.extend(self._pattern_items(dto, main_key))
-        items.extend(self._mutagen_items(dto, main_key))
+        items.extend(self._mutagen_items(dto))
 
         if scopes:
             items.extend(
@@ -288,13 +317,11 @@ class ContextComposer:
             for p in patterns
         ]
 
-    def _mutagen_items(
-        self, dto: CanonicalChartDTO, palace_key: str | None
-    ) -> list[ContextItem]:
+    def _mutagen_items(self, dto: CanonicalChartDTO) -> list[ContextItem]:
+        # Natal 四化 set is bounded (≤4/chart) and relevant to every topic —
+        # always include all palaces, not just the topic palace.
         items = []
         for palace in dto.chart["palaces"]:
-            if palace_key is not None and palace["nameKey"] != palace_key:
-                continue
             for star in palace["majorStars"] + palace["minorStars"]:
                 if star.get("mutagen"):
                     items.append(

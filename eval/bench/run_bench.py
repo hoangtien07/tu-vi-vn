@@ -1,11 +1,19 @@
 #!/usr/bin/env python3
-"""Gate E model benchmark (EVALUATION.md): N charts x 5 topics through a real
+"""Gate E model benchmark (EVALUATION.md): N charts x topics through a real
 AI_BASE_URL endpoint. Measures grounding violations, latency, output text and
 produces a rubric report (LLM judge for quality dimensions).
 
+Suites (EVALUATION.md Gate E):
+    E1 static  — target=None for all topics (natal-chart reading only)
+    E2 yearly  — InterpretTarget {scope: yearly, year} per topic
+
+Every run is sent with a unique `namespace` so idempotency never replays a
+completed run — latency figures are fresh-run only. `--replay` sends no
+namespace to measure the replay path deliberately.
+
 Usage:
     python eval/bench/run_bench.py --api http://localhost:8000 \
-        --charts eval/bench/charts.json --target 2028-03-01 \
+        --charts eval/bench/charts.json --suite static \
         --out eval/bench/reports --topics overview career wealth love health \
         --concurrency 2 [--judge]
 """
@@ -70,6 +78,11 @@ def parse_sse(body: str) -> dict:
     last = events[-1] if events else {}
     out = {"status": last.get("event", "none"), "events": events, "replaced": replaced}
     for e in events:
+        if e.get("event") == "metadata":
+            try:
+                out["replay"] = bool(json.loads(e["data"]).get("replay"))
+            except Exception:
+                out["replay"] = False
         if e.get("event") == "replace":
             out["replaced"] = True
             try:
@@ -86,12 +99,19 @@ def parse_sse(body: str) -> dict:
     return out
 
 
-async def run_one(client: httpx.AsyncClient, api: str, chart_id: str, topic: str, target: str) -> dict:
+async def run_one(
+    client: httpx.AsyncClient,
+    api: str,
+    chart_id: str,
+    topic: str,
+    target: dict | None,
+    namespace: str | None,
+) -> dict:
     t0 = time.monotonic()
     try:
         r = await client.post(
             f"{api}/api/charts/{chart_id}/interpret",
-            json={"topic": topic, "target": target},
+            json={"topic": topic, "target": target, "namespace": namespace},
             timeout=180,
         )
         elapsed = time.monotonic() - t0
@@ -154,7 +174,13 @@ async def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--api", default="http://localhost:8000")
     ap.add_argument("--charts", default="eval/bench/charts.json")
-    ap.add_argument("--target", default="2028-03-01")
+    ap.add_argument(
+        "--suite",
+        choices=["static", "yearly"],
+        default="static",
+        help="static: no target (E1). yearly: scope=yearly target (E2).",
+    )
+    ap.add_argument("--year", type=int, default=2028)
     ap.add_argument("--topics", nargs="+", default=["overview", "career", "wealth", "love", "health"])
     ap.add_argument("--concurrency", type=int, default=2)
     ap.add_argument("--out", default="eval/bench/reports")
@@ -162,8 +188,20 @@ async def main() -> None:
     ap.add_argument("--judge-base-url", default="")
     ap.add_argument("--judge-api-key", default="")
     ap.add_argument("--judge-model", default="")
+    ap.add_argument(
+        "--replay",
+        action="store_true",
+        help="send no namespace — completed runs may replay (tests replay path)",
+    )
     args = ap.parse_args()
 
+    stamp = dt.datetime.now(dt.UTC).strftime("%Y%m%d-%H%M%S")
+    target = (
+        None
+        if args.suite == "static"
+        else {"scope": "yearly", "year": args.year}
+    )
+    namespace = None if args.replay else f"bench-{stamp}"
     charts = json.loads(Path(args.charts).read_text())
     out_dir = Path(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -176,7 +214,9 @@ async def main() -> None:
 
         async def task(i: int, chart_id: str, topic: str) -> dict:
             async with sem:
-                res = await run_one(client, args.api, chart_id, topic, args.target)
+                res = await run_one(
+                    client, args.api, chart_id, topic, target, namespace
+                )
                 res["chart"] = charts[i]["id"]
                 res["chart_id"] = chart_id
                 return res
@@ -199,25 +239,31 @@ async def main() -> None:
                     if judged % 10 == 0:
                         print(f"judged {judged}", flush=True)
 
-    stamp = dt.datetime.now(dt.UTC).strftime("%Y%m%d-%H%M%S")
-    raw_path = out_dir / f"raw-{stamp}.json"
+    raw_path = out_dir / f"raw-{args.suite}-{stamp}.json"
     raw_path.write_text(json.dumps(results, ensure_ascii=False, indent=2))
 
     done = [r for r in results if r["status"] == "done"]
     failed = [r for r in results if r["status"] != "done"]
+    replayed = [r for r in results if r.get("replay")]
+    fresh = [r for r in results if not r.get("replay")]
     replaced = [r for r in done if r.get("replaced")]
-    lat = sorted(r["latency"] for r in results)
+    lat = sorted(r["latency"] for r in fresh)
     viols = [v for r in results for v in (r.get("violations") or [])]
 
     lines = [
-        f"# Gate E benchmark — {stamp}",
+        f"# Gate E benchmark — suite {args.suite} — {stamp}",
         "",
         f"- charts: {len(charts)}  topics: {len(args.topics)}  runs: {len(results)}",
-        f"- done: {len(done)} (of which repaired/replaced: {len(replaced)})  failed: {len(failed)}",
-        f"- latency s: p50={statistics.median(lat):.1f} p95={lat[int(len(lat) * 0.95) - 1]:.1f} max={max(lat):.1f}",
-        "",
-        "## Failures / violations",
+        f"- target: {target or 'none'}  namespace: {namespace or '(replay allowed)'}",
+        f"- fresh: {len(fresh)}  replay: {len(replayed)}  done: {len(done)} "
+        f"(repaired/replaced: {len(replaced)})  failed: {len(failed)}",
     ]
+    if lat:
+        lines.append(
+            f"- latency s (fresh only): p50={statistics.median(lat):.1f} "
+            f"p95={lat[int(len(lat) * 0.95) - 1]:.1f} max={max(lat):.1f}"
+        )
+    lines += ["", "## Failures / violations"]
     for r in failed:
         lines.append(f"- {r['chart']} {r['topic']}: {r['status']} {r.get('violations') or r.get('detail', '')}")
     if viols:
@@ -236,7 +282,7 @@ async def main() -> None:
         over = [r for r in judged if r["judge"].get("overclaim")]
         lines.append(f"- overclaim flags: {len(over)}")
 
-    report = out_dir / f"gate-e-{stamp}.md"
+    report = out_dir / f"gate-e-{args.suite}-{stamp}.md"
     report.write_text("\n".join(lines))
     print(f"\nreport: {report}\nraw: {raw_path}")
     print("\n".join(lines[:30]))

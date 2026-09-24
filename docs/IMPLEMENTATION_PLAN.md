@@ -157,17 +157,37 @@ Gate phụ trong Phase 8: ≥1 eval case chạy **non-default mutagen profile** 
 
 ## Definition of Done — Vertical Slice V1
 
-- [ ] Birth profile nhập được; raw/civil/normalized đều persisted
-- [ ] x-iztro cast chart deterministic; engine version + profile persisted; snapshot immutable
-- [ ] UI 12 cung render từ `CanonicalChartDTO`
-- [ ] 5 topics (overview/career/wealth/love/health) chạy được; career+year chạy được
-- [ ] KnowledgePack vào context không qua RAG; ContextComposer selective
-- [ ] EvidenceBundle tồn tại trước khi gọi LLM; `[E###]` validated
-- [ ] LLM chỉ qua `AI_BASE_URL` configurable; SSE streaming; "Vì sao?" xem được evidence
-- [ ] Conversation + InterpretationRun lưu local
-- [ ] Không runtime request nào tới Iztro/Renhuai
-- [ ] `docker compose up` chạy được toàn bộ trừ AI endpoint (config)
-- [ ] Critical deterministic tests pass
+- [x] Birth profile nhập được; raw/civil/normalized đều persisted
+- [x] x-iztro cast chart deterministic; engine version + profile persisted; snapshot immutable
+- [x] UI 12 cung render từ `CanonicalChartDTO`
+- [x] 5 topics (overview/career/wealth/love/health) chạy được; career+year chạy được
+- [x] KnowledgePack vào context không qua RAG; ContextComposer selective
+- [x] EvidenceBundle tồn tại trước khi gọi LLM; `[E###]` validated
+- [x] LLM chỉ qua `AI_BASE_URL` configurable; SSE streaming; "Vì sao?" xem được evidence
+- [x] Conversation + InterpretationRun lưu local
+- [x] Không runtime request nào tới Iztro/Renhuai
+- [x] `docker compose up` chạy được toàn bộ trừ AI endpoint (config)
+- [x] Critical deterministic tests pass
+
+## V1.1 hardening log (post-audit)
+
+- [x] Temporal scope contract: `InterpretTarget{scope,year,month?,day?}` — scope
+  khai báo tường minh, không suy từ `target_date`. Gate D sửa + tr-012/013.
+- [x] Gate E tách E1 static (target=None) / E2 yearly (scope=yearly y=2028);
+  namespace per run → 120/120 fresh, replay=0; latency tính fresh-only.
+- [x] Grounding fixes từ corpus đóng băng: mutagen mọi cung vào bundle,
+  entity whitelist trong prompt + repair, bỏ `tương lai` khỏi temporal regex,
+  scan entity bỏ phần boilerplate "Lưu ý" + tên trường phái,
+  parser nhận citation `[E001, E007]` (đây là nguyên nhân chính của
+  "nhận định vận hạn thiếu horoscope_fact").
+- [x] E1 static: **120/120 done, 0 fail** — `eval/bench/reports/gate-e-static-20260924-072822.md`.
+- [ ] E2 yearly: **deferred** — key Gemini hết credit (402 giữa chừng;
+  65/68 fail là llm_upstream, không phải grounding; phần chạy được trước
+  đó chỉ còn ~3 grounding residual do citation parser bug — đã fix).
+  Rerun khi có AI budget: `run_bench.py --suite yearly --year 2028`.
+- [x] Human spot-check pack 24 outputs —
+  `eval/bench/reports/spotcheck-static-20260924-072822.md`.
+- [x] Release hygiene: MIT LICENSE + THIRD_PARTY_NOTICES + README status.
 
 ## DO NOT (đưa vào mọi implementation prompt)
 
