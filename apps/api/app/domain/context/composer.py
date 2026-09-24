@@ -42,6 +42,8 @@ V1_TOPICS = {"overview", "career", "wealth", "love", "health"}
 
 TemporalScope = Literal["decadal", "yearly", "monthly", "daily", "hourly", "age"]
 
+_SIHUA_KEYS = ("sihuaLu", "sihuaQuan", "sihuaKe", "sihuaJi")
+
 
 class ContextItem(BaseModel):
     """One deterministic unit of context — becomes an EvidenceBundle item."""
@@ -298,8 +300,11 @@ class ContextComposer:
                             entity_key=star["key"],
                             data={
                                 "starName": star["name"],
+                                "starKey": star["key"],
                                 "mutagen": star["mutagen"],
+                                "mutagenKey": star.get("mutagenKey"),
                                 "palace": palace["name"],
+                                "palaceKey": palace["nameKey"],
                             },
                         )
                     )
@@ -318,12 +323,17 @@ class ContextComposer:
         for scope in scopes:
             if scope not in horoscope.context:
                 continue
+            data = dict(horoscope.context[scope])
+            if data.get("mutagen"):
+                # 四化 surface names (Lộc/Quyền/Khoa/Kỵ) are citable for any
+                # mutagenized scope — the year's hóa set is bounded to these.
+                data["sihuaKeys"] = list(_SIHUA_KEYS)
             items.append(
                 ContextItem(
                     kind="horoscope_fact",
                     scope=f"{scope}:{target_date.isoformat()}",
                     entity_key=scope,
-                    data=horoscope.context[scope],
+                    data=data,
                 )
             )
         return items

@@ -17,8 +17,14 @@ REF_RE = re.compile(r"\[E(\d{3})\]")
 SENTENCE_SPLIT = re.compile(r"(?<=[.!?…。；\n])\s*")
 TEMPORAL_RE = re.compile(
     r"(?i)(năm\s+\d{4}|tháng\s+\d{1,2}|đại hạn|lưu niên|vận hạn|tiểu hạn|"
-    r"sắp tới|tương lai|hiện tại)"
+    r"sắp tới|tương lai)"
 )
+
+# Glossary surface forms that double as ordinary Vietnamese words — flagging
+# them as "invented" would false-positive (e.g. "Miếu" = temple or brightness
+# grade; "Hạn" = limit). Distinctive names (stars, palaces, patterns) still
+# get the full closed-world check.
+_AMBIGUOUS_NAMES = {"Hạn", "Miếu", "Vượng", "Bình", "Hãm", "Lợi", "Đắc", "Địa"}
 
 GLOSSARY_PATH = repo_file("packages", "knowledge", "glossary-vi.md")
 
@@ -65,6 +71,14 @@ def _walk(obj: object) -> tuple[set[str], set[str]]:
                     keys.add(value)
                 elif field in _NAME_FIELDS:
                     names.add(value)
+            elif isinstance(value, list) and field.endswith(("Key", "Keys")):
+                for elem in value:
+                    if isinstance(elem, str):
+                        keys.add(elem)
+                    else:
+                        k2, n2 = _walk(elem)
+                        keys |= k2
+                        names |= n2
             else:
                 k2, n2 = _walk(value)
                 keys |= k2
@@ -119,7 +133,11 @@ class ValidationResult(NamedTuple):
 
 
 def _sentences(text: str) -> list[str]:
-    return [s.strip() for s in SENTENCE_SPLIT.split(text) if s.strip()]
+    # Markdown headings are labels, not claims — skip them for temporal checks.
+    body = "\n".join(
+        line for line in text.splitlines() if not line.lstrip().startswith("#")
+    )
+    return [s.strip() for s in SENTENCE_SPLIT.split(body) if s.strip()]
 
 
 def validate(output: str, bundle: EvidenceBundle) -> ValidationResult:
@@ -133,7 +151,7 @@ def validate(output: str, bundle: EvidenceBundle) -> ValidationResult:
 
     invented: set[str] = set()
     for key, vi_name in _VI_NAMES.items():
-        if key in vocab or len(vi_name) < 3:
+        if key in vocab or len(vi_name) < 3 or vi_name in _AMBIGUOUS_NAMES:
             continue
         if vi_name in output:
             invented.add(f"{vi_name}({key})")
