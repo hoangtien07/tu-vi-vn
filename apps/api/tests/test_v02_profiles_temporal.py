@@ -207,3 +207,36 @@ def test_event_dedupe(client: TestClient) -> None:
     body = {"event": "chart_created", "clientEventId": "dedupe-1"}
     assert client.post("/api/events", json=body).status_code == 202
     assert client.post("/api/events", json=body).status_code == 202  # no 500
+
+
+def test_temporal_invalid_day_is_422(client: TestClient, chart) -> None:
+    r = client.get(
+        f"/api/charts/{chart.id}/temporal",
+        params={"year": 2028, "month": 2, "day": 31},
+    )
+    assert r.status_code == 422
+
+
+def test_reading_detail_replay(client: TestClient, chart, session) -> None:
+    from app.infrastructure.db.models import InterpretationRun
+
+    session.add(
+        InterpretationRun(
+            id="rr_1",
+            chart_snapshot_id=chart.id,
+            topic="career",
+            status="completed",
+            output_text="Năm 2028 sự nghiệp hanh thông.",
+            version_meta={"targetDate": "2028-01-01"},
+        )
+    )
+    session.commit()
+    r = client.get(f"/api/charts/{chart.id}/readings/rr_1")
+    assert r.status_code == 200
+    assert r.json()["outputText"] == "Năm 2028 sự nghiệp hanh thông."
+    assert client.get(f"/api/charts/{chart.id}/readings/nope").status_code == 404
+
+
+def test_event_meta_size_cap(client: TestClient) -> None:
+    body = {"event": "chart_created", "meta": {"x": "y" * 5000}}
+    assert client.post("/api/events", json=body).status_code == 422

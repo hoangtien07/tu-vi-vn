@@ -2,6 +2,8 @@
 
 import { useCallback, useState } from "react";
 
+import { trackEvent } from "../../../lib/api";
+
 const TOPICS: { key: string; label: string }[] = [
   { key: "overview", label: "Tổng quan" },
   { key: "career", label: "Sự nghiệp" },
@@ -48,6 +50,7 @@ export function InterpretPanel({ chartId }: { chartId: string }) {
       setOpenRefs(new Set());
       setError("");
       setState("streaming");
+      trackEvent("interpret_started", { chartId, meta: { topic: t } });
       try {
         const resp = await fetch(`/api/charts/${chartId}/interpret`, {
           method: "POST",
@@ -78,7 +81,13 @@ export function InterpretPanel({ chartId }: { chartId: string }) {
             if (ev === "delta") setText((x) => x + payload);
             else if (ev === "replace") setText(payload);
             else if (ev === "evidence") setEvidence(payload.items);
-            else if (ev === "done") setState("done");
+            else if (ev === "done") {
+              setState("done");
+              trackEvent("interpret_completed", {
+                chartId,
+                meta: { topic: t },
+              });
+            }
             else if (ev === "error") {
               setState("error");
               setError(payload.type ?? "error");

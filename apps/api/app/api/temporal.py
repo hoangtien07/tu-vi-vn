@@ -76,14 +76,17 @@ def temporal_facts(
         raise HTTPException(status_code=422, detail=str(exc)) from exc
 
     normalized, profile = _load_normalized(snapshot, session)
-    anchor = dt.date.today()
-    if q.day is not None and q.month is not None and q.year is not None:
-        anchor = dt.date(q.year, q.month, q.day)
-    elif q.month is not None and q.year is not None:
-        anchor = dt.date(q.year, q.month, 1)
-    elif q.year is not None:
-        # Yearly facts anchored at Tết Âm lịch — same anchor interpret uses.
-        anchor = year_anchor(q.year)
+    try:
+        anchor = dt.date.today()
+        if q.day is not None and q.month is not None and q.year is not None:
+            anchor = dt.date(q.year, q.month, q.day)
+        elif q.month is not None and q.year is not None:
+            anchor = dt.date(q.year, q.month, 1)
+        elif q.year is not None:
+            # Yearly facts anchored at Tết Âm lịch — same anchor interpret uses.
+            anchor = year_anchor(q.year)
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
     if anchor < normalized.correctedSolarDate:
         raise HTTPException(
             status_code=422, detail="target precedes birth date"
@@ -104,6 +107,27 @@ def temporal_facts(
         "anchor": anchor.isoformat(),
         **layers,
         "scopesIncluded": [s for s, v in layers.items() if v is not None],
+    }
+
+
+@router.get("/{chart_id}/readings/{run_id}")
+def get_reading(
+    chart_id: str, run_id: str, session: Session = Depends(get_session)
+) -> dict[str, Any]:
+    """Replay a saved run — same input + versions returns the stored output."""
+    r = session.get(InterpretationRun, run_id)
+    if r is None or (
+        r.chart_snapshot_id != chart_id and r.partner_chart_snapshot_id != chart_id
+    ):
+        raise HTTPException(status_code=404, detail="reading not found")
+    return {
+        "id": r.id,
+        "topic": r.topic,
+        "status": r.status,
+        "isCompatibility": r.partner_chart_snapshot_id is not None,
+        "targetDate": (r.version_meta or {}).get("targetDate"),
+        "outputText": r.output_text,
+        "createdAt": r.created_at,
     }
 
 

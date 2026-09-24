@@ -46,27 +46,29 @@ export default async function ReadingsPage({
       )}
       <ul className="space-y-2">
         {readings.map((r) => (
-          <li
-            key={r.id}
-            className="flex items-center justify-between rounded-lg border border-zinc-200 px-3 py-2 text-sm dark:border-zinc-700"
-          >
-            <div>
-              <span className="font-medium">
-                {TOPIC_LABELS[r.topic] ?? r.topic}
-              </span>
-              {r.isCompatibility && (
-                <span className="ml-2 text-xs text-amber-700">· hợp bàn</span>
-              )}
-              {r.targetDate && (
-                <span className="ml-2 text-xs text-zinc-400">
-                  → {r.targetDate}
+          <li key={r.id}>
+            <Link
+              href={`/chart/${id}/readings/${r.id}`}
+              className="flex items-center justify-between rounded-lg border border-zinc-200 px-3 py-2 text-sm hover:border-amber-500 dark:border-zinc-700"
+            >
+              <div>
+                <span className="font-medium">
+                  {TOPIC_LABELS[r.topic] ?? r.topic}
                 </span>
-              )}
-            </div>
-            <div className="text-xs text-zinc-400">
-              {STATUS_LABELS[r.status] ?? r.status} ·{" "}
-              {new Date(r.createdAt).toLocaleDateString("vi-VN")}
-            </div>
+                {r.isCompatibility && (
+                  <span className="ml-2 text-xs text-amber-700">· hợp bàn</span>
+                )}
+                {r.targetDate && (
+                  <span className="ml-2 text-xs text-zinc-400">
+                    → {r.targetDate}
+                  </span>
+                )}
+              </div>
+              <div className="text-xs text-zinc-400">
+                {STATUS_LABELS[r.status] ?? r.status} ·{" "}
+                {new Date(r.createdAt).toLocaleDateString("vi-VN")}
+              </div>
+            </Link>
           </li>
         ))}
       </ul>

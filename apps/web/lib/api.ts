@@ -28,6 +28,7 @@ async function apiFetch<T>(path: string, init?: RequestInit): Promise<T> {
     (err as { status?: number }).status = res.status;
     throw err;
   }
+  if (res.status === 204) return undefined as T;
   return res.json() as Promise<T>;
 }
 
@@ -123,4 +124,47 @@ export interface ReadingRow {
 
 export function getReadings(chartId: string) {
   return apiFetch<ReadingRow[]>(`/api/charts/${chartId}/readings`);
+}
+
+export interface ReadingDetail extends ReadingRow {
+  outputText: string | null;
+}
+
+export function getReading(chartId: string, runId: string) {
+  return apiFetch<ReadingDetail>(
+    `/api/charts/${chartId}/readings/${runId}`,
+  );
+}
+
+/** SPEC_V02 §7 — fire-and-forget product event; never throws. */
+export function trackEvent(
+  event: string,
+  extra: { profileId?: string; chartId?: string; meta?: Record<string, unknown> } = {},
+) {
+  if (typeof window === "undefined") return;
+  fetch("/api/events", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      event,
+      clientEventId: `fe-${event}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+      ...extra,
+    }),
+  }).catch(() => {});
+}
+
+/** Server-side variant (server actions): posts directly to the API. */
+export async function trackEventServer(
+  event: string,
+  extra: { profileId?: string; chartId?: string; meta?: Record<string, unknown> } = {},
+) {
+  try {
+    await apiFetch("/api/events", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ event, ...extra }),
+    });
+  } catch {
+    /* analytics never blocks UX */
+  }
 }

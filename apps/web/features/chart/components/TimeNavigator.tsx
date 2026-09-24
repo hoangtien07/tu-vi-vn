@@ -2,7 +2,11 @@
 
 import { useCallback, useState } from "react";
 
-import { getTemporal, type TemporalFacts } from "../../../lib/api";
+import {
+  getTemporal,
+  trackEvent,
+  type TemporalFacts,
+} from "../../../lib/api";
 
 const INPUT =
   "rounded border border-zinc-300 px-2 py-1.5 text-sm dark:border-zinc-700 dark:bg-zinc-900";
@@ -101,6 +105,7 @@ export function TimeNavigator({
       if (level === "monthly" || level === "daily") q.month = month;
       if (level === "daily") q.day = day;
       setFacts(await getTemporal(chartId, q));
+      trackEvent("temporal_opened", { chartId, meta: { scope: level } });
     } catch (e) {
       setState("error");
       setError(e instanceof Error ? e.message : "Lỗi tải vận trình");
@@ -120,6 +125,7 @@ export function TimeNavigator({
     if (level === "daily") target = { scope: "daily", year, month, day };
 
     setState("streaming");
+    trackEvent("interpret_started", { chartId, meta: { topic, level } });
     try {
       const resp = await fetch(`/api/charts/${chartId}/interpret`, {
         method: "POST",
@@ -148,8 +154,13 @@ export function TimeNavigator({
           const payload = JSON.parse(data);
           if (ev === "delta") setText((x) => x + payload);
           else if (ev === "replace") setText(payload);
-          else if (ev === "evidence") setEvidence(payload);
-          else if (ev === "error") {
+          else if (ev === "evidence") setEvidence(payload.items);
+          else if (ev === "done") {
+            trackEvent("interpret_completed", {
+              chartId,
+              meta: { topic, level },
+            });
+          } else if (ev === "error") {
             setState("error");
             setError(ERROR_LABELS[payload.type] ?? ERROR_LABELS.internal);
             return;

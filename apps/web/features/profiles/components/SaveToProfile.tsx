@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-import { createProfile } from "../../../lib/api";
+import { createProfile, trackEvent } from "../../../lib/api";
 
 const INPUT =
   "w-full rounded border border-zinc-300 px-2 py-1.5 text-sm dark:border-zinc-700 dark:bg-zinc-900";
@@ -24,10 +24,15 @@ export function SaveToProfile({ chartId }: { chartId: string }) {
     setBusy(true);
     setError("");
     try {
-      await createProfile({
+      const p = await createProfile({
         display_name: name.trim(),
         relationship,
         chart_id: chartId,
+      });
+      trackEvent("profile_created", {
+        chartId,
+        profileId: p.id,
+        meta: { relationship },
       });
       router.push("/profiles");
     } catch (e) {

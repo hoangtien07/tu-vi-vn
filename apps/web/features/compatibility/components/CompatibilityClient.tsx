@@ -2,6 +2,8 @@
 
 import { useCallback, useState } from "react";
 
+import { trackEvent } from "../../../lib/api";
+
 interface EvidenceRef {
   id: string;
   kind: string;
@@ -112,6 +114,7 @@ export function CompatibilityClient({
     }
 
     setState("streaming");
+    trackEvent("compat_started", { chartId: a, meta: { partner: b } });
     try {
       const resp = await fetch("/api/compatibility", {
         method: "POST",
