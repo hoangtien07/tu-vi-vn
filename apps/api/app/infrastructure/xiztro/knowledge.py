@@ -80,7 +80,7 @@ class KnowledgeRegistry:
         return {
             "key": entry.key,
             "name": entry.name,
-            "quotes": getattr(entry, "quotes", [])[:3],
+            "quotes": (getattr(entry, "quotes", None) or [])[:3],
         }
 
     @classmethod

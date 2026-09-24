@@ -139,6 +139,7 @@ class ContextComposer:
                     "sign": c.get("sign"),
                     "zodiac": c.get("zodiac"),
                     "fiveElementsClass": c.get("fiveElementsClass"),
+                    "fiveElementsClassKey": c.get("fiveElementsClassKey"),
                     "soul": c.get("soul"),
                     "body": c.get("body"),
                     "solarDate": c.get("solarDate"),

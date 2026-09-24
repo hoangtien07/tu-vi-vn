@@ -22,9 +22,16 @@ TEMPORAL_RE = re.compile(
 
 # Glossary surface forms that double as ordinary Vietnamese words — flagging
 # them as "invented" would false-positive (e.g. "Miếu" = temple or brightness
-# grade; "Hạn" = limit). Distinctive names (stars, palaces, patterns) still
-# get the full closed-world check.
-_AMBIGUOUS_NAMES = {"Hạn", "Miếu", "Vượng", "Bình", "Hãm", "Lợi", "Đắc", "Địa"}
+# grade; "Hạn" = limit; "Bệnh" = illness). All 10 heavenly stems / 12 earthly
+# branches are single syllables that legitimately compose palace names
+# ("Mậu Ngọ", "Giáp Thân") — exempting them keeps the closed-world check on
+# what matters: star/palace/pattern names the model could hallucinate.
+_AMBIGUOUS_NAMES = {
+    "Hạn", "Miếu", "Vượng", "Bình", "Hãm", "Lợi", "Đắc", "Địa", "Bất", "Bệnh",
+    "Cục", "Thân",
+    "Giáp", "Ất", "Bính", "Đinh", "Mậu", "Kỷ", "Canh", "Tân", "Nhâm", "Quý",
+    "Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Dậu", "Tuất", "Hợi",
+}
 
 GLOSSARY_PATH = repo_file("packages", "knowledge", "glossary-vi.md")
 
@@ -67,7 +74,9 @@ def _walk(obj: object) -> tuple[set[str], set[str]]:
     if isinstance(obj, dict):
         for field, value in obj.items():
             if isinstance(value, str):
-                if field in _VOCAB_KEY_FIELDS:
+                if field in _VOCAB_KEY_FIELDS or (
+                    len(field) > 3 and field.endswith(("Key", "Keys"))
+                ):
                     keys.add(value)
                 elif field in _NAME_FIELDS:
                     names.add(value)
