@@ -60,3 +60,67 @@ export function createChart(payload: BirthPayload) {
     body: JSON.stringify(payload),
   });
 }
+
+export interface ApiProfile {
+  id: string;
+  displayName: string;
+  relationship: string | null;
+  chartId: string;
+  visibility: string;
+}
+
+export function listProfiles() {
+  return apiFetch<ApiProfile[]>("/api/profiles");
+}
+
+export function createProfile(body: {
+  display_name: string;
+  relationship?: string;
+  chart_id: string;
+}) {
+  return apiFetch<ApiProfile>("/api/profiles", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+}
+
+export function deleteProfile(id: string) {
+  return apiFetch<void>(`/api/profiles/${id}`, { method: "DELETE" });
+}
+
+export interface TemporalFacts {
+  chartId: string;
+  anchor: string;
+  decadal: Record<string, unknown> | null;
+  yearly: Record<string, unknown> | null;
+  monthly: Record<string, unknown> | null;
+  daily: Record<string, unknown> | null;
+  scopesIncluded: string[];
+}
+
+export function getTemporal(
+  chartId: string,
+  q: { year?: number; month?: number; day?: number },
+) {
+  const params = new URLSearchParams();
+  if (q.year) params.set("year", String(q.year));
+  if (q.month) params.set("month", String(q.month));
+  if (q.day) params.set("day", String(q.day));
+  return apiFetch<TemporalFacts>(
+    `/api/charts/${chartId}/temporal?${params.toString()}`,
+  );
+}
+
+export interface ReadingRow {
+  id: string;
+  topic: string;
+  status: string;
+  isCompatibility: boolean;
+  targetDate: string | null;
+  createdAt: string;
+}
+
+export function getReadings(chartId: string) {
+  return apiFetch<ReadingRow[]>(`/api/charts/${chartId}/readings`);
+}

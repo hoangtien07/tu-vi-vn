@@ -48,9 +48,11 @@ const ERROR_LABELS: Record<string, string> = {
 export function CompatibilityClient({
   initialA,
   initialB,
+  profiles = [],
 }: {
   initialA: string;
   initialB: string;
+  profiles?: { id: string; displayName: string; chartId: string }[];
 }) {
   const [inputA, setInputA] = useState(initialA);
   const [inputB, setInputB] = useState(initialB);
@@ -200,6 +202,32 @@ export function CompatibilityClient({
 
   return (
     <section className="rounded border border-zinc-200 p-4">
+      {profiles.length > 0 && (
+        <div className="mb-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          {(["A", "B"] as const).map((side) => (
+            <div className="space-y-1" key={side}>
+              <label className={LABEL}>Người {side} — từ hồ sơ</label>
+              <select
+                className={INPUT}
+                defaultValue=""
+                onChange={(e) => {
+                  const chartId = e.target.value;
+                  if (!chartId) return;
+                  if (side === "A") setInputA(chartId);
+                  else setInputB(chartId);
+                }}
+              >
+                <option value="">— chọn hồ sơ —</option>
+                {profiles.map((p) => (
+                  <option key={p.id} value={p.chartId}>
+                    {p.displayName}
+                  </option>
+                ))}
+              </select>
+            </div>
+          ))}
+        </div>
+      )}
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <div className="space-y-1">
           <label className={LABEL} htmlFor="chartA">
