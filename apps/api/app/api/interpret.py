@@ -1,15 +1,21 @@
 import datetime as dt
 import json
 from collections.abc import AsyncIterator
+from typing import Literal
 
 from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
+from app.domain.birth.contracts import NormalizedBirthMoment
+from app.domain.chart.fortune import year_anchor
 from app.domain.context.composer import ContextComposer, Topic
 from app.domain.interpretation.service import InterpretationService
-from app.infrastructure.db.models import ChartSnapshot
+from app.infrastructure.db.models import (
+    ChartSnapshot,
+    NormalizedBirthMomentRow,
+)
 from app.infrastructure.db.session import get_session
 
 router = APIRouter(prefix="/api/charts", tags=["interpret"])
@@ -17,9 +23,22 @@ router = APIRouter(prefix="/api/charts", tags=["interpret"])
 ALLOWED_TOPICS = {"overview", "career", "wealth", "love", "health"}
 
 
+class YearlyTarget(BaseModel):
+    scope: Literal["yearly"]
+    year: int
+
+
 class InterpretRequest(BaseModel):
     topic: Topic
-    target: dt.date | None = None
+    target: dt.date | YearlyTarget | None = None
+
+
+def _resolve_target(
+    target: dt.date | YearlyTarget | None,
+) -> dt.date | None:
+    if isinstance(target, YearlyTarget):
+        return year_anchor(target.year)
+    return target
 
 
 @router.post("/{chart_id}/interpret")
@@ -41,6 +60,23 @@ async def interpret(
     if snapshot is None:
         raise HTTPException(status_code=404, detail="chart not found")
 
+    try:
+        target_date = _resolve_target(body.target)
+    except Exception as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+    if target_date is not None:
+        row = session.get(
+            NormalizedBirthMomentRow, snapshot.normalized_birth_moment_id
+        )
+        if row is None:
+            raise HTTPException(status_code=500, detail="normalized birth missing")
+        normalized = NormalizedBirthMoment.model_validate(row.payload)
+        if target_date < normalized.correctedSolarDate:
+            raise HTTPException(
+                status_code=422, detail="target date precedes birth date"
+            )
+
     service = InterpretationService(
         ContextComposer(request.app.state.ziwei_engine),
         request.app.state.llm_provider,
@@ -49,7 +85,7 @@ async def interpret(
     async def event_stream() -> AsyncIterator[str]:
         try:
             async for ev in service.run(
-                session, snapshot, body.topic, body.target
+                session, snapshot, body.topic, target_date
             ):
                 payload = json.dumps(ev["data"], ensure_ascii=False)
                 yield f"event: {ev['event']}\ndata: {payload}\n\n"
