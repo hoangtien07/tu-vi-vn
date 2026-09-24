@@ -23,6 +23,7 @@ import argparse
 import asyncio
 import datetime as dt
 import json
+import os
 import statistics
 import time
 from pathlib import Path
@@ -113,7 +114,7 @@ async def run_one(
         r = await client.post(
             f"{api}/api/charts/{chart_id}/interpret",
             json={"topic": topic, "target": target, "namespace": namespace},
-            timeout=300,
+            timeout=float(os.environ.get("BENCH_HTTP_TIMEOUT", "300")),
         )
         elapsed = time.monotonic() - t0
         if r.status_code != 200:
@@ -123,7 +124,7 @@ async def run_one(
         parsed["topic"] = topic
         return parsed
     except Exception as exc:  # noqa: BLE001
-        return {"topic": topic, "status": "client_error", "latency": time.monotonic() - t0, "detail": str(exc)[:200]}
+        return {"topic": topic, "status": "client_error", "latency": time.monotonic() - t0, "detail": repr(exc)[:200]}
 
 
 async def run_pair(
@@ -144,7 +145,7 @@ async def run_pair(
                 "target": target,
                 "namespace": namespace,
             },
-            timeout=300,
+            timeout=float(os.environ.get("BENCH_HTTP_TIMEOUT", "300")),
         )
         elapsed = time.monotonic() - t0
         if r.status_code != 200:
@@ -154,7 +155,7 @@ async def run_pair(
         parsed["topic"] = "compatibility"
         return parsed
     except Exception as exc:  # noqa: BLE001
-        return {"topic": "compatibility", "status": "client_error", "latency": time.monotonic() - t0, "detail": str(exc)[:200]}
+        return {"topic": "compatibility", "status": "client_error", "latency": time.monotonic() - t0, "detail": repr(exc)[:200]}
 
 
 # timeIndex 0..12 → representative civil times (branch midpoints)

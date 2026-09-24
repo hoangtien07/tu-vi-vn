@@ -33,7 +33,7 @@ DEVIN_API = "https://api.devin.ai/v1"
 API_KEY = os.environ["DEVIN_API_KEY"]
 WORKERS = [w.strip() for w in os.environ["DEVIN_WORKER_IDS"].split(",") if w.strip()]
 POLL_SECONDS = 3.0
-TURN_TIMEOUT = 420.0
+TURN_TIMEOUT = float(os.environ.get("SHIM_TURN_TIMEOUT", "900"))
 SETTLED = {"blocked", "waiting_for_user", "sleeping", "finished", "expired", "suspended"}
 
 app = FastAPI()
@@ -94,11 +94,17 @@ async def _chat(messages: list[dict]) -> str:
     async with httpx.AsyncClient(timeout=30) as client:
         for _ in range(len(WORKERS)):
             worker = next(_cycle)
+            t0 = time.monotonic()
             async with _locks[worker]:
                 try:
                     return await _worker_turn(client, worker, prompt)
                 except Exception as exc:  # noqa: BLE001 — try next worker
                     last_exc = exc
+                    print(
+                        f"worker {worker} failed after {time.monotonic() - t0:.1f}s: "
+                        f"{type(exc).__name__}: {exc}",
+                        flush=True,
+                    )
     raise RuntimeError(f"all workers failed: {last_exc}")
 
 
