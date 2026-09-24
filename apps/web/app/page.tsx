@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { BirthForm } from "../features/chart/components/BirthForm";
 
 export default function Home() {
@@ -13,6 +15,12 @@ export default function Home() {
           </p>
         </div>
         <BirthForm />
+        <Link
+          href="/compatibility"
+          className="block text-center text-sm text-amber-700 hover:underline"
+        >
+          Hợp bàn hai lá số →
+        </Link>
         <p className="text-center text-xs text-zinc-400">
           Mang tính tham khảo — luận giải theo mệnh lý học truyền thống.
         </p>

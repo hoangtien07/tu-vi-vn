@@ -29,6 +29,14 @@ export default async function ChartPage({
       </div>
       <ChartBoard view={view} />
       <InterpretPanel chartId={chart.id} />
+      <div className="mt-4 text-center">
+        <Link
+          href={`/compatibility?a=${chart.id}`}
+          className="text-sm text-amber-700 hover:underline"
+        >
+          Hợp bàn với lá số này →
+        </Link>
+      </div>
       <p className="mt-4 text-center text-xs text-zinc-400">
         Mang tính tham khảo — luận giải theo mệnh lý học truyền thống.
       </p>
