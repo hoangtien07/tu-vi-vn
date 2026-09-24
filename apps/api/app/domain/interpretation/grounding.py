@@ -15,8 +15,12 @@ from app.repo_root import repo_file
 
 REF_RE = re.compile(r"\[E(\d{3})\]")
 SENTENCE_SPLIT = re.compile(r"(?<=[.!?…。；\n])\s*")
+# Scope-specific temporal terms only — the generic word "vận hạn" appears in
+# boilerplate ("chỉ mang tính tham khảo về xu hướng vận hạn") where a ref is
+# meaningless; scope-bearing claims (đại hạn/lưu niên/tiểu hạn/năm/tháng)
+# are the ones zero-tolerance applies to.
 TEMPORAL_RE = re.compile(
-    r"(?i)(năm\s+\d{4}|tháng\s+\d{1,2}|đại hạn|lưu niên|vận hạn|tiểu hạn|"
+    r"(?i)(năm\s+\d{4}|tháng\s+\d{1,2}|đại hạn|lưu niên|tiểu hạn|"
     r"sắp tới|tương lai)"
 )
 
