@@ -177,10 +177,12 @@ def test_post_chart_missing_time_422(session: Session) -> None:
     assert resp.status_code == 422
 
 
-def test_compatibility_stub_501(session: Session) -> None:
+def test_compatibility_endpoint_moved(session: Session) -> None:
+    # SPEC_COMPATIBILITY: real endpoint is POST /api/compatibility — the old
+    # per-chart 501 stub is gone with the frozen V1.1 placeholder contract.
     client = _client(session)
     resp = client.post(
         "/api/charts/cs_any/compatibility",
         json={"other_chart_id": "cs_other", "mode": "spouse"},
     )
-    assert resp.status_code == 501
+    assert resp.status_code == 404

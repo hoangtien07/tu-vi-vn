@@ -3,6 +3,10 @@
 ChartSnapshot → ContextComposer → EvidenceBuilder → PromptRenderer →
 LLMGateway → GroundingValidator → InterpretationRun.
 
+Hợp bàn (`run_pair`, SPEC_COMPATIBILITY): two snapshots compose one
+side-tagged bundle; chart_a keeps `chart_snapshot_id`, chart_b lands on
+`partner_chart_snapshot_id` — request order is part of the idempotency key.
+
 SSE event contract: metadata → evidence → delta* → done | error.
 Partial output is never persisted as a completed run.
 """
@@ -19,6 +23,7 @@ from sqlalchemy.orm import Session
 from app.domain.birth.contracts import NormalizedBirthMoment
 from app.domain.chart.contracts import CanonicalChartDTO, EngineProfile
 from app.domain.chart.service import new_id
+from app.domain.context.comparison import COMPATIBILITY_TOPIC, ComparisonComposer
 from app.domain.context.composer import ContextComposer, TargetScope, Topic
 from app.domain.evidence.builder import EvidenceBuilder, EvidenceBundle
 from app.domain.interpretation.grounding import extract_claims, validate
@@ -102,15 +107,26 @@ class InterpretationService:
         self._provider = provider
         self._renderer = renderer or PromptRenderer()
 
-    def _load_normalized(
-        self, session: Session, snapshot: ChartSnapshot
-    ) -> NormalizedBirthMoment:
-        row = session.get(
-            NormalizedBirthMomentRow, snapshot.normalized_birth_moment_id
-        )
+    def _load_normalized(self, session: Session, snapshot: ChartSnapshot) -> NormalizedBirthMoment:
+        row = session.get(NormalizedBirthMomentRow, snapshot.normalized_birth_moment_id)
         if row is None:
             raise LookupError("normalized birth moment missing")
         return NormalizedBirthMoment.model_validate(row.payload)
+
+    def _load_profile(self, session: Session, snapshot: ChartSnapshot) -> EngineProfile:
+        profile_row = session.get(EngineProfileRow, snapshot.engine_profile_id)
+        if profile_row is None:
+            raise LookupError("engine profile missing")
+        return EngineProfile.model_validate(profile_row.content)
+
+    def load_chart(
+        self, session: Session, snapshot: ChartSnapshot
+    ) -> tuple[NormalizedBirthMoment, EngineProfile, CanonicalChartDTO]:
+        return (
+            self._load_normalized(session, snapshot),
+            self._load_profile(session, snapshot),
+            CanonicalChartDTO.model_validate(snapshot.chart_json),
+        )
 
     async def run(
         self,
@@ -123,12 +139,7 @@ class InterpretationService:
         namespace: str | None = None,
         conversation_id: str | None = None,
     ) -> AsyncIterator[Event]:
-        normalized = self._load_normalized(session, snapshot)
-        profile_row = session.get(EngineProfileRow, snapshot.engine_profile_id)
-        if profile_row is None:
-            raise LookupError("engine profile missing")
-        profile = EngineProfile.model_validate(profile_row.content)
-        dto = CanonicalChartDTO.model_validate(snapshot.chart_json)
+        normalized, profile, dto = self.load_chart(session, snapshot)
 
         context = self._composer.compose(
             normalized,
@@ -140,9 +151,7 @@ class InterpretationService:
             knowledge=KnowledgeRegistry,
         )
         knowledge_version = KnowledgeRegistry.version_info()["version"]
-        bundle = EvidenceBuilder(knowledge_version=knowledge_version).build(
-            context, new_id("ev")
-        )
+        bundle = EvidenceBuilder(knowledge_version=knowledge_version).build(context, new_id("ev"))
         context_hash = _context_hash(bundle)
         session.add(
             EvidenceBundleRow(
@@ -168,32 +177,12 @@ class InterpretationService:
         )
 
         existing = session.scalar(
-            select(InterpretationRun).where(
-                InterpretationRun.idempotency_key == ikey
-            )
+            select(InterpretationRun).where(InterpretationRun.idempotency_key == ikey)
         )
         if existing is not None and existing.status == "completed":
             session.commit()  # persist evidence bundle row
-            yield _sse(
-                "metadata",
-                {
-                    "runId": existing.id,
-                    "topic": topic,
-                    "promptVersion": prompt_ver,
-                    "model": model,
-                    "replay": True,
-                },
-            )
-            replay_bundle = bundle
-            if existing.evidence_bundle_id:
-                stored = session.get(
-                    EvidenceBundleRow, existing.evidence_bundle_id
-                )
-                if stored is not None:
-                    replay_bundle = EvidenceBundle.model_validate(stored.payload)
-            yield _sse("evidence", self._evidence_payload(replay_bundle))
-            yield _sse("delta", existing.output_text)
-            yield _sse("done", {"runId": existing.id, "replay": True})
+            async for ev in self._replay(session, existing, bundle, topic, prompt_ver, model):
+                yield ev
             return
 
         # Failed/abandoned attempts keep their row for the audit trail: free
@@ -227,12 +216,150 @@ class InterpretationService:
         session.add(run)
         session.commit()
 
+        async for ev in self._execute(session, run, bundle, messages, prompt_ver, model):
+            yield ev
+
+    async def run_pair(
+        self,
+        session: Session,
+        snapshot_a: ChartSnapshot,
+        snapshot_b: ChartSnapshot,
+        target_date: dt.date | None,
+        *,
+        target_scope: TargetScope | None = None,
+        namespace: str | None = None,
+    ) -> AsyncIterator[Event]:
+        """Hợp bàn run — one audit row, chart_a on chart_snapshot_id, chart_b
+        on partner_chart_snapshot_id. Request order is part of the ikey so
+        (A,B) and (B,A) never replay each other's labels."""
+        normalized_a, profile_a, dto_a = self.load_chart(session, snapshot_a)
+        normalized_b, profile_b, dto_b = self.load_chart(session, snapshot_b)
+
+        context = ComparisonComposer(self._composer.engine).compose_pair(
+            normalized_a,
+            profile_a,
+            dto_a,
+            normalized_b,
+            profile_b,
+            dto_b,
+            target_date,
+            target_scope,
+            knowledge=KnowledgeRegistry,
+        )
+        knowledge_version = KnowledgeRegistry.version_info()["version"]
+        bundle = EvidenceBuilder(knowledge_version=knowledge_version).build(context, new_id("ev"))
+        context_hash = _context_hash(bundle)
+        session.add(
+            EvidenceBundleRow(
+                id=bundle.id,
+                chart_snapshot_id=snapshot_a.id,
+                context_hash=context_hash,
+                payload=bundle.model_dump(mode="json"),
+            )
+        )
+
+        messages, prompt_ver, template_sha = self._renderer.render(COMPATIBILITY_TOPIC, bundle)
+        model = getattr(self._provider, "model", "") or ""
+        ikey = _idempotency_key(
+            f"{snapshot_a.id}|{snapshot_b.id}",
+            COMPATIBILITY_TOPIC,
+            target_scope,
+            target_date,
+            namespace,
+            prompt_ver,
+            model,
+            template_sha,
+            context_hash,
+        )
+
+        existing = session.scalar(
+            select(InterpretationRun).where(InterpretationRun.idempotency_key == ikey)
+        )
+        if existing is not None and existing.status == "completed":
+            session.commit()
+            async for ev in self._replay(
+                session, existing, bundle, COMPATIBILITY_TOPIC, prompt_ver, model
+            ):
+                yield ev
+            return
+
+        if existing is not None:
+            existing.idempotency_key = None
+
+        run = InterpretationRun(
+            id=new_id("ir"),
+            chart_snapshot_id=snapshot_a.id,
+            partner_chart_snapshot_id=snapshot_b.id,
+            evidence_bundle_id=bundle.id,
+            idempotency_key=ikey,
+            topic=COMPATIBILITY_TOPIC,
+            status="pending",
+            version_meta={},
+        )
+        run.version_meta = {
+            "contextComposerVersion": CONTEXT_COMPOSER_VERSION,
+            "knowledgePacks": [KnowledgeRegistry.version_info()],
+            "promptVersion": prompt_ver,
+            "promptTemplateSha256": template_sha,
+            "modelProvider": "openai-compatible",
+            "modelName": model,
+            "decoding": DECODING_REPORT,
+            "contextHash": context_hash,
+            "targetDate": str(target_date) if target_date else None,
+            "targetScope": target_scope,
+            "namespace": namespace,
+            "chartB": snapshot_b.id,
+            "sides": {"a": snapshot_a.id, "b": snapshot_b.id},
+        }
+        session.add(run)
+        session.commit()
+
+        async for ev in self._execute(session, run, bundle, messages, prompt_ver, model):
+            yield ev
+
+    async def _replay(
+        self,
+        session: Session,
+        existing: InterpretationRun,
+        bundle: EvidenceBundle,
+        topic: str,
+        prompt_ver: str,
+        model: str,
+    ) -> AsyncIterator[Event]:
+        yield _sse(
+            "metadata",
+            {
+                "runId": existing.id,
+                "topic": topic,
+                "promptVersion": prompt_ver,
+                "model": model,
+                "replay": True,
+            },
+        )
+        replay_bundle = bundle
+        if existing.evidence_bundle_id:
+            stored = session.get(EvidenceBundleRow, existing.evidence_bundle_id)
+            if stored is not None:
+                replay_bundle = EvidenceBundle.model_validate(stored.payload)
+        yield _sse("evidence", self._evidence_payload(replay_bundle))
+        yield _sse("delta", existing.output_text)
+        yield _sse("done", {"runId": existing.id, "replay": True})
+
+    async def _execute(
+        self,
+        session: Session,
+        run: InterpretationRun,
+        bundle: EvidenceBundle,
+        messages: list[dict[str, str]],
+        prompt_ver: str,
+        model: str,
+    ) -> AsyncIterator[Event]:
         try:
             yield _sse(
                 "metadata",
                 {
                     "runId": run.id,
-                    "topic": topic,
+                    "topic": run.topic,
                     "promptVersion": prompt_ver,
                     "model": model,
                 },
@@ -273,9 +400,7 @@ class InterpretationService:
                     break
                 try:
                     output = await self._provider.complete(
-                        self._renderer.repair_messages(
-                            messages, result.violations, bundle
-                        ),
+                        self._renderer.repair_messages(messages, result.violations, bundle),
                         **DECODING_REPORT,
                     )
                 except Exception:

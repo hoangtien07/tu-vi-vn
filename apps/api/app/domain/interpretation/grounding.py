@@ -169,6 +169,9 @@ class ValidationResult(NamedTuple):
 
 
 _BOLD_LABEL_RE = re.compile(r"[-*\s]*\*\*[^*\n]+\*\*:?")
+# Compatibility outputs must label the two charts (SPEC_COMPATIBILITY §4).
+_SIDE_A_RE = re.compile(r"Người\s*A\b")
+_SIDE_B_RE = re.compile(r"Người\s*B\b")
 
 
 def _sentences(text: str) -> list[str]:
@@ -189,6 +192,18 @@ def _sentences(text: str) -> list[str]:
 def validate(output: str, bundle: EvidenceBundle) -> ValidationResult:
     known_ids = {item.id for item in bundle.items}
     horoscope_ids = {i.id for i in bundle.items if i.kind == "horoscope_fact"}
+    # Hợp bàn: horoscope scopes are side-tagged (`…:a`/`…:b`); a temporal
+    # claim about "Người A" must cite A-side horoscope evidence, not just any
+    # (SPEC_COMPATIBILITY §4).
+    pair = bundle.topic == "compatibility"
+    horoscope_ids_by_side = {
+        side: {
+            i.id
+            for i in bundle.items
+            if i.kind == "horoscope_fact" and i.scope.endswith(f":{side}")
+        }
+        for side in ("a", "b")
+    }
     vocab = bundle_vocab(bundle)
     entity_names = _bundle_names(bundle)
 
@@ -207,8 +222,18 @@ def validate(output: str, bundle: EvidenceBundle) -> ValidationResult:
     orphans: list[str] = []
     for sentence in _sentences(output):
         s_refs = _refs(sentence)
-        if TEMPORAL_RE.search(sentence) and not (s_refs & horoscope_ids):
-            temporal.append(sentence[:120])
+        if TEMPORAL_RE.search(sentence):
+            if pair:
+                mentions_a = _SIDE_A_RE.search(sentence)
+                mentions_b = _SIDE_B_RE.search(sentence)
+                missing_side = (
+                    (mentions_a and not (s_refs & horoscope_ids_by_side["a"]))
+                    or (mentions_b and not (s_refs & horoscope_ids_by_side["b"]))
+                )
+                if not (s_refs & horoscope_ids) or missing_side:
+                    temporal.append(sentence[:120])
+            elif not (s_refs & horoscope_ids):
+                temporal.append(sentence[:120])
         if not s_refs and any(name in sentence for name in entity_names):
             orphans.append(sentence[:120])
 

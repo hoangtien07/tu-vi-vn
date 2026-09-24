@@ -98,6 +98,10 @@ class InterpretationRun(Base):
 
     id: Mapped[str] = mapped_column(Text, primary_key=True)
     chart_snapshot_id: Mapped[str] = mapped_column(ForeignKey("chart_snapshots.id"), index=True)
+    # Hợp bàn runs keep chart_a here and chart_b on partner_* (SPEC_COMPAT §3.1).
+    partner_chart_snapshot_id: Mapped[str | None] = mapped_column(
+        ForeignKey("chart_snapshots.id"), index=True
+    )
     evidence_bundle_id: Mapped[str | None] = mapped_column(
         ForeignKey("evidence_bundles.id"), index=True
     )

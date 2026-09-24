@@ -55,7 +55,7 @@ class ContextItem(BaseModel):
 
     kind: Literal[
         "chart_fact", "palace_fact", "pattern", "mutagen",
-        "knowledge", "horoscope_fact",
+        "knowledge", "horoscope_fact", "cross_link",
     ]
     scope: str = "natal"
     palace_key: str = ""
@@ -103,6 +103,10 @@ def target_anchor(
 class ContextComposer:
     def __init__(self, engine: ZiweiEngine) -> None:
         self._engine = engine
+
+    @property
+    def engine(self) -> ZiweiEngine:
+        return self._engine
 
     def compose(
         self,
