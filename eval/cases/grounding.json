@@ -2,39 +2,278 @@
   "gate": "C",
   "description": "GroundingValidator cases (EVALUATION.md Gate C — zero tolerance). `bundle.items` is a synthetic EvidenceBundle; `output` is model text; expect lists which violation fields must be non-empty. `ok` asserts validator acceptance. Entity names must come from the vi glossary surface forms (Văn Xương vs Thất Sát below).",
   "cases": [
-    {"id": "g-001", "note": "clean citation → pass",
-     "bundle": {"items": [{"id": "E001", "kind": "palace_fact", "scope": "natal", "palace_key": "soulPalace", "entity_key": "qishaMaj", "data": {"starName": "Thất Sát", "starKey": "qishaMaj", "palaceName": "Mệnh", "palaceKey": "soulPalace"}, "source": "engine", "source_version": "0.6.1"}]},
-     "output": "Mệnh có Thất Sát tọa thủ [E001], tính cách quyết đoán.",
-     "expect": {"ok": true}},
-    {"id": "g-002", "note": "unknown ref → unknown_refs",
-     "bundle": {"items": [{"id": "E001", "kind": "palace_fact", "scope": "natal", "palace_key": "soulPalace", "entity_key": "qishaMaj", "data": {"starName": "Thất Sát"}, "source": "engine", "source_version": "0.6.1"}]},
-     "output": "Cung tài có hao tinh [E009].",
-     "expect": {"ok": false, "violations": ["unknown_refs"]}},
-    {"id": "g-003", "note": "invented star with a VALID ref (citation laundering) → invented_entities",
-     "bundle": {"items": [{"id": "E001", "kind": "palace_fact", "scope": "natal", "palace_key": "soulPalace", "entity_key": "qishaMaj", "data": {"starName": "Thất Sát"}, "source": "engine", "source_version": "0.6.1"}]},
-     "output": "Văn Xương hội chiếu rất sáng [E001].",
-     "expect": {"ok": false, "violations": ["invented_entities"]}},
-    {"id": "g-004", "note": "temporal claim without horoscope_fact → temporal_unverified",
-     "bundle": {"items": [{"id": "E001", "kind": "palace_fact", "scope": "natal", "palace_key": "soulPalace", "entity_key": "qishaMaj", "data": {"starName": "Thất Sát"}, "source": "engine", "source_version": "0.6.1"}]},
-     "output": "Năm 2028 sự nghiệp có biến động lớn [E001].",
-     "expect": {"ok": false, "violations": ["temporal_unverified"]}},
-    {"id": "g-005", "note": "temporal claim WITH horoscope_fact ref → pass",
-     "bundle": {"items": [
-       {"id": "E001", "kind": "palace_fact", "scope": "natal", "palace_key": "soulPalace", "entity_key": "qishaMaj", "data": {"starName": "Thất Sát"}, "source": "engine", "source_version": "0.6.1"},
-       {"id": "E002", "kind": "horoscope_fact", "scope": "yearly", "palace_key": "careerPalace", "entity_key": "sihuaLu", "data": {"name": "Lộc Tồn", "mutagenKey": "sihuaLu"}, "source": "engine", "source_version": "0.6.1"}]},
-     "output": "Năm 2028 lưu Lộc chiếu quan lộc [E002], có cơ hội thăng tiến.",
-     "expect": {"ok": true}},
-    {"id": "g-006", "note": "compound violations: unknown ref + invented entity + unverified temporal",
-     "bundle": {"items": [{"id": "E001", "kind": "chart_fact", "scope": "natal", "palace_key": "", "entity_key": "fiveElementsClass", "data": {"name": "Thổ ngũ cục"}, "source": "engine", "source_version": "0.6.1"}]},
-     "output": "Hóa Quyền lạc hãm [E007] nên năm 2029 tài vận suy. Văn Xương an lương.",
-     "expect": {"ok": false, "violations": ["unknown_refs", "invented_entities", "temporal_unverified"]}},
-    {"id": "g-007", "note": "orphan claim flagged but NOT a hard violation",
-     "bundle": {"items": [{"id": "E001", "kind": "palace_fact", "scope": "natal", "palace_key": "soulPalace", "entity_key": "qishaMaj", "data": {"starName": "Thất Sát"}, "source": "engine", "source_version": "0.6.1"}]},
-     "output": "Thất Sát này rất mạnh.",
-     "expect": {"ok": true, "orphanClaims": true}},
-    {"id": "g-008", "note": "entity nested inside item.data counts as bundle vocab (I8 fix)",
-     "bundle": {"items": [{"id": "E001", "kind": "chart_fact", "scope": "natal", "palace_key": "", "entity_key": "overview", "data": {"palaces": [{"palaceName": "Quan Lộc", "palaceKey": "careerPalace", "stars": [{"starName": "Văn Xương", "starKey": "wenchangMin"}]}]}, "source": "engine", "source_version": "0.6.1"}]},
-     "output": "Văn Xương có mặt trong lá số [E001].",
-     "expect": {"ok": true}}
+    {
+      "id": "g-001",
+      "note": "clean citation → pass",
+      "bundle": {
+        "items": [
+          {
+            "id": "E001",
+            "kind": "palace_fact",
+            "scope": "natal",
+            "palace_key": "soulPalace",
+            "entity_key": "qishaMaj",
+            "data": {
+              "starName": "Thất Sát",
+              "starKey": "qishaMaj",
+              "palaceName": "Mệnh",
+              "palaceKey": "soulPalace"
+            },
+            "source": "engine",
+            "source_version": "0.6.1"
+          }
+        ]
+      },
+      "output": "Mệnh có Thất Sát tọa thủ [E001], tính cách quyết đoán.",
+      "expect": {
+        "ok": true
+      }
+    },
+    {
+      "id": "g-002",
+      "note": "unknown ref → unknown_refs",
+      "bundle": {
+        "items": [
+          {
+            "id": "E001",
+            "kind": "palace_fact",
+            "scope": "natal",
+            "palace_key": "soulPalace",
+            "entity_key": "qishaMaj",
+            "data": {
+              "starName": "Thất Sát"
+            },
+            "source": "engine",
+            "source_version": "0.6.1"
+          }
+        ]
+      },
+      "output": "Cung tài có hao tinh [E009].",
+      "expect": {
+        "ok": false,
+        "violations": [
+          "unknown_refs"
+        ]
+      }
+    },
+    {
+      "id": "g-003",
+      "note": "invented star with a VALID ref (citation laundering) → invented_entities",
+      "bundle": {
+        "items": [
+          {
+            "id": "E001",
+            "kind": "palace_fact",
+            "scope": "natal",
+            "palace_key": "soulPalace",
+            "entity_key": "qishaMaj",
+            "data": {
+              "starName": "Thất Sát"
+            },
+            "source": "engine",
+            "source_version": "0.6.1"
+          }
+        ]
+      },
+      "output": "Văn Xương hội chiếu rất sáng [E001].",
+      "expect": {
+        "ok": false,
+        "violations": [
+          "invented_entities"
+        ]
+      }
+    },
+    {
+      "id": "g-004",
+      "note": "temporal claim without horoscope_fact → temporal_unverified",
+      "bundle": {
+        "items": [
+          {
+            "id": "E001",
+            "kind": "palace_fact",
+            "scope": "natal",
+            "palace_key": "soulPalace",
+            "entity_key": "qishaMaj",
+            "data": {
+              "starName": "Thất Sát"
+            },
+            "source": "engine",
+            "source_version": "0.6.1"
+          }
+        ]
+      },
+      "output": "Năm 2028 sự nghiệp có biến động lớn [E001].",
+      "expect": {
+        "ok": false,
+        "violations": [
+          "temporal_unverified"
+        ]
+      }
+    },
+    {
+      "id": "g-005",
+      "note": "temporal claim WITH horoscope_fact ref → pass",
+      "bundle": {
+        "items": [
+          {
+            "id": "E001",
+            "kind": "palace_fact",
+            "scope": "natal",
+            "palace_key": "soulPalace",
+            "entity_key": "qishaMaj",
+            "data": {
+              "starName": "Thất Sát"
+            },
+            "source": "engine",
+            "source_version": "0.6.1"
+          },
+          {
+            "id": "E002",
+            "kind": "horoscope_fact",
+            "scope": "yearly",
+            "palace_key": "careerPalace",
+            "entity_key": "sihuaLu",
+            "data": {
+              "name": "Lộc Tồn",
+              "mutagenKey": "sihuaLu"
+            },
+            "source": "engine",
+            "source_version": "0.6.1"
+          }
+        ]
+      },
+      "output": "Năm 2028 lưu Lộc chiếu quan lộc [E002], có cơ hội thăng tiến.",
+      "expect": {
+        "ok": true
+      }
+    },
+    {
+      "id": "g-006",
+      "note": "compound violations: unknown ref + invented entity + unverified temporal",
+      "bundle": {
+        "items": [
+          {
+            "id": "E001",
+            "kind": "chart_fact",
+            "scope": "natal",
+            "palace_key": "",
+            "entity_key": "fiveElementsClass",
+            "data": {
+              "name": "Thổ ngũ cục"
+            },
+            "source": "engine",
+            "source_version": "0.6.1"
+          }
+        ]
+      },
+      "output": "Hóa Quyền lạc hãm [E007] nên năm 2029 tài vận suy. Văn Xương an lương.",
+      "expect": {
+        "ok": false,
+        "violations": [
+          "unknown_refs",
+          "invented_entities",
+          "temporal_unverified"
+        ]
+      }
+    },
+    {
+      "id": "g-007",
+      "note": "orphan claim flagged but NOT a hard violation",
+      "bundle": {
+        "items": [
+          {
+            "id": "E001",
+            "kind": "palace_fact",
+            "scope": "natal",
+            "palace_key": "soulPalace",
+            "entity_key": "qishaMaj",
+            "data": {
+              "starName": "Thất Sát"
+            },
+            "source": "engine",
+            "source_version": "0.6.1"
+          }
+        ]
+      },
+      "output": "Thất Sát này rất mạnh.",
+      "expect": {
+        "ok": true,
+        "orphanClaims": true
+      }
+    },
+    {
+      "id": "g-008",
+      "note": "entity nested inside item.data counts as bundle vocab (I8 fix)",
+      "bundle": {
+        "items": [
+          {
+            "id": "E001",
+            "kind": "chart_fact",
+            "scope": "natal",
+            "palace_key": "",
+            "entity_key": "overview",
+            "data": {
+              "palaces": [
+                {
+                  "palaceName": "Quan Lộc",
+                  "palaceKey": "careerPalace",
+                  "stars": [
+                    {
+                      "starName": "Văn Xương",
+                      "starKey": "wenchangMin"
+                    }
+                  ]
+                }
+              ]
+            },
+            "source": "engine",
+            "source_version": "0.6.1"
+          }
+        ]
+      },
+      "output": "Văn Xương có mặt trong lá số [E001].",
+      "expect": {
+        "ok": true
+      }
+    },
+    {
+      "id": "g-009",
+      "note": "comma-bracket citation incl. horoscope_fact → pass (parser accepts [E001, E002])",
+      "bundle": {
+        "items": [
+          {
+            "id": "E001",
+            "kind": "palace_fact",
+            "scope": "natal",
+            "palace_key": "soulPalace",
+            "entity_key": "qishaMaj",
+            "data": {
+              "starName": "Thất Sát",
+              "starKey": "qishaMaj",
+              "palaceName": "Mệnh",
+              "palaceKey": "soulPalace"
+            },
+            "source": "engine",
+            "source_version": "0.6.1"
+          },
+          {
+            "id": "E002",
+            "kind": "horoscope_fact",
+            "scope": "decadal:2028-01-26",
+            "entity_key": "decadal",
+            "data": {
+              "earthlyBranch": "Mùi",
+              "earthlyBranchKey": "weiEarthly"
+            },
+            "source": "x-iztro",
+            "source_version": "0.6.1"
+          }
+        ]
+      },
+      "output": "Đại hạn mới chuyển, Mệnh có Thất Sát tọa thủ [E001, E002].",
+      "expect": {
+        "ok": true
+      }
+    }
   ]
 }
