@@ -929,6 +929,7 @@ dependencies = [
     { name = "sqlalchemy" },
     { name = "tzdata" },
     { name = "uvicorn", extra = ["standard"] },
+    { name = "x-iztro" },
 ]
 
 [package.dev-dependencies]
@@ -950,6 +951,7 @@ requires-dist = [
     { name = "sqlalchemy", specifier = ">=2.0" },
     { name = "tzdata", specifier = ">=2024.1" },
     { name = "uvicorn", extras = ["standard"], specifier = ">=0.30" },
+    { name = "x-iztro", specifier = "==0.6.1" },
 ]
 
 [package.metadata.requires-dev]
@@ -1211,4 +1213,16 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/2c/84/77599922ab441bfe61508f97dab2c71f8e114d31793993ea54011db16199/websockets-17.1-cp315-cp315t-win_amd64.whl", hash = "sha256:ad68c28a27246fed109a4409393d677b7e1388345cbbd2f5aee5c182d8506110", size = 217448, upload-time = "2026-08-26T14:58:21.382Z" },
     { url = "https://files.pythonhosted.org/packages/ce/3c/8b9a225b523f06a9389be81f1b0ab07c49bec6014742e6aa359c1f920f1f/websockets-17.1-cp315-cp315t-win_arm64.whl", hash = "sha256:e552e0037230ac16e5f568de7012041344d1b18c9feed30ec2891b8eba55af81", size = 217372, upload-time = "2026-08-26T14:58:22.807Z" },
     { url = "https://files.pythonhosted.org/packages/41/63/23572870e01836a98346075b9e17a8bc24a6ddd9800a3204ceee58677f3c/websockets-17.1-py3-none-any.whl", hash = "sha256:f221081107b8c48184d99f7019604486376e7ef826037e70aad6b02540732c23", size = 211134, upload-time = "2026-08-26T17:25:31.397Z" },
+]
+
+[[package]]
+name = "x-iztro"
+version = "0.6.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/1c/20/a670c5bc4929fb7c823abe54b8274e59f9d7014d23e0c643d23a56be99d0/x_iztro-0.6.1.tar.gz", hash = "sha256:43929638b1a0de2c4bc7d7e12094f21667270e084c05d00cf408d9cc5b86f379", size = 368215, upload-time = "2026-09-08T06:53:02.563Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/79/ce/f4c1c024c06e4afd7a80205f74ccd066435626b42e365fe7059692825640/x_iztro-0.6.1-cp310-abi3-macosx_10_12_x86_64.macosx_11_0_arm64.macosx_10_12_universal2.whl", hash = "sha256:962473932d2883e162afc63b628d97515991dd95c10aa749e20147c0b98be234", size = 2069392, upload-time = "2026-09-08T06:52:56.53Z" },
+    { url = "https://files.pythonhosted.org/packages/17/d6/3d525602e277aa943354f42b44f538987b42af1b1c60e2ea518d2c753b69/x_iztro-0.6.1-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:3242440c932b3799a155b2a26a22439e62341c312df4c482817562319a2bfce3", size = 1158392, upload-time = "2026-09-08T06:52:58.058Z" },
+    { url = "https://files.pythonhosted.org/packages/1b/91/77e3ebd164e2ffd9b76fd7b3089ab420010f72ff39f2ed3ec184fe644e7f/x_iztro-0.6.1-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:2fcc12cdd0609f8e4cd1daf835d47ee33fa52e09ca53cdac5a841bb79ed8a934", size = 1179676, upload-time = "2026-09-08T06:52:59.562Z" },
+    { url = "https://files.pythonhosted.org/packages/0b/1a/a45e61af1e20e22113e290b57f74cddfd9ac4e160eff34484d6d3f4d5e73/x_iztro-0.6.1-cp310-abi3-win_amd64.whl", hash = "sha256:daea3f757bc03a984175c8870e5a35da62124d0468351b5863f064f10ca00349", size = 957027, upload-time = "2026-09-08T06:53:01.112Z" },
 ]
