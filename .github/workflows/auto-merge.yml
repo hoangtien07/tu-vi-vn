@@ -109,23 +109,54 @@ jobs:
               }
 
               console.log(`#${number}: ci green (run ${latest.id}) — merging`);
-              try {
-                await github.rest.pulls.merge({
-                  owner, repo, pull_number: number, merge_method: 'squash',
-                  // Expected-head precondition: abort if anyone pushed after
-                  // we read the PR — never merge an untested head.
-                  sha: pr.head.sha,
-                });
-              } catch (e) {
-                // Expected rejections: 405 already merged/not mergeable,
-                // 409 head moved, 422 validation. Anything else (502/403/
-                // throttle) is transient — record it and fail the job at
-                // the end so the merge is retried, not silently dropped.
-                if ([405, 409, 422].includes(e.status)) {
-                  console.log(`#${number}: merge rejected (${e.status}), skip`);
-                } else {
-                  console.log(`#${number}: merge failed (${e.status || e.message})`);
-                  mergeErrors.push(`#${number}: ${e.status || e.message}`);
+              // Retry transient failures inside the job — nothing else
+              // re-triggers this workflow, so one-shot errors would
+              // strand the labeled PR. Expected rejections stop retrying:
+              // 405 already merged/not mergeable, 409 head moved,
+              // 422 validation. Anything else (502/403/throttle) gets
+              // 3 attempts, then fails the job visibly.
+              const gateBase = pr.base.sha;
+              const gateHead = pr.head.sha;
+              let done = false;
+              for (let attempt = 0; attempt < 3 && !done; attempt++) {
+                if (attempt) {
+                  await new Promise(r => setTimeout(r, 5000 * attempt));
+                  // The green run was built from (gateBase, gateHead).
+                  // If either moved during backoff, this merge would be
+                  // untested — stop and let the new pull_request run +
+                  // workflow_run event re-evaluate instead.
+                  const { data: now } = await github.rest.pulls.get({
+                    owner, repo, pull_number: number,
+                  });
+                  if (now.base.sha !== gateBase || now.head.sha !== gateHead) {
+                    console.log(
+                      `#${number}: base/head moved during backoff — ` +
+                      'stop retry, wait for new CI'
+                    );
+                    break;
+                  }
+                }
+                try {
+                  await github.rest.pulls.merge({
+                    owner, repo, pull_number: number, merge_method: 'squash',
+                    // Expected-head precondition: abort if anyone pushed
+                    // after we read the PR — never merge an untested head.
+                    sha: gateHead,
+                  });
+                  done = true;
+                } catch (e) {
+                  if ([405, 409, 422].includes(e.status)) {
+                    console.log(`#${number}: merge rejected (${e.status}), skip`);
+                    done = true;
+                  } else {
+                    console.log(
+                      `#${number}: merge attempt ${attempt + 1} failed ` +
+                      `(${e.status || e.message})`
+                    );
+                    if (attempt === 2) {
+                      mergeErrors.push(`#${number}: ${e.status || e.message}`);
+                    }
+                  }
                 }
               }
             }
