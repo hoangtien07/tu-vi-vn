@@ -216,85 +216,94 @@ class InterpretationService:
         session.add(run)
         session.commit()
 
-        yield _sse(
-            "metadata",
-            {
-                "runId": run.id,
-                "topic": topic,
-                "promptVersion": prompt_ver,
-                "model": model,
-            },
-        )
-        yield _sse("evidence", self._evidence_payload(bundle))
-
-        if self._provider is None:
-            run.status = "failed"
-            session.commit()
-            yield _sse(
-                "error",
-                {"type": "llm_unconfigured", "detail": "AI endpoint not configured"},
-            )
-            return
-
-        output = ""
         try:
-            async for delta in self._provider.stream(messages, **DECODING_REPORT):
-                output += delta
-                yield _sse("delta", delta)
-        except LLMNotConfiguredError:
-            run.status = "failed"
-            session.commit()
             yield _sse(
-                "error",
-                {"type": "llm_unconfigured", "detail": "AI endpoint not configured"},
+                "metadata",
+                {
+                    "runId": run.id,
+                    "topic": topic,
+                    "promptVersion": prompt_ver,
+                    "model": model,
+                },
             )
-            return
-        except Exception:
-            run.status = "failed"
-            session.commit()
-            yield _sse("error", {"type": "llm_upstream", "detail": "LLM upstream error"})
-            return
+            yield _sse("evidence", self._evidence_payload(bundle))
 
-        result = validate(output, bundle)
-        for _ in range(MAX_REPAIR_ATTEMPTS):
-            if result.ok:
-                break
-            try:
-                output = await self._provider.complete(
-                    self._renderer.repair_messages(messages, result.violations),
-                    **DECODING_REPORT,
+            if self._provider is None:
+                run.status = "failed"
+                session.commit()
+                yield _sse(
+                    "error",
+                    {"type": "llm_unconfigured", "detail": "AI endpoint not configured"},
                 )
-            except Exception:
-                break
-            result = validate(output, bundle)
-            if result.ok:
-                # The streamed draft was rejected — replace it wholesale so
-                # displayed output matches the audited output.
-                yield _sse("replace", output)
+                return
 
-        if not result.ok:
-            run.status = "failed"
+            output = ""
+            try:
+                async for delta in self._provider.stream(messages, **DECODING_REPORT):
+                    output += delta
+                    yield _sse("delta", delta)
+            except LLMNotConfiguredError:
+                run.status = "failed"
+                session.commit()
+                yield _sse(
+                    "error",
+                    {"type": "llm_unconfigured", "detail": "AI endpoint not configured"},
+                )
+                return
+            except Exception:
+                run.status = "failed"
+                session.commit()
+                yield _sse("error", {"type": "llm_upstream", "detail": "LLM upstream error"})
+                return
+
+            result = validate(output, bundle)
+            for _ in range(MAX_REPAIR_ATTEMPTS):
+                if result.ok:
+                    break
+                try:
+                    output = await self._provider.complete(
+                        self._renderer.repair_messages(messages, result.violations),
+                        **DECODING_REPORT,
+                    )
+                except Exception:
+                    break
+                result = validate(output, bundle)
+                if result.ok:
+                    # The streamed draft was rejected — replace it wholesale so
+                    # displayed output matches the audited output.
+                    yield _sse("replace", output)
+
+            if not result.ok:
+                run.status = "failed"
+                run.output_text = output
+                run.version_meta = {
+                    **run.version_meta,
+                    "groundingViolations": result.violations,
+                }
+                session.commit()
+                yield _sse(
+                    "error",
+                    {"type": "grounding_failed", "violations": result.violations},
+                )
+                return
+
+            run.status = "completed"
             run.output_text = output
+            run.claims = extract_claims(output)
             run.version_meta = {
                 **run.version_meta,
-                "groundingViolations": result.violations,
+                "orphanClaimFlags": result.orphan_claims,
             }
             session.commit()
-            yield _sse(
-                "error",
-                {"type": "grounding_failed", "violations": result.violations},
-            )
-            return
-
-        run.status = "completed"
-        run.output_text = output
-        run.claims = extract_claims(output)
-        run.version_meta = {
-            **run.version_meta,
-            "orphanClaimFlags": result.orphan_claims,
-        }
-        session.commit()
-        yield _sse("done", {"runId": run.id, "orphanFlags": len(result.orphan_claims)})
+            yield _sse("done", {"runId": run.id, "orphanFlags": len(result.orphan_claims)})
+        finally:
+            # Client disconnect/abort leaves no terminal event — close the
+            # run as failed so it doesn't linger as 'pending' (audit keeps
+            # the row; a retry frees the idempotency key as usual).
+            if run.status == "pending":
+                run.status = "failed"
+                run.version_meta = {**run.version_meta, "aborted": True}
+                session.commit()
 
     @staticmethod
     def _evidence_payload(bundle: EvidenceBundle) -> dict[str, Any]:
