@@ -8,9 +8,10 @@ RUN pnpm install --frozen-lockfile
 FROM node:24-slim AS build
 RUN corepack enable
 WORKDIR /srv
-COPY --from=deps /srv/node_modules ./node_modules
 COPY pnpm-workspace.yaml package.json pnpm-lock.yaml ./
 COPY apps/web ./apps/web
+COPY --from=deps /srv/node_modules ./node_modules
+COPY --from=deps /srv/apps/web/node_modules ./apps/web/node_modules
 RUN pnpm -C apps/web build
 
 FROM node:24-slim
