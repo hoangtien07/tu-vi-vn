@@ -128,10 +128,34 @@ class Profile(Base):
         ForeignKey("chart_snapshots.id"), index=True
     )
     visibility: Mapped[str] = mapped_column(Text, default="private")
+    # v0.3: owner user id when created while logged in; NULL = anonymous
+    # (still reachable via owner_key="local" for merge view — I15).
+    user_id: Mapped[str | None] = mapped_column(
+        ForeignKey("users.id"), index=True
+    )
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
     updated_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now(), onupdate=func.now()
     )
+
+
+class User(Base):
+    __tablename__ = "users"
+
+    id: Mapped[str] = mapped_column(Text, primary_key=True)
+    email: Mapped[str] = mapped_column(Text, unique=True, index=True)
+    password_hash: Mapped[str] = mapped_column(Text)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+
+
+class AuthSession(Base):
+    __tablename__ = "auth_sessions"
+
+    # sha256 of the raw cookie token — raw tokens are never persisted.
+    id: Mapped[str] = mapped_column(Text, primary_key=True)
+    user_id: Mapped[str] = mapped_column(ForeignKey("users.id"), index=True)
+    expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
 
 class ProductEvent(Base):

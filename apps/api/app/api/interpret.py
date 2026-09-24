@@ -24,7 +24,7 @@ from app.infrastructure.db.session import get_session
 
 router = APIRouter(prefix="/api/charts", tags=["interpret"])
 
-ALLOWED_TOPICS = {"overview", "career", "wealth", "love", "health"}
+ALLOWED_TOPICS = {"overview", "career", "wealth", "love", "health", "today"}
 
 
 class InterpretTarget(BaseModel):
