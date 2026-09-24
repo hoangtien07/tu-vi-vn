@@ -77,30 +77,32 @@ jobs:
                 per_page: 20,
               });
               const runs = wr.workflow_runs;
-              // A pending run associated with THIS PR means new code is being
-              // tested — wait for it rather than trusting an older green run.
-              const pending = runs.filter(
-                r => r.status !== 'completed'
-                  && (r.pull_requests || []).some(p => p.number === number)
-              );
               // pull_request CI checks out the synthetic refs/pull/N/merge
-              // commit, so run.head_sha != pr.head.sha. The merge commit's
-              // second parent IS the PR head: require the newest completed
-              // run to have been built from the PR's CURRENT head.
+              // commit of THIS PR's (base, head). A run counts only when its
+              // head_sha is a merge commit whose parents are exactly this
+              // PR's CURRENT base.sha + head.sha — sibling PRs on the same
+              // branch (different base), stale head pushes, and base moves
+              // all produce different parents and are excluded, whether or
+              // not the run carries a pull_requests association.
+              let pending = 0;
               let latest = null;
               for (const r of runs) {
-                if (r.status !== 'completed') continue;
-                const { data: c } = await github.rest.repos.getCommit({
-                  owner, repo, ref: r.head_sha,
-                });
-                if ((c.parents || []).some(p => p.sha === pr.head.sha)) {
-                  latest = r;
-                  break;
+                const resp = await github.rest.repos
+                  .getCommit({ owner, repo, ref: r.head_sha })
+                  .catch(() => null);
+                const parents = ((resp && resp.data.parents) || []).map(p => p.sha);
+                const mine =
+                  parents.includes(pr.head.sha) && parents.includes(pr.base.sha);
+                if (!mine) continue;
+                if (r.status !== 'completed') {
+                  pending++;
+                } else if (!latest) {
+                  latest = r;  // newest completed run built from (base, head)
                 }
               }
-              if (pending.length || !latest || latest.conclusion !== 'success') {
+              if (pending || !latest || latest.conclusion !== 'success') {
                 console.log(
-                  `#${number}: pending=${pending.length} ` +
+                  `#${number}: pending=${pending} ` +
                   `latest=${latest ? latest.conclusion : 'none'}, skip`
                 );
                 continue;
