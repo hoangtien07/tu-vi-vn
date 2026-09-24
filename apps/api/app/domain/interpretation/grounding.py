@@ -179,6 +179,14 @@ _BOLD_LABEL_RE = re.compile(r"[-*\s]*\*\*[^*\n]+\*\*:?")
 # Compatibility outputs must label the two charts (SPEC_COMPATIBILITY §4).
 _SIDE_A_RE = re.compile(r"Người\s*A\b")
 _SIDE_B_RE = re.compile(r"Người\s*B\b")
+# Meta-sentences noting that the bundle carries no horoscope evidence
+# ("Bundle không chứa dữ kiện horoscope_fact → chưa luận đại hạn") are honest
+# disclaimers, not temporal claims — but only when the bundle truly has none.
+_EVIDENCE_ABSENCE_RE = re.compile(
+    r"(?i)(?:không|chưa|thiếu)\s+(?:có\s+|chứa\s+|đủ\s+)?"
+    r"(?:dữ kiện|dữ liệu|bằng chứng|horoscope)"
+    r"|(?:dữ kiện|dữ liệu|bằng chứng|horoscope)[^.]{0,20}?(?:không|chưa|thiếu|vắng)"
+)
 
 
 def _sentences(text: str) -> list[str]:
@@ -239,7 +247,8 @@ def validate(output: str, bundle: EvidenceBundle) -> ValidationResult:
     orphans: list[str] = []
     for sentence in _sentences(output):
         s_refs = _refs(sentence)
-        if TEMPORAL_RE.search(sentence):
+        disclaimer = not horoscope_ids and bool(_EVIDENCE_ABSENCE_RE.search(sentence))
+        if TEMPORAL_RE.search(sentence) and not disclaimer:
             if pair:
                 mentions_a = _SIDE_A_RE.search(sentence)
                 mentions_b = _SIDE_B_RE.search(sentence)

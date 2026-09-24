@@ -274,6 +274,60 @@
       "expect": {
         "ok": true
       }
+    },
+    {
+      "id": "g-010",
+      "note": "honest disclaimer of missing horoscope evidence is not a temporal claim (bundle has no horoscope_fact)",
+      "bundle": {
+        "items": [
+          {
+            "id": "E001",
+            "kind": "palace_fact",
+            "scope": "natal:a",
+            "palace_key": "soulPalace",
+            "entity_key": "qishaMaj",
+            "data": {
+              "starName": "Thất Sát",
+              "starKey": "qishaMaj",
+              "palaceName": "Mệnh",
+              "palaceKey": "soulPalace"
+            },
+            "source": "engine",
+            "source_version": "0.6.1"
+          }
+        ]
+      },
+      "output": "Mệnh có Thất Sát tọa thủ [E001]. Lưu ý: Bundle không chứa dữ liệu horoscope_fact nên không thể luận vận hạn (đại hạn, lưu niên).",
+      "expect": {
+        "ok": true
+      }
+    },
+    {
+      "id": "g-011",
+      "note": "disclaimer exemption does NOT apply when bundle has horoscope_fact (claim still needs the ref)",
+      "bundle": {
+        "items": [
+          {
+            "id": "E001",
+            "kind": "horoscope_fact",
+            "scope": "yearly",
+            "palace_key": "careerPalace",
+            "entity_key": "sihuaLu",
+            "data": {
+              "name": "Lộc Tồn"
+            },
+            "source": "engine",
+            "source_version": "0.6.1"
+          }
+        ]
+      },
+      "output": "Bundle không chứa dữ kiện nên năm 2028 chưa luận được.",
+      "expect": {
+        "ok": false,
+        "violations": [
+          "temporal_unverified"
+        ]
+      }
     }
   ]
 }
