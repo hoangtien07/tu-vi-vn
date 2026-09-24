@@ -169,6 +169,24 @@ Gate phụ trong Phase 8: ≥1 eval case chạy **non-default mutagen profile** 
 - [x] `docker compose up` chạy được toàn bộ trừ AI endpoint (config)
 - [x] Critical deterministic tests pass
 
+## V1.1 hardening log (post-audit)
+
+- [x] Temporal scope contract: `InterpretTarget{scope,year,month?,day?}` — scope
+  khai báo tường minh, không suy từ `target_date`. Gate D sửa + tr-012/013.
+- [x] Gate E tách E1 static (target=None) / E2 yearly (scope=yearly y=2028);
+  namespace per run → 120/120 fresh, replay=0; latency tính fresh-only.
+- [x] Grounding fixes từ corpus đóng băng: mutagen mọi cung vào bundle,
+  entity whitelist trong prompt + repair, bỏ `tương lai` khỏi temporal regex,
+  scan entity bỏ phần boilerplate "Lưu ý" + tên trường phái,
+  parser nhận citation `[E001, E007]` (đây là nguyên nhân chính của
+  "nhận định vận hạn thiếu horoscope_fact").
+- [x] E1 static: **120/120 done, 0 fail** — `eval/bench/reports/gate-e-static-20260924-072822.md`.
+- [ ] E2 yearly: rerun chờ key Gemini nạp credit (402 RESOURCE_EXHAUSTED
+  giữa chừng — 65/68 fail là llm_upstream, không phải grounding).
+- [x] Human spot-check pack 24 outputs —
+  `eval/bench/reports/spotcheck-static-20260924-072822.md`.
+- [x] Release hygiene: MIT LICENSE + THIRD_PARTY_NOTICES + README status.
+
 ## DO NOT (đưa vào mọi implementation prompt)
 
 ```text
