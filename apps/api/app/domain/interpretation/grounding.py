@@ -13,7 +13,18 @@ from typing import NamedTuple
 from app.domain.evidence.builder import EvidenceBundle
 from app.repo_root import repo_file
 
-REF_RE = re.compile(r"\[E(\d{3})\]")
+# Citations appear as [E001], [E001, E007], [E001][E007] — a ref is any E###
+# token inside a bracketed group.
+_REF_GROUP_RE = re.compile(r"\[([^\]]*)\]")
+_REF_TOKEN_RE = re.compile(r"\bE(\d{3})\b")
+
+
+def _refs(text: str) -> set[str]:
+    return {
+        f"E{n}"
+        for group in _REF_GROUP_RE.findall(text)
+        for n in _REF_TOKEN_RE.findall(group)
+    }
 SENTENCE_SPLIT = re.compile(r"(?<=[.!?…。；\n])\s*")
 # Scope-specific temporal terms only — the generic words "vận hạn" and
 # "tương lai" appear in boilerplate ("chỉ mang tính tham khảo về xu hướng",
@@ -181,7 +192,7 @@ def validate(output: str, bundle: EvidenceBundle) -> ValidationResult:
     vocab = bundle_vocab(bundle)
     entity_names = _bundle_names(bundle)
 
-    refs = {f"E{m}" for m in REF_RE.findall(output)}
+    refs = _refs(output)
     unknown = sorted(refs - known_ids)
 
     invented: set[str] = set()
@@ -195,7 +206,7 @@ def validate(output: str, bundle: EvidenceBundle) -> ValidationResult:
     temporal: list[str] = []
     orphans: list[str] = []
     for sentence in _sentences(output):
-        s_refs = {f"E{m}" for m in REF_RE.findall(sentence)}
+        s_refs = _refs(sentence)
         if TEMPORAL_RE.search(sentence) and not (s_refs & horoscope_ids):
             temporal.append(sentence[:120])
         if not s_refs and any(name in sentence for name in entity_names):
@@ -213,7 +224,7 @@ def validate(output: str, bundle: EvidenceBundle) -> ValidationResult:
 def extract_claims(output: str) -> list[dict[str, object]]:
     """Post-stream claim↔evidence pairs for the InterpretationRun."""
     return [
-        {"text": s, "refs": [f"E{m}" for m in REF_RE.findall(s)]}
+        {"text": s, "refs": sorted(_refs(s))}
         for s in _sentences(output)
-        if REF_RE.search(s)
+        if _refs(s)
     ]
