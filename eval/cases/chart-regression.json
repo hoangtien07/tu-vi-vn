@@ -1,0 +1,70 @@
+{
+  "gate": "B (CI tier)",
+  "description": "Frozen chart-regression corpus — expected values captured from x-iztro 0.6.1 with the canonical DTO mapper (EVALUATION.md Gate B). Asserts deterministic invariants: soul/body palace, cục, mutagens, patterns. Full JS-iztro differential runs nightly (scripts/differential, not CI). `profile` overrides EngineProfile defaults; births are pre-normalized (bypasses Gate A).",
+  "cases": [
+    {"id": "cr-001", "note": "1990-06-15 idx7 male — Giáp Ngọ-can mutagens baseline",
+     "birth": {"correctedSolarDate": "1990-06-15", "timeIndex": 7, "gender": "male"},
+     "expect": {
+       "soulPalace": {"index": 9, "stem": "Đinh", "branch": "Hợi", "majorStars": ["jumenMaj"]},
+       "bodyPalace": {"nameKey": "spiritPalace", "index": 11},
+       "fiveElementsClassKey": "earth5th",
+       "mutagens": {"tiantongMaj": "Kỵ", "wuquMaj": "Quyền", "taiyangMaj": "Lộc", "taiyinMaj": "Khoa"},
+       "patternsPresent": ["lu_ma_jiao_chi", "wen_xing_an_gong", "wen_xing_chao_ming"],
+       "patternsAbsent": ["sha_po_lang"]
+     }},
+    {"id": "cr-002", "note": "same birth, female — natal chart identical (gender affects luck cycles only)",
+     "birth": {"correctedSolarDate": "1990-06-15", "timeIndex": 7, "gender": "female"},
+     "expect": {
+       "soulPalace": {"index": 9, "stem": "Đinh", "branch": "Hợi", "majorStars": ["jumenMaj"]},
+       "bodyPalace": {"nameKey": "spiritPalace", "index": 11},
+       "fiveElementsClassKey": "earth5th",
+       "mutagens": {"tiantongMaj": "Kỵ", "wuquMaj": "Quyền", "taiyangMaj": "Lộc", "taiyinMaj": "Khoa"}
+     }},
+    {"id": "cr-003", "note": "late-Tý idx12, dayDivide=forward (default profile)",
+     "birth": {"correctedSolarDate": "1990-06-15", "timeIndex": 12, "gender": "male"},
+     "expect": {
+       "soulPalace": {"index": 4, "stem": "Nhâm", "branch": "Ngọ", "majorStars": ["taiyangMaj"]},
+       "bodyPalace": {"nameKey": "soulPalace", "index": 4},
+       "fiveElementsClassKey": "wood3rd",
+       "patternsPresent": ["jin_can_guang_hui", "lu_ma_jiao_chi"],
+       "patternsAbsent": ["sha_po_lang"]
+     }},
+    {"id": "cr-004", "note": "NON-DEFAULT PROFILE: same birth, dayDivide=current → different chart (ChartConfig rebuild path; fails if config silently reverts)",
+     "birth": {"correctedSolarDate": "1990-06-15", "timeIndex": 12, "gender": "male"},
+     "profile": {"dayDivide": "current"},
+     "expect": {
+       "soulPalace": {"index": 4, "stem": "Nhâm", "branch": "Ngọ", "majorStars": ["pojunMaj"]},
+       "bodyPalace": {"nameKey": "soulPalace", "index": 4},
+       "fiveElementsClassKey": "wood3rd",
+       "patternsPresent": ["sha_po_lang", "sheng_bu_feng_shi", "ying_xing_ru_miao"],
+       "patternsAbsent": ["jin_can_guang_hui"]
+     }},
+    {"id": "cr-005", "note": "zhongzhou algorithm variant, 1985-02-20 idx3 female (Ất Sửu year → different mutagen table)",
+     "birth": {"correctedSolarDate": "1985-02-20", "timeIndex": 3, "gender": "female"},
+     "profile": {"algorithm": "zhongzhou"},
+     "expect": {
+       "soulPalace": {"index": 9, "stem": "Đinh", "branch": "Hợi", "majorStars": ["taiyinMaj"]},
+       "bodyPalace": {"nameKey": "surfacePalace", "index": 3},
+       "fiveElementsClassKey": "earth5th",
+       "mutagens": {"tianliangMaj": "Quyền", "tianjiMaj": "Lộc", "ziweiMaj": "Khoa", "taiyinMaj": "Kỵ"},
+       "patternsPresent": ["ji_yue_tong_liang", "ri_yue_bing_ming", "yue_lang_tian_men"]
+     }},
+    {"id": "cr-006", "note": "millennium boundary 2000-01-01 idx0 male (Canh Thìn year)",
+     "birth": {"correctedSolarDate": "2000-01-01", "timeIndex": 0, "gender": "male"},
+     "expect": {
+       "soulPalace": {"index": 10, "stem": "Bính", "branch": "Tý", "majorStars": ["tianjiMaj"]},
+       "bodyPalace": {"nameKey": "soulPalace", "index": 10},
+       "fiveElementsClassKey": "water2nd",
+       "mutagens": {"tanlangMaj": "Quyền", "tianliangMaj": "Khoa", "wuquMaj": "Lộc"}
+     }},
+    {"id": "cr-007", "note": "1975-06-13 idx9 female — soul palace with no major stars",
+     "birth": {"correctedSolarDate": "1975-06-13", "timeIndex": 9, "gender": "female"},
+     "expect": {
+       "soulPalace": {"index": 7, "stem": "Ất", "branch": "Dậu", "majorStars": []},
+       "bodyPalace": {"nameKey": "surfacePalace", "index": 1},
+       "fiveElementsClassKey": "water2nd",
+       "mutagens": {"tianjiMaj": "Lộc", "taiyinMaj": "Kỵ", "ziweiMaj": "Khoa", "tianliangMaj": "Quyền"},
+       "patternsPresent": ["sha_po_lang", "fu_xiang_chao_yuan"]
+     }}
+  ]
+}

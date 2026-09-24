@@ -20,7 +20,7 @@ def check_db(engine: Engine) -> bool:
 @router.get("/health")
 def health(request: Request) -> JSONResponse:
     """App health: API + DB only. AI dependency state must NOT block this."""
-    db_ok = check_db(request.app.state.engine)
+    db_ok = check_db(request.app.state.db_engine)
     status_code = 200 if db_ok else 503
     return JSONResponse(
         status_code=status_code,
