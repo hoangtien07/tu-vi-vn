@@ -115,17 +115,33 @@ jobs:
               // 405 already merged/not mergeable, 409 head moved,
               // 422 validation. Anything else (502/403/throttle) gets
               // 3 attempts, then fails the job visibly.
+              const gateBase = pr.base.sha;
+              const gateHead = pr.head.sha;
               let done = false;
               for (let attempt = 0; attempt < 3 && !done; attempt++) {
                 if (attempt) {
                   await new Promise(r => setTimeout(r, 5000 * attempt));
+                  // The green run was built from (gateBase, gateHead).
+                  // If either moved during backoff, this merge would be
+                  // untested — stop and let the new pull_request run +
+                  // workflow_run event re-evaluate instead.
+                  const { data: now } = await github.rest.pulls.get({
+                    owner, repo, pull_number: number,
+                  });
+                  if (now.base.sha !== gateBase || now.head.sha !== gateHead) {
+                    console.log(
+                      `#${number}: base/head moved during backoff — ` +
+                      'stop retry, wait for new CI'
+                    );
+                    break;
+                  }
                 }
                 try {
                   await github.rest.pulls.merge({
                     owner, repo, pull_number: number, merge_method: 'squash',
                     // Expected-head precondition: abort if anyone pushed
                     // after we read the PR — never merge an untested head.
-                    sha: pr.head.sha,
+                    sha: gateHead,
                   });
                   done = true;
                 } catch (e) {
