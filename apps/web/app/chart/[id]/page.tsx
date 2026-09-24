@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { ChartBoard } from "../../../features/chart/components/ChartBoard";
+import { InterpretPanel } from "../../../features/chart/components/InterpretPanel";
 import { toChartView } from "../../../features/chart/adapters/dto-to-view";
 import { getChart } from "../../../lib/api";
 
@@ -27,6 +28,7 @@ export default async function ChartPage({
         </span>
       </div>
       <ChartBoard view={view} />
+      <InterpretPanel chartId={chart.id} />
       <p className="mt-4 text-center text-xs text-zinc-400">
         Mang tính tham khảo — luận giải theo mệnh lý học truyền thống.
       </p>
