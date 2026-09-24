@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { ChartBoard } from "../../../features/chart/components/ChartBoard";
 import { InterpretPanel } from "../../../features/chart/components/InterpretPanel";
+import { SaveToProfile } from "../../../features/profiles/components/SaveToProfile";
 import { toChartView } from "../../../features/chart/adapters/dto-to-view";
 import { getChart } from "../../../lib/api";
 
@@ -29,13 +30,26 @@ export default async function ChartPage({
       </div>
       <ChartBoard view={view} />
       <InterpretPanel chartId={chart.id} />
-      <div className="mt-4 text-center">
+      <div className="mt-4 flex items-center justify-center gap-4 text-sm">
+        <Link
+          href={`/chart/${chart.id}/time`}
+          className="text-amber-700 hover:underline"
+        >
+          Vận trình →
+        </Link>
+        <Link
+          href={`/chart/${chart.id}/readings`}
+          className="text-amber-700 hover:underline"
+        >
+          Bài luận đã lưu
+        </Link>
         <Link
           href={`/compatibility?a=${chart.id}`}
-          className="text-sm text-amber-700 hover:underline"
+          className="text-amber-700 hover:underline"
         >
-          Hợp bàn với lá số này →
+          Hợp bàn →
         </Link>
+        <SaveToProfile chartId={chart.id} />
       </div>
       <p className="mt-4 text-center text-xs text-zinc-400">
         Mang tính tham khảo — luận giải theo mệnh lý học truyền thống.

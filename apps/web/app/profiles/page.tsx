@@ -1,14 +1,9 @@
 import Link from "next/link";
 
-import { CompatibilityClient } from "../../features/compatibility/components/CompatibilityClient";
+import { ProfileLibrary } from "../../features/profiles/components/ProfileLibrary";
 import { listProfiles } from "../../lib/api";
 
-export default async function CompatibilityPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ a?: string; b?: string }>;
-}) {
-  const { a, b } = await searchParams;
+export default async function ProfilesPage() {
   const profiles = await listProfiles().catch(() => []);
 
   return (
@@ -24,18 +19,8 @@ export default async function CompatibilityPage({
           Hợp bàn
         </Link>
       </div>
-      <h1 className="mb-1 text-xl font-semibold tracking-tight">
-        Hợp bàn hai lá số
-      </h1>
-      <p className="mb-4 text-sm text-zinc-600">
-        Đối chiếu tứ hóa và cung Mệnh–Phu của hai lá số — mọi luận giải kèm căn
-        cứ kiểm chứng, không chấm điểm.
-      </p>
-      <CompatibilityClient
-        initialA={a ?? ""}
-        initialB={b ?? ""}
-        profiles={profiles}
-      />
+      <h1 className="mb-4 text-xl font-semibold tracking-tight">Hồ sơ của tôi</h1>
+      <ProfileLibrary initial={profiles} />
       <p className="mt-4 text-center text-xs text-zinc-400">
         Mang tính tham khảo — luận giải theo mệnh lý học truyền thống.
       </p>

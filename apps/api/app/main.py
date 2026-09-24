@@ -1,7 +1,17 @@
 from fastapi import FastAPI
 from sqlalchemy import create_engine
 
-from app.api import charts, chat, compatibility, fortune, health, interpret
+from app.api import (
+    charts,
+    chat,
+    compatibility,
+    events,
+    fortune,
+    health,
+    interpret,
+    profiles,
+    temporal,
+)
 from app.infrastructure.llm.openai_compatible import (
     LLMNotConfiguredError,
     OpenAICompatibleProvider,
@@ -27,6 +37,9 @@ def create_app() -> FastAPI:
     app.include_router(fortune.router)
     app.include_router(chat.router)
     app.include_router(compatibility.router)
+    app.include_router(profiles.router)
+    app.include_router(temporal.router)
+    app.include_router(events.router)
     return app
 
 

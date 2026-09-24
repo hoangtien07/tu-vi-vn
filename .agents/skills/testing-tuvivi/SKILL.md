@@ -27,7 +27,7 @@ cd apps/web && pnpm dev --port 3000
 `app.state.llm_provider` is `None` unless `AI_BASE_URL` + `AI_MODEL` are set (key optional). With no AI env:
 - `POST /api/charts/{id}/interpret` SSE stream emits `metadata` → `evidence` → `error {type: "llm_unconfigured"}`; the web panel renders "AI endpoint chưa được cấu hình — thử lại sau."
 - `POST /api/charts/{id}/chat` → 503 "AI endpoint not configured"
-- `POST /api/charts/{id}/compatibility` → always 501 (frozen V1.1 contract)
+- `POST /api/compatibility` is the real hợp bàn endpoint (body `{chart_a_id, chart_b_id, target?, namespace?}`, same SSE contract as interpret); `GET /api/compatibility/{run_id}` reads a finished run. The old `POST /api/charts/{id}/compatibility` stub is gone (404). Web UI lives at `/compatibility` (accepts `?a=<cs_id>&b=<cs_id>`).
 
 ## Known form behavior (not bugs)
 

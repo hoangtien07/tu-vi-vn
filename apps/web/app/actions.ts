@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation";
 
-import { createChart, type BirthPayload } from "../lib/api";
+import { createChart, trackEventServer, type BirthPayload } from "../lib/api";
 
 export interface FormState {
   error?: string;
@@ -30,6 +30,7 @@ export async function submitBirth(
 
   try {
     const chart = await createChart(payload);
+    void trackEventServer("chart_created", { chartId: chart.id });
     redirect(`/chart/${chart.id}`);
   } catch (err) {
     if (err instanceof Error && "status" in err) {
