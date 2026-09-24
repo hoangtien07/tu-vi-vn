@@ -157,17 +157,17 @@ Gate phụ trong Phase 8: ≥1 eval case chạy **non-default mutagen profile** 
 
 ## Definition of Done — Vertical Slice V1
 
-- [ ] Birth profile nhập được; raw/civil/normalized đều persisted
-- [ ] x-iztro cast chart deterministic; engine version + profile persisted; snapshot immutable
-- [ ] UI 12 cung render từ `CanonicalChartDTO`
-- [ ] 5 topics (overview/career/wealth/love/health) chạy được; career+year chạy được
-- [ ] KnowledgePack vào context không qua RAG; ContextComposer selective
-- [ ] EvidenceBundle tồn tại trước khi gọi LLM; `[E###]` validated
-- [ ] LLM chỉ qua `AI_BASE_URL` configurable; SSE streaming; "Vì sao?" xem được evidence
-- [ ] Conversation + InterpretationRun lưu local
-- [ ] Không runtime request nào tới Iztro/Renhuai
-- [ ] `docker compose up` chạy được toàn bộ trừ AI endpoint (config)
-- [ ] Critical deterministic tests pass
+- [x] Birth profile nhập được; raw/civil/normalized đều persisted
+- [x] x-iztro cast chart deterministic; engine version + profile persisted; snapshot immutable
+- [x] UI 12 cung render từ `CanonicalChartDTO`
+- [x] 5 topics (overview/career/wealth/love/health) chạy được; career+year chạy được
+- [x] KnowledgePack vào context không qua RAG; ContextComposer selective
+- [x] EvidenceBundle tồn tại trước khi gọi LLM; `[E###]` validated
+- [x] LLM chỉ qua `AI_BASE_URL` configurable; SSE streaming; "Vì sao?" xem được evidence
+- [x] Conversation + InterpretationRun lưu local
+- [x] Không runtime request nào tới Iztro/Renhuai
+- [x] `docker compose up` chạy được toàn bộ trừ AI endpoint (config)
+- [x] Critical deterministic tests pass
 
 ## DO NOT (đưa vào mọi implementation prompt)
 
