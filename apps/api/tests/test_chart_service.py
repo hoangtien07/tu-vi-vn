@@ -92,3 +92,95 @@ def test_get_chart_endpoints(session: Session, normalized: NormalizedBirthMoment
 
     assert client.get("/api/charts/cs_missing").status_code == 404
     assert client.get("/s/unknown-token").status_code == 404
+
+
+def _client(session: Session) -> TestClient:
+    app = create_app()
+    app.dependency_overrides[get_session] = lambda: session
+    return TestClient(app)
+
+
+def test_post_chart_solar(session: Session) -> None:
+    client = _client(session)
+    payload = {
+        "date": "1990-06-15",
+        "time": "14:30",
+        "gender": "male",
+        "longitude": 105.85,
+    }
+    resp = client.post("/api/charts", json=payload)
+    assert resp.status_code == 201
+    body = resp.json()
+    assert body["birth"]["normalized"]["timeIndex"] == 7
+    assert body["chart"]["chart"]["fiveElementsClassKey"] == "earth5th"
+
+    # idempotent: same input returns the same chartId
+    resp2 = client.post("/api/charts", json=payload)
+    assert resp2.json()["id"] == body["id"]
+
+
+def test_post_chart_lunar(session: Session) -> None:
+    client = _client(session)
+    resp = client.post(
+        "/api/charts",
+        json={
+            "calendar": "lunar",
+            "date": "1990-05-23",
+            "time": "14:30",
+            "gender": "male",
+            "trueSolarTimeEnabled": False,
+        },
+    )
+    assert resp.status_code == 201
+    assert (
+        resp.json()["birth"]["normalized"]["correctedSolarDate"] == "1990-06-15"
+    )
+
+
+def test_post_chart_divergence_window_422(session: Session) -> None:
+    client = _client(session)
+    resp = client.post(
+        "/api/charts",
+        json={"date": "1970-01-01", "time": "12:00", "gender": "female",
+              "trueSolarTimeEnabled": False},
+    )
+    assert resp.status_code == 422
+    assert "birthRegion" in resp.json()["detail"]
+
+    ok = client.post(
+        "/api/charts",
+        json={
+            "date": "1970-01-01", "time": "12:00", "gender": "female",
+            "birthRegion": "north", "trueSolarTimeEnabled": False,
+        },
+    )
+    assert ok.status_code == 201
+    assert ok.json()["birth"]["normalized"]["resolvedOffsetMinutes"] == 420
+
+
+def test_post_chart_invalid_lunar_422(session: Session) -> None:
+    client = _client(session)
+    resp = client.post(
+        "/api/charts",
+        json={
+            "calendar": "lunar", "date": "1990-06-01", "leapMonth": True,
+            "time": "12:00", "gender": "male",
+        },
+    )
+    assert resp.status_code == 422
+    assert "leap" in resp.json()["detail"]
+
+
+def test_post_chart_missing_time_422(session: Session) -> None:
+    client = _client(session)
+    resp = client.post("/api/charts", json={"date": "1990-06-15", "gender": "male"})
+    assert resp.status_code == 422
+
+
+def test_compatibility_stub_501(session: Session) -> None:
+    client = _client(session)
+    resp = client.post(
+        "/api/charts/cs_any/compatibility",
+        json={"other_chart_id": "cs_other", "mode": "spouse"},
+    )
+    assert resp.status_code == 501

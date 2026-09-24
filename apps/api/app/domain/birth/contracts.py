@@ -66,3 +66,4 @@ class NormalizedBirthMoment(BaseModel):
     resolvedOffsetMinutes: int
     normalizationMode: Literal["civil", "true-solar"]
     normalizerVersion: str = NORMALIZER_VERSION
+    warnings: list[str] = Field(default_factory=list)
