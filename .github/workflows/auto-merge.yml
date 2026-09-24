@@ -18,6 +18,7 @@ on:
   workflow_run:
     workflows: [ci]
     types: [completed]
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -52,6 +53,12 @@ jobs:
                   .filter(p => p.head.ref === run.head_branch)
                   .map(p => p.number);
               }
+            } else if (context.eventName === 'workflow_dispatch') {
+              // Manual re-check: scan every open PR carrying the label.
+              const { data: open } = await github.rest.pulls.list({
+                owner, repo, state: 'open', per_page: 50,
+              });
+              numbers = open.map(p => p.number);
             } else {
               numbers = [context.payload.pull_request.number];
             }
