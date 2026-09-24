@@ -41,3 +41,11 @@ cd apps/web && pnpm dev --port 3000
 
 - The radio labels "Dương lịch"/"Âm lịch" sit ~70px apart; click the label TEXT or the radio circle directly — clicks between them may land on the wrong label.
 - `type=date` fields accept `MM/DD/YYYY` typed digits; `type=time` accepts 24-hour "1430" typed digits (renders as 02:30 PM).
+
+## v0.2 learnings
+
+- Client-side `apiFetch` used to call the absolute `API_INTERNAL_URL` — cross-origin, browser blocks it (CORS preflight 405). Fixed: client calls use relative `/api/*` (same-origin rewrite), server calls keep the absolute URL. If you ever see `Failed to fetch` only in the browser while curl works, check this first. Workaround for diagnosing: `google-chrome --disable-web-security --user-data-dir=/tmp/chrome-nosec` (banner visible, transparent).
+- `sqlite3` CLI is absent — use `uv run python -c "import sqlite3; …"` from apps/api to inspect `product_events`/`profiles`.
+- Compatibility testing needs ≥2 saved profiles (create via chart page "Lưu vào hồ sơ" or `POST /api/profiles`).
+- `reading_reopened` fires twice per page open in dev (React StrictMode double-effect) — prod fires once; expected, not a bug.
+- Time Navigator facts render after clicking "Xem vận trình" (button-driven, not on open).
