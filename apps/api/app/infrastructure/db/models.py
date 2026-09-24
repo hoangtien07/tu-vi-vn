@@ -113,3 +113,33 @@ class InterpretationRun(Base):
     claims: Mapped[list[Any]] = mapped_column(Jsonb, default=list)
     output_text: Mapped[str | None] = mapped_column(Text)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+
+
+class Profile(Base):
+    __tablename__ = "profiles"
+
+    id: Mapped[str] = mapped_column(Text, primary_key=True)
+    # Single-tenant self-hosted deployments use "local"; real auth (v0.3)
+    # replaces this with the authenticated user id.
+    owner_key: Mapped[str] = mapped_column(Text, default="local", index=True)
+    display_name: Mapped[str] = mapped_column(Text)
+    relationship: Mapped[str | None] = mapped_column(Text)
+    chart_snapshot_id: Mapped[str] = mapped_column(
+        ForeignKey("chart_snapshots.id"), index=True
+    )
+    visibility: Mapped[str] = mapped_column(Text, default="private")
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now(), onupdate=func.now()
+    )
+
+
+class ProductEvent(Base):
+    __tablename__ = "product_events"
+
+    id: Mapped[str] = mapped_column(Text, primary_key=True)
+    event: Mapped[str] = mapped_column(Text, index=True)
+    profile_id: Mapped[str | None] = mapped_column(Text)
+    chart_snapshot_id: Mapped[str | None] = mapped_column(Text)
+    meta: Mapped[dict[str, Any]] = mapped_column(Jsonb, default=dict)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
