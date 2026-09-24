@@ -102,7 +102,7 @@ def _live_pending(run: InterpretationRun) -> bool:
     if created is None:
         return False
     if created.tzinfo is not None:
-        created = created.replace(tzinfo=None)
+        created = created.astimezone(dt.UTC).replace(tzinfo=None)
     return dt.datetime.now(dt.UTC).replace(tzinfo=None) - created < _PENDING_TTL
 
 

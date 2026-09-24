@@ -367,6 +367,12 @@ def test_live_pending_ttl() -> None:
         created_at=dt.datetime.now(dt.UTC).replace(tzinfo=None) - dt.timedelta(minutes=15)
     )
     assert not _live_pending(stale)
+    # offset-aware created_at (postgres) must convert to UTC, not drop the
+    # offset — a -05:00 timestamp is in the UTC future and must still be live.
+    aware = InterpretationRun(
+        created_at=dt.datetime.now(dt.UTC).astimezone(dt.timezone(dt.timedelta(hours=-5)))
+    )
+    assert _live_pending(aware)
 
 
 # ---------- Gate D: routing isolation ---------------------------------------
