@@ -25,4 +25,6 @@ trình port/adapt nằm ở `docs/DONORS.md`.
 
 `Renhuai123/ziwei-doushu` Dataset v3 (~518k charts) — **không dùng trong
 runtime**, không được phân phối kèm repo. License dataset: free incl.
-commercial, attribution bắt buộc — xem `docs/DONORS.md`.
+commercial, attribution bắt buộc — xem `docs/DONORS.md`. Packs mined từ
+dataset này (`eval/packs/vn-mined-*.json`, SPEC_V05) giữ attribution trong
+`meta.source` của mỗi entry.

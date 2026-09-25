@@ -19,3 +19,6 @@ out/
 .DS_Store
 .idea/
 .vscode/
+
+# v0.5 — Renhuai dataset v3 (~5.5GB raw corpus, fetch via eval/mining/fetch_dataset.sh)
+eval/dataset/
