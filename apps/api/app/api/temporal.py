@@ -113,15 +113,30 @@ def temporal_facts(
 _DECADE_WALK = 12  # đại hạn spans ≤10 yrs; 12 probes always finds a boundary
 
 
-def _scope_brief(scope: dict[str, Any]) -> dict[str, Any]:
-    names = scope.get("palaceNames") or []
-    keys = scope.get("palaceNameKeys") or []
+def _scope_brief(
+    scope: dict[str, Any], natal_palaces: list[dict[str, Any]] | None = None
+) -> dict[str, Any]:
     idx = scope.get("index")
-    host = (
-        {"palaceName": names[idx], "palaceNameKey": keys[idx]}
-        if isinstance(idx, int) and 0 <= idx < len(names) and idx < len(keys)
-        else {"palaceName": None, "palaceNameKey": None}
-    )
+    if (
+        isinstance(idx, int)
+        and natal_palaces is not None
+        and 0 <= idx < len(natal_palaces)
+    ):
+        # SPEC_KLINE: glyph label = natal palace hosting the scope's mệnh.
+        # The scope's own palaceNames[] is the rebased temporal layout —
+        # position `index` there is always the scope's Mệnh (constant, useless).
+        host = {
+            "palaceName": natal_palaces[idx].get("name"),
+            "palaceNameKey": natal_palaces[idx].get("nameKey"),
+        }
+    else:
+        names = scope.get("palaceNames") or []
+        keys = scope.get("palaceNameKeys") or []
+        host = (
+            {"palaceName": names[idx], "palaceNameKey": keys[idx]}
+            if isinstance(idx, int) and 0 <= idx < len(names) and idx < len(keys)
+            else {"palaceName": None, "palaceNameKey": None}
+        )
     return {
         "index": idx,
         "name": scope.get("name"),
@@ -164,6 +179,8 @@ def temporal_decade(
         ) or {}
         return scope.get("index")
 
+    palaces = (snapshot.chart_json.get("chart") or {}).get("palaces") or []
+
     host_idx = dec_index(year)
     y0 = year
     for y in range(year - 1, year - _DECADE_WALK, -1):
@@ -179,14 +196,14 @@ def temporal_decade(
     years = []
     for y in range(y0, y1 + 1):
         scope = engine.get_horoscope(normalized, profile, year_anchor(y)).context
-        brief = _scope_brief(scope["yearly"])
+        brief = _scope_brief(scope["yearly"], palaces)
         brief.pop("name", None)
         years.append({"year": y, "yearlyIndex": brief.pop("index"), **brief})
 
     decadal = _scope_brief(
-        engine.get_horoscope(normalized, profile, year_anchor(year)).context["decadal"]
+        engine.get_horoscope(normalized, profile, year_anchor(year)).context["decadal"],
+        palaces,
     )
-    palaces = (snapshot.chart_json.get("chart") or {}).get("palaces") or []
     age_range = None
     if isinstance(host_idx, int) and 0 <= host_idx < len(palaces):
         age_range = (palaces[host_idx].get("decadal") or {}).get("range")
