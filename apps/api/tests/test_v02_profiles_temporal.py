@@ -187,6 +187,10 @@ def test_temporal_decade_shape(client: TestClient, chart) -> None:
         assert len(y["mutagen"]) == 4
         assert y["palaceName"]
         assert "stars" not in y  # compact payload
+    # natal hosting palace, not the rebased temporal layout (always "Mệnh")
+    names = {y["palaceName"] for y in body["years"]}
+    assert len(names) > 1
+    assert dec["palaceName"] != "Mệnh" or dec["index"] == 0
 
 
 def test_temporal_decade_boundary_changes_host(client: TestClient, chart) -> None:
