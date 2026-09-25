@@ -221,7 +221,8 @@ async def main() -> None:
     ap.add_argument("--out", default="eval/bench/reports")
     ap.add_argument("--judge", action="store_true")
     ap.add_argument("--judge-base-url", default="")
-    ap.add_argument("--judge-api-key", default="")
+    # env fallback keeps the credential out of argv (tournament runner)
+    ap.add_argument("--judge-api-key", default=os.environ.get("JUDGE_API_KEY", ""))
     ap.add_argument("--judge-model", default="")
     ap.add_argument(
         "--replay",
