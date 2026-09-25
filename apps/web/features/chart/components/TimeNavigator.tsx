@@ -9,6 +9,7 @@ import {
   type TemporalFacts,
 } from "../../../lib/api";
 import { ChatPanel } from "./ChatPanel";
+import { KlineStrip } from "./KlineStrip";
 
 const INPUT =
   "rounded border border-zinc-300 px-2 py-1.5 text-sm dark:border-zinc-700 dark:bg-zinc-900";
@@ -285,6 +286,19 @@ export function TimeNavigator({
           {loadingFacts ? "Đang tính…" : "Xem vận trình"}
         </button>
       </div>
+
+      {level !== "decadal" && (
+        <KlineStrip
+          chartId={chartId}
+          selectedYear={year}
+          onSelectYear={(y) => {
+            setYear(y);
+            setFacts(null);
+            setText("");
+            setEvidence([]);
+          }}
+        />
+      )}
 
       {facts && (
         <div className="space-y-2">

@@ -206,6 +206,18 @@ Gate phụ trong Phase 8: ≥1 eval case chạy **non-default mutagen profile** 
   `eval/tournament/reports/20260925-021850/tournament-20260925-021850.md`
 - [ ] Full 24-chart tournament + judge — rerun khi có inference budget lớn hơn.
 
+## v0.5 log — K-line temporal visualization
+
+- [x] `docs/SPEC_KLINE.md` — dải K-line vận trình: một glyph/lưu niên trong
+  đại hạn, chỉ facts deterministic (tứ hóa theo thứ tự Lộc·Quyền·Khoa·Kỵ,
+  cung lưu mệnh, can chi); cố ý không có "điểm vận" scalar.
+- [ ] `GET /api/charts/{id}/temporal/decade?year=` — decade boundary tìm
+  bằng probe `decadal.index` (không suy từ tuổi mụ); `ageRange` từ
+  `palaces[i].decadal.range` của snapshot.
+- [ ] `KlineStrip` trên Time Navigator — chip tứ hóa theo hóa
+  (Lộc/Quyền/Khoa/Kỵ), cung lưu mệnh, prev/next decade; click → đổi năm.
+- [ ] E2E browser check.
+
 ## DO NOT (đưa vào mọi implementation prompt)
 
 ```text
