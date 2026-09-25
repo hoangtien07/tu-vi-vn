@@ -189,6 +189,23 @@ Gate phụ trong Phase 8: ≥1 eval case chạy **non-default mutagen profile** 
   `eval/bench/reports/spotcheck-static-20260924-072822.md`.
 - [x] Release hygiene: MIT LICENSE + THIRD_PARTY_NOTICES + README status.
 
+## v0.4 log — knowledge tournament
+
+- [x] `KNOWLEDGE_PACK` env (builtin|none|path) → `KnowledgeRegistry.configure`;
+  `none` ablation (excerpts → None, synthetic version_info); `/health` exposes
+  `knowledgePack` id.
+- [x] `eval/packs/` + schema README + `vn-seed-v1.json` (58 VN entries mined từ
+  cited entity keys trong `eval/bench/reports/`).
+- [x] `eval/tournament/run_tournament.py` — spawn uvicorn per variant trên
+  shared DB → run_bench subprocess → comparison report; `--smoke` không cần LLM.
+- [x] First tournament run (subset — 4 charts × 5 topics × 3 variants = 60
+  fresh runs qua swe-2 shim): `none` 20/20 0-fail · `builtin` 19/20 1-fail ·
+  `vn-seed-v1` 20/20 0-fail. Judge off → rubric vacuous.
+  **Decision: giữ `builtin`** — vn-seed-v1 pass gate nhưng không thắng ablation
+  `none`; cần full corpus + judge trước khi đổi pack.
+  `eval/tournament/reports/20260925-021850/tournament-20260925-021850.md`
+- [ ] Full 24-chart tournament + judge — rerun khi có inference budget lớn hơn.
+
 ## DO NOT (đưa vào mọi implementation prompt)
 
 ```text

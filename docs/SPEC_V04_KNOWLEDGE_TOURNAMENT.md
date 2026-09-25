@@ -72,8 +72,8 @@ python -m eval.tournament.run_tournament \
 
 ## DoD
 
-- [ ] `KNOWLEDGE_PACK` env (builtin|none|path) + `NullKnowledge` + health expose pack id
-- [ ] `eval/packs/` + schema README + `vn-seed-v1.json` (entries từ cited keys thật)
-- [ ] `eval/tournament/run_tournament.py` + report đầu tiên (≤ subset nếu inference budget giới hạn — ghi rõ coverage)
-- [ ] Quyết định pack ghi vào report + IMPLEMENTATION_PLAN tick
+- [x] `KNOWLEDGE_PACK` env (builtin|none|path) + `NullKnowledge` + health expose pack id
+- [x] `eval/packs/` + schema README + `vn-seed-v1.json` (entries từ cited keys thật)
+- [x] `eval/tournament/run_tournament.py` + report đầu tiên (≤ subset nếu inference budget giới hạn — ghi rõ coverage)
+- [x] Quyết định pack ghi vào report + IMPLEMENTATION_PLAN tick
 - [ ] Tag `v0.4.0` sau khi merge

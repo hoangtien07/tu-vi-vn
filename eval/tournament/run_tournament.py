@@ -58,9 +58,9 @@ def _wait_health(port: int, timeout: float = 60.0) -> dict | None:
     return None
 
 
-def _spawn(variant: str, port: int) -> subprocess.Popen:
+def _spawn_source(variant: str, source: str, port: int) -> subprocess.Popen:
     env = dict(os.environ)
-    env["KNOWLEDGE_PACK"] = VARIANTS[variant]
+    env["KNOWLEDGE_PACK"] = source
     env["DATABASE_URL"] = f"sqlite+pysqlite:///{DB}"
     return subprocess.Popen(
         ["uv", "run", "uvicorn", "app.main:app", "--host", "127.0.0.1", "--port", str(port)],
@@ -71,6 +71,15 @@ def _spawn(variant: str, port: int) -> subprocess.Popen:
     )
 
 
+def _charts_file(args: argparse.Namespace) -> str:
+    if args.charts_n <= 0:
+        return args.charts
+    charts = json.loads(Path(args.charts).read_text())[: args.charts_n]
+    tmp = Path(f"/tmp/tournament-charts-{args.charts_n}.json")
+    tmp.write_text(json.dumps(charts, ensure_ascii=False))
+    return str(tmp)
+
+
 def _run_bench(args: argparse.Namespace, variant: str, port: int, stamp: str) -> int:
     out = REPO / "eval" / "tournament" / "reports" / f"{stamp}" / variant
     cmd = [
@@ -78,6 +87,7 @@ def _run_bench(args: argparse.Namespace, variant: str, port: int, stamp: str) ->
         "--api", f"http://127.0.0.1:{port}",
         "--suite", args.suite,
         "--out", str(out),
+        "--charts", _charts_file(args),
         "--concurrency", str(args.concurrency),
     ]
     if args.suite == "yearly":
@@ -101,8 +111,13 @@ def _latest_raw(variant_dir: Path) -> list[dict]:
 
 def _summarize(results: list[dict]) -> dict:
     done = [r for r in results if r["status"] == "done"]
+    # grounding violations: unknown refs in done runs + any non-done run
+    # (bench marks validator rejections as status "error")
     grounding_fails = sum(
-        1 for r in done if (r.get("grounding") or {}).get("unknownEvidenceReferences", 0)
+        1
+        for r in results
+        if r["status"] != "done"
+        or (r.get("grounding") or {}).get("unknownEvidenceReferences", 0)
     )
     judged = [r["judge"]["mean"] for r in done if (r.get("judge") or {}).get("mean")]
     return {
@@ -115,10 +130,17 @@ def _summarize(results: list[dict]) -> dict:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--variants", nargs="+", default=list(VARIANTS))
+    ap.add_argument(
+        "--variants",
+        nargs="+",
+        default=list(VARIANTS),
+        help="variant names from VARIANTS or paths to pack JSON files",
+    )
     ap.add_argument("--suite", default="static", choices=["static", "yearly", "compat"])
     ap.add_argument("--year", type=int, default=2028)
     ap.add_argument("--concurrency", type=int, default=2)
+    ap.add_argument("--charts", default=str(REPO / "eval" / "bench" / "charts.json"))
+    ap.add_argument("--charts-n", type=int, default=0, help="truncate corpus to first N charts")
     ap.add_argument("--base-port", type=int, default=8400)
     ap.add_argument("--smoke", action="store_true", help="boot + health-check only")
     ap.add_argument("--judge", action="store_true")
@@ -138,15 +160,16 @@ def main() -> None:
 
     for i, variant in enumerate(args.variants):
         port = args.base_port + i
-        print(f"[{variant}] spawning :{port} KNOWLEDGE_PACK={VARIANTS[variant]}")
-        proc = _spawn(variant, port)
+        source = VARIANTS.get(variant, variant)  # name or explicit path
+        expected = EXPECTED_PACK_ID.get(variant)
+        print(f"[{variant}] spawning :{port} KNOWLEDGE_PACK={source}")
+        proc = _spawn_source(variant, source, port)
         try:
             health = _wait_health(port)
             if health is None:
                 print(f"[{variant}] FAILED to boot")
                 continue
             pack_id = health.get("knowledgePack")
-            expected = EXPECTED_PACK_ID[variant]
             ok = expected is None or pack_id == expected
             print(f"[{variant}] health={health.get('status')} pack={pack_id} {'OK' if ok else 'MISMATCH'}")
             if not ok:
@@ -168,24 +191,42 @@ def main() -> None:
     for variant in args.variants:
         summaries[variant] = _summarize(_latest_raw(report_dir / variant))
     base = summaries.get(BASELINE, {})
-    lines = [f"# Knowledge tournament — {stamp}", "", f"suite={args.suite} corpus=24 charts", ""]
+    charts_n = args.charts_n or "full"
+    judge_note = "judge=on" if args.judge else "judge=off (rubric vacuous — grounding+completion only)"
+    lines = [
+        f"# Knowledge tournament — {stamp}",
+        "",
+        f"suite={args.suite} corpus={charts_n} charts {judge_note}",
+        "",
+    ]
     lines.append("| variant | runs | done | grounding fails | rubric mean | verdict |")
     lines.append("|---|---|---|---|---|---|")
-    winner = None
+    winners = []
     for variant, s in summaries.items():
         verdict = "—"
         if variant != BASELINE:
             rubric_ok = s["rubricMean"] is None or base.get("rubricMean") is None or s["rubricMean"] >= base["rubricMean"]
             wins = s["groundingFailures"] == 0 and s["done"] == s["runs"] and rubric_ok
             verdict = "WINNER" if wins else "no"
-            if wins and winner is None:
-                winner = variant
+            if wins:
+                winners.append(variant)
         lines.append(
             f"| {variant} | {s['runs']} | {s['done']} | {s['groundingFailures']} | {s['rubricMean']} | {verdict} |"
         )
+    if not winners:
+        decision = f"no winner — keep {BASELINE}"
+    elif "none" in winners and len(winners) > 1:
+        decision = (
+            f"tie among {', '.join(winners)} — excerpts show no measurable benefit "
+            "at this coverage; keep baseline until a larger corpus separates them"
+        )
+    elif winners == ["none"]:
+        decision = "none wins — knowledge excerpts may be noise; consider removing lore"
+    else:
+        decision = f"candidate={', '.join(winners)} (advisory — human approves pack switch)"
     lines += [
         "",
-        f"decision: {'candidate=' + winner + ' (advisory — human approves pack switch)' if winner else 'no winner — keep ' + BASELINE}",
+        f"decision: {decision}",
         "note: I18 gate = 0 grounding fails AND rubric >= baseline on the frozen corpus.",
     ]
     md = report_dir / f"tournament-{stamp}.md"
