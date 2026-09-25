@@ -18,6 +18,7 @@ on:
   workflow_run:
     workflows: [ci]
     types: [completed]
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -52,6 +53,12 @@ jobs:
                   .filter(p => p.head.ref === run.head_branch)
                   .map(p => p.number);
               }
+            } else if (context.eventName === 'workflow_dispatch') {
+              // Manual re-check: scan every open PR carrying the label.
+              const { data: open } = await github.rest.pulls.list({
+                owner, repo, state: 'open', per_page: 50,
+              });
+              numbers = open.map(p => p.number);
             } else {
               numbers = [context.payload.pull_request.number];
             }
@@ -77,22 +84,21 @@ jobs:
                 per_page: 20,
               });
               const runs = wr.workflow_runs;
-              // pull_request CI checks out the synthetic refs/pull/N/merge
-              // commit of THIS PR's (base, head). A run counts only when its
-              // head_sha is a merge commit whose parents are exactly this
-              // PR's CURRENT base.sha + head.sha — sibling PRs on the same
-              // branch (different base), stale head pushes, and base moves
-              // all produce different parents and are excluded, whether or
-              // not the run carries a pull_requests association.
+              // A run counts only when it was triggered for THIS PR and
+              // tested THIS PR's CURRENT (base, head): run.head_sha is the
+              // head commit (not the synthetic merge commit), and each
+              // pull_request run records its (base, head) in
+              // run.pull_requests. Sibling PRs on the same branch, stale
+              // head pushes, and base moves all fail this check.
               let pending = 0;
               let latest = null;
               for (const r of runs) {
-                const resp = await github.rest.repos
-                  .getCommit({ owner, repo, ref: r.head_sha })
-                  .catch(() => null);
-                const parents = ((resp && resp.data.parents) || []).map(p => p.sha);
-                const mine =
-                  parents.includes(pr.head.sha) && parents.includes(pr.base.sha);
+                const assoc = (r.pull_requests || []).some(
+                  p => p.number === number &&
+                       p.base.sha === pr.base.sha &&
+                       p.head.sha === pr.head.sha,
+                );
+                const mine = assoc && r.head_sha === pr.head.sha;
                 if (!mine) continue;
                 if (r.status !== 'completed') {
                   pending++;
