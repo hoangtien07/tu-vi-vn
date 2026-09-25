@@ -9,3 +9,5 @@ class Settings(BaseSettings):
     ai_api_key: str = ""
     ai_model: str = ""
     ai_timeout_seconds: float = 60.0
+    # SPEC_V04 I17: "builtin" | "none" | path to an eval/packs/*.json file.
+    knowledge_pack: str = "builtin"

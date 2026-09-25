@@ -5,6 +5,8 @@ from sqlalchemy import text
 from sqlalchemy.engine import Engine
 from sqlalchemy.exc import SQLAlchemyError
 
+from app.infrastructure.xiztro.knowledge import KnowledgeRegistry
+
 router = APIRouter(tags=["health"])
 
 
@@ -28,6 +30,7 @@ def health(request: Request) -> JSONResponse:
             "status": "ok" if db_ok else "degraded",
             "api": "up",
             "db": "up" if db_ok else "down",
+            "knowledgePack": KnowledgeRegistry.version_info()["id"],
         },
     )
 

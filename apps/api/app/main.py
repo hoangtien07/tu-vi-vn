@@ -19,6 +19,7 @@ from app.infrastructure.llm.openai_compatible import (
     OpenAICompatibleProvider,
 )
 from app.infrastructure.xiztro.engine import XiztroEngine
+from app.infrastructure.xiztro.knowledge import KnowledgeRegistry
 from app.settings import Settings
 
 
@@ -31,6 +32,7 @@ def create_app() -> FastAPI:
     app.state.db_engine = db_engine
     app.state.ziwei_engine = XiztroEngine()
     app.state.llm_provider = _llm_provider(settings)
+    KnowledgeRegistry.configure(settings.knowledge_pack)
 
     app.include_router(health.router)
     app.include_router(charts.router)

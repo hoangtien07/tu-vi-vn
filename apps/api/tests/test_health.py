@@ -15,7 +15,9 @@ def client(monkeypatch: pytest.MonkeyPatch) -> TestClient:
 def test_health_ok_with_db(client: TestClient) -> None:
     resp = client.get("/health")
     assert resp.status_code == 200
-    assert resp.json() == {"status": "ok", "api": "up", "db": "up"}
+    body = resp.json()
+    assert body["status"] == "ok" and body["api"] == "up" and body["db"] == "up"
+    assert body["knowledgePack"]  # SPEC_V04 I17 — active pack id exposed
 
 
 def test_health_degraded_when_db_down(monkeypatch: pytest.MonkeyPatch) -> None:
