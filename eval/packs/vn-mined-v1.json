@@ -1,0 +1,333 @@
+{
+  "id": "vn-mined-v1",
+  "version": "1",
+  "language": "vi",
+  "schema": 1,
+  "source": {
+    "url": "https://github.com/Renhuai123/ziwei-doushu",
+    "commit": "v3.0-samples",
+    "license": "Renhuai dataset v3 (free use w/ attribution) — aggregated phrases mined offline, translated to vi"
+  },
+  "stars": {
+    "dijieMin": {
+      "name": "Địa Kiếp",
+      "intro": "天马落空：天马与地空、地劫同宫——倪师说马落空亡，徒劳奔波，外出事务多劳而无功，出差、远行、跳槽等动态机会容易竹篮打水，宜三思而后行 天马落空：天马与地劫同宫——倪师说马落空亡，徒劳奔波，外出事务多劳而无功，出差、远行、跳槽等动态机会容易竹篮打水，宜三思而后行 天马落空：天马与地空、地劫、旬空同宫——倪师说马落空亡，徒劳奔波，外出事务多劳而无功，出差、远行、跳槽等动态机会容易竹篮打水，宜三思而后行 天马落空：天马与地劫、截路同宫——倪师说马落空亡，徒劳奔波，外出事务多劳而无功，出差、远行、跳槽等动态机会容易竹篮打水，宜三思而后行 天马落空：天马与地劫、旬空同宫——倪师说马落空亡，徒劳奔波，外出事务多劳而无功，出差、远行、跳槽等动态机会容易竹篮打水，宜三思而后行",
+      "category": "minor"
+    },
+    "dikongMin": {
+      "name": "Địa Không",
+      "intro": "天马落空：天马与地空、地劫同宫——倪师说马落空亡，徒劳奔波，外出事务多劳而无功，出差、远行、跳槽等动态机会容易竹篮打水，宜三思而后行 天马落空：天马与地空同宫——倪师说马落空亡，徒劳奔波，外出事务多劳而无功，出差、远行、跳槽等动态机会容易竹篮打水，宜三思而后行 天马落空：天马与地空、地劫、旬空同宫——倪师说马落空亡，徒劳奔波，外出事务多劳而无功，出差、远行、跳槽等动态机会容易竹篮打水，宜三思而后行 天马落空：天马与地空、截路同宫——倪师说马落空亡，徒劳奔波，外出事务多劳而无功，出差、远行、跳槽等动态机会容易竹篮打水，宜三思而后行 天马落空：天马与地空、旬空同宫——倪师说马落空亡，徒劳奔波，外出事务多劳而无功，出差、远行、跳槽等动态机会容易竹篮打水，宜三思而后行",
+      "category": "minor"
+    },
+    "guasu": {
+      "name": "Quả Tú",
+      "intro": "倪师评武曲女命寡宿之星——婚嫁时的嫁妆/聘礼安排往往很务实，对家庭经济掌控欲强，是典型的\"铁娘子CFO\" 倪海夏将武曲女命列为寡宿之星——武曲属金，性质刚硬，女命具此星则气质偏刚，性格果决，不够柔婉，婚姻阻力相对较大 武曲守命的女性，倪海夏将其列为寡宿之星——武曲属金，性质刚硬，女命具此星则气质偏刚，性格果决，不够柔婉，婚姻阻力较大 女命武曲化忌尤其需要警惕寡宿加忌的双重孤克，宜晚婚且婚前长期磨合",
+      "category": "adjective"
+    },
+    "huoxingMin": {
+      "name": "Hỏa Tinh",
+      "intro": "火贪格：贪狼逢火星——偏财暴发格，倪海夏说火贪格，出将入相，武贵之路，一生有偏财大发的机遇，尤其在特定大限流年中可有意外横财 逢火星或铃星，形成火贪格或铃贪格，有暴富之机 逢火星或铃星，形成火贪/铃贪格，在此宫则事业有暴发之机 Sát tinh nhập Tật Ách: Hỏa tinh — Ni sư Thiên Kỷ 11-12: Đà La, Kình Dương nhập Tật Ách cung, phẫu thuật thấy máu đỏ Gặp Hỏa tinh hoặc Linh tinh thì có cơ hội tài sản bất ngờ bùng nổ",
+      "category": "minor"
+    },
+    "jielu": {
+      "name": "Tiết Lộ",
+      "intro": "Thiên Mã rơi vào không: Thiên Mã và Tiếp Lộ đồng cung — Ni sư nói mã rơi không亡, chạy lòng vòng, việc ngoài nhà nhiều công vô ích, đi công tác, xa lộ, nhảy việc… dễ như vứt giỏ nước, nên suy nghĩ kỹ trước khi hành động Thiên Mã rơi vào không: Thiên Mã và Tuần Không, Tiếp Lộ đồng cung — Ni sư nói mã rơi không亡, chạy lòng vòng, việc ngoài nhà nhiều công vô ích, đi công tác, xa lộ, nhảy việc… dễ như vứt giỏ nước, nên suy nghĩ kỹ trước khi hành động Thiên Mã rơi vào không: Thiên Mã và Địa Kiếp, Tiếp Lộ đồng cung — Ni sư nói mã rơi không亡, chạy lòng vòng, việc ngoài nhà nhiều công vô ích, đi công tác, xa lộ, nhảy việc… dễ như vứt giỏ nước, nên suy nghĩ kỹ trước khi hành động Thiên Mã rơi vào không: Thiên Mã và Địa Không, Tiếp Lộ đồng cung — Ni sư nói mã rơi không亡, chạy lòng vòng, việc ngoài nhà nhiều công vô ích, đi công tác, xa lộ, nhảy việc… dễ như vứt giỏ nước, nên suy nghĩ kỹ trước khi hành động Thiên Mã rơi vào không: Thiên Mã và Địa Không, Tuần Không, Tiếp Lộ đồng cung — Ni sư nói mã rơi không亡, chạy lòng vòng, việc ngoài nhà nhiều công vô ích, đi công tác, xa lộ, nhảy việc… dễ như vứt giỏ nước, nên suy nghĩ kỹ trước khi hành động",
+      "category": "adjective"
+    },
+    "jumenMaj": {
+      "name": "Cự Môn",
+      "intro": "Đồng cung sao thứ hai: Cự Môn — sao miệng thị phi, giỏi biện luận, phù hợp luật sư giáo viên truyền thông, hóa Lộc miệng sinh tài, hóa Kỵ miệng tai oán Hóa Quyền: miệng có uy quyền, trong lĩnh vực của mình có sức nói lớn, có thể trở thành lãnh đạo ý kiến hoặc nhân vật quyền uy trong một ngành Hóa Kỵ: miệng tai oán gia tăng, lời nói dễ gây họa, phải cẩn miệng cẩn miệng, một lời nói sai tổn thất nặng nề Hóa Lộc: hóa Lộc, tài lộc từ miệng mà ra, dùng miệng làm nghề đại cát, sự nghiệp thuận lợi, là trạng thái tốt nhất của Cự Môn, tài năng phát huy hết mức Tật Ách cung Cự Môn: đường tiêu hóa, thực quản, răng miệng là điểm yếu",
+      "category": "major"
+    },
+    "kongwang": {
+      "name": "Không Vong",
+      "intro": "Thiên Mã rơi vào không: Thiên Mã và Tuần Không đồng cung — Ni sư nói mã rơi không亡, chạy lòng vòng, việc ngoài nhà nhiều công vô ích, đi công tác, xa lộ, nhảy việc… dễ như vứt giỏ nước, nên suy nghĩ kỹ trước khi hành động Thiên Mã rơi vào không: Thiên Mã và Tiếp Lộ đồng cung — Ni sư nói mã rơi không亡, chạy lòng vòng, việc ngoài nhà nhiều công vô ích, đi công tác, xa lộ, nhảy việc… dễ như vứt giỏ nước, nên suy nghĩ kỹ trước khi hành động Thiên Mã rơi vào không: Thiên Mã và Địa Không, Địa Kiếp đồng cung — Ni sư nói mã rơi không亡, chạy lòng vòng, việc ngoài nhà nhiều công vô ích, đi công tác, xa lộ, nhảy việc… dễ như vứt giỏ nước, nên suy nghĩ kỹ trước khi hành động Thiên Mã rơi vào không: Thiên Mã và Địa Kiếp đồng cung — Ni sư nói mã rơi không亡, chạy lòng vòng, việc ngoài nhà nhiều công vô ích, đi công tác, xa lộ, nhảy việc… dễ như vứt giỏ nước, nên suy nghĩ kỹ trước khi hành động Thiên Mã rơi vào không: Thiên Mã và Địa Không đồng cung — Ni sư nói mã rơi không亡, chạy lòng vòng, việc ngoài nhà nhiều công vô ích, đi công tác, xa lộ, nhảy việc… dễ như vứt giỏ nước, nên suy nghĩ kỹ trước khi hành động",
+      "category": "adjective"
+    },
+    "lianzhenMaj": {
+      "name": "Liêm Trinh",
+      "intro": "Lương Tướng cách: Liêm Trinh Thiên Đồng đồng cung thành Lương Tướng cách, tài năng, chế độ, phối hợp đồng thời Hóa Kỵ: nguy cơ máu tươi oán kiệt cực lớn, tình cảm lắm thị phi, là kiếp hung nghiêm trọng, phải đặc biệt cẩn trọng, tránh hành động bốc đồng Hóa Lộc: hóa Lộc, tài lộc từ tài năng và nhân mối mà đến, hoa tình hóa thành trợ lực, tình cảm thuận lợi, quý nhân nhiều giúp đỡ, là cách格局 tốt của Liêm Trinh 化科：化科，财务方面有专业才能，宜从事财务规划、会计审计或技术领域，专业名声较好 化忌：化忌，刑囚之星，手术、意外、官司风险高，需格外小心血光之灾，建议购置意外医疗保险",
+      "category": "major"
+    },
+    "lingxingMin": {
+      "name": "Linh Tinh",
+      "intro": "逢火星或铃星，形成火贪格或铃贪格，有暴富之机 逢火星或铃星，形成火贪/铃贪格，在此宫则事业有暴发之机 铃贪格：贪狼逢铃星——偏财暴发格，与火贪格同效，一生有偏财大发的机遇，但暴起暴落，需把握时机并做好财富保护 煞星入疾厄：铃星——倪师天纪 11-12：陀罗、擎羊入疾厄宫，开刀见血光 逢火星或铃星则有偏财暴发的机遇",
+      "category": "minor"
+    },
+    "lucunMin": {
+      "name": "Lộc Tồn",
+      "intro": "禄马交驰格：禄存与天马同宫或会照——倪师说禄马交驰，财从动中来，主财富动中取，宜从事出差、外地经商、贸易物流等行业，异地财、流动财尤旺 禄存为稳财，天马为动财，一稳一动，财源通畅 双禄交流格：化禄星与禄存同时会照命宫三方四正——倪师称为双禄交流，主一生财源滚滚、福禄双至，财禄稳定且增长有力，是紫微斗数财运最上乘的格局之一 禄存：外出稳赚但保守 禄存：脾胃稳健，但羊陀夹持需防慢性病",
+      "category": "minor"
+    },
+    "pojunMaj": {
+      "name": "Phá Quân",
+      "intro": "同宫第二主星：破军——破坏创新星，六亲缘薄，宜技术专长走天下，化禄破而后立 杀破狼格：七杀、破军、贪狼会照命宫三方四正，形成杀破狼格——一生变动大、开创性强，适合走创业、技术、军警、外地发展路线，关键在以行动力换格局 化权，破坏力化为创造力，在所在领域开疆拓土，是先锋精神与掌控力的结合 化禄：化禄，破而后立，逆境中开创财源，是破军最好的状态，在打破中建立新的格局 化忌：化忌，欲望受阻，感情波折大，烂桃花多，需谨慎处理感情关系，防财色两空",
+      "category": "major"
+    },
+    "qingyangMin": {
+      "name": "Kình Dương",
+      "intro": "擎羊入命：擎羊坐命——化气为刑，性格冲动，行事果决但容易招惹是非，有手术意外的风险 擎羊入命之人多具有开创闯劲，能在逆境中突破，宜从事军警执法、外科、机械等刚性行业 倪海夏说擎羊入命，刑克自伤，需特别注意冲动带来的后果 Nhưng Lộc Tồn trước sau tất nhiên có Kiềng Dương Đà La kẹp giữ, xu hướng cô đơn nặng, tài dư mà tình không đủ Dương Đà kẹp Mệnh (sát格): Kiềng Dương Đà La kẹp Mệnh – Cung điển hình hung格, thầy Nhi nói Dương Đà kẹp Mệnh, hình phạt tánh không thoát, đời nhiều biến động, trắc trở, lục thân duyên mỏng",
+      "category": "minor"
+    },
+    "qishaMaj": {
+      "name": "Thất Sát",
+      "intro": "Sao chủ thứ hai cùng cung: Thất Sát – Tinh tướng, cô đơn quyết đoán mạo hiểm, thích quân cảnh khởi nghiệp, Thất Sát Triều Đẩu格 thì võ nghiệp đại quý Sát Phá Lang格: Thất Sát, Phá Quân, Tham Lang hội chiếu Mệnh cung ba phương bốn chính, tạo thành Sát Phá Lang格 – Đời biến động lớn, tính mở sáng mạnh, phù hợp đi con khởi nghiệp, kỹ thuật, quân cảnh, phát triển ngoại địa, then chốt ở dùng sức hành động đổi vận mệnh Vũ Khúc Thất Sát: Vũ Khúc Thất Sát cùng cung, tinh tài gặp tinh tướng, làm việc quyết đoán, thực thi mạnh, rủi ro cũng nặng Hóa Quyền: Hóa Quyền, phá hủy hóa thành sáng tạo, khai hoang mở cõi ở lĩnh vực đang có, kết hợp tinh thần tiên phong và quyền năng kiểm soát Hóa Kỵ: Hóa Kỵ, dục vọng bị cản trở, tình cảm sóng gió, hoa mỹ tình nhân nhiều, cần cẩn trọng xử lý quan hệ tình cảm, phòng tài sắc hai không",
+      "category": "major"
+    },
+    "taiyangMaj": {
+      "name": "Thái Dương",
+      "intro": "Lạc chấn (từ Dậu đến Dần cung), lao mà vô获,付出多回报少, phải đổi hướng hoặc môi trường, không nên cứng đầu bám trụ Nhập miễn vượng (từ Mão đến Thân cung), sáng正大, sự nghiệp tài vận đều tốt, danh lợi song toàn, là trạng thái phát huy tốt nhất của Thái Dương Nhật Nguyệt Bình Minh格: Thái Dương Thái Âm đồng thời nhập miễn vượng – Thầy Nhi Hải Hạ nói làm việc thuận lợi cả hai phía, cả đời làm việc hoa mỹ,格 này đại diện cho nhật nguyệt cùng huy, đời nhiều quý nhân, làm việc thuận lợi, danh lợi song toàn Nhật Nguyệt Đồng Cung格: Thái Dương Thái Âm đồng cung, nhật nguyệt chiếu cùng một chỗ – Đời thường cân bằng giữa danh vọng, tình cảm, trách nhiệm gia đình Hóa Khoa: tài năng danh vọng cùng trọng, văn giáo hoặc nghệ thuật có đột phá, được người trọng lễ, quý nhân nâng đỡ nhiều",
+      "category": "major"
+    },
+    "taiyinMaj": {
+      "name": "Thái Âm",
+      "intro": "Lạc chấn, tài vận thất thường, cảm xúc dao động lớn, cần chủ động điều chỉnh tâm thái, tránh bi quan tiêu cực Nhật Nguyệt Bình Minh格: Thái Dương Thái Âm đồng thời nhập miễn vượng – Thầy Nhi Hải Hạ nói làm việc thuận lợi cả hai phía, cả đời làm việc hoa mỹ,格 này đại diện cho nhật nguyệt cùng huy, đời nhiều quý nhân, làm việc thuận lợi, danh lợi song toàn Sao chủ thứ hai cùng cung: Thái Âm – Nguyệt đức quý tinh, tình cảm tế nhị, nữ mệnh nhất cát, nhập miễn đại phú, chủ điền trạch bất động sản Hóa Khoa: tài năng danh vọng cùng trọng, văn giáo hoặc nghệ thuật có đột phá, được người trọng lễ, quý nhân nâng đỡ nhiều Nhập miễn vượng, tài vận đại vượng, tình cảm thuận lợi, là trạng thái phát huy tốt nhất của Thái Âm, quý sắc song toàn",
+      "category": "major"
+    },
+    "tanlangMaj": {
+      "name": "Tham Lang",
+      "intro": "Sao chủ thứ hai cùng cung: Tham Lang – Hoa tình dục vọng tinh, đa tài năng giao tiếp, sớm hư vinh晚年 thành tựu, gặp Hỏa Luân phiền tài bùng nổ Sát Phá Lang格: Thất Sát, Phá Quân, Tham Lang hội chiếu Mệnh cung ba phương bốn chính, tạo thành Sát Phá Lang格 – Đời biến động lớn, tính mở sáng mạnh, phù hợp đi con khởi nghiệp, kỹ thuật, quân cảnh, phát triển ngoại địa, then chốt ở dùng sức hành động đổi vận mệnh Hóa Lộc: Hóa Lộc, tài vận đến từ tài năng hoặc giao tiếp, phiền tài cũng mạnh, là trạng thái tài vận tốt nhất của Tham Lang,才华变现顺遂 Hóa Quyền: Hóa Quyền, biến sức phá hủy thành sức sáng tạo, ở lĩnh vực đang tại mở đất mở nước, là sự kết hợp tinh thần tiên phong và năng lượng kiểm soát Hóa Kỵ: Ham muốn bị cản trở, tình cảm nhiều biến động, hoa đào hoa nguyệt nhiều, cần thận trọng xử lý quan hệ tình cảm, phòng mất cả tiền lẫn sắc",
+      "category": "major"
+    },
+    "tianfuMaj": {
+      "name": "Thiên Phủ",
+      "intro": "Tử Phù Triêu Viễn格: Tử Vi và Thiên Phủ phân cư ba phía hướng về Mệnh cung —格局 cao quý, chủ mệnh có khí chất vương hầu, cả đời không thiếu quý nhân, sự nghiệp ổn định mà có quý Nếu cùng cung hoặc ba phía có Vũ Khúc Hóa Lộc, Thiên Phủ thì kho tàng tiền bạc được gia cố, năng lực quản lý tài chính mạnh hơn Quan Lộc cung Thiên Phủ, bẩm sinh phù hợp với cơ quan chính phủ, ngân hàng, bảo hiểm, doanh nghiệp lớn quản lý hành chính, ôn hòa ổn định, thăng chức tuy chậm nhưng vững chắc đáng tin cậy Phù hợp làm nhân viên chính thức chứ không tự khởi nghiệp, tiền đến an ổn Quản lý tài chính nên ôn hòa ổn định, gửi tiết kiệm định kỳ hoặc đầu tư bất động sản là phù hợp",
+      "category": "major"
+    },
+    "tiangui": {
+      "name": "Thiên Quý",
+      "intro": "Thiên Khôi: Thiên Khôi nhập mệnh — ban ngày có quý nhân bên cạnh, duyên với nam giới lớn tuổi mạnh",
+      "category": "adjective"
+    },
+    "tianjiMaj": {
+      "name": "Thiên Cơ",
+      "intro": "Hóa Khoa: Hóa Khoa, tài năng và danh vọng song hành, lĩnh vực văn giáo hoặc nghệ thuật có đột phá, được người trọng lễ, được quý nhân nâng đỡ nhiều Tử Tức cung Thiên Cơ, con cái thông minh linh hoạt, tư duy hoạt bát, khả năng học tập mạnh nhưng tính cách đa biến, khó ổn định Trong quan hệ thân mật, Thiên Cơ chủ trí tuệ chứ không phải đam mê, hai người chú trọng sự ăn ý tinh thần hơn, sự thân mật thể chất là tự nhiên chứ không chủ động theo đuổi, tình cảm tế nhị, trải nghiệm phong phú, nhưng cần giữ một chút bí ẩn cho mối quan hệ Phu Thê cung Thiên Cơ, phối ngẫu thông minh linh hoạt, đa tài đa nghệ, khả năng biến hóa mạnh nhưng tình cảm đa biến, khả năng chia tay rồi lại hợp là khá lớn Nên tìm bạn đời tính cách ổn định, có khả năng thực thi để bù đắp sự đa biến của Thiên Cơ",
+      "category": "major"
+    },
+    "tiankuiMin": {
+      "name": "Thiên Khôi",
+      "intro": "Thiên Khôi tại Điền Trạch: Nam giới lớn tuổi trong gia tộc là trụ cột nghiệp gia Thiên Khôi: Gia vận có长辈 chăm sóc Thiên Khôi: Khi sự nghiệp bước ngoặt có nam cấp trên hoặc tiền bối nâng đỡ Thiên Khôi tại Quan Lộc: Trong sự nghiệp nam cấp trên hoặc tiền bối là quý nhân then chốt Thiên Khôi tại Tật Ách: Khi ốm có bác sĩ giỏi (thiên về nam bác sĩ)",
+      "category": "minor"
+    },
+    "tianliangMaj": {
+      "name": "Thiên Lương",
+      "intro": "Sao chủ thứ hai cùng cung: Thiên Lương — sao cũ, sao ẩn, tốt gặp hung hóa cát, phù hợp luật pháp y học giáo dục, có khuynh hướng cô lập, nên kết hôn muộn Hóa Khoa: Hóa Khoa, tài năng và danh vọng song hành, lĩnh vực văn giáo hoặc nghệ thuật có đột phá, được người trọng lễ, được quý nhân nâng đỡ nhiều 机月同梁格：Tử Vi, Thái Âm, Thiên Đồng, Thiên Lương hội tại Mệnh cung tam phương — Cổ训机月同梁格，作吏人，最宜公教、政府、传播、文化事业，一生以稳健的打工路线最为吉利，不宜冒险创业 Hóa Quyền: Quyền năng tài chính mạnh, trong lĩnh vực của mình có nhiều quyền phát biểu, nữ mệnh đặc biệt xuất sắc, năng lực được công nhận Hóa Lộc: Nhờ học vấn hoặc phục vụ người khác mà được lộc, phù hợp giúp đỡ người khác để tự giúp mình, là cục diện lý tưởng",
+      "category": "major"
+    },
+    "tianmaMin": {
+      "name": "Thiên Mã",
+      "intro": "Lộc Mã Giao Chi格：Lộc Tồn và Thiên Mã同宫 hoặc hội chiếu — Thầy倪 nói Lộc Mã Giao Chi, tài sản đến từ động, chủ tài động trung thủ, phù hợp làm xuất差, kinh doanh外地, thương mại logistics, tài sản异地 và lưu động đặc biệt thịnh Lộc Tồn là tài ổn định, Thiên Mã là tài động, một ổn một động, nguồn tài thông suốt Thiên Mã rơi vào không: Thiên Mã và Tuần Không同宫 — Thầy倪 nói mã rơi vong, vất vả chạy trốn, việc外出 nhiều công vô ích, xuất差, đi xa, đổi việc dễ như vứt giỏ tre, nên suy nghĩ kỹ trước khi hành động Thiên Mã: Về tinh thần khao khát tự do du lịch Thiên Mã: Nhà cửa dễ thay đổi, không nên ở lâu một nơi",
+      "category": "minor"
+    },
+    "tiantongMaj": {
+      "name": "Thiên Đồng",
+      "intro": "Hóa Khoa: Tài năng và danh vọng song hành,突破 trong văn giáo hoặc nghệ thuật, được người trọng lễ, có quý nhân nâng đỡ 机月同梁格：Tử Vi, Thái Âm, Thiên Đồng, Thiên Lương hội tại Mệnh cung tam phương — Cổ训机月同梁格，作吏人，最宜公教、政府、传播、文化事业，一生以稳健的打工路线最为吉利，不宜冒险创业 Cung Huynh Đệ Thiên Đồng, quan hệ bạn bè hòa nhã, vòng xã hội thoải mái dễ chịu nhưng quan hệ hời hợt, ít kết nối sâu sắc Cung Thiên Di Thiên Đồng, đi xa thuận lợi, phúc du lịch tốt, phù hợp phát triển bên ngoài ngành dịch vụ hoặc nghệ thuật Cung Phúc Đức Thiên Đồng, đây là một trong những cung lý tưởng nhất của Thiên Đồng — hưởng thụ tinh thần phong phú, hạnh phúc cao, biết thưởng thức những điều tốt đẹp nhỏ nhặt trong cuộc sống",
+      "category": "major"
+    },
+    "tianxiangMaj": {
+      "name": "Thiên Tướng",
+      "intro": "Liêm Tướng格：Liêm Trinh và Thiên Đồng同宫 thành Liêm Tướng格, tài năng, chế độ, điều phối song hành Hóa Quyền: Quyền năng phá hủy hóa thành sáng tạo, khai phá vùng đất mới trong lĩnh vực, kết hợp tinh thần tiên phong và năng lực kiểm soát Cung Tài Bạch Thiên Tướng, thu nhập ổn định, không quá giàu, chủ yếu là lương ổn định Không nên mạo hiểm khởi nghiệp, giữ vững là trên hết Trong môi trường nghề nghiệp cần sự ổn định và kỷ luật sẽ phát huy tối đa thế mạnh, là lực lượng trung坚 không thể thiếu của các tổ chức",
+      "category": "major"
+    },
+    "tianyueMin": {
+      "name": "Thiên Việt",
+      "intro": "Thiên Dược tại Huynh Đệ: Chị em gái hoặc nam giới cùng giới có khí quý Thiên Dược: Chị em gái hoặc bạn đồng hành nữ là quý nhân 天钺：天钺入命——夜晚贵人在旁，女性长辈缘强 天钺在命宫：终身贵人常伴，关键时刻夜间有女性长辈或女师相助 天钺：事业关键时刻有女性上司或前辈提携",
+      "category": "minor"
+    },
+    "tuoluoMin": {
+      "name": "Đà La",
+      "intro": "但禄存前后必有擎羊陀罗夹持，孤独倾向较重，财有余而情不足 羊陀夹命（煞格）：擎羊陀罗夹命——典型的凶格，倪师说羊陀夹命，刑克逃不掉，一生多波折、起伏、六亲缘薄 煞星入疾厄：铃星——倪师天纪 11-12：陀罗、擎羊入疾厄宫，开刀见血光 煞星入疾厄：陀罗——倪师天纪 11-12：陀罗、擎羊入疾厄宫，开刀见血光 煞星入疾厄：火星——倪师天纪 11-12：陀罗、擎羊入疾厄宫，开刀见血光",
+      "category": "minor"
+    },
+    "wenchangMin": {
+      "name": "Văn Xương",
+      "intro": "文昌化忌：文昌化忌——文书契约是非多，倪师说昌曲化忌，文书暗亏，签约前务必仔细核对条款，防印鉴、合约、考试凭证相关的麻烦 文昌：事业走文教、出版、行政、文案方向最顺 文昌：父母或长辈多为文人，与上司关系以文书事项为主 文昌：朋友中多文人雅士，人脉质量偏文教 文昌：家中书香气浓，适合书房文化布置",
+      "category": "minor"
+    },
+    "wenquMin": {
+      "name": "Văn Khúc",
+      "intro": "文曲化忌：文曲化忌——口才表达与情感感性方面易生波折 文曲：家中气氛感性温馨 文曲：朋友多情感型人物，需防桃花是非 文曲：兄弟朋友能言善道，合伙谈判是强项 文曲：与父母沟通以情感见长，文书契约需仔细审阅",
+      "category": "minor"
+    },
+    "wuquMaj": {
+      "name": "Vũ Khúc",
+      "intro": "武曲七杀：武曲七杀同宫，财星遇将星，做事果断、执行强、风险也重 化忌：化忌，血光官非风险极大，感情纠纷多，是较为严重的凶象，须特别谨慎，避免冲动行事 Hóa Khoa: Về tài chính có tài năng chuyên môn, phù hợp làm quy hoạch tài chính, kế toán kiểm toán hoặc lĩnh vực kỹ thuật, danh tiếng chuyên nghiệp tốt Hóa Quyền: Hóa Quyền giữ Mệnh (hoặc tam phương), quyền kiểm soát cực mạnh, uy quyền lãnh đạo tăng lớn, trong仕途 hoặc doanh nghiệp cấp cao có lợi thế rõ rệt, năng lực quyết đoán xuất chúng Hóa Kỵ: Sao hình phạt tù giam, rủi ro phẫu thuật, tai nạn, kiện tụng cao, cần格外小心 tai họa máu tươi, nên mua bảo hiểm tai nạn",
+      "category": "major"
+    },
+    "xunkong": {
+      "name": "Tuần Không",
+      "intro": "Thiên Mã rơi trống: Thiên Mã và Tuần Không cùng cung — thầy Nhi nói mã rơi không, chạy chạy vất vả vô ích, việc đi xa đa lao vô công, cơ hội động thái như đi công tác, xa lộ, nhảy việc dễ như vứt giỏ, nên suy nghĩ kỹ trước khi hành động Thiên Mã rơi trống: Thiên Mã và Tuần Không, Gián Lộ cùng cung — thầy Nhi nói mã rơi không, chạy chạy vất vả vô ích, việc đi xa đa lao vô công, cơ hội động thái như đi công tác, xa lộ, nhảy việc dễ như vứt giỏ, nên suy nghĩ kỹ trước khi hành động Thiên Mã rơi trống: Thiên Mã và Địa Không, Địa Kiếp, Tuần Không cùng cung — thầy Nhi nói mã rơi không, chạy chạy vất vả vô ích, việc đi xa đa lao vô công, cơ hội động thái như đi công tác, xa lộ, nhảy việc dễ như vứt giỏ, nên suy nghĩ kỹ trước khi hành động Thiên Mã rơi trống: Thiên Mã và Địa Không, Tuần Không cùng cung — thầy Nhi nói mã rơi không, chạy chạy vất vả vô ích, việc đi xa đa lao vô công, cơ hội động thái như đi công tác, xa lộ, nhảy việc dễ như vứt giỏ, nên suy nghĩ kỹ trước khi hành động Thiên Mã rơi trống: Thiên Mã và Địa Kiếp, Tuần Không cùng cung — thầy Nhi nói mã rơi không, chạy chạy vất vả vô ích, việc đi xa đa lao vô công, cơ hội động thái như đi công tác, xa lộ, nhảy việc dễ như vứt giỏ, nên suy nghĩ kỹ trước khi hành động",
+      "category": "adjective"
+    },
+    "youbiMin": {
+      "name": "Hữu Bật",
+      "intro": "Cổ thư nói Tử Vi là đế tọa, lại gọi cô quân — nếu không có Tả Phù Hữu Bật phù trợ, thì thành cô quân vô phụ cục, dù quý cũng cô chưởng nan minh, bắt buộc có quý nhân phù trợ mới thành sự Hữu Bật: Phu thê dịu dàng chu đáo, hôn nhân dựa trên tình nghĩa Hữu Bật: Huynh đệ quan hệ hòa hợp, bạn bè đồng hành trung thành Hữu Bật: Tử tức活跃善交际 Hữu Bật: Thần trí thỏa mãn đến từ nhân duyên và chia sẻ",
+      "category": "minor"
+    },
+    "ziweiMaj": {
+      "name": "Tử Vi",
+      "intro": "Tử Phù Triêu Viên cách: Tử Vi Thiên Phủ phân ly tam phương hướng cungh Mệnh — cách格局 quý, chủ mệnh có khí vương hầu, cả đời quý nhân không ngừng, sự nghiệp ổn định có quý Tự trọng mạnh, nhưng so với Tử Vi thì hướng ngoại hơn, coi trọng hơn ý kiến người khác và đánh giá xã hội Song Lưu Giao Lưu cách: Hóa Lộc và Lộc Tồn cùng chiếu Mệnh tam phương tứ chính — thầy Nhi gọi song lưu giao lưu, chủ cả đời tài dồi dào, phúc lộc song至, tài lộc ổn định và tăng trưởng mạnh, là cách tài vận thượng hạng trong Tử Vi Đẩu Số Hóa Kỵ: Hóa Kỵ, nguy cơ máu tươi kiện tụng cực lớn, tình duyên tranh chấp nhiều, là hung tượng nghiêm trọng, phải đặc biệt cẩn trọng, tránh hành động bốc đồng Hóa Khoa: Hóa Khoa, về tài chính có tài năng chuyên môn, phù hợp làm quy hoạch tài chính, kế toán kiểm toán hoặc lĩnh vực kỹ thuật, danh tiếng chuyên nghiệp tốt",
+      "category": "major"
+    },
+    "zuofuMin": {
+      "name": "Tả Phù",
+      "intro": "Cổ thư nói Tử Vi là đế tọa, lại gọi cô quân — nếu không có Tả Phù Hữu Bật phù trợ, thì thành cô quân vô phụ cục, dù quý cũng cô chưởng nan minh, bắt buộc có quý nhân phù trợ mới thành sự Tả Phù: Huynh đệ được trợ giúp thực tế, đồng hành có cánh tay trái phải đắc lực Trợ Phủ: Phu thê hậu hậu, ổn định trọng hậu, sau hôn nhân gia vận dần thịnh vượng Trợ Phủ: Trợ Phủ nhập Mệnh — trọng hậu hậu đạo, cả đời nhiều trợ duyên, quý nhân bên cạnh Trợ Phủ: Tinh thần an ổn, phúc báo xuất phát từ hậu đức",
+      "category": "minor"
+    }
+  },
+  "patterns": {
+    "huo_tan": {
+      "name": "Hỏa Tham",
+      "intro": "Gặp Hỏa Tinh hoặc Linh Tinh, tạo thành Hỏa Tham Cách hoặc Linh Tham Cách, có cơ hội giàu nhanh.",
+      "quotes": [
+        "Gặp Hỏa Tinh hoặc Linh Tinh, tạo thành Hỏa Tham Cách hoặc Linh Tham Cách, có cơ hội giàu nhanh.",
+        "Hỏa Tham Cách: Tham Lang gặp Hỏa Tinh – cách phát tài bất chính, nhà danh học Hải Hạ nói Hỏa Tham Cách, xuất tướng nhập tướng, đường võ quý, cả đời có cơ hội tài phiệt bùng nổ, đặc biệt trong những niên hạn lưu niên cụ thể có thể có tài lộc ngang ngoài.",
+        "Linh Tham Cách: Tham Lang gặp Linh Tinh – cách phát tài bất chính, cùng hiệu quả với Hỏa Tham Cách, cả đời có cơ hội tài phiệt bùng nổ, nhưng nổi rồi đổ, cần nắm bắt thời cơ và bảo vệ tài sản."
+      ]
+    },
+    "ji_yue_tong_liang": {
+      "name": "Cơ Nguyệt Đồng Lương",
+      "intro": "Cơ Nguyệt Đồng Lương Cách: Thiên Cơ, Thái Dương, Thiên Đồng, Thiên Lương tụ tại Mệnh và ba phương – cổ训 nói Cơ Nguyệt Đồng Lương cách, làm quan viên, nhất适宜 công giáo, chính phủ, truyền thông, văn hóa nghiệp, cả đời lấy đường làm công ổn định là đại cát, không nên mạo hiểm khởi nghiệp.",
+      "quotes": [
+        "Cơ Nguyệt Đồng Lương Cách: Thiên Cơ, Thái Dương, Thiên Đồng, Thiên Lương tụ tại Mệnh và ba phương – cổ训 nói Cơ Nguyệt Đồng Lương cách, làm quan viên, nhất适宜 công giáo, chính phủ, truyền thông, văn hóa nghiệp, cả đời lấy đường làm công ổn định là đại cát, không nên mạo hiểm khởi nghiệp."
+      ]
+    },
+    "kui_yue_jia_ming": {
+      "name": "Khôi Việt Giáp Mệnh",
+      "intro": "Khuê Dược Gia Mệnh Cách: Thiên Khuê Thiên Dược kẹp Mệnh宫 – nhà danh học Hải Hạ nói Khuê Dược Gia Mệnh, quan cực phẩm, quý nhân vận cực mạnh, gặp hung hóa cát, lúc quan trọng nhất đời luôn có quý nhân giúp đỡ, là cách phụ tinh cát lợi nhất.",
+      "quotes": [
+        "Khuê Dược Gia Mệnh Cách: Thiên Khuê Thiên Dược kẹp Mệnh宫 – nhà danh học Hải Hạ nói Khuê Dược Gia Mệnh, quan cực phẩm, quý nhân vận cực mạnh, gặp hung hóa cát, lúc quan trọng nhất đời luôn có quý nhân giúp đỡ, là cách phụ tinh cát lợi nhất.",
+        "Khuê Dược Gia Mệnh Cách: Thiên Khuê Thiên Dược kẹp Mệnh – quý nhân cách, cả đời được quý nhân nâng đỡ, gặp hung hóa cát.",
+        "Nhà danh học Hải Hạ nói Khuê Dược Gia Mệnh, quý nhân bên cạnh, lúc then chốt luôn có长辈, thầy cô, cấp trên xuất hiện giúp đỡ, là cách rất hiếm."
+      ]
+    },
+    "ling_tan": {
+      "name": "Linh Tham",
+      "intro": "Gặp Hỏa Tinh hoặc Linh Tinh, tạo thành Hỏa Tham Cách hoặc Linh Tham Cách, có cơ hội giàu nhanh.",
+      "quotes": [
+        "Gặp Hỏa Tinh hoặc Linh Tinh, tạo thành Hỏa Tham Cách hoặc Linh Tham Cách, có cơ hội giàu nhanh.",
+        "Linh Tham Cách: Tham Lang gặp Linh Tinh – cách phát tài bất chính, cùng hiệu quả với Hỏa Tham Cách, cả đời có cơ hội tài phiệt bùng nổ, nhưng nổi rồi đổ, cần nắm bắt thời cơ và bảo vệ tài sản."
+      ]
+    },
+    "lu_ma_jiao_chi": {
+      "name": "Lộc Mã Giao Trì",
+      "intro": "Lộc Mã Giao Xung Cách: Lộc Tồn và Thiên Mã đồng cung hoặc hội chiếu – nhà danh học Hải Hạ nói Lộc Mã Giao Xung, tài từ động trung đến, chủ tài sản động trung thủ, nên làm nghề đi công tác, kinh doanh ngoại địa, thương mại logistics, tài sản异地, lưu động đặc biệt thịnh.",
+      "quotes": [
+        "Lộc Mã Giao Xung Cách: Lộc Tồn và Thiên Mã đồng cung hoặc hội chiếu – nhà danh học Hải Hạ nói Lộc Mã Giao Xung, tài từ động trung đến, chủ tài sản động trung thủ, nên làm nghề đi công tác, kinh doanh ngoại địa, thương mại logistics, tài sản异地, lưu động đặc biệt thịnh."
+      ]
+    },
+    "qi_sha_chao_dou": {
+      "name": "Thất Sát Triều Đẩu",
+      "intro": "Thất Sát nhập miếu vượng, khí tướng toàn khai, ý chí và thực thi đều ở trạng thái tốt nhất, phù hợp lĩnh vực cạnh tranh khốc liệt, Thất Sát Triều Đẩu Cách thì càng có quan lộc vinh hương, võ nghiệp hoặc khởi nghiệp cục diện cực cao.",
+      "quotes": [
+        "Thất Sát nhập miếu vượng, khí tướng toàn khai, ý chí và thực thi đều ở trạng thái tốt nhất, phù hợp lĩnh vực cạnh tranh khốc liệt, Thất Sát Triều Đẩu Cách thì càng có quan lộc vinh hương, võ nghiệp hoặc khởi nghiệp cục diện cực cao.",
+        "Nhưng Thất Sát Triều Đẩu Cách (Tử Ngọ cung hoặc Dần Thân cung, đối cung Tử Vi Thiên Phủ) thì \"quan lộc vinh hương\", chủ võ nghiệp đại quý, là cách hóa hung thành cát hạng thượng.",
+        "Thất Sát Triều Đẩu Cách: Thất Sát cư Dần Thân, đối cung Tử Vi Thiên Phủ chiếuếu – nhà danh học Hải Hạ nói quan lộc vinh hương, đây là cách võ nghiệp đại quý, nhất适宜 quân cảnh chính giới hoặc doanh nghiệp cao cấp, cả đời quý khí khó ngăn."
+      ]
+    },
+    "ri_yue_bing_ming": {
+      "name": "Nhật Nguyệt Tịnh Minh",
+      "intro": "Nguyệt Nhật Đồng Minh Cách: Thái Dương Thái Âm đồng nhập miếu vượng – nhà danh học Hải Hạ nói làm việc thuận lợi cả hai phía, cả đời làm việc hoa mỹ, cách này đại diện cho nguyệt nhật đồng huy, cả đời quý nhân nhiều, làm việc thuận lợi, danh lợi song toàn.",
+      "quotes": [
+        "Nguyệt Nhật Đồng Minh Cách: Thái Dương Thái Âm đồng nhập miếu vượng – nhà danh học Hải Hạ nói làm việc thuận lợi cả hai phía, cả đời làm việc hoa mỹ, cách này đại diện cho nguyệt nhật đồng huy, cả đời quý nhân nhiều, làm việc thuận lợi, danh lợi song toàn."
+      ]
+    },
+    "ri_yue_jia_ming": {
+      "name": "Nhật Nguyệt Giáp Mệnh",
+      "intro": "Nguyệt Nhật Gia Mệnh Cách: Thái Dương Thái Âm tả hữu Mệnh cung tạo Nguyệt Nhật Gia Mệnh, chủ cả đời được phụ mẫu, nam nữ quý nhân, nguồn lực sáng tối hai phía hỗ trợ.",
+      "quotes": [
+        "Nguyệt Nhật Gia Mệnh Cách: Thái Dương Thái Âm tả hữu Mệnh cung tạo Nguyệt Nhật Gia Mệnh, chủ cả đời được phụ mẫu, nam nữ quý nhân, nguồn lực sáng tối hai phía hỗ trợ."
+      ]
+    },
+    "ri_yue_tong_gong": {
+      "name": "Nhật Nguyệt Đồng Cung",
+      "intro": "Nguyệt Nhật Đồng Cung Cách: Thái Dương Thái Âm đồng cung, nguyệt nhật cùng chiếu一处 – cả đời thường cân bằng giữa danh vọng, tình cảm, trách nhiệm gia đình.",
+      "quotes": [
+        "Nguyệt Nhật Đồng Cung Cách: Thái Dương Thái Âm đồng cung, nguyệt nhật cùng chiếu一处 – cả đời thường cân bằng giữa danh vọng, tình cảm, trách nhiệm gia đình."
+      ]
+    },
+    "sha_po_lang": {
+      "name": "Sát Phá Lang",
+      "intro": "Sát Phá Lang Cách: Thất Sát, Phá Quân, Tham Lang hội chiếu Mệnh cung tứ chính, tạo thành Sát Phá Lang Cách – cả đời biến động lớn, tính mở sáng mạnh, phù hợp khởi nghiệp, công nghệ, quân cảnh, ngoại địa phát triển, then chốt dùng hành động để đổi cục diện.",
+      "quotes": [
+        "Sát Phá Lang Cách: Thất Sát, Phá Quân, Tham Lang hội chiếu Mệnh cung tứ chính, tạo thành Sát Phá Lang Cách – cả đời biến động lớn, tính mở sáng mạnh, phù hợp khởi nghiệp, công nghệ, quân cảnh, ngoại địa phát triển, then chốt dùng hành động để đổi cục diện."
+      ]
+    },
+    "yang_tuo_jia_ming": {
+      "name": "Dương Đà Giáp Mệnh",
+      "intro": "Dương Đồ Gia Mệnh (sát cách): Kính Dương Đà La kẹp Mệnh – cách hung điển hình, nhà danh học Hải Hạ nói Dương Đồ Gia Mệnh, hình khổ trốn không khỏi, cả đời nhiều biến động, trắc trở, lục thân duyên mỏng.",
+      "quotes": [
+        "Dương Đồ Gia Mệnh (sát cách): Kính Dương Đà La kẹp Mệnh – cách hung điển hình, nhà danh học Hải Hạ nói Dương Đồ Gia Mệnh, hình khổ trốn không khỏi, cả đời nhiều biến động, trắc trở, lục thân duyên mỏng."
+      ]
+    },
+    "ying_xing_ru_miao": {
+      "name": "Anh Tinh Nhập Miếu",
+      "intro": "Phá Quân nhập miếu vượng, đặc tính cải cách đổi mới toàn khai, hành động và khai sáng đều ở trạng thái tốt nhất, cục diện \"đi khắp thiên hạ\" được phát huy tối đa, anh tinh nhập cung nam mệnh anh vũ hữu uy.",
+      "quotes": [
+        "Phá Quân nhập miếu vượng, đặc tính cải cách đổi mới toàn khai, hành động và khai sáng đều ở trạng thái tốt nhất, cục diện \"đi khắp thiên hạ\" được phát huy tối đa, anh tinh nhập cung nam mệnh anh vũ hữu uy.",
+        "Anh Tinh Nhập Cung (Tử Ngọ cung) thì nam mệnh anh tráng uy vũ, có thể đại thành võ nghiệp.",
+        "英星入庙格：破军子/午宫守命——倪海夏说男人非常英挺，威震边疆，英气逼人，武职或创业可有大成就",
+        "英星入庙格：破军子/午宫守命——倪海夏说女人瘦瘦干干，婚姻都会晚，气质独特，事业强于感情，晚婚为宜"
+      ]
+    },
+    "zi_fu_tong_gong": {
+      "name": "Tử Phủ Đồng Cung",
+      "intro": "紫府同宫格：紫微天府同处丑未宫——南北二帝同坐，福禄双全，一生衣食无忧，地位与财富兼得，是最稳健富贵的命格之一",
+      "quotes": [
+        "紫府同宫格：紫微天府同处丑未宫——南北二帝同坐，福禄双全，一生衣食无忧，地位与财富兼得，是最稳健富贵的命格之一"
+      ]
+    }
+  },
+  "palaces": {
+    "careerPalace": {
+      "name": "Quan Lộc",
+      "intro": "Lộ trình sự nghiệp của bạn lấy \"trí tuệ\" làm lõi, dựa vào năng lực tư duy và sự linh hoạt để tạo giá trị, nơi tỏa sáng nhất không phải tầng thực thi mà là vị trí hoạch định, cố vấn và tư vấn Ngành nghề phù hợp nhất gồm tư vấn, đào tạo, nghiên cứu công nghệ, truyền thông, tâm lý học, phân tích dữ liệu hay bất kỳ lĩnh vực nào cần trí tuệ và ứng biến nhanh Phong cách làm việc bạn thuộc kiểu \"bộ não chỉ huy\", giỏi đưa ra ý tưởng và giải pháp, trong nhóm thường là người góc nhìn sáng tạo, nhưng dẫn dắt thực thi không phải thế mạnh Đại nhân thường đến từ bậc tiền bối, thầy cô hoặc chuyên gia dày dạn kinh nghiệm; duyên đại nhân thường hiện diện qua truyền đạt tri thức và giới thiệu Quan hệ đồng nghiệp bạn giỏi quan sát, xử lý linh hoạt, nhưng đôi khi thay đổi quá nhanh khiến người ta thấy立场 không vững, nên giữ nhất quán ở các vấn đề lớn"
+    },
+    "childrenPalace": {
+      "name": "Tử Tức",
+      "intro": "Mối quan hệ con cái cần cho không gian tự do đầy đủ Hóa Kỵ thì quan hệ con cái nhiều trắc trở, con có thể sớm sống độc lập Rơi vào cung trống thì con cái ít ở bên cha mẹ, hoặc con bị áp lực bên ngoài cản trở phát triển Hóa Kỵ thì bệnh mắt hoặc danh tiếng ảnh hưởng con cái Tính cách con cái hiền hòa nhưng cần khích lệ thêm tinh thần tiến thủ"
+    },
+    "friendsPalace": {
+      "name": "Nô Bộc",
+      "intro": "Đối tác giỏi hoạch định nhưng khó duy trì lâu dài Hóa Lộc thì nhờ nhân mối bạn bè mà sinh tài Hóa Kỵ thì bạn bè biến hóa, cẩn thận bị người khôn kéo lùi hoặc lừa gạt Bạn bè mang nguồn lực công chúng cho sự nghiệp bạn Rơi vào cung trống thì bạn bè giúp sức hạn hẹp, quan hệ hời hợt"
+    },
+    "healthPalace": {
+      "name": "Tật Ách",
+      "intro": "Nữ mệnh Tật Ách cần đưa phụ khoa, kinh nguyệt, mang thai sinh nở thành trục quan sát dài hạn: siêu âm phụ khoa và nội tiết cơ bản hàng năm, ghi chu kỳ kinh, lượng kinh, đau bụng và biến động cảm xúc Giai đoạn chuẩn bị mang thai, thai kỳ, hậu sản đặc biệt cần kết hợp chỉ định bác sĩ, không dùng tử vi thay thế y học hiện đại Cần khám sức khỏe sớm, khi lưu niên Hóa Kỵ nhập cung này đặc biệt đề phòng tai biến phẫu thuật ▸ Kinh tương ứng: Kinh Thận ích âm chân Tạng dễ出问题 nhất là gan và hệ thần kinh; gan chủ thông tiết, suy nghĩ quá nhiều thì khí gan uất kết, kéo theo tiêu hóa và ngủ kém"
+    },
+    "parentsPalace": {
+      "name": "Phụ Mẫu",
+      "intro": "Quan hệ với cha mẹ nhiều biến động, cách giao tiếp linh hoạt Hóa Kỵ thì với cha mẹ, cấp trên dễ sinh mâu thuẫn do vấn đề giao tiếp Trong công sở, quan hệ với cấp trên biến động nhiều, cần linh hoạt ứng phó Quan hệ với cấp trên công khai, tương tác khá trang trọng Đắc庙 thì cha là đại quý nhân"
+    },
+    "propertyPalace": {
+      "name": "Điền Trạch",
+      "intro": "Đầu tư bất động sản cần cẩn trọng, biến động thường xuyên bất lợi cho việc tích lũy nhà cửa Hóa Lộc thì biến động nhà đất vẫn có lợi nhuận Hóa Kỵ thì gia đạo bất ổn, nên giữ ổn định chỗ ở, giảm bớt phiền não không cần thiết Đắc庙 thì gia sản dồi dào, nghiệp tổ phụ rạng rỡ Lạc huyền thì gia đạo bất an, cha và người nhà có mâu thuẫn"
+    },
+    "siblingsPalace": {
+      "name": "Huynh Đệ",
+      "intro": "Hóa Kỵ thì anh em vì chuyện nhỏ sinh oán, hoặc hợp tác vì bất đồng ý kiến mà tan vỡ Trong quan hệ hợp tác, đối tác giỏi bố trí nhưng hay thay đổi, cần phòng đối tác thay đổi mệnh lệnh sáng hôm qua chiều nay Anh em quan hệ công khai minh bạch, ít tính toán暗地里 Lạc huyền thì anh em giúp đỡ có hạn, hoặc anh em bị vướng danh tiếng kéo theo mình Hóa Kỵ thì anh em thị phi nhiều, hợp tác cần phòng tranh chấp công khai"
+    },
+    "soulPalace": {
+      "name": "Mệnh",
+      "intro": "Giá trị格局 thanh quý, phù hợp lĩnh vực pháp lý, hành chính, quản lý, thẩm mỹ và quy tắc Đắc庙旺 thì mọi nơi đều thuận lợi, Lạc huyền thì áp lực nội ngoại đè nặng Phù hợp quân cảnh, tài chính, khởi nghiệp, kỹ thuật công trình, kiêng đầu tư bốc đồng và đối đầu trực tiếp Chủ vận thi cử tốt, học hành thuận lợi Phù hợp văn giáo, nghệ thuật, truyền thông hoặc lĩnh vực cần kỹ năng chuyên môn, dùng tài năng đổi danh lợi là con đường thuận lợi nhất"
+    },
+    "spiritPalace": {
+      "name": "Phúc Đức",
+      "intro": "Hóa Kỵ thì tư duy quá nhiều, nội tâm lo âu khó an tĩnh, cần cố ý rèn luyện khả năng tập trung và lắng đọng Nhập miếu thì tinh thần dồi dào, lạc quan hoạt bát Lạc huyền thì cảm giác thỏa mãn tinh thần không đủ,付出 nhiều mà回报 ít ảnh hưởng đến tâm trạng Hóa Kỵ thì vì danh tiếng mà gây bất an lâu dài trong nội tâm Tính tình lười biếng, tùy hứng được phát huy tối đa tại cung Phúc Đức"
+    },
+    "spousePalace": {
+      "name": "Phu Thê",
+      "intro": "Em trong tình cảm giỏi cảm nhận cảm xúc đối phương, chu đáo tận tình, nhưng tư duy phân tích khiến em đôi khi nghĩ quá nhiều, lo lắng quá nhiều,反而 cản trở dòng chảy tự nhiên của tình cảm Em trung thành trong tình cảm, nhưng tò mò mạnh, dễ bị thu hút bởi nhiều khả năng trong cuộc sống, cần cố ý tập trung vào mối quan hệ hiện tại Nửa kia trong mệnh thông minh linh hoạt, giỏi biến hóa, có thể làm tư vấn, hoạch định, giáo dục, IT hoặc bất kỳ công việc nào cần trí não, tư duy hoạt bát, có nhiều chủ đề chung với em, hai người bên nhau luôn chuyện trò không hết Trong sự nghiệp, nửa kia là cố vấn trí não, có thể đưa ra ý kiến quyết định quan trọng, hoặc mang đến cơ hội mới nhờ mối quan hệ xã hội, là kiểu hỗ trợ实质 phía sau Về tính cách cả hai đều thích suy nghĩ, dễ rơi vào bế tắc 'cùng phân tích nhưng không ai thực thi', cần một bên thực tế hơn, chịu trách nhiệm hiện thực hóa ý tưởng"
+    },
+    "surfacePalace": {
+      "name": "Thiên Di",
+      "intro": "Ngoài đời giỏi ứng biến, nhanh chóng thích nghi môi trường mới Hóa Lộc thì ra ngoài sinh tài, dùng trí tuệ闯荡 Hóa Kỵ thì ra ngoài nhiều trắc trở, đường xa không thuận, cần提前规划 giảm意外 Nhập miếu thì ra ngoài sáng lạn, danh lợi song toàn Lạc huyền thì ra ngoài công không tương xứng, nên đổi môi trường"
+    },
+    "wealthPalace": {
+      "name": "Tài Bạch",
+      "intro": "Tài vận tổng thể có lên có xuống, không phải kiểu kho tàng dày một劳永逸, mà dao động theo cơ hội và phán đoán, cần giữ sự nhạy bén liên tục Chính tài có nền tảng nhất định, từ kỹ năng chuyên môn và dịch vụ tri thức, tài phụ cơ hội nhiều nhưng cần dùng trí tuệ linh hoạt để nắm bắt, không thể dựa vào may mắn Thiên hướng kiếm tiền là biến trí não thành tiền — giảng dạy, tư vấn, hoạch định, viết lách hay bất kỳ thu nhập tri thức nào, đây là con đường tài chính tự nhiên nhất của em Khả năng quản lý tài chính yếu, dễ vì nghĩ quá nhiều mà phân tán vốn vào nhiều hướng, giữ tiền không bằng kiếm tiền,建议 đơn giản hóa danh mục đầu tư Điểm hao tài nằm ở việc冲动 thử quá nhiều điều mới, hoặc vì phán đoán sai mà hao hụt nguồn lực ở một dự án"
+    }
+  },
+  "mutagens": {},
+  "concepts": {}
+}
