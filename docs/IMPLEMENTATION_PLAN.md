@@ -211,12 +211,15 @@ Gate phụ trong Phase 8: ≥1 eval case chạy **non-default mutagen profile** 
 - [x] `docs/SPEC_KLINE.md` — dải K-line vận trình: một glyph/lưu niên trong
   đại hạn, chỉ facts deterministic (tứ hóa theo thứ tự Lộc·Quyền·Khoa·Kỵ,
   cung lưu mệnh, can chi); cố ý không có "điểm vận" scalar.
-- [ ] `GET /api/charts/{id}/temporal/decade?year=` — decade boundary tìm
+- [x] `GET /api/charts/{id}/temporal/decade?year=` — decade boundary tìm
   bằng probe `decadal.index` (không suy từ tuổi mụ); `ageRange` từ
-  `palaces[i].decadal.range` của snapshot.
-- [ ] `KlineStrip` trên Time Navigator — chip tứ hóa theo hóa
+  `palaces[i].decadal.range` của snapshot. Fixes: natal palace label
+  (scope `palaceNames` là layout rebase — luôn "Mệnh"), probe bound
+  y<1583/y>9999, sticky `failed` + stale decade trên FE.
+- [x] `KlineStrip` trên Time Navigator — chip tứ hóa theo hóa
   (Lộc/Quyền/Khoa/Kỵ), cung lưu mệnh, prev/next decade; click → đổi năm.
-- [ ] E2E browser check.
+- [x] E2E browser check — recording + screenshots OK, zero LLM call khi
+  render strip (API log chỉ temporal/decade + temporal + events).
 
 ## DO NOT (đưa vào mọi implementation prompt)
 

@@ -81,9 +81,9 @@ Row ~10 glyph, mỗi glyph = một lưu niên:
 
 ## DoD
 
-- [ ] Endpoint `/temporal/decade` + tests (boundary năm đổi đại hạn, năm
+- [x] Endpoint `/temporal/decade` + tests (boundary năm đổi đại hạn, năm
   trước sinh → 422, compact payload không chứa `stars`).
-- [ ] `KlineStrip` render đúng 10 glyph, màu tứ hóa, click → đổi năm
+- [x] `KlineStrip` render đúng 10 glyph, màu tứ hóa, click → đổi năm
   navigator.
-- [ ] Không LLM call khi render strip; không scalar "điểm vận" nào.
-- [ ] Tests + ruff + mypy + tsc + build xanh; PR + automerge.
+- [x] Không LLM call khi render strip; không scalar "điểm vận" nào.
+- [x] Tests + ruff + mypy + tsc + build xanh; PR + automerge.
