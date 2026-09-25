@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { ChartBoard } from "../../../features/chart/components/ChartBoard";
 import { InterpretPanel } from "../../../features/chart/components/InterpretPanel";
+import { TodayCard } from "../../../features/chart/components/TodayCard";
 import { SaveToProfile } from "../../../features/profiles/components/SaveToProfile";
 import { toChartView } from "../../../features/chart/adapters/dto-to-view";
 import { getChart } from "../../../lib/api";
@@ -29,6 +30,7 @@ export default async function ChartPage({
         </span>
       </div>
       <ChartBoard view={view} />
+      <TodayCard chartId={chart.id} />
       <InterpretPanel chartId={chart.id} />
       <div className="mt-4 flex items-center justify-center gap-4 text-sm">
         <Link

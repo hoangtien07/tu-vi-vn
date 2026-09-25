@@ -5,8 +5,10 @@ import { useCallback, useState } from "react";
 import {
   getTemporal,
   trackEvent,
+  type ChatTarget,
   type TemporalFacts,
 } from "../../../lib/api";
+import { ChatPanel } from "./ChatPanel";
 
 const INPUT =
   "rounded border border-zinc-300 px-2 py-1.5 text-sm dark:border-zinc-700 dark:bg-zinc-900";
@@ -93,6 +95,7 @@ export function TimeNavigator({
     "idle",
   );
   const [error, setError] = useState("");
+  const [showChat, setShowChat] = useState(false);
 
   const loadFacts = useCallback(async () => {
     setLoadingFacts(true);
@@ -173,6 +176,15 @@ export function TimeNavigator({
       setError(ERROR_LABELS.internal);
     }
   }, [chartId, level, year, month, day, topic]);
+
+  const chatTarget: ChatTarget | undefined =
+    level === "yearly"
+      ? { scope: "yearly", year }
+      : level === "monthly"
+        ? { scope: "monthly", year, month }
+        : level === "daily"
+          ? { scope: "daily", year, month, day }
+          : undefined;
 
   const toggleRef = (id: string) =>
     setOpenRefs((s) => {
@@ -308,7 +320,20 @@ export function TimeNavigator({
                 >
                   {state === "streaming" ? "Đang luận…" : "Luận bằng AI"}
                 </button>
+                <button
+                  onClick={() => setShowChat((v) => !v)}
+                  className="rounded border border-zinc-300 px-2.5 py-1 text-xs text-zinc-600 dark:border-zinc-700"
+                >
+                  Hỏi thêm
+                </button>
               </div>
+              {showChat && (
+                <ChatPanel
+                  chartId={chartId}
+                  target={chatTarget}
+                  onClose={() => setShowChat(false)}
+                />
+              )}
             </div>
           )}
         </div>

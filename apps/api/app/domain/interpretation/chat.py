@@ -1,3 +1,4 @@
+import datetime as dt
 from typing import Any
 
 from sqlalchemy import select
@@ -9,7 +10,7 @@ from app.domain.chart.contracts import (
     EngineProfile,
 )
 from app.domain.chart.service import new_id
-from app.domain.context.composer import ContextComposer
+from app.domain.context.composer import ContextComposer, TargetScope
 from app.domain.evidence.builder import EvidenceBuilder
 from app.infrastructure.db.models import (
     ChartSnapshot,
@@ -50,6 +51,8 @@ class ChatService:
         snapshot: ChartSnapshot,
         user_text: str,
         conversation_id: str | None,
+        target_date: dt.date | None = None,
+        target_scope: TargetScope | None = None,
     ) -> dict[str, Any]:
         if self._provider is None:
             raise RuntimeError("llm_unconfigured")
@@ -61,7 +64,8 @@ class ChatService:
             profile,
             CanonicalChartDTO.model_validate(snapshot.chart_json),
             "overview",
-            None,
+            target_date,
+            target_scope=target_scope,
             knowledge=KnowledgeRegistry,
         )
         bundle = EvidenceBuilder().build(context, new_id("ev"))

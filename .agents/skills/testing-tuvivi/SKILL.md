@@ -49,3 +49,13 @@ cd apps/web && pnpm dev --port 3000
 - Compatibility testing needs ≥2 saved profiles (create via chart page "Lưu vào hồ sơ" or `POST /api/profiles`).
 - `reading_reopened` fires twice per page open in dev (React StrictMode double-effect) — prod fires once; expected, not a bug.
 - Time Navigator facts render after clicking "Xem vận trình" (button-driven, not on open).
+
+## v0.3 learnings (auth + today)
+
+- `tv_session` cookie is `Path=/` (required so document/RSC GETs carry it — SSR apiFetch forwards it, giving server-rendered pages the logged-in merge view). Fixed from an earlier `Path=/api` bug that hid user-owned profiles on /profiles; expect `Max-Age=2592000` (30d), HttpOnly, SameSite=lax.
+- `AuthNav` re-checks /api/auth/me on every `usePathname()` change (root layout persists across client nav) → header updates immediately after login/register redirect, no reload needed.
+- GET /api/charts/{id}/today `facts.<scope>` objects expose `index` + `palaceNameKeys[]`/`palaceNames[]` arrays — the hosting palace is `palaceNameKeys[scope.index]` (there is no `palace` key). Highlights are derived via `PALACE_TOPIC_HINT` on the nameKey; on mapped palaces (soul/career/wealth/spouse/health) they render e.g. "Tổng quan — Lưu nhật tại cung Mệnh · tứ hóa lưu nhật: …".
+- `chat_sent` product_event is committed BEFORE the LLM call → it lands in product_events even when chat 503s; assert via sqlite not just HTTP status.
+- DevTools Application→Cookies may show an empty grid for localhost:3000 even when tv_session exists — prove the cookie via Network tab (any /api/* request 200 that requires auth, e.g. /api/auth/me) instead.
+- Auth throttle: POST /api/auth/login is rate-limited 10 attempts/5min/IP → 429; keep wrong-password tests to 1-2 attempts per run.
+- Register/login pages: email + password (min 8) inputs only; 401 → "Email hoặc mật khẩu chưa đúng.", 409 → "Email đã được đăng ký.", success → router.push("/profiles").

@@ -20,6 +20,11 @@ ALLOWED_EVENTS = {
     "compat_started",
     "temporal_opened",
     "reading_reopened",
+    "today_opened",
+    "today_brief",
+    "auth_registered",
+    "auth_login",
+    "chat_sent",
 }
 
 

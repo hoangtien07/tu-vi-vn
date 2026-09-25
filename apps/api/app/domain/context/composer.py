@@ -22,6 +22,7 @@ from app.domain.chart.fortune import year_anchor
 Topic = Literal[
     "overview", "career", "wealth", "love", "health",
     "family", "children", "move", "friends", "home", "spirit", "parents",
+    "today",
 ]
 
 TOPIC_POLICY: dict[Topic, str | None] = {
@@ -37,9 +38,10 @@ TOPIC_POLICY: dict[Topic, str | None] = {
     "home": "propertyPalace",
     "spirit": "spiritPalace",
     "parents": "parentsPalace",
+    "today": None,  # daily brief — compact chart + full temporal stack
 }
 
-V1_TOPICS = {"overview", "career", "wealth", "love", "health"}
+V1_TOPICS = {"overview", "career", "wealth", "love", "health", "today"}
 
 TemporalScope = Literal["decadal", "yearly", "monthly", "daily", "hourly", "age"]
 

@@ -7,14 +7,27 @@ from pydantic import BaseModel, Field
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from app.infrastructure.db.models import ChartSnapshot, Profile
+from app.api.auth import OptionalUser
+from app.infrastructure.db.models import ChartSnapshot, Profile, User
 from app.infrastructure.db.session import get_session
 
 router = APIRouter(prefix="/api/profiles", tags=["profiles"])
 
 ALLOWED_RELATIONSHIPS = {"self", "partner", "mother", "father", "child", "friend", "other"}
 ALLOWED_VISIBILITY = {"private", "shared-link"}
-OWNER_KEY = "local"  # single-tenant; auth in v0.3 swaps this for a user id
+OWNER_KEY = "local"  # anonymous bucket; logged-in profiles get "user:{id}"
+
+
+def _owner_key(user: User | None) -> str:
+    return f"user:{user.id}" if user is not None else OWNER_KEY
+
+
+def _visible_keys(user: User | None) -> list[str]:
+    # I15 — anonymous data stays visible after login (merge view).
+    keys = [OWNER_KEY]
+    if user is not None:
+        keys.append(f"user:{user.id}")
+    return keys
 
 
 class ProfileCreate(BaseModel):
@@ -43,16 +56,22 @@ def _serialize(p: Profile) -> dict[str, object]:
 
 
 @router.get("")
-def list_profiles(session: Session = Depends(get_session)) -> list[dict[str, object]]:
+def list_profiles(
+    user: OptionalUser, session: Session = Depends(get_session)
+) -> list[dict[str, object]]:
     rows = session.scalars(
-        select(Profile).where(Profile.owner_key == OWNER_KEY).order_by(Profile.created_at)
+        select(Profile)
+        .where(Profile.owner_key.in_(_visible_keys(user)))
+        .order_by(Profile.created_at)
     ).all()
     return [_serialize(p) for p in rows]
 
 
 @router.post("", status_code=201)
 def create_profile(
-    body: ProfileCreate, session: Session = Depends(get_session)
+    body: ProfileCreate,
+    user: OptionalUser,
+    session: Session = Depends(get_session),
 ) -> dict[str, object]:
     if session.get(ChartSnapshot, body.chart_id) is None:
         raise HTTPException(status_code=404, detail="chart not found")
@@ -62,7 +81,8 @@ def create_profile(
         raise HTTPException(status_code=422, detail="unknown visibility")
     p = Profile(
         id=f"pf_{uuid4().hex[:16]}",
-        owner_key=OWNER_KEY,
+        owner_key=_owner_key(user),
+        user_id=user.id if user is not None else None,
         display_name=body.display_name,
         relationship=body.relationship,
         chart_snapshot_id=body.chart_id,
@@ -73,25 +93,29 @@ def create_profile(
     return _serialize(p)
 
 
+def _visible_or_404(p: Profile | None, user: User | None) -> Profile:
+    if p is None or p.owner_key not in _visible_keys(user):
+        raise HTTPException(status_code=404, detail="profile not found")
+    return p
+
+
 @router.get("/{profile_id}")
 def get_profile(
-    profile_id: str, session: Session = Depends(get_session)
+    profile_id: str,
+    user: OptionalUser,
+    session: Session = Depends(get_session),
 ) -> dict[str, object]:
-    p = session.get(Profile, profile_id)
-    if p is None or p.owner_key != OWNER_KEY:
-        raise HTTPException(status_code=404, detail="profile not found")
-    return _serialize(p)
+    return _serialize(_visible_or_404(session.get(Profile, profile_id), user))
 
 
 @router.patch("/{profile_id}")
 def update_profile(
     profile_id: str,
     body: ProfileUpdate,
+    user: OptionalUser,
     session: Session = Depends(get_session),
 ) -> dict[str, object]:
-    p = session.get(Profile, profile_id)
-    if p is None or p.owner_key != OWNER_KEY:
-        raise HTTPException(status_code=404, detail="profile not found")
+    p = _visible_or_404(session.get(Profile, profile_id), user)
     if body.display_name is not None:
         p.display_name = body.display_name
     if body.relationship is not None:
@@ -108,10 +132,10 @@ def update_profile(
 
 @router.delete("/{profile_id}", status_code=204)
 def delete_profile(
-    profile_id: str, session: Session = Depends(get_session)
+    profile_id: str,
+    user: OptionalUser,
+    session: Session = Depends(get_session),
 ) -> None:
-    p = session.get(Profile, profile_id)
-    if p is None or p.owner_key != OWNER_KEY:
-        raise HTTPException(status_code=404, detail="profile not found")
+    p = _visible_or_404(session.get(Profile, profile_id), user)
     session.delete(p)
     session.commit()
