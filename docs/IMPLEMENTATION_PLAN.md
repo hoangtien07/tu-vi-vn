@@ -221,6 +221,25 @@ Gate phụ trong Phase 8: ≥1 eval case chạy **non-default mutagen profile** 
 - [x] E2E browser check — recording + screenshots OK, zero LLM call khi
   render strip (API log chỉ temporal/decade + temporal + events).
 
+## v0.5-mining log — dataset mining → vn-mined-v1 (SPEC_V05)
+
+- [x] D1 `eval/mining/mine.py` — 720 gz JSONL / 518,400 samples qua
+  `mp.Pool`; drift filter = re-cast bằng `iztro-default-v1` (drift 0.12%
+  → drop 636; castErrors 2520; 515,244 kept). Attribution: phrase →
+  star/pattern/palace + topic-palace majors; composite
+  palaceStar/mutagenStar parked (schema chưa có chỗ).
+- [x] D2 `eval/mining/pack.py` → `eval/packs/vn-mined-v1.json` —
+  top-5/entity, boilerplate + >50% template-share + near-dup filters;
+  zh→vi qua `AI_BASE_URL` (reasoning off); 58 entries (33 stars /
+  13 patterns / 12 palaces), 243 phrases dịch; curated VN names;
+  `patterns[].quotes` đúng field registry đọc.
+- [x] D3 smoke tournament (reports/20260925-073219) — 3 variants ×
+  4 charts × 5 topics qua swe-2 shim: 60/60 done, 0 grounding fails;
+  không tách được ở coverage này + judge=off.
+- [ ] D4 judged gate I24 (beat builtin AND none, 24 charts + --judge) —
+  **chờ budget** (~360 turns qua worker; subset lớn hơn cũng được nếu
+  cần signal trung gian). Pack giữ candidate, KHÔNG default.
+
 ## DO NOT (đưa vào mọi implementation prompt)
 
 ```text
