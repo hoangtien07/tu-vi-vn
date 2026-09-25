@@ -1,0 +1,380 @@
+{
+  "id": "vn-seed-v1",
+  "version": "1.0.0",
+  "language": "vi-VN",
+  "source": {
+    "url": "https://github.com/SylarLong/iztro",
+    "commit": "packaged",
+    "license": "MIT — nội dung chuyển ngữ/tóm lược từ x-iztro knowledge zh-CN, viết lại bằng tiếng Việt"
+  },
+  "schema": 1,
+  "palaces": {
+    "soulPalace": {
+      "name": "Mệnh",
+      "intro": "Cung Mệnh là nền tảng của lá số: cho biết khí chất, tính cách căn bản và hướng đi chủ đạo của cuộc đời. Mệnh không đại diện cho toàn bộ con người — người ta tiếp xúc ngoài đời thường qua hình ảnh của cung Thiên Di — nhưng mọi phán đoán đều lấy Mệnh làm gốc."
+    },
+    "siblingsPalace": {
+      "name": "Huynh Đệ",
+      "intro": "Cung Huynh Đệ xem anh chị em ruột, bạn bè ngang hàng và đối tác cùng vai vế. Cung đẹp thường có người đồng hành hỗ trợ; cung xấu dễ thiếu hậu viện hoặc va chạm với người ngang hàng."
+    },
+    "spousePalace": {
+      "name": "Phu Thê",
+      "intro": "Cung Phu Thê xem hôn nhân và quan hệ vợ chồng/người phối ngẫu: tính cách bạn đời, số phận hôn nhân, cách hai người tương tác. Cung này bị phá dễ hôn nhân muộn, trục trặc, hoặc phối ngẫu tính khí mạnh."
+    },
+    "childrenPalace": {
+      "name": "Tử Nữ",
+      "intro": "Cung Tử Nữ xem con cái, học trò, sản phẩm sáng tạo và 'quả' của người chủ: số lượng/chất lượng duyên con, sự nghiệp truyền nhân, sản phẩm để lại."
+    },
+    "wealthPalace": {
+      "name": "Tài Bạch",
+      "intro": "Cung Tài Bạch xem tài chính: cách kiếm tiền, khả năng giữ tiền, dòng tiền đi ra vào. Cung đẹp giàu nguồn thu, cung xấu dễ hao tán — cần xem kèm Điền Trạch (tài sản tích lũy) và Quan Lộc (nguồn thu từ sự nghiệp)."
+    },
+    "healthPalace": {
+      "name": "Tật Ách",
+      "intro": "Cung Tật Ách xem sức khỏe, điểm yếu cơ thể và tinh thần: bệnh tật dễ mắc, giai đoạn sức khỏe suy giảm. Sao tại đây chỉ ra vùng cơ thể cần chú ý; đây là tham khảo an sinh, không thay thế chẩn đoán y khoa."
+    },
+    "surfacePalace": {
+      "name": "Thiên Di",
+      "intro": "Cung Thiên Di xem môi trường bên ngoài: đi xa, quý nhân nơi đất khách, hình ảnh công chúng và vận thế khi ra ngoài. Người Thiên Di đẹp thường phát triển khi xa quê, được xã hội đón nhận tốt hơn trong nhà."
+    },
+    "friendsPalace": {
+      "name": "Nô Bộc",
+      "intro": "Cung Nô Bộc xem bạn bè, cấp dưới, trợ thủ và quan hệ xã hội rộng: chất lượng người đi theo mình, dễ được giúp hay bị lụi vì bạn bè."
+    },
+    "careerPalace": {
+      "name": "Quan Lộc",
+      "intro": "Cung Quan Lộc xem sự nghiệp: tính chất công việc hợp, địa vị, cách phát triển trong xã hội. Đây là cung xem việc làm và con đường lập thân lập danh — trọng tâm của phần lớn câu hỏi 'sự nghiệp'."
+    },
+    "propertyPalace": {
+      "name": "Điền Trạch",
+      "intro": "Cung Điền Trạch xem nhà cửa, bất động sản, gia đình gốc và khả năng tích lũy tài sản cố định. Cung đẹp thường có nhà có đất, gia sản ổn; cung xấu khó giữ tài sản lâu dài."
+    },
+    "spiritPalace": {
+      "name": "Phúc Đức",
+      "intro": "Cung Phúc Đức xem đời sống tinh thần: phúc khí hưởng thụ, sở thích nội tâm, mức độ an nhiên. Người Phúc Đức đẹp tâm thái nhẹ, biết hưởng thụ; cung xấu dễ nội tâm bất an dù ngoài đời thành đạt."
+    },
+    "parentsPalace": {
+      "name": "Phụ Mẫu",
+      "intro": "Cung Phụ Mẫu xem cha mẹ, cấp trên, người bảo trợ và gốc gác giáo dục: duyên phận với cha mẹ, sự nâng đỡ từ bề trên, nền tảng ban đầu của đương số."
+    }
+  },
+  "stars": {
+    "ziweiMaj": {
+      "name": "Tử Vi",
+      "category": "major",
+      "intro": "Đế tinh của Bắc Đẩu, chủ tôn quý và quyền lực. Người Mệnh Tử Vi có khí chất lãnh đạo, tự trọng, thích điều phối hơn tự làm. Đẹp nhất khi hội Tả Phù Hữu Bật hoặc Khôi Việt — đế vương cần quần thần; lạc phương không hội trợ dễ quân vương ở xa, cao ngạo mà cô."
+    },
+    "tianjiMaj": {
+      "name": "Thiên Cơ",
+      "category": "major",
+      "intro": "Trí tinh Bắc Đẩu, chủ mưu trí, linh hoạt và biến hóa. Người Thiên Cơ đầu óc nhanh, giỏi phân tích, hợp vai kế hoạch/cố vấn. Nhược điểm: nghĩ nhiều làm ít, biến động; cần đất ổn để mưu trí thành quả."
+    },
+    "taiyangMaj": {
+      "name": "Thái Dương",
+      "category": "major",
+      "intro": "Quý tinh Trung Thiên, chủ quang minh, nhiệt huyết, quý nhân phái nam. Người Thái Dương rộng lượng, thích phát sáng giúp người. Mạnh nhất ban ngày (đặc biệt tại Mão–Ngọ); lạc địa ban đêm giảm quang, vất vả hơn."
+    },
+    "wuquMaj": {
+      "name": "Vũ Khúc",
+      "category": "major",
+      "intro": "Tài tinh Bắc Đẩu, chủ tài chính, thực tế và quyết đoán. Người Vũ Khúc nghiêm túc, giỏi quản trị tiền bạc và kỹ thuật, làm hơn nói. Nhược điểm: cứng nhắc, thiếu nhu; gặp Hóa Lộc/Lộc Tồn phát tài đậm."
+    },
+    "tiantongMaj": {
+      "name": "Thiên Đồng",
+      "category": "major",
+      "intro": "Phúc tinh Nam Đẩu, chủ an hưởng, hiền hòa và hạnh phúc tâm hồn. Người Thiên Đồng hiền lành, biết hưởng thụ, ít tranh đoạt. Đẹp thì êm ả hưởng phúc; nhược điểm là thiếu ý chí chiến đấu, cần bị thúc đẩy."
+    },
+    "lianzhenMaj": {
+      "name": "Liêm Trinh",
+      "category": "major",
+      "intro": "Quyền tinh kiêm đào hoa tinh Bắc Đẩu — vừa chủ quyền lực chính trị, vừa chủ tình cảm sâu sắc. Người Liêm Trinh khéo léo, có tổ chức, mạnh trong lĩnh vực quản trị. Mặt tối: tình-cảm-quyền-lực đan xen dễ phiền não; cần ranh giới rõ."
+    },
+    "tianfuMaj": {
+      "name": "Thiên Phủ",
+      "category": "major",
+      "intro": "Kho tinh Nam Đẩu, chủ kho tàng, ổn định và giữ gìn. Người Thiên Phủ trầm ổn, thận trọng, giỏi tích lũy và bảo tồn. Là sao 'giữ' chứ không phải sao 'mở' — đẹp khi có đội hình phát bên ngoài, khô khan khi trơ trọi một mình."
+    },
+    "taiyinMaj": {
+      "name": "Thái Âm",
+      "category": "major",
+      "intro": "Nhu tinh Trung Thiên, chủ tài sản, điền sản và nhân duyên phái nữ (mẹ, vợ, con gái). Người Thái Âm tinh tế, giàu cảm xúc, giỏi giữ của. Mạnh nhất ban đêm (đặc biệt tại Dậu–Hợi); lạc địa ban ngày mờ, tài cảm xúc dễ vướng."
+    },
+    "tanlangMaj": {
+      "name": "Tham Lang",
+      "category": "major",
+      "intro": "Đào hoa tinh Bắc Đẩu, chủ dục vọng, đa tài và biến hóa. Người Tham Lang đa năng, thích nghi nhanh, giỏi giao tế và gợi mở cơ hội. Hai mặt: học rộng dễ không chuyên sâu, dục vọng mạnh cần chuyển hóa thành tham vọng có chủ đích."
+    },
+    "jumenMaj": {
+      "name": "Cự Môn",
+      "category": "major",
+      "intro": "Khẩu tinh Bắc Đẩu, chủ lời nói, phân tích và 'cánh cửa tối'. Người Cự Môn giỏi diễn đạt, nghiên cứu, phá án — nhưng miệng lưỡi dễ gây thị phi. Đẹp khi hóa Quyền/Lộc (lời nói có trọng lượng); xấu dễ chu du thị phi."
+    },
+    "tianxiangMaj": {
+      "name": "Thiên Tướng",
+      "category": "major",
+      "intro": "Ấn tinh Nam Đẩu, chủ ấn tín, tỉ mỉ và giúp đỡ. Người Thiên Tướng trung thực, chu đáo, hợp vai 'tể tướng' phụ tá — cầm ấn giữ việc hơn tự xưng vương. Vận tốt khi đi theo thế lực đúng, dễ bị ảnh hưởng bởi môi trường xung quanh."
+    },
+    "tianliangMaj": {
+      "name": "Thiên Lương",
+      "category": "major",
+      "intro": "Âm tinh Nam Đẩu, chủ che chở, giải hạn và trưởng thượng. Người Thiên Lương có đức bao dung, thường được người lớn/bề trên giúp, hợp y dược, giáo dục, luật. Tính 'đón hạn' — hay gặp nguy hiểm nhưng được cứu; hóa kỵ cần cẩn trọng chữ danh tiếng."
+    },
+    "qishaMaj": {
+      "name": "Thất Sát",
+      "category": "major",
+      "intro": "Tướng tinh Bắc Đẩu, chủ đột phá, độc lập và nguy hiểm. Người Thất Sát quyết đoán, dám phá vỡ, hợp quân đội, phẫu thuật, lĩnh vực cạnh tranh cao. Cô độc bẩm sinh — một mình đương đầu; cần có địch thủ/mục tiêu thì hung mới thành tướng."
+    },
+    "pojunMaj": {
+      "name": "Phá Quân",
+      "category": "major",
+      "intro": "Phá tinh Bắc Đẩu, chủ phá vỡ để xây lại — hao tổn trước, thành sau. Người Phá Quân không hợp ổn định bảo thủ, mạnh trong đổi mới, nghề biến động, khởi nghiệp. Gặp hóa Lộc/Quyền thì 'phá' thành khai sáng; không gặp dễ tốn của mà không được việc."
+    },
+    "zuofuMin": {
+      "name": "Tả Phù",
+      "category": "minor",
+      "intro": "Trợ tinh quý, chủ sự giúp đỡ trực tiếp — như cánh tay trái của chủ nhân. Cùng Hữu Bật là đôi 'phụ tá' mạnh nhất: sao chính gặp Tả Hữu tăng lực rõ rệt, đặc biệt Tử Vi, Liêm Trinh."
+    },
+    "youbiMin": {
+      "name": "Hữu Bật",
+      "category": "minor",
+      "intro": "Trợ tinh quý đôi với Tả Phù, chủ quý nhân phù trợ và tài ngoại giao. Cặp Tả Hữu đẹp nhất khi đồng cung hoặc giáp cung quanh sao chính — tăng quyền lực và nhân duyên."
+    },
+    "wenchangMin": {
+      "name": "Văn Xương",
+      "category": "minor",
+      "intro": "Khoa tinh, chủ văn học, thi cử, nghệ thuật tinh thần. Người Văn Xương sáng dạ văn chương, giỏi viết và nghi lễ. Hóa Kỵ thì văn chương hại mình — cẩn trọng giấy tờ hợp đồng."
+    },
+    "wenquMin": {
+      "name": "Văn Khúc",
+      "category": "minor",
+      "intro": "Khoa tinh đôi với Văn Xương, chủ tài nghệ, khéo léo và khả năng diễn đạt. Văn Khúc thiên về tài ứng biến, nghệ thuật, diễn thuyết — khác Văn Xương thiên học vấn chính thống."
+    },
+    "tiankuiMin": {
+      "name": "Thiên Khôi",
+      "category": "minor",
+      "intro": "Quý nhân tinh 'dương', chủ sự nâng đỡ từ bề trên/người lớn tuổi, thường là nam giới. Gặp Khôi Việt là cặp quý nhân rõ nhất — đường quan lộc thuận, khi khó thường có người cứu."
+    },
+    "tianyueMin": {
+      "name": "Thiên Việt",
+      "category": "minor",
+      "intro": "Quý nhân tinh 'âm' đôi với Thiên Khôi, chủ sự giúp đỡ ngầm, thường từ nữ giới hoặc phía sau màn. Khôi Việt hội thì quý nhân đủ cả hai mặt sáng-tối."
+    },
+    "lucunMin": {
+      "name": "Lộc Tồn",
+      "category": "minor",
+      "intro": "Tài tinh, chủ lộc ăn, tiền bạc tích lũy chắc chắn — 'lộc có sẵn'. Người có Lộc Tồn vào Mệnh/Tài thường có nguồn tài chính ổn. Lộc Tồn luôn bị Kình Đà giáp hai bên — của cải kèm sát khí bảo vệ, dễ bèo lắm cậy."
+    },
+    "tianmaMin": {
+      "name": "Thiên Mã",
+      "category": "minor",
+      "intro": "Mã tinh, chủ di chuyển, biến động, phi mã. Người Thiên Mã thích đi lại, năng động; hợp nghề động. Đẹp nhất khi đồng cung Lộc Tồn — 'lộc mã giao trì', tiền theo chân đi xa."
+    },
+    "huoxingMin": {
+      "name": "Hỏa Tinh",
+      "category": "minor",
+      "intro": "Sát tinh thứ nhất của Lục Sát, chủ nóng nảy, biến động đột ngột, tính bạo phát. Hỏa Tinh vào mệnh người nóng tính, hành động nhanh; dễ có biến cố bất ngờ — cần cung có sao chính đủ lực chế sát."
+    },
+    "lingxingMin": {
+      "name": "Linh Tinh",
+      "category": "minor",
+      "intro": "Sát tinh thứ hai của Lục Sát, chủ phiền muộn kéo dài, tính hay nghi ngờ, xung đột ngầm. Khác Hỏa Tinh (bùng nổ), Linh Tinh là lửa âm ỉ — phiền nhiễu lâu, thương tổn nội tâm."
+    },
+    "dikongMin": {
+      "name": "Địa Không",
+      "category": "minor",
+      "intro": "Không tinh Lục Sát, chủ sự 'không' — hao tán tinh thần và vật chất, tư duy vượt khuôn khổ. Địa Không vào Tài dễ hao tài; vào Mệnh người có triết lý kỳ lạ, siêu thực — hợp nghệ thuật, tôn giáo, sáng tạo."
+    },
+    "dijieMin": {
+      "name": "Địa Kiếp",
+      "category": "minor",
+      "intro": "Kiếp tinh Lục Sát, chủ hao tán đột ngột, cướp đoạt, kẹt tiền. Địa Kiếp thiên mất của cải hơn Địa Không (thiên mất tinh thần); cả hai hợp thành 'không kiếp' — hao tán tài lộc, tránh đầu tư liều."
+    },
+    "qingyangMin": {
+      "name": "Kình Dương",
+      "category": "minor",
+      "intro": "Sát tinh Lục Sát, chủ đao kiếm, xung đột trực tiếp, tính cứng cựa cạnh tranh. Kình Dương vào Mệnh người mạnh mẽ dễ thương tổn; hợp quân đội, phẫu thuật, thể thao đối kháng — cần biến hung thành sức chiến đấu."
+    },
+    "tuoluoMin": {
+      "name": "Đà La",
+      "category": "minor",
+      "intro": "Sát tinh Lục Sát, chủ kéo dài, trì trệ, tai họa ngầm — 'vòng xoay' khó thoát. Khác Kình Dương (đòn trực tiếp), Đà La là dây dưa: quan hệ, kiện tụng, bệnh tật kéo dài."
+    },
+    "tuankhiTinh": {
+      "name": "Đoàn Khí Tinh",
+      "category": "minor",
+      "intro": "Sát khí tinh trong nhóm phụ tinh, chủ cục diện đoạn tuyệt, trận hình bị cắt. Ít được bàn sâu trong phổ thông — xem thêm nguồn chuyên môn khi sao này lạm vào tam phương."
+    },
+    "songTao": {
+      "name": "Tang Môn",
+      "category": "minor",
+      "intro": "Tang tinh, chủ tang sự, khóc than, điều buồn trong gia đình. Tang Môn vào cung người thân cần lưu ý sức khỏe, tang chế trong hạn năm đó."
+    },
+    "bachhoMin": {
+      "name": "Bạch Hổ",
+      "category": "minor",
+      "intro": "Sát tinh nhóm hung, chủ huyết quang, tai nạn, tang sự và thị phi nặng. Bạch Hổ vào cung nào thì cung đó trong năm dễ gặp sự kiện sắc sảo — đi lại cẩn thận, tránh khẩu thiệt."
+    }
+  },
+  "patterns": {
+    "sha_po_lang": {
+      "name": "Sát Phá Lang",
+      "intro": "Cục nổi tiếng nhất Tử Vi: Thất Sát, Phá Quân, Tham Lang luôn hội nhau trong tam phương — chỉ cần một sao vào Mệnh là thành cục. Chủ biến động mạnh, không hợp đời sống bảo thủ; hợp nghề đột phá, xuất ngoại, biến hóa. Tỷ lệ gặp rất cao nên đừng quá lo 'sát phá lang cô độc' — quan trọng là sát khí được dùng hay bị sát khí dùng.",
+      "quotes": [
+        "Cục nổi tiếng nhất Tử Vi: Thất Sát, Phá Quân, Tham Lang luôn hội nhau trong tam phương — chỉ cần một sao vào Mệnh là thành cục. Chủ biến động mạnh, không hợp đời sống bảo thủ; hợp nghề đột phá, xuất ngoại, biến hóa. Tỷ lệ gặp rất cao nên đừng quá lo 'sát phá lang cô độc' — quan trọng là sát khí được dùng hay bị sát khí dùng."
+      ]
+    },
+    "zi_fu_tong_gong": {
+      "name": "Tử Phủ Đồng Cung",
+      "intro": "Tử Vi và Thiên Phủ đồng cung tại Dần hoặc Thân — đế tinh gặp kho tinh, cục quý của người có quyền có tài. Đẹp thì vững vàng quyền lực; nhược điểm là quá ổn định đôi khi khó đột phá.",
+      "quotes": [
+        "Tử Vi và Thiên Phủ đồng cung tại Dần hoặc Thân — đế tinh gặp kho tinh, cục quý của người có quyền có tài. Đẹp thì vững vàng quyền lực; nhược điểm là quá ổn định đôi khi khó đột phá."
+      ]
+    },
+    "ri_yue_bing_ming": {
+      "name": "Nhật Nguyệt Bình Minh",
+      "intro": "Thái Dương và Thái Âm cùng sáng địa chiếu Mệnh (thường Thái Dương tại Mão, Thái Âm tại Hợi/Thìn). Nhật nguyệt đồng sáng — chủ quý khí đủ hai nguồn âm dương, dễ được cả nam lẫn nữ quý nhân phù trợ.",
+      "quotes": [
+        "Thái Dương và Thái Âm cùng sáng địa chiếu Mệnh (thường Thái Dương tại Mão, Thái Âm tại Hợi/Thìn). Nhật nguyệt đồng sáng — chủ quý khí đủ hai nguồn âm dương, dễ được cả nam lẫn nữ quý nhân phù trợ."
+      ]
+    },
+    "jin_yu_fu_jia": {
+      "name": "Kim Dữ Phúc Gia",
+      "intro": "Cục phú quý khi Tử Vi/Thiên Phủ ngự Mệnh được Tả Hữu, Khôi Việt, Xương Khúc hội chiếu đủ đội. Chủ phúc lộc dồi dào, con cháu hương hỏa — đòi hội đủ phụ tinh mới thành.",
+      "quotes": [
+        "Cục phú quý khi Tử Vi/Thiên Phủ ngự Mệnh được Tả Hữu, Khôi Việt, Xương Khúc hội chiếu đủ đội. Chủ phúc lộc dồi dào, con cháu hương hỏa — đòi hội đủ phụ tinh mới thành."
+      ]
+    },
+    "zuo_gui_xiang_gui": {
+      "name": "Tọa Quý Hướng Quý",
+      "intro": "Mệnh ngồi vào cung có Thiên Khôi hoặc Thiên Việt, lại được quý tinh còn lại chiếu về — tọa quý hướng quý, chủ đường đời nhiều quý nhân nâng đỡ, dễ được bề trên cất nhắc.",
+      "quotes": [
+        "Mệnh ngồi vào cung có Thiên Khôi hoặc Thiên Việt, lại được quý tinh còn lại chiếu về — tọa quý hướng quý, chủ đường đời nhiều quý nhân nâng đỡ, dễ được bề trên cất nhắc."
+      ]
+    },
+    "yang_liang_chang_lu": {
+      "name": "Dương Lương Xương Lộc",
+      "intro": "Thái Dương + Thiên Lương + Văn Xương (+ Lộc) hội tại Mão — cục văn võ song toàn của người có học có quyền. Chủ thanh danh qua học vấn và chức trách; người thuộc cục này thường thành danh trên ghế trường/văn đàn.",
+      "quotes": [
+        "Thái Dương + Thiên Lương + Văn Xương (+ Lộc) hội tại Mão — cục văn võ song toàn của người có học có quyền. Chủ thanh danh qua học vấn và chức trách; người thuộc cục này thường thành danh trên ghế trường/văn đàn."
+      ]
+    },
+    "fu_xiang_chao_nguyen": {
+      "name": "Phủ Tướng Triều Viên",
+      "intro": "Thiên Phủ và Thiên Tướng từ hai cung tam phương chiếu vào Mệnh — 'phủ tướng triều viên', chủ lộc ấn song toàn. Cục rất đẹp cho quan lộc và tài vận; người thuộc cục thường có vị trí trong tổ chức, được phó ấn cầm quyền.",
+      "quotes": [
+        "Thiên Phủ và Thiên Tướng từ hai cung tam phương chiếu vào Mệnh — 'phủ tướng triều viên', chủ lộc ấn song toàn. Cục rất đẹp cho quan lộc và tài vận; người thuộc cục thường có vị trí trong tổ chức, được phó ấn cầm quyền."
+      ]
+    },
+    "sheng_bu_feng_shi": {
+      "name": "Sinh Bất Phùng Thời",
+      "intro": "Cục Mệnh mang sao đẹp nhưng gặp lục sát hoặc hóa kỵ phá nặng — 'sinh không đúng thời'. Chủ tài năng bị vùi, phải chờ đại hạn tốt mới phát; người thuộc cục cần kiên nhẫn dài hạn.",
+      "quotes": [
+        "Cục Mệnh mang sao đẹp nhưng gặp lục sát hoặc hóa kỵ phá nặng — 'sinh không đúng thời'. Chủ tài năng bị vùi, phải chờ đại hạn tốt mới phát; người thuộc cục cần kiên nhẫn dài hạn."
+      ]
+    },
+    "qi_sha_chao_dou": {
+      "name": "Thất Sát Triều Đấu",
+      "intro": "Thất Sát tọa Mệnh tại Ngọ/Dần/Tuất với Tử Vi từ tam phương chiếu về — 'sát triều đấu', tướng tinh được đế tinh quy phục. Chủ uy quyền quân sự/lãnh đạo quyết đoán, dễ thành đại tướng hoặc chủ lĩnh lớn.",
+      "quotes": [
+        "Thất Sát tọa Mệnh tại Ngọ/Dần/Tuất với Tử Vi từ tam phương chiếu về — 'sát triều đấu', tướng tinh được đế tinh quy phục. Chủ uy quyền quân sự/lãnh đạo quyết đoán, dễ thành đại tướng hoặc chủ lĩnh lớn."
+      ]
+    },
+    "ju_ri_tong_gong": {
+      "name": "Cự Nhật Đồng Cung",
+      "intro": "Cự Môn + Thái Dương đồng cung (đẹp nhất tại Dần, Thân) — cục 'quan phong tam đại' chủ khẩu thiệt có quang, lời nói có trọng lượng. Người thuộc cục giỏi diễn thuyết, ngoại giao, luật; đẹp hơn khi hóa Quyền.",
+      "quotes": [
+        "Cự Môn + Thái Dương đồng cung (đẹp nhất tại Dần, Thân) — cục 'quan phong tam đại' chủ khẩu thiệt có quang, lời nói có trọng lượng. Người thuộc cục giỏi diễn thuyết, ngoại giao, luật; đẹp hơn khi hóa Quyền."
+      ]
+    },
+    "chang_qu_jia_ming": {
+      "name": "Xương Khúc Giáp Mệnh",
+      "intro": "Văn Xương và Văn Khúc giáp hai bên cung Mệnh — cục văn khoa, chủ tài năng học thuật và nghệ thuật được nuôi từ hai phía. Người thuộc cục dễ nổi tiếng vì chữ nghĩa; hợp nghiên cứu, sáng tác, giáo dục.",
+      "quotes": [
+        "Văn Xương và Văn Khúc giáp hai bên cung Mệnh — cục văn khoa, chủ tài năng học thuật và nghệ thuật được nuôi từ hai phía. Người thuộc cục dễ nổi tiếng vì chữ nghĩa; hợp nghiên cứu, sáng tác, giáo dục."
+      ]
+    },
+    "dan_chi_gui_chi": {
+      "name": "Đan Trì Quế Trì",
+      "intro": "Thái Dương + Văn Xương (đan trì) cùng Thái Âm + Văn Khúc (quế trì) chiếu hợp Mệnh — cục văn nhân danh gia, chủ thi cử khoa danh, chữ nghĩa đổi đời.",
+      "quotes": [
+        "Thái Dương + Văn Xương (đan trì) cùng Thái Âm + Văn Khúc (quế trì) chiếu hợp Mệnh — cục văn nhân danh gia, chủ thi cử khoa danh, chữ nghĩa đổi đời."
+      ]
+    },
+    "yue_sheng_cang_hai": {
+      "name": "Nguyệt Thăng Thương Hải",
+      "intro": "Thái Âm + Thiên Đồng đồng cung tại Tý — 'trăng lên giữa biển xanh'. Chủ nhan sắc, tài tình, số phú quý của nữ giới đặc biệt; nam mệnh thuộc cục cũng nhu hòa được duyên nữ giúp.",
+      "quotes": [
+        "Thái Âm + Thiên Đồng đồng cung tại Tý — 'trăng lên giữa biển xanh'. Chủ nhan sắc, tài tình, số phú quý của nữ giới đặc biệt; nam mệnh thuộc cục cũng nhu hòa được duyên nữ giúp."
+      ]
+    },
+    "wen_gui_wen_hoa": {
+      "name": "Văn Quế Văn Hoa",
+      "intro": "Mệnh/Quan được Văn Xương Văn Khúc hội đủ — cục văn nhân chính thống, chủ học vấn và danh tiếng qua chữ nghĩa. Đẹp nhất cho đường thi cử, xuất bản, học thuật.",
+      "quotes": [
+        "Mệnh/Quan được Văn Xương Văn Khúc hội đủ — cục văn nhân chính thống, chủ học vấn và danh tiếng qua chữ nghĩa. Đẹp nhất cho đường thi cử, xuất bản, học thuật."
+      ]
+    },
+    "ma_tou_dai_jian": {
+      "name": "Mã Đầu Đới Kiếm",
+      "intro": "Thiên Mã đồng cung Kình Dương hoặc Đà La tại Tỵ/Hợi — 'mã đầu đeo kiếm', chủ vất vả bôn ba, đi xa gặp nguy. Cục này hợp quân nhân, nghề động; kém thì lao đao tổn thương nơi đất khách.",
+      "quotes": [
+        "Thiên Mã đồng cung Kình Dương hoặc Đà La tại Tỵ/Hợi — 'mã đầu đeo kiếm', chủ vất vả bôn ba, đi xa gặp nguy. Cục này hợp quân nhân, nghề động; kém thì lao đao tổn thương nơi đất khách."
+      ]
+    },
+    "jia_di_deng_yong": {
+      "name": "Giáp Đệ Đăng Dung",
+      "intro": "Cục cũ xem khoa cử: Mệnh hội Xương Khúc Khôi Việt đủ đội — thời nay đọc là người có năng lực học thuật, thi cử và bằng cấp được thừa nhận.",
+      "quotes": [
+        "Cục cũ xem khoa cử: Mệnh hội Xương Khúc Khôi Việt đủ đội — thời nay đọc là người có năng lực học thuật, thi cử và bằng cấp được thừa nhận."
+      ]
+    },
+    "san_qi_jia_hui": {
+      "name": "Tam Kỳ Gia Hội",
+      "intro": "Mệnh hội đủ Hóa Lộc + Hóa Quyền + Hóa Khoa từ tam phương (hoặc 2/3) — 'tam kỳ gia hội', cục phát đồng thời tiền-quyền-danh. Rất hiếm và rất đẹp; tùy sao được hóa mà chọn hướng phát.",
+      "quotes": [
+        "Mệnh hội đủ Hóa Lộc + Hóa Quyền + Hóa Khoa từ tam phương (hoặc 2/3) — 'tam kỳ gia hội', cục phát đồng thời tiền-quyền-danh. Rất hiếm và rất đẹp; tùy sao được hóa mà chọn hướng phát."
+      ]
+    },
+    "xiong_su_chao_yuan": {
+      "name": "Hung Tú Triều Viên",
+      "intro": "Nhóm sát tinh (Kình, Đà, Hỏa, Linh, Không, Kiếp) hội nhiều vào tam phương Mệnh — cục hung tụ, chủ đời nhiều thử thách sát khí. Ngược lại với phủ tướng triều viên; cần xem sao chính có đủ lực 'chế hung thành dụng' không.",
+      "quotes": [
+        "Nhóm sát tinh (Kình, Đà, Hỏa, Linh, Không, Kiếp) hội nhiều vào tam phương Mệnh — cục hung tụ, chủ đời nhiều thử thách sát khí. Ngược lại với phủ tướng triều viên; cần xem sao chính có đủ lực 'chế hung thành dụng' không."
+      ]
+    },
+    "ming_lu_an_lu": {
+      "name": "Minh Lộc Ám Lộc",
+      "intro": "Lộc Tồn tại Mệnh (minh lộc) được Hóa Lộc của năm khác tam hợp chiếu (ám lộc) — lộc kép. Chủ nguồn tài chính song trùng, ít ai biết đường thu thật; đẹp cho tài vận.",
+      "quotes": [
+        "Lộc Tồn tại Mệnh (minh lộc) được Hóa Lộc của năm khác tam hợp chiếu (ám lộc) — lộc kép. Chủ nguồn tài chính song trùng, ít ai biết đường thu thật; đẹp cho tài vận."
+      ]
+    },
+    "yang_tuo_jia_ming": {
+      "name": "Kình Đà Giáp Mệnh",
+      "intro": "Kình Dương và Đà La giáp hai bên cung Mệnh — 'sát giáp mệnh', chủ cuộc đời bị hai đầu sát khí kẹp. Người thuộc cục thường cứng cáp qua giông bão nhưng dễ bị công kích/chèn ép hai phía; cần sao Mệnh đủ sáng.",
+      "quotes": [
+        "Kình Dương và Đà La giáp hai bên cung Mệnh — 'sát giáp mệnh', chủ cuộc đời bị hai đầu sát khí kẹp. Người thuộc cục thường cứng cáp qua giông bão nhưng dễ bị công kích/chèn ép hai phía; cần sao Mệnh đủ sáng."
+      ]
+    }
+  },
+  "mutagens": {
+    "sihuaLu": {
+      "name": "Hóa Lộc",
+      "intro": "Hóa tinh chủ lộc ăn, tiền tài, cơ hội và điều dễ chịu. Sao được Hóa Lộc phát huy mặt 'thuận': nơi Hóa Lộc đi vào là nơi có lộc, có nhân duyên tốt, có thuận lợi vật chất."
+    },
+    "sihuaQuan": {
+      "name": "Hóa Quyền",
+      "intro": "Hóa tinh chủ quyền lực, năng lực, sự nắm giữ và cạnh tranh thắng. Sao được Hóa Quyền mạnh hẳn lên nhưng cũng cứng hơn — nơi Hóa Quyền đi vào là nơi phải tranh, phải cầm quyền, không thể dựa dẫm."
+    },
+    "sihuaKe": {
+      "name": "Hóa Khoa",
+      "intro": "Hóa tinh chủ khoa danh, thanh danh, sự êm đẹp và giải cứu. Sao được Hóa Khoa hiền đi, nổi tiếng tốt; nơi Hóa Khoa đi vào là nơi dễ được cứu vớt, danh tiếng sáng."
+    },
+    "sihuaJi": {
+      "name": "Hóa Kỵ",
+      "intro": "Hóa tinh chủ vướng mắc, quan tâm quá mức, thua thiệt và 'điểm tắc'. Sao bị Hóa Kỵ phát huy mặt tối; cung có Hóa Kỵ là nơi đương số bận tâm nhất — không phải 'xấu' tuyệt đối mà là chỗ dễ mất/tắc cần chủ động hóa giải."
+    }
+  },
+  "concepts": {},
+  "extends": null
+}
