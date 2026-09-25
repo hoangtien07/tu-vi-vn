@@ -59,3 +59,12 @@ cd apps/web && pnpm dev --port 3000
 - DevTools Application→Cookies may show an empty grid for localhost:3000 even when tv_session exists — prove the cookie via Network tab (any /api/* request 200 that requires auth, e.g. /api/auth/me) instead.
 - Auth throttle: POST /api/auth/login is rate-limited 10 attempts/5min/IP → 429; keep wrong-password tests to 1-2 attempts per run.
 - Register/login pages: email + password (min 8) inputs only; 401 → "Email hoặc mật khẩu chưa đúng.", 409 → "Email đã được đăng ký.", success → router.push("/profiles").
+
+## K-line strip (Time Navigator, main ≥ f2776e1)
+
+- `/chart/{id}/time` renders `KlineStrip` below controls whenever level ≠ "Đại hạn" — fetches `GET /api/charts/{id}/temporal/decade?year=<selectedYear>` on mount (no "Xem vận trình" needed). Decade buttons have aria-labels "Đại hạn trước"/"Đại hạn sau" shifting ±10y.
+- Glyph = button `title="{year} · {stem} {branch} · {palaceName}"`; each chip has `title="{Lộc|Quyền|Khoa|Kỵ} — {star}"`. Chip tooltips are 16px targets — hover precisely or you'll get the glyph's title instead.
+- Glyph click → `onSelectYear` updates the navigator's year select + clears facts; amber border marks selection, emerald dot marks current year.
+- Known caveat (spec mismatch under review): `palaceName` on every glyph and the đại hạn header resolves to "Mệnh" because `_scope_brief` reads the REBASED temporal palace layout (the position hosting that scope's Mệnh is always named "Mệnh"). SPEC_KLINE's example shows varying natal palace names per glyph — when verifying, compare glyph labels against natal palace names, not just presence.
+- The strip is deterministic — API log should show only `GET …/temporal/decade` + `GET …/temporal`; any interpret/chat call on render is a defect.
+- Footer link clicks on the chart page are finicky — prefer direct URL nav to `/chart/{id}/time`.
