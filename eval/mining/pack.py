@@ -26,6 +26,7 @@ import re
 import sys
 import urllib.request
 from pathlib import Path
+from typing import cast
 
 REPO = Path(__file__).resolve().parents[2]
 DEFAULT_CANDIDATES = REPO / "eval" / "mining" / "out" / "candidates.jsonl"
@@ -121,7 +122,7 @@ def _chat(messages: list[dict], max_tokens: int = 4000) -> str:
     )
     with urllib.request.urlopen(req, timeout=300) as resp:
         data = json.loads(resp.read())
-    return data["choices"][0]["message"]["content"]
+    return cast(str, data["choices"][0]["message"]["content"])
 
 
 TRANSLATE_SYS = (
@@ -142,7 +143,7 @@ TRANSLATE_SYS = (
 def translate_batch(texts: list[str]) -> list[str]:
     """Translate a batch of zh phrases -> vi. Retries once on JSON parse."""
     user = json.dumps(texts, ensure_ascii=False)
-    for attempt in range(2):
+    for _ in range(2):
         out = _chat(
             [
                 {"role": "system", "content": TRANSLATE_SYS},
@@ -153,7 +154,7 @@ def translate_batch(texts: list[str]) -> list[str]:
         try:
             arr = json.loads(out[out.index("[") : out.rindex("]") + 1])
             if len(arr) == len(texts) and all(isinstance(x, str) for x in arr):
-                return arr
+                return cast(list[str], arr)
         except (ValueError, json.JSONDecodeError):
             pass
     raise RuntimeError(f"translation JSON mismatch ({len(texts)} items)")
@@ -170,9 +171,9 @@ def main() -> int:
     args = ap.parse_args()
 
     rows = [
-        json.loads(l)
-        for l in args.candidates.open(encoding="utf-8")
-        if l.strip()
+        json.loads(line)
+        for line in args.candidates.open(encoding="utf-8")
+        if line.strip()
     ]
 
     # star categories come from the builtin zh pack (schema truth)
@@ -243,7 +244,7 @@ def main() -> int:
     }
     vi_name = {**PALACE_VI_NAME, **PATTERN_VI_NAME, **STAR_VI_NAME}
 
-    coverage = collections.Counter()
+    coverage: collections.Counter = collections.Counter()
     selected: list[dict] = []  # flat list for batched translation
     for r in rows:
         etype = r["entityType"]
@@ -323,8 +324,10 @@ def main() -> int:
         f"# v0.5 mining coverage — {args.candidates.name}",
         "",
         f"- entities emitted: {dict(coverage)}",
-        f"- pack entries: "
-        + ", ".join(f"{k}={len(v)}" for k, v in pack.items() if isinstance(v, dict)),
+        "- pack entries: "
+        + ", ".join(
+            f"{k}={len(v)}" for k, v in pack.items() if isinstance(v, dict)
+        ),
         f"- translated: {sum(1 for p in selected if p['vi'])}/{len(selected)}",
         "",
         "Parked (composite) entities stay in candidates.jsonl for a later "

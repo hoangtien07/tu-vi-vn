@@ -36,6 +36,12 @@ import sys
 import time
 from pathlib import Path
 from types import SimpleNamespace
+from typing import TYPE_CHECKING, Any, cast
+
+if TYPE_CHECKING:
+    from app.domain.birth.contracts import NormalizedBirthMoment
+    from app.domain.chart.contracts import EngineProfile
+    from app.infrastructure.xiztro.engine import XiztroEngine
 
 REPO = Path(__file__).resolve().parents[2]
 API_DIR = REPO / "apps" / "api"
@@ -91,7 +97,7 @@ _WS = re.compile(r"\s+")
 TOPIC_LIST = sorted(TOPIC_PALACE)  # bitmask order for topics_of
 
 
-def _build_maps():
+def _build_maps() -> tuple[dict[str, str], dict[str, str], dict[str, str]]:
     """zh name -> entity key maps from the engine's builtin zh-CN pack."""
     from x_iztro.knowledge import KnowledgePack  # eval-only import (I22 tooling)
 
@@ -167,7 +173,7 @@ def _signature_and_drift(sample_chart: dict, dto_chart: dict) -> tuple[bool, dic
     if ziwei_branch != our_ziwei_branch:
         return False, {}
 
-    sig = {
+    sig: dict[str, Any] = {
         "stars": set(),
         "stars_by_branch": collections.defaultdict(set),
         "mutagens": our_mutagens,
@@ -198,9 +204,10 @@ def _signature_and_drift(sample_chart: dict, dto_chart: dict) -> tuple[bool, dic
         # natal mutagen both directions (major stars only)
         for key, ds in their_majors.items():
             their_kind = SIHUA_KIND.get(ds.get("siHua") or "")
-            if our_mutagens.get(key) != their_kind:
-                if their_kind is not None or key in our_mutagens:
-                    return False, {}
+            if our_mutagens.get(key) != their_kind and (
+                their_kind is not None or key in our_mutagens
+            ):
+                return False, {}
         for s in op.get("majorStars") or []:
             sig["vn_names"][s["key"]] = s["name"]
         for s in op.get("minorStars") or []:
@@ -212,12 +219,15 @@ def _names_in(text: str) -> set[str]:
     return {m.group(0) for m in _NAME_RE.finditer(text)}
 
 
-def process_file(path: Path):
+def process_file(
+    path: Path,
+) -> tuple[collections.Counter, dict, dict[str, str], collections.Counter]:
     """One gzipped JSONL file -> local counters (runs inside Pool workers)."""
+    assert _ENGINE is not None and _PROFILE is not None
     counts: collections.Counter = collections.Counter()  # (entity, phrase) -> n
     topics_of: dict = collections.defaultdict(int)  # (entity, phrase) -> bitmask
     vn_names: dict[str, str] = {}
-    stats = collections.Counter()
+    stats: collections.Counter = collections.Counter()
 
     with gzip.open(path, "rt", encoding="utf-8") as fh:
         for lineno, line in enumerate(fh, 1):
@@ -238,7 +248,9 @@ def process_file(path: Path):
                     timeIndex=int(bi["hour"]),
                     gender=str(bi["gender"]),
                 )
-                dto = _ENGINE.cast_chart(birth, _PROFILE)
+                dto = _ENGINE.cast_chart(
+                    cast("NormalizedBirthMoment", birth), _PROFILE
+                )
             except Exception:  # date/timeIndex out of range etc.
                 stats["cast_error"] += 1
                 continue
@@ -250,11 +262,13 @@ def process_file(path: Path):
             vn_names.update(sig["vn_names"])
             seen: set = set()  # count each (entity, phrase) once per SAMPLE
 
-            def _hit(ek: str, phrase: str, bit: int) -> None:
+            def _hit(
+                ek: str, phrase: str, bit: int, _seen: set = seen
+            ) -> None:
                 pair = (ek, phrase)
-                if pair in seen:
+                if pair in _seen:
                     return
-                seen.add(pair)
+                _seen.add(pair)
                 counts[pair] += 1
                 topics_of[pair] |= bit
 
@@ -349,7 +363,7 @@ def main() -> int:
     merged: collections.Counter = collections.Counter()
     merged_topics: dict = collections.defaultdict(int)
     vn_names: dict[str, str] = {}
-    stats = collections.Counter()
+    stats: collections.Counter = collections.Counter()
     t0 = time.time()
     with mp.Pool(
         args.workers,
@@ -434,8 +448,8 @@ def main() -> int:
 
 # --- per-worker globals (set by _init_worker) --------------------------------
 
-_ENGINE = None
-_PROFILE = None
+_ENGINE: XiztroEngine | None = None
+_PROFILE: EngineProfile | None = None
 _LIMIT_LINES = 0
 _STAR_ZH2KEY: dict = {}
 _PAT_ZH2KEY: dict = {}
