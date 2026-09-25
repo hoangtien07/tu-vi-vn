@@ -126,6 +126,39 @@ export function getTemporal(
   );
 }
 
+export interface TemporalDecadeYear {
+  year: number;
+  heavenlyStem: string | null;
+  earthlyBranch: string | null;
+  yearlyIndex: number;
+  palaceName: string | null;
+  palaceNameKey: string | null;
+  mutagen: string[];
+  mutagenStarKeys: string[];
+}
+
+export interface TemporalDecade {
+  decadal: {
+    index: number;
+    name: string;
+    palaceName: string | null;
+    palaceNameKey: string | null;
+    mutagen: string[];
+    mutagenStarKeys: string[];
+    heavenlyStem: string | null;
+    earthlyBranch: string | null;
+    ageRange: [number, number] | null;
+  };
+  years: TemporalDecadeYear[];
+  yearRange: [number, number];
+}
+
+export function getTemporalDecade(chartId: string, year: number) {
+  return apiFetch<TemporalDecade>(
+    `/api/charts/${chartId}/temporal/decade?year=${year}`,
+  );
+}
+
 export interface ReadingRow {
   id: string;
   topic: string;

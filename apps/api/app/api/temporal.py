@@ -110,6 +110,94 @@ def temporal_facts(
     }
 
 
+_DECADE_WALK = 12  # đại hạn spans ≤10 yrs; 12 probes always finds a boundary
+
+
+def _scope_brief(scope: dict[str, Any]) -> dict[str, Any]:
+    names = scope.get("palaceNames") or []
+    keys = scope.get("palaceNameKeys") or []
+    idx = scope.get("index")
+    host = (
+        {"palaceName": names[idx], "palaceNameKey": keys[idx]}
+        if isinstance(idx, int) and 0 <= idx < len(names) and idx < len(keys)
+        else {"palaceName": None, "palaceNameKey": None}
+    )
+    return {
+        "index": idx,
+        "name": scope.get("name"),
+        **host,
+        "mutagen": scope.get("mutagen") or [],
+        "mutagenStarKeys": scope.get("mutagenStarKeys") or [],
+        "heavenlyStem": scope.get("heavenlyStem"),
+        "earthlyBranch": scope.get("earthlyBranch"),
+    }
+
+
+@router.get("/{chart_id}/temporal/decade")
+def temporal_decade(
+    chart_id: str,
+    request: Request,
+    year: int,
+    session: Session = Depends(get_session),
+) -> dict[str, Any]:
+    """SPEC_KLINE — one K-line glyph per lưu niên across the đại hạn holding `year`.
+
+    Boundary = where `decadal.index` changes (probed per-year), never tuổi-mụ
+    arithmetic — no lunar-year off-by-one. Scope payloads are compact
+    (`_scope_brief`); `stars` intentionally omitted.
+    """
+    if year < 1583 or year > 9999:
+        raise HTTPException(status_code=422, detail="year out of range")
+    snapshot = session.get(ChartSnapshot, chart_id)
+    if snapshot is None:
+        raise HTTPException(status_code=404, detail="chart not found")
+    normalized, profile = _load_normalized(snapshot, session)
+    birth = normalized.correctedSolarDate
+    engine = request.app.state.ziwei_engine
+
+    if year_anchor(year) < birth:
+        raise HTTPException(status_code=422, detail="target precedes birth date")
+
+    def dec_index(y: int) -> int | None:
+        scope = engine.get_horoscope(normalized, profile, year_anchor(y)).context.get(
+            "decadal"
+        ) or {}
+        return scope.get("index")
+
+    host_idx = dec_index(year)
+    y0 = year
+    for y in range(year - 1, year - _DECADE_WALK, -1):
+        if year_anchor(y) < birth or dec_index(y) != host_idx:
+            break
+        y0 = y
+    y1 = year
+    for y in range(year + 1, year + _DECADE_WALK):
+        if dec_index(y) != host_idx:
+            break
+        y1 = y
+
+    years = []
+    for y in range(y0, y1 + 1):
+        scope = engine.get_horoscope(normalized, profile, year_anchor(y)).context
+        brief = _scope_brief(scope["yearly"])
+        brief.pop("name", None)
+        years.append({"year": y, "yearlyIndex": brief.pop("index"), **brief})
+
+    decadal = _scope_brief(
+        engine.get_horoscope(normalized, profile, year_anchor(year)).context["decadal"]
+    )
+    palaces = (snapshot.chart_json.get("chart") or {}).get("palaces") or []
+    age_range = None
+    if isinstance(host_idx, int) and 0 <= host_idx < len(palaces):
+        age_range = (palaces[host_idx].get("decadal") or {}).get("range")
+    return {
+        "chartId": chart_id,
+        "decadal": {**decadal, "ageRange": age_range},
+        "years": years,
+        "yearRange": [y0, y1],
+    }
+
+
 @router.get("/{chart_id}/readings/{run_id}")
 def get_reading(
     chart_id: str, run_id: str, session: Session = Depends(get_session)

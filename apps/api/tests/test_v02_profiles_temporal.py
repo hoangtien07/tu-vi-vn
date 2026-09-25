@@ -169,6 +169,43 @@ def test_temporal_no_llm(client: TestClient, chart) -> None:
     assert client.get(f"/api/charts/{chart.id}/temporal?year=2028").status_code == 200
 
 
+# ---------- temporal/decade (SPEC_KLINE) ----------
+
+
+def test_temporal_decade_shape(client: TestClient, chart) -> None:
+    resp = client.get(f"/api/charts/{chart.id}/temporal/decade?year=2028")
+    assert resp.status_code == 200, resp.text
+    body = resp.json()
+    y0, y1 = body["yearRange"]
+    assert y0 <= 2028 <= y1
+    assert 2 <= len(body["years"]) <= 12
+    assert [y["year"] for y in body["years"]] == list(range(y0, y1 + 1))
+    dec = body["decadal"]
+    assert dec["index"] is not None and len(dec["mutagen"]) == 4
+    assert dec["ageRange"] is not None
+    for y in body["years"]:
+        assert len(y["mutagen"]) == 4
+        assert y["palaceName"]
+        assert "stars" not in y  # compact payload
+
+
+def test_temporal_decade_boundary_changes_host(client: TestClient, chart) -> None:
+    """Adjacent decades must produce different decadal host indexes."""
+    a = client.get(f"/api/charts/{chart.id}/temporal/decade?year=2028").json()
+    b = client.get(f"/api/charts/{chart.id}/temporal/decade?year=2038").json()
+    assert a["decadal"]["index"] != b["decadal"]["index"]
+
+
+def test_temporal_decade_before_birth_422(client: TestClient, chart) -> None:
+    r = client.get(f"/api/charts/{chart.id}/temporal/decade?year=1989")
+    assert r.status_code == 422
+
+
+def test_temporal_decade_unknown_chart_404(client: TestClient) -> None:
+    r = client.get("/api/charts/cs_nope/temporal/decade?year=2028")
+    assert r.status_code == 404
+
+
 # ---------- readings ----------
 
 
