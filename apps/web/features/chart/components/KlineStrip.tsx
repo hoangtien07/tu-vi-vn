@@ -67,7 +67,10 @@ export function KlineStrip({
     let cancelled = false;
     getTemporalDecade(chartId, center)
       .then((d) => {
-        if (!cancelled) setData(d);
+        if (!cancelled) {
+          setData(d);
+          setFailed(false);
+        }
       })
       .catch(() => {
         if (!cancelled) {
@@ -80,10 +83,14 @@ export function KlineStrip({
     };
   }, [chartId, center]);
 
-  const loading = data === null && !failed;
-  const shift = (d: number) => setCenter((c) => c + d);
+  const loading = data === null;
+  const shift = (d: number) => {
+    // drop the stale decade so old glyphs can't be clicked mid-fetch
+    setData(null);
+    setCenter((c) => c + d);
+  };
 
-  if (failed) return null;
+  if (failed && data === null) return null;
 
   const dec = data?.decadal;
   return (
