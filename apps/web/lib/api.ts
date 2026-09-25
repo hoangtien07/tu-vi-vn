@@ -17,7 +17,11 @@ export interface ApiChartResponse {
 }
 
 async function apiFetch<T>(path: string, init?: RequestInit): Promise<T> {
-  const res = await fetch(`${API_URL}${path}`, { cache: "no-store", ...init });
+  // Server components fetch the API directly; in the browser the absolute
+  // URL is both unreachable (internal host) and cross-origin — use the
+  // same-origin /api/* rewrite instead.
+  const url = typeof window === "undefined" ? `${API_URL}${path}` : path;
+  const res = await fetch(url, { cache: "no-store", ...init });
   if (!res.ok) {
     const detail = (await res.json().catch(() => null)) as {
       detail?: unknown;
