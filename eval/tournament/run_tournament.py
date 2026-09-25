@@ -58,6 +58,22 @@ def _wait_health(port: int, timeout: float = 60.0) -> dict | None:
     return None
 
 
+def _resolve_source(variant_arg: str) -> str:
+    """Reserved names pass through; anything else is a pack path made absolute
+    (uvicorn runs with cwd=apps/api — a relative path would resolve wrong)."""
+    source = VARIANTS.get(variant_arg, variant_arg)
+    if source not in ("builtin", "none", ""):
+        source = str(Path(source).resolve())
+    return source
+
+
+def _variant_slug(variant_arg: str) -> str:
+    """Filesystem-safe name for report dirs — a pack path becomes its stem."""
+    if variant_arg in VARIANTS:
+        return variant_arg
+    return Path(variant_arg).stem or variant_arg.replace("/", "_")
+
+
 def _spawn_source(variant: str, source: str, port: int) -> subprocess.Popen:
     env = dict(os.environ)
     env["KNOWLEDGE_PACK"] = source
@@ -83,7 +99,7 @@ def _charts_file(args: argparse.Namespace) -> str:
 def _run_bench(args: argparse.Namespace, variant: str, port: int, stamp: str) -> int:
     out = REPO / "eval" / "tournament" / "reports" / f"{stamp}" / variant
     cmd = [
-        "uv", "run", "python", str(BENCH),
+        "uv", "run", "--project", str(API_DIR), "python", str(BENCH),
         "--api", f"http://127.0.0.1:{port}",
         "--suite", args.suite,
         "--out", str(out),
@@ -96,12 +112,16 @@ def _run_bench(args: argparse.Namespace, variant: str, port: int, stamp: str) ->
         cmd += [
             "--judge",
             "--judge-base-url", args.judge_base_url,
-            "--judge-api-key", args.judge_api_key,
             "--judge-model", args.judge_model,
         ]
+    # --project keeps the API venv regardless of checkout cwd; judge creds
+    # ride in env, never in argv (local process observers).
+    env = dict(os.environ)
+    if args.judge and args.judge_api_key:
+        env["JUDGE_API_KEY"] = args.judge_api_key
     # each bench invocation stamps its own namespace → fresh runs per variant
     # even on the shared DB
-    return subprocess.call(cmd, cwd=REPO)
+    return subprocess.call(cmd, cwd=REPO, env=env)
 
 
 def _latest_raw(variant_dir: Path) -> list[dict]:
@@ -109,21 +129,35 @@ def _latest_raw(variant_dir: Path) -> list[dict]:
     return json.loads(raws[-1].read_text()) if raws else []
 
 
+_JUDGE_DIMS = ("specificity", "relevance", "consistency", "vn_quality")
+
+
 def _summarize(results: list[dict]) -> dict:
     done = [r for r in results if r["status"] == "done"]
-    # grounding violations: unknown refs in done runs + any non-done run
-    # (bench marks validator rejections as status "error")
+    # grounding violations: validator rejections (status "error" — SSE error
+    # event with violations payload) + unknown refs inside completed runs.
+    # Infra failures (http_5xx/402, client_error) are NOT grounding verdicts.
     grounding_fails = sum(
         1
         for r in results
-        if r["status"] != "done"
-        or (r.get("grounding") or {}).get("unknownEvidenceReferences", 0)
+        if r["status"] == "error"
+        or (r["status"] == "done"
+            and (r.get("grounding") or {}).get("unknownEvidenceReferences", 0))
     )
-    judged = [r["judge"]["mean"] for r in done if (r.get("judge") or {}).get("mean")]
+    upstream_fails = sum(
+        1 for r in results if r["status"] not in ("done", "error")
+    )
+    judged = [
+        sum(float(r["judge"][d]) for d in _JUDGE_DIMS) / len(_JUDGE_DIMS)
+        for r in done
+        if (r.get("judge") or {}).get(_JUDGE_DIMS[0]) is not None
+        and "judge_error" not in r["judge"]
+    ]
     return {
         "runs": len(results),
         "done": len(done),
         "groundingFailures": grounding_fails,
+        "upstreamFailures": upstream_fails,
         "rubricMean": round(sum(judged) / len(judged), 3) if judged else None,
     }
 
@@ -160,23 +194,24 @@ def main() -> None:
 
     for i, variant in enumerate(args.variants):
         port = args.base_port + i
-        source = VARIANTS.get(variant, variant)  # name or explicit path
+        source = _resolve_source(variant)
+        slug = _variant_slug(variant)
         expected = EXPECTED_PACK_ID.get(variant)
-        print(f"[{variant}] spawning :{port} KNOWLEDGE_PACK={source}")
-        proc = _spawn_source(variant, source, port)
+        print(f"[{slug}] spawning :{port} KNOWLEDGE_PACK={source}")
+        proc = _spawn_source(slug, source, port)
         try:
             health = _wait_health(port)
             if health is None:
-                print(f"[{variant}] FAILED to boot")
+                print(f"[{slug}] FAILED to boot")
                 continue
             pack_id = health.get("knowledgePack")
             ok = expected is None or pack_id == expected
-            print(f"[{variant}] health={health.get('status')} pack={pack_id} {'OK' if ok else 'MISMATCH'}")
+            print(f"[{slug}] health={health.get('status')} pack={pack_id} {'OK' if ok else 'MISMATCH'}")
             if not ok:
                 continue
             if not args.smoke:
-                rc = _run_bench(args, variant, port, stamp)
-                print(f"[{variant}] bench rc={rc}")
+                rc = _run_bench(args, slug, port, stamp)
+                print(f"[{slug}] bench rc={rc}")
         finally:
             proc.terminate()
             try:
@@ -189,7 +224,9 @@ def main() -> None:
 
     summaries = {}
     for variant in args.variants:
-        summaries[variant] = _summarize(_latest_raw(report_dir / variant))
+        summaries[_variant_slug(variant)] = _summarize(
+            _latest_raw(report_dir / _variant_slug(variant))
+        )
     base = summaries.get(BASELINE, {})
     charts_n = args.charts_n or "full"
     judge_note = "judge=on" if args.judge else "judge=off (rubric vacuous — grounding+completion only)"
@@ -205,8 +242,22 @@ def main() -> None:
     for variant, s in summaries.items():
         verdict = "—"
         if variant != BASELINE:
-            rubric_ok = s["rubricMean"] is None or base.get("rubricMean") is None or s["rubricMean"] >= base["rubricMean"]
-            wins = s["groundingFailures"] == 0 and s["done"] == s["runs"] and rubric_ok
+            # rubric leg: with --judge a variant MUST have a real mean >=
+            # baseline's real mean; without --judge the leg is vacuous.
+            if args.judge:
+                rubric_ok = (
+                    s["rubricMean"] is not None
+                    and base.get("rubricMean") is not None
+                    and s["rubricMean"] >= base["rubricMean"]
+                )
+            else:
+                rubric_ok = True
+            wins = (
+                s["runs"] > 0
+                and s["groundingFailures"] == 0
+                and s["done"] == s["runs"]
+                and rubric_ok
+            )
             verdict = "WINNER" if wins else "no"
             if wins:
                 winners.append(variant)
