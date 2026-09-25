@@ -210,6 +210,13 @@ def test_temporal_decade_unknown_chart_404(client: TestClient) -> None:
     assert r.status_code == 404
 
 
+def test_temporal_decade_upper_bound_ok(client: TestClient, chart) -> None:
+    """year=9999 must not crash the forward boundary probe (year 10000)."""
+    r = client.get(f"/api/charts/{chart.id}/temporal/decade?year=9999")
+    assert r.status_code == 200, r.text
+    assert r.json()["yearRange"][1] <= 9999
+
+
 # ---------- readings ----------
 
 

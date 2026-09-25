@@ -184,12 +184,12 @@ def temporal_decade(
     host_idx = dec_index(year)
     y0 = year
     for y in range(year - 1, year - _DECADE_WALK, -1):
-        if year_anchor(y) < birth or dec_index(y) != host_idx:
+        if y < 1583 or year_anchor(y) < birth or dec_index(y) != host_idx:
             break
         y0 = y
     y1 = year
     for y in range(year + 1, year + _DECADE_WALK):
-        if dec_index(y) != host_idx:
+        if y > 9999 or dec_index(y) != host_idx:
             break
         y1 = y
 
