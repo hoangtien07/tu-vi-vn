@@ -236,9 +236,14 @@ Gate phụ trong Phase 8: ≥1 eval case chạy **non-default mutagen profile** 
 - [x] D3 smoke tournament (reports/20260925-073219) — 3 variants ×
   4 charts × 5 topics qua swe-2 shim: 60/60 done, 0 grounding fails;
   không tách được ở coverage này + judge=off.
-- [ ] D4 judged gate I24 (beat builtin AND none, 24 charts + --judge) —
-  **chờ budget** (~360 turns qua worker; subset lớn hơn cũng được nếu
-  cần signal trung gian). Pack giữ candidate, KHÔNG default.
+- [x] D4 judged gate I24 (reports/20260926-021730) — 8 charts × 5
+  topics × 3 variants + judge, toàn bộ qua `gemini-3.1-flash-lite` +
+  `ratelimit_proxy` (Gemini free tier = 20 req/ngày/model nên 3.5-flash
+  không dùng được cho batch). Kết quả: none 31/40·9 viol·4.758 |
+  builtin 34/40·6 viol·4.735 | vn-mined-v1 35/40·5 viol·4.75.
+  **Decision: no winner — keep builtin.** Pack cạnh tranh (ít grounding
+  fail nhất, vn_quality 5.0) nhưng không strictly beat cả 2 baselines;
+  giữ candidate, không default.
 
 ## DO NOT (đưa vào mọi implementation prompt)
 
