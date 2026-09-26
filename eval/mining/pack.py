@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import argparse
 import collections
+import hashlib
 import json
 import os
 import re
@@ -83,7 +84,7 @@ ZH2VI_FIX = {
     "左辅": "Tả Phù",
     "右弼": "Hữu Bật",
     "天魁": "Thiên Khôi",
-    "天钺": "Thiên Dược",
+    "天钺": "Thiên Việt",
     "火星": "Hỏa Tinh",
     "铃星": "Linh Tinh",
     "孤辰": "Cô Thần",
@@ -258,7 +259,7 @@ def main() -> int:
 
     pack: dict = {
         "id": args.out_pack.stem,
-        "version": "1",
+        "version": "",  # filled with content digest before writing
         "language": "vi",
         "schema": 1,
         "source": {
@@ -382,12 +383,17 @@ def main() -> int:
         cache_path.write_text(json.dumps(cache, ensure_ascii=False))
 
     for p in selected:
-        entry_text = vn_normalize((p["vi"] or "").strip())
-        if not entry_text or ZH.search(entry_text):
-            # failed or zh-leaking translation must not ship — a Chinese
-            # excerpt inside a vi pack is worse than a missing excerpt
-            coverage["phrases_skipped_zh"] += 1
-            continue
+        if args.no_translate:
+            # dev/inspection mode: emit raw zh so extraction can be reviewed
+            # without burning translate calls — never ship this pack
+            entry_text = p["zh"]
+        else:
+            entry_text = vn_normalize((p["vi"] or "").strip())
+            if not entry_text or ZH.search(entry_text):
+                # failed or zh-leaking translation must not ship — a Chinese
+                # excerpt inside a vi pack is worse than a missing excerpt
+                coverage["phrases_skipped_zh"] += 1
+                continue
         sec = {"star": "stars", "pattern": "patterns", "palace": "palaces"}[
             p["entityType"]
         ]
@@ -419,6 +425,16 @@ def main() -> int:
             )
             if not cur["name"] and e and e.name:
                 cur["name"] = e.name
+
+    # version tracks content: a regenerated pack with different excerpts must
+    # pin a different version on every interpretation run
+    pack["version"] = hashlib.sha256(
+        json.dumps(
+            {k: pack[k] for k in ("stars", "patterns", "palaces", "mutagens", "concepts")},
+            sort_keys=True,
+            ensure_ascii=False,
+        ).encode()
+    ).hexdigest()[:12]
 
     args.out_pack.parent.mkdir(parents=True, exist_ok=True)
     args.out_pack.write_text(

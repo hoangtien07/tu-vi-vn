@@ -1,6 +1,6 @@
 {
   "id": "vn-mined-v1",
-  "version": "1",
+  "version": "a8b954642174",
   "language": "vi",
   "schema": 1,
   "source": {
@@ -11,7 +11,7 @@
   "stars": {
     "dijieMin": {
       "name": "Địa Kiếp",
-      "intro": "Thiên Mã lạc không: Thiên Mã đồng cung với Địa Không, Địa Kiếp — thầy Nghê nói Mã lạc không vong, bôn ba vô ích, việc đi xa thường làm nhiều mà không có kết quả, các cơ hội mang tính động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh \"dã tràng xe cát\", nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Địa Kiếp — thầy Nghê nói Mã lạc không vong, bôn ba vô ích, việc đi xa thường làm nhiều mà không có kết quả, các cơ hội mang tính động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh \"dã tràng xe cát\", nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Địa Không, Địa Kiếp, Tuần Không — thầy Nghê nói Mã lạc không vong, bôn ba vô ích, việc đi xa thường làm nhiều mà không có kết quả, các cơ hội mang tính động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh \"dã tràng xe cát\", nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Địa Kiếp, Triệt Lộ — thầy Nghê nói Mã lạc không vong, bôn ba vô ích, việc đi xa thường làm nhiều mà không có kết quả, các cơ hội mang tính động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh \"dã tràng xe cát\", nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Địa Kiếp, Tuần Không — thầy Nghê nói Mã lạc không vong, bôn ba vô ích, việc đi xa thường làm nhiều mà không có kết quả, các cơ hội mang tính động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh \"dã tràng xe cát\", nên suy nghĩ kỹ trước khi hành động.",
+      "intro": "Thiên Mã lạc không: Thiên Mã đồng cung với Địa Không, Địa Kiếp — Thầy Nghê nói Mã lạc Không Vong thì bôn ba vô ích, các việc bên ngoài làm nhiều công ít, các cơ hội biến động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Địa Kiếp — Thầy Nghê nói Mã lạc Không Vong thì bôn ba vô ích, các việc bên ngoài làm nhiều công ít, các cơ hội biến động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Địa Không, Địa Kiếp hoặc Tuần/Triệt Không – Thầy Nghê nói Mã lạc không vong thì bôn ba vô ích, việc đi xa thường nhọc công mà không có kết quả, các cơ hội mang tính biến động như đi công tác, xuất hành, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Địa Kiếp, Triệt Lộ — Thầy Nghê nói Mã lạc Không Vong thì bôn ba vô ích, các việc bên ngoài làm nhiều công ít, các cơ hội biến động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Địa Kiếp hoặc Tuần/Triệt Không – Thầy Nghê nói Mã lạc không vong thì bôn ba vô ích, việc đi xa thường nhọc công mà không có kết quả, các cơ hội mang tính biến động như đi công tác, xuất hành, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động.",
       "provenance": {
         "count": 41544,
         "topics": [
@@ -29,7 +29,7 @@
     },
     "dikongMin": {
       "name": "Địa Không",
-      "intro": "Thiên Mã lạc không: Thiên Mã đồng cung với Địa Không, Địa Kiếp — thầy Nghê nói Mã lạc không vong, bôn ba vô ích, việc đi xa thường làm nhiều mà không có kết quả, các cơ hội mang tính động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh \"dã tràng xe cát\", nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Địa Không — thầy Nghê nói Mã lạc không vong, bôn ba vô ích, việc đi xa thường làm nhiều mà không có kết quả, các cơ hội mang tính động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh \"dã tràng xe cát\", nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Địa Không, Địa Kiếp, Tuần Không — thầy Nghê nói Mã lạc không vong, bôn ba vô ích, việc đi xa thường làm nhiều mà không có kết quả, các cơ hội mang tính động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh \"dã tràng xe cát\", nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Địa Không, Triệt Lộ — thầy Nghê nói Mã lạc không vong, bôn ba vô ích, việc đi xa thường làm nhiều mà không có kết quả, các cơ hội mang tính động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh \"dã tràng xe cát\", nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Địa Không, Tuần Không — thầy Nghê nói Mã lạc không vong, bôn ba vô ích, việc đi xa thường làm nhiều mà không có kết quả, các cơ hội mang tính động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh \"dã tràng xe cát\", nên suy nghĩ kỹ trước khi hành động.",
+      "intro": "Thiên Mã lạc không: Thiên Mã đồng cung với Địa Không, Địa Kiếp — Thầy Nghê nói Mã lạc Không Vong thì bôn ba vô ích, các việc bên ngoài làm nhiều công ít, các cơ hội biến động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Địa Không — Thầy Nghê nói Mã lạc Không Vong thì bôn ba vô ích, các việc bên ngoài làm nhiều công ít, các cơ hội biến động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Địa Không, Địa Kiếp hoặc Tuần/Triệt Không – Thầy Nghê nói Mã lạc không vong thì bôn ba vô ích, việc đi xa thường nhọc công mà không có kết quả, các cơ hội mang tính biến động như đi công tác, xuất hành, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Địa Không, Triệt Lộ — Thầy Nghê nói Mã lạc Không Vong thì bôn ba vô ích, các việc bên ngoài làm nhiều công ít, các cơ hội biến động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Địa Không hoặc Tuần/Triệt Không – Thầy Nghê nói Mã lạc không vong thì bôn ba vô ích, việc đi xa thường nhọc công mà không có kết quả, các cơ hội mang tính biến động như đi công tác, xuất hành, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động.",
       "provenance": {
         "count": 41544,
         "topics": [
@@ -66,7 +66,7 @@
     },
     "huoxingMin": {
       "name": "Hỏa Tinh",
-      "intro": "Cách Hỏa Tham: Tham Lang gặp Hỏa Tinh — cách cục phát tài bất ngờ, thầy Nghê Hải Hạ nói cách Hỏa Tham có thể xuất tướng nhập tướng, con đường võ quý, cả đời có cơ hội phát tài lớn, đặc biệt trong đại hạn hoặc lưu niên nhất định có thể có hoạnh tài bất ngờ. Gặp Hỏa Tinh hoặc Linh Tinh, hình thành cách Hỏa Tham hoặc Linh Tham, có cơ hội phát tài nhanh chóng. Gặp Hỏa Tinh hoặc Linh Tinh, hình thành cách Hỏa Tham/Linh Tham, nếu ở cung này thì sự nghiệp có cơ hội bùng nổ. Sát tinh nhập Tật Ách: Hỏa Tinh — Theo Thiên Kỷ của thầy Nghê: Đà La, Kình Dương nhập cung Tật Ách, dễ đụng chạm dao kéo, đổ máu. Gặp Hỏa Tinh hoặc Linh Tinh thì có cơ hội phát tài bất ngờ (hoạch tài).",
+      "intro": "Cách Hỏa Tham: Tham Lang gặp Hỏa Tinh — cách cục phát tài bất ngờ, thầy Nghê Hải Hạ nói cách Hỏa Tham có thể xuất tướng nhập tướng, con đường võ quý, cả đời có cơ hội phát tài lớn, đặc biệt trong đại hạn hoặc lưu niên nhất định có thể có hoạnh tài bất ngờ. Gặp Hỏa Tinh hoặc Linh Tinh, hình thành cách Hỏa Tham hoặc Linh Tham, có cơ hội phát tài bất ngờ. Gặp Hỏa Tinh hoặc Linh Tinh, hình thành cách Hỏa Tham/Linh Tham, nếu ở cung này thì sự nghiệp có cơ hội phát đạt đột ngột. Sát tinh nhập Tật Ách: Hỏa Tinh — Thiên Kỷ của thầy Nghê 11-12: Đà La, Kình Dương nhập cung Tật Ách, dễ đụng chạm dao kéo, đổ máu. Gặp Hỏa Tinh hoặc Linh Tinh thì có cơ hội phát tài bất ngờ (hoạch tài).",
       "provenance": {
         "count": 175346,
         "topics": [
@@ -86,7 +86,7 @@
     },
     "jielu": {
       "name": "Tiết Lộ",
-      "intro": "Thiên Mã lạc không: Thiên Mã đồng cung với Triệt Lộ — Thầy Nghê nói Mã lạc Không Vong thì bôn ba vô ích, các việc bên ngoài làm nhiều công ít, các cơ hội biến động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Tuần Không, Triệt Lộ — Thầy Nghê nói Mã lạc Không Vong thì bôn ba vô ích, các việc bên ngoài làm nhiều công ít, các cơ hội biến động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Địa Kiếp, Triệt Lộ — Thầy Nghê nói Mã lạc Không Vong thì bôn ba vô ích, các việc bên ngoài làm nhiều công ít, các cơ hội biến động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Địa Không, Triệt Lộ — Thầy Nghê nói Mã lạc Không Vong thì bôn ba vô ích, các việc bên ngoài làm nhiều công ít, các cơ hội biến động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Địa Không, Tuần Không, Triệt Lộ — Thầy Nghê nói Mã lạc Không Vong thì bôn ba vô ích, các việc bên ngoài làm nhiều công ít, các cơ hội biến động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động.",
+      "intro": "Thiên Mã lạc không: Thiên Mã đồng cung với Triệt Lộ — Thầy Nghê nói Mã lạc Không Vong thì bôn ba vô ích, các việc bên ngoài làm nhiều công ít, các cơ hội biến động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc Không: Thiên Mã đồng cung với Tuần Không, Triệt Lộ — thầy Nghê nói Mã lạc Không vong, bôn ba vô ích, công việc đi xa nhiều lao lực mà không có kết quả, các cơ hội biến động như công tác, đi xa, nhảy việc dễ rơi vào cảnh \"dã tràng xe cát\", nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Địa Kiếp, Triệt Lộ — Thầy Nghê nói Mã lạc Không Vong thì bôn ba vô ích, các việc bên ngoài làm nhiều công ít, các cơ hội biến động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Địa Không, Triệt Lộ — Thầy Nghê nói Mã lạc Không Vong thì bôn ba vô ích, các việc bên ngoài làm nhiều công ít, các cơ hội biến động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Địa Không, Tuần Không, Triệt Lộ — Thầy Nghê nói Mã lạc Không Vong thì bôn ba vô ích, các việc bên ngoài làm nhiều công ít, các cơ hội biến động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động.",
       "provenance": {
         "count": 50090,
         "topics": [
@@ -129,7 +129,7 @@
     },
     "kongwang": {
       "name": "Không Vong",
-      "intro": "Thiên Mã lạc không: Thiên Mã đồng cung với Tuần Không — Thầy Nghê nói Mã lạc Không Vong thì bôn ba vô ích, các việc bên ngoài làm nhiều công ít, các cơ hội biến động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Triệt Lộ — Thầy Nghê nói Mã lạc Không Vong thì bôn ba vô ích, các việc bên ngoài làm nhiều công ít, các cơ hội biến động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Địa Không, Địa Kiếp — Thầy Nghê nói Mã lạc Không Vong thì bôn ba vô ích, các việc bên ngoài làm nhiều công ít, các cơ hội biến động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Địa Kiếp — Thầy Nghê nói Mã lạc Không Vong thì bôn ba vô ích, các việc bên ngoài làm nhiều công ít, các cơ hội biến động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Địa Không — Thầy Nghê nói Mã lạc Không Vong thì bôn ba vô ích, các việc bên ngoài làm nhiều công ít, các cơ hội biến động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động.",
+      "intro": "Thiên Mã lạc Không: Thiên Mã đồng cung với Tuần Không — thầy Nghê nói Mã lạc Không vong, bôn ba vô ích, công việc đi xa nhiều lao lực mà không có kết quả, các cơ hội biến động như công tác, đi xa, nhảy việc dễ rơi vào cảnh \"dã tràng xe cát\", nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Triệt Lộ — Thầy Nghê nói Mã lạc Không Vong thì bôn ba vô ích, các việc bên ngoài làm nhiều công ít, các cơ hội biến động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Địa Không, Địa Kiếp — Thầy Nghê nói Mã lạc Không Vong thì bôn ba vô ích, các việc bên ngoài làm nhiều công ít, các cơ hội biến động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Địa Kiếp — Thầy Nghê nói Mã lạc Không Vong thì bôn ba vô ích, các việc bên ngoài làm nhiều công ít, các cơ hội biến động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động. Thiên Mã lạc không: Thiên Mã đồng cung với Địa Không — Thầy Nghê nói Mã lạc Không Vong thì bôn ba vô ích, các việc bên ngoài làm nhiều công ít, các cơ hội biến động như đi công tác, đi xa, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động.",
       "provenance": {
         "count": 151572,
         "topics": [
@@ -147,7 +147,7 @@
     },
     "lianzhenMaj": {
       "name": "Liêm Trinh",
-      "intro": "Liêm Tướng cách: Liêm Trinh và Thiên Tướng đồng cung tạo thành Liêm Tướng cách, coi trọng cả tài nghệ, quy tắc và sự điều phối. Hóa Lộc: Hóa Lộc, tài nghệ và các mối quan hệ mang lại tài lộc, đào hoa hóa thành trợ lực, tình cảm thuận lợi, được quý nhân giúp đỡ, đây là cách cục khá tốt của Liêm Trinh. Liêm Trinh ở cung Phúc Đức, đời sống tinh thần phong phú, sở thích rộng rãi, đa dạng, yêu thích ẩm thực, nghệ thuật và các trải nghiệm tình cảm. Liêm Trinh ở cung Điền Trạch, gia trạch có gu thẩm mỹ nghệ thuật nhất định, môi trường sống chú trọng sự lãng mạn, tình cảm. Về việc khởi nghiệp hay đi làm thuê, Liêm Trinh có tố chất khởi nghiệp nhất định, đặc biệt trong các lĩnh vực liên quan đến hình ảnh cá nhân và tài nghệ, nhưng cần tìm được cộng sự vững vàng để phụ trách vận hành và tài chính, bản thân tập trung vào sáng tạo và đối ngoại.",
+      "intro": "Cách Liêm Tướng: Liêm Trinh và Thiên Tướng đồng cung thành cách Liêm Tướng, coi trọng cả tài nghệ, chế độ và sự điều phối. Hóa Lộc: Hóa Lộc, tài nghệ và các mối quan hệ mang lại tài lộc, đào hoa hóa thành trợ lực, tình cảm thuận lợi, được quý nhân giúp đỡ, đây là cách cục khá tốt của Liêm Trinh. Liêm Trinh ở cung Phúc Đức, đời sống tinh thần phong phú, sở thích rộng rãi, đa dạng, yêu thích ẩm thực, nghệ thuật và các trải nghiệm tình cảm. Liêm Trinh ở cung Điền Trạch, gia trạch có gu thẩm mỹ nghệ thuật nhất định, môi trường sống chú trọng sự lãng mạn, tình cảm. Về việc khởi nghiệp hay đi làm thuê, Liêm Trinh có tố chất khởi nghiệp nhất định, đặc biệt trong các lĩnh vực liên quan đến hình ảnh cá nhân và tài nghệ, nhưng cần tìm được cộng sự vững vàng để phụ trách vận hành và tài chính, bản thân tập trung vào sáng tạo và đối ngoại.",
       "provenance": {
         "count": 292524,
         "topics": [
@@ -172,7 +172,7 @@
     },
     "lingxingMin": {
       "name": "Linh Tinh",
-      "intro": "Gặp Hỏa Tinh hoặc Linh Tinh, hình thành cách Hỏa Tham hoặc Linh Tham, có cơ hội phát tài bất ngờ. Gặp Hỏa Tinh hoặc Linh Tinh, hình thành cách Hỏa Tham/Linh Tham, nếu ở cung này thì sự nghiệp có cơ hội phát đạt đột ngột. Linh Tham cách: Tham Lang gặp Linh Tinh — Cách cục phát tài bất ngờ, hiệu quả tương đương Hỏa Tham cách, cả đời có cơ hội phát tài lớn, nhưng dễ lên nhanh xuống nhanh, cần nắm bắt thời cơ và biết cách bảo vệ tài sản. Sát tinh nhập Tật Ách: Linh Tinh — Ni Sư Thiên Kỷ 11-12: Đà La, Kình Dương nhập cung Tật Ách, dễ đụng chạm dao kéo, đổ máu. Gặp Hỏa Tinh hoặc Linh Tinh thì có cơ hội phát tài bất ngờ (hoạch tài).",
+      "intro": "Gặp Hỏa Tinh hoặc Linh Tinh, hình thành cách Hỏa Tham hoặc Linh Tham, có cơ hội phát tài bất ngờ. Gặp Hỏa Tinh hoặc Linh Tinh, hình thành cách Hỏa Tham/Linh Tham, nếu ở cung này thì sự nghiệp có cơ hội phát đạt đột ngột. Linh Tham cách: Tham Lang gặp Linh Tinh — Cách cục phát tài bất ngờ, hiệu quả tương đương Hỏa Tham cách, cả đời có cơ hội phát tài lớn, nhưng dễ lên nhanh xuống nhanh, cần nắm bắt thời cơ và biết cách bảo vệ tài sản. Sát tinh nhập Tật Ách: Linh Tinh — Thiên Kỷ của thầy Nghê 11-12: Đà La, Kình Dương nhập cung Tật Ách, dễ đụng chạm dao kéo, đổ máu. Gặp Hỏa Tinh hoặc Linh Tinh thì có cơ hội phát tài bất ngờ (hoạch tài).",
       "provenance": {
         "count": 175268,
         "topics": [
@@ -192,7 +192,7 @@
     },
     "lucunMin": {
       "name": "Lộc Tồn",
-      "intro": "Cách Lộc Mã Giao Trì: Lộc Tồn và Thiên Mã đồng cung hoặc hội chiếu — Ni Sư nói Lộc Mã Giao Trì, tiền tài đến từ sự vận động, chủ về tài phú kiếm được trong quá trình di chuyển, nên làm các ngành nghề như công tác xa, kinh doanh ngoại tỉnh, thương mại, logistics, đặc biệt vượng về tài lộc ở phương xa và tài lộc lưu động. Lộc Tồn là tài lộc ổn định, Thiên Mã là tài lộc động, một tĩnh một động, nguồn tài chính thông suốt. Cách Song Lộc Giao Lưu: Hóa Lộc và Lộc Tồn cùng hội chiếu về Mệnh cung trong Tam phương Tứ chính — Ni Sư gọi là Song Lộc Giao Lưu, chủ về cả đời tiền tài cuồn cuộn, phúc lộc song toàn, tài lộc ổn định và tăng trưởng mạnh mẽ, là một trong những cách cục về tài vận thượng đẳng nhất của Tử Vi Đẩu Số. Lộc Tồn: Ra ngoài kiếm tiền ổn định nhưng có phần bảo thủ. Lộc Tồn: Tỳ vị khỏe mạnh, nhưng bị Kình Đà giáp cung thì cần đề phòng bệnh mãn tính.",
+      "intro": "Cách Lộc Mã Giao Trì: Lộc Tồn và Thiên Mã đồng cung hoặc hội chiếu — Thầy Nghê nói Lộc Mã Giao Trì, tiền bạc đến từ sự vận động, chủ về tài phú lấy được trong sự chuyển động, nên làm các ngành nghề công tác xa, kinh doanh ngoại tỉnh, thương mại logistics, v.v., tài lộc phương xa và tài lộc lưu động đặc biệt vượng. Lộc Tồn là tài ổn định, Thiên Mã là tài vận động, một ổn một động, nguồn tài chính thông suốt. Cách Song Lộc giao trì: Hóa Lộc và Lộc Tồn cùng hội chiếu về tam phương tứ chính của cung Mệnh – Thầy Nghê gọi là Song Lộc giao trì, chủ về cả đời tiền tài cuồn cuộn, phúc lộc song toàn, tài lộc ổn định và tăng trưởng mạnh mẽ, là một trong những cách cục về tài vận thượng đẳng nhất trong Tử Vi Đẩu Số. Lộc Tồn: Ra ngoài kiếm tiền ổn định nhưng có phần bảo thủ. Lộc Tồn: Tỳ vị khỏe mạnh, nhưng bị Kình Đà giáp cung thì cần đề phòng bệnh mãn tính.",
       "provenance": {
         "count": 305250,
         "topics": [
@@ -211,7 +211,7 @@
     },
     "pojunMaj": {
       "name": "Phá Quân",
-      "intro": "Chủ tinh thứ hai đồng cung: Phá Quân — Sao phá hoại và đổi mới, duyên với lục thân mỏng, nên dùng kỹ năng chuyên môn để lập nghiệp, Hóa Lộc thì phá rồi mới lập. Cách Sát Phá Tham: Thất Sát, Phá Quân, Tham Lang hội chiếu Mệnh cung trong Tam phương Tứ chính, tạo thành cách Sát Phá Tham — Cả đời biến động lớn, tính khai phá mạnh, phù hợp với con đường khởi nghiệp, kỹ thuật, quân cảnh, phát triển ở phương xa, mấu chốt là dùng hành động để thay đổi cách cục. Hóa Lộc: Hóa Lộc, phá rồi mới lập, khai phá nguồn tài chính trong nghịch cảnh, là trạng thái tốt nhất của Phá Quân, thiết lập cách cục mới trong sự đổ vỡ. Cần đặc biệt lưu ý tổ hợp Tam Hung: Liêm Trinh + Thất Sát = Bán lộ mai thi (chết giữa đường), Liêm Trinh + Phá Quân = Thủy trung tác trủng (chết đuối), Liêm Trinh + Tham Lang = Bán không chiết sí (gãy cánh giữa chừng), đều là những cách cục có nguy hiểm hoặc trắc trở lớn trong đời, cần vận hạn phối hợp để hóa giải. Cung Phúc Đức có Phá Quân, hưởng thụ tinh thần đến từ sự kích thích của thay đổi và bứt phá, không thích trạng thái tinh thần cố định bất biến.",
+      "intro": "Chủ tinh thứ hai đồng cung: Phá Quân — Sao phá hoại và đổi mới, duyên với lục thân mỏng, nên dùng kỹ năng chuyên môn để lập nghiệp, Hóa Lộc thì phá rồi mới lập. Cách cục Sát Phá Lang: Thất Sát, Phá Quân, Tham Lang hội chiếu tam phương tứ chính của Mệnh cung, hình thành cách cục Sát Phá Lang – cả đời biến động lớn, tính khai sáng mạnh, phù hợp với con đường khởi nghiệp, kỹ thuật, quân cảnh, phát triển ở phương xa, mấu chốt là dùng hành động để tạo nên cục diện. Hóa Lộc: Hóa Lộc, phá rồi mới lập, khai phá nguồn tài chính trong nghịch cảnh, là trạng thái tốt nhất của Phá Quân, thiết lập cách cục mới trong sự đổ vỡ. Ba tổ hợp hung tinh cần đặc biệt lưu ý: Liêm Trinh + Thất Sát = Bán lộ mai thi (nửa đường chôn thây), Liêm Trinh + Phá Quân = Thủy trung tác trủng (dưới nước làm mộ), Liêm Trinh + Tham Lang = Bán không chiết sí (giữa không trung gãy cánh), đều là những cách cục có nguy hiểm hoặc trắc trở lớn trong đời, cần vận hạn phối hợp để hóa giải. Cung Phúc Đức có Phá Quân, hưởng thụ tinh thần đến từ sự kích thích của thay đổi và bứt phá, không thích trạng thái tinh thần cố định bất biến.",
       "provenance": {
         "count": 478716,
         "topics": [
@@ -240,7 +240,7 @@
     },
     "qingyangMin": {
       "name": "Kình Dương",
-      "intro": "Kình Dương nhập Mệnh: Kình Dương tọa Mệnh — Hóa khí là Hình, tính cách xung động, hành sự quyết đoán nhưng dễ chiêu mời thị phi, có nguy cơ phẫu thuật hoặc tai nạn. Người có Kình Dương nhập Mệnh thường có chí tiến thủ, có thể bứt phá trong nghịch cảnh, nên làm các ngành nghề cứng rắn như quân cảnh, chấp pháp, ngoại khoa, cơ khí. Ni Hải Hạ nói Kình Dương nhập Mệnh, hình khắc tự thương, cần đặc biệt chú ý đến hậu quả do sự xung động gây ra. Tuy nhiên, Lộc Tồn trước sau tất bị Kình Dương, Đà La giáp cung, khuynh hướng cô độc khá nặng, tiền bạc dư dả nhưng tình cảm lại thiếu hụt. Cách Dương Đà giáp Mệnh (Sát cách): Kình Dương, Đà La giáp Mệnh — Cách cục hung điển hình, Ni Sư nói Dương Đà giáp Mệnh, hình khắc khó tránh, cả đời nhiều trắc trở, thăng trầm, duyên với lục thân mỏng.",
+      "intro": "Kình Dương nhập Mệnh: Kình Dương tọa Mệnh — Hóa khí là Hình, tính cách xung động, hành sự quyết đoán nhưng dễ chiêu mời thị phi, có nguy cơ phẫu thuật hoặc tai nạn. Người có Kình Dương nhập Mệnh thường có chí tiến thủ, có thể bứt phá trong nghịch cảnh, nên làm các ngành nghề cứng rắn như quân cảnh, chấp pháp, ngoại khoa, cơ khí. Ni Hải Hạ nói Kình Dương nhập Mệnh, hình khắc tự thương, cần đặc biệt chú ý đến hậu quả do sự xung động gây ra. Nhưng Lộc Tồn trước sau tất có Kình Dương, Đà La giáp sát, khuynh hướng cô độc khá nặng, tiền bạc dư dả nhưng tình cảm lại thiếu hụt. Kình Đà giáp Mệnh (Sát cách): Kình Dương, Đà La giáp cung Mệnh — là cách cục hung điển hình, thầy Nghê nói Kình Đà giáp Mệnh thì hình khắc khó tránh, cả đời nhiều trắc trở, thăng trầm, duyên với lục thân mỏng.",
       "provenance": {
         "count": 214666,
         "topics": [
@@ -258,7 +258,7 @@
     },
     "qishaMaj": {
       "name": "Thất Sát",
-      "intro": "Chủ tinh thứ hai đồng cung: Thất Sát — Tướng tinh, cô độc quyết đoán và mạo hiểm, nên làm quân cảnh hoặc khởi nghiệp, nếu là cách Thất Sát Triều Đẩu thì làm võ chức rất hiển quý. Cách Sát Phá Tham: Thất Sát, Phá Quân, Tham Lang hội chiếu Mệnh cung trong Tam phương Tứ chính, tạo thành cách Sát Phá Tham — Cả đời biến động lớn, tính khai phá mạnh, phù hợp với con đường khởi nghiệp, kỹ thuật, quân cảnh, phát triển ở phương xa, mấu chốt là dùng hành động để thay đổi cách cục. Vũ Khúc Thất Sát: Vũ Khúc Thất Sát đồng cung, Tài tinh gặp Tướng tinh, làm việc quyết đoán, thực thi mạnh mẽ, nhưng rủi ro cũng rất lớn. Cần đặc biệt lưu ý tổ hợp Tam Hung: Liêm Trinh + Thất Sát = Bán lộ mai thi, Liêm Trinh + Phá Quân = Thủy trung tác trủng, Liêm Trinh + Tham Lang = Bán không chiết sí, đều là những cách cục có nguy hiểm hoặc trắc trở lớn trong đời, cần vận hạn phối hợp để hóa giải. Cung Phu Thê có Thất Sát, phối ngẫu cá tính mạnh mẽ, xử sự quyết đoán, tình cảm mãnh liệt, trong hôn nhân thường xảy ra xung đột và giằng co.",
+      "intro": "Chủ tinh thứ hai đồng cung: Thất Sát — Tướng tinh, cô độc quyết đoán và mạo hiểm, nên làm quân cảnh hoặc khởi nghiệp, nếu là cách Thất Sát Triều Đẩu thì làm võ chức rất hiển quý. Cách cục Sát Phá Lang: Thất Sát, Phá Quân, Tham Lang hội chiếu tam phương tứ chính của Mệnh cung, hình thành cách cục Sát Phá Lang – cả đời biến động lớn, tính khai sáng mạnh, phù hợp với con đường khởi nghiệp, kỹ thuật, quân cảnh, phát triển ở phương xa, mấu chốt là dùng hành động để tạo nên cục diện. Vũ Khúc Thất Sát: Vũ Khúc Thất Sát đồng cung, Tài tinh gặp Tướng tinh, làm việc quyết đoán, thực thi mạnh mẽ, nhưng rủi ro cũng rất lớn. Ba tổ hợp hung tinh cần đặc biệt lưu ý: Liêm Trinh + Thất Sát = Bán lộ mai thi (nửa đường chôn thây), Liêm Trinh + Phá Quân = Thủy trung tác trủng (dưới nước làm mộ), Liêm Trinh + Tham Lang = Bán không chiết sí (giữa không trung gãy cánh), đều là những cách cục có nguy hiểm hoặc trắc trở lớn trong đời, cần vận hạn phối hợp để hóa giải. Cung Phu Thê có Thất Sát, phối ngẫu cá tính mạnh mẽ, xử sự quyết đoán, tình cảm mãnh liệt, trong hôn nhân thường xảy ra xung đột và giằng co.",
       "provenance": {
         "count": 564380,
         "topics": [
@@ -287,7 +287,7 @@
     },
     "taiyangMaj": {
       "name": "Thái Dương",
-      "intro": "Nhập miếu vượng (cung Mão đến cung Thân), quang minh chính đại, sự nghiệp tài vận đều tốt, danh lợi song thu, là trạng thái phát huy tốt nhất của Thái Dương. Cách Nhật Nguyệt Tịnh Minh: Thái Dương và Thái Âm cùng nhập miếu vượng — Ni Hải Hạ nói làm việc gì cũng thuận lợi, cả đời vinh hoa, cách cục này đại diện cho Nhật Nguyệt đồng huy, cả đời nhiều quý nhân, làm việc suôn sẻ, danh lợi vẹn toàn. Cách Nhật Nguyệt đồng cung: Thái Dương và Thái Âm đồng cung, Nhật Nguyệt cùng chiếu một nơi — Cả đời thường đạt được sự cân bằng giữa danh tiếng, tình cảm và trách nhiệm gia đình. Thái Dương thuộc Hỏa, chủ về tim mạch và mắt, tiên thiên hỏa khí vượng, thể lực sung mãn, nhưng hỏa quá vượng thì tổn hại thân thể, dễ bị kiệt sức. Bộ phận dễ gặp vấn đề nhất là tim, mắt và huyết áp; tim là điểm yếu cốt lõi của sao Thái Dương, làm việc cường độ cao và giao tiếp xã hội lâu ngày dễ dẫn đến các vấn đề về tim mạch và não bộ.",
+      "intro": "Nhập miếu vượng (cung Mão đến cung Thân), quang minh chính đại, sự nghiệp tài vận đều tốt, danh lợi song thu, là trạng thái phát huy tốt nhất của Thái Dương. Cách cục Nhật Nguyệt Tịnh Minh: Thái Dương và Thái Âm cùng nhập miếu vượng – Ni Hải Hạ cho rằng làm việc gì cũng thuận lợi, cả đời vinh hoa, cách cục này đại diện cho Nhật Nguyệt đồng huy, cả đời nhiều quý nhân, làm việc suôn sẻ, danh lợi song toàn. Cách cục Nhật Nguyệt Đồng Cung: Thái Dương và Thái Âm cùng cung, Nhật Nguyệt cùng chiếu một nơi – cả đời thường đạt được sự cân bằng giữa danh tiếng, tình cảm và trách nhiệm gia đình. Thái Dương thuộc Hỏa, chủ về tim mạch và mắt, tiên thiên hỏa khí vượng, thể lực sung mãn, nhưng hỏa quá vượng thì tổn hại thân thể, dễ bị kiệt sức. Bộ phận dễ gặp vấn đề nhất là tim, mắt và huyết áp; tim là điểm yếu cốt lõi của sao Thái Dương, làm việc cường độ cao và giao tiếp xã hội lâu ngày dễ dẫn đến các vấn đề về tim mạch và não bộ.",
       "provenance": {
         "count": 590824,
         "topics": [
@@ -316,7 +316,7 @@
     },
     "taiyinMaj": {
       "name": "Thái Âm",
-      "intro": "Cách cục Nhật Nguyệt Tịnh Minh: Thái Dương và Thái Âm cùng nhập miếu vượng – Ni Hải Hạ cho rằng làm việc gì cũng thuận lợi, cả đời vinh hoa, cách cục này đại diện cho Nhật Nguyệt đồng huy, cả đời nhiều quý nhân, làm việc suôn sẻ, danh lợi song toàn. Chủ tinh thứ hai đồng cung: Thái Âm – là sao phú quý, tình cảm tinh tế, nữ mệnh là tốt nhất, nhập miếu thì đại phú, chủ về điền trạch và bất động sản. Nhập miếu vượng, tài vận đại vượng, tình cảm suôn sẻ, là trạng thái phát huy tốt nhất của Thái Âm, phú quý song toàn. Cách cục Nhật Nguyệt Đồng Cung: Thái Dương và Thái Âm cùng cung, Nhật Nguyệt cùng chiếu một nơi – cả đời thường đạt được sự cân bằng giữa danh tiếng, tình cảm và trách nhiệm gia đình. Cách cục Cơ Nguyệt Đồng Lương: Thiên Cơ, Thái Âm, Thiên Đồng, Thiên Lương hội tụ tại tam phương của Mệnh cung – cổ nhân dạy cách Cơ Nguyệt Đồng Lương làm lại (công chức), rất hợp với công việc giáo dục, chính phủ, truyền thông, văn hóa, cả đời đi theo con đường làm công ăn lương ổn định là tốt nhất, không nên mạo hiểm khởi nghiệp.",
+      "intro": "Cách cục Nhật Nguyệt Tịnh Minh: Thái Dương và Thái Âm cùng nhập miếu vượng – Ni Hải Hạ cho rằng làm việc gì cũng thuận lợi, cả đời vinh hoa, cách cục này đại diện cho Nhật Nguyệt đồng huy, cả đời nhiều quý nhân, làm việc suôn sẻ, danh lợi song toàn. Chủ tinh thứ hai đồng cung: Thái Âm – là sao phú quý, tình cảm tinh tế, nữ mệnh là tốt nhất, nhập miếu thì đại phú, chủ về điền trạch và bất động sản. Nhập miếu vượng, tài vận đại vượng, tình cảm suôn sẻ, là trạng thái phát huy tốt nhất của Thái Âm, phú quý song toàn. Cách cục Nhật Nguyệt Đồng Cung: Thái Dương và Thái Âm cùng cung, Nhật Nguyệt cùng chiếu một nơi – cả đời thường đạt được sự cân bằng giữa danh tiếng, tình cảm và trách nhiệm gia đình. Cách Cơ Nguyệt Đồng Lương: Thiên Cơ, Thái Âm, Thiên Đồng, Thiên Lương hội tụ tại tam phương của Mệnh cung — cổ nhân dạy cách Cơ Nguyệt Đồng Lương làm lại (công chức), rất hợp với công giáo, chính phủ, truyền thông, văn hóa, cả đời đi theo con đường làm công ăn lương ổn định là cát lợi nhất, không nên mạo hiểm khởi nghiệp.",
       "provenance": {
         "count": 532096,
         "topics": [
@@ -370,7 +370,7 @@
     },
     "tianfuMaj": {
       "name": "Thiên Phủ",
-      "intro": "Cách cục Tử Phủ Triều Viên: Tử Vi và Thiên Phủ chia nhau ở tam phương triều cúng Mệnh cung – cách cục cao quý, mệnh chủ có khí chất vương hầu, cả đời quý nhân không dứt, sự nghiệp ổn định mà có quý hiển. Nếu đồng cung hoặc tam phương có Vũ Khúc Hóa Lộc, Thiên Phủ, thì tài khố được củng cố, khả năng quản lý tài chính mạnh mẽ hơn. Quan Lộc cung có Thiên Phủ, bẩm sinh phù hợp với cơ quan chính phủ, ngân hàng, bảo hiểm, quản lý hành chính doanh nghiệp lớn, bảo thủ ổn định, thăng tiến tuy chậm nhưng vững chắc và đáng tin cậy. Điền Trạch cung có Thiên Phủ, đây là cung vị tốt lành nhất của Thiên Phủ – tài khố bảo vệ bất động sản, tài sản cố định dồi dào, tổ nghiệp dư thừa. Rất phù hợp để lấy bất động sản làm danh mục đầu tư tài sản chính, đặc tính giữ tiền của Thiên Phủ được phát huy toàn diện tại cung vị này.",
+      "intro": "Cách Tử Phủ triều viên: Tử Vi và Thiên Phủ chia nhau đóng tại tam phương chầu về cung Mệnh – Cách cục cao quý, mệnh chủ có khí chất vương giả, cả đời quý nhân không dứt, sự nghiệp ổn định và có quý khí. Nếu đồng cung hoặc tam phương có Vũ Khúc Hóa Lộc, Thiên Phủ thì kho tiền được củng cố, năng lực quản lý tài chính mạnh mẽ hơn. Quan Lộc cung có Thiên Phủ, bẩm sinh phù hợp với cơ quan chính phủ, ngân hàng, bảo hiểm, quản lý hành chính doanh nghiệp lớn, bảo thủ ổn định, thăng tiến tuy chậm nhưng vững chắc và đáng tin cậy. Điền Trạch cung có Thiên Phủ, đây là cung vị tốt lành nhất của Thiên Phủ – tài khố bảo vệ bất động sản, tài sản cố định dồi dào, tổ nghiệp dư thừa. Rất phù hợp để lấy bất động sản làm danh mục đầu tư tài sản chính, đặc tính giữ tiền của Thiên Phủ được phát huy toàn diện tại cung vị này.",
       "provenance": {
         "count": 244654,
         "topics": [
@@ -468,7 +468,7 @@
     },
     "tianmaMin": {
       "name": "Thiên Mã",
-      "intro": "Cách Lộc Mã Giao Trì: Lộc Tồn và Thiên Mã đồng cung hoặc hội chiếu — Thầy Nghê nói Lộc Mã Giao Trì, tiền bạc đến từ sự vận động, chủ về tài phú lấy được trong sự chuyển động, nên làm các ngành nghề công tác xa, kinh doanh ngoại tỉnh, thương mại logistics, v.v., tài lộc phương xa và tài lộc lưu động đặc biệt vượng. Lộc Tồn là tài ổn định, Thiên Mã là tài vận động, một ổn một động, nguồn tài chính thông suốt. Thiên Mã lạc không: Thiên Mã và Tuần/Triệt đồng cung — Thầy Nghê nói Mã lạc không vong, bôn ba vô ích, việc đi xa nhiều lao lực mà không có kết quả, các cơ hội mang tính động như công tác, đi xa, nhảy việc dễ rơi vào cảnh dã tràng xe cát, nên suy nghĩ kỹ trước khi hành động. Thiên Mã: Về tinh thần hướng tới sự tự do du lịch. Thiên Mã: Bất động sản dễ biến động, không nên ở cố định một nơi lâu dài.",
+      "intro": "Cách Lộc Mã Giao Trì: Lộc Tồn và Thiên Mã đồng cung hoặc hội chiếu — Thầy Nghê nói Lộc Mã Giao Trì, tiền bạc đến từ sự vận động, chủ về tài phú lấy được trong sự chuyển động, nên làm các ngành nghề công tác xa, kinh doanh ngoại tỉnh, thương mại logistics, v.v., tài lộc phương xa và tài lộc lưu động đặc biệt vượng. Lộc Tồn là tài ổn định, Thiên Mã là tài vận động, một ổn một động, nguồn tài chính thông suốt. Thiên Mã lạc Không: Thiên Mã đồng cung với Tuần Không — thầy Nghê nói Mã lạc Không vong, bôn ba vô ích, công việc đi xa nhiều lao lực mà không có kết quả, các cơ hội biến động như công tác, đi xa, nhảy việc dễ rơi vào cảnh \"dã tràng xe cát\", nên suy nghĩ kỹ trước khi hành động. Thiên Mã: Về tinh thần hướng tới sự tự do du lịch. Thiên Mã: Bất động sản dễ biến động, không nên ở cố định một nơi lâu dài.",
       "provenance": {
         "count": 325314,
         "topics": [
@@ -712,9 +712,97 @@
     }
   },
   "patterns": {
+    "huo_tan": {
+      "name": "Hỏa Tham",
+      "intro": "Gặp Hỏa Tinh hoặc Linh Tinh, hình thành cách Hỏa Tham hoặc Linh Tham, có cơ hội phát tài bất ngờ.",
+      "provenance": {
+        "count": 18724,
+        "topics": [
+          "career",
+          "overview"
+        ],
+        "zh": [
+          "逢火星或铃星，形成火贪格或铃贪格，有暴富之机",
+          "火贪格：贪狼逢火星——偏财暴发格，倪海夏说火贪格，出将入相，武贵之路，一生有偏财大发的机遇，尤其在特定大限流年中可有意外横财",
+          "铃贪格：贪狼逢铃星——偏财暴发格，与火贪格同效，一生有偏财大发的机遇，但暴起暴落，需把握时机并做好财富保护"
+        ]
+      },
+      "quotes": [
+        "Gặp Hỏa Tinh hoặc Linh Tinh, hình thành cách Hỏa Tham hoặc Linh Tham, có cơ hội phát tài bất ngờ.",
+        "Cách Hỏa Tham: Tham Lang gặp Hỏa Tinh — cách cục phát tài bất ngờ, thầy Nghê Hải Hạ nói cách Hỏa Tham có thể xuất tướng nhập tướng, con đường võ quý, cả đời có cơ hội phát tài lớn, đặc biệt trong đại hạn hoặc lưu niên nhất định có thể có hoạnh tài bất ngờ.",
+        "Linh Tham cách: Tham Lang gặp Linh Tinh — Cách cục phát tài bất ngờ, hiệu quả tương đương Hỏa Tham cách, cả đời có cơ hội phát tài lớn, nhưng dễ lên nhanh xuống nhanh, cần nắm bắt thời cơ và biết cách bảo vệ tài sản."
+      ]
+    },
+    "ji_yue_tong_liang": {
+      "name": "Cơ Nguyệt Đồng Lương",
+      "intro": "Cách Cơ Nguyệt Đồng Lương: Thiên Cơ, Thái Âm, Thiên Đồng, Thiên Lương hội tụ tại tam phương của Mệnh cung — cổ nhân dạy cách Cơ Nguyệt Đồng Lương làm lại (công chức), rất hợp với công giáo, chính phủ, truyền thông, văn hóa, cả đời đi theo con đường làm công ăn lương ổn định là cát lợi nhất, không nên mạo hiểm khởi nghiệp.",
+      "provenance": {
+        "count": 64212,
+        "topics": [
+          "overview"
+        ],
+        "zh": [
+          "机月同梁格：天机、太阴、天同、天梁聚于命宫三方——古训机月同梁格，作吏人，最宜公教、政府、传播、文化事业，一生以稳健的打工路线最为吉利，不宜冒险创业"
+        ]
+      },
+      "quotes": [
+        "Cách Cơ Nguyệt Đồng Lương: Thiên Cơ, Thái Âm, Thiên Đồng, Thiên Lương hội tụ tại tam phương của Mệnh cung — cổ nhân dạy cách Cơ Nguyệt Đồng Lương làm lại (công chức), rất hợp với công giáo, chính phủ, truyền thông, văn hóa, cả đời đi theo con đường làm công ăn lương ổn định là cát lợi nhất, không nên mạo hiểm khởi nghiệp."
+      ]
+    },
+    "ling_tan": {
+      "name": "Linh Tham",
+      "intro": "Gặp Hỏa Tinh hoặc Linh Tinh, hình thành cách Hỏa Tham hoặc Linh Tham, có cơ hội phát tài bất ngờ.",
+      "provenance": {
+        "count": 17876,
+        "topics": [
+          "career",
+          "overview"
+        ],
+        "zh": [
+          "逢火星或铃星，形成火贪格或铃贪格，有暴富之机",
+          "铃贪格：贪狼逢铃星——偏财暴发格，与火贪格同效，一生有偏财大发的机遇，但暴起暴落，需把握时机并做好财富保护"
+        ]
+      },
+      "quotes": [
+        "Gặp Hỏa Tinh hoặc Linh Tinh, hình thành cách Hỏa Tham hoặc Linh Tham, có cơ hội phát tài bất ngờ.",
+        "Linh Tham cách: Tham Lang gặp Linh Tinh — Cách cục phát tài bất ngờ, hiệu quả tương đương Hỏa Tham cách, cả đời có cơ hội phát tài lớn, nhưng dễ lên nhanh xuống nhanh, cần nắm bắt thời cơ và biết cách bảo vệ tài sản."
+      ]
+    },
+    "lu_ma_jiao_chi": {
+      "name": "Lộc Mã Giao Trì",
+      "intro": "Cách Lộc Mã Giao Trì: Lộc Tồn và Thiên Mã đồng cung hoặc hội chiếu — Thầy Nghê nói Lộc Mã Giao Trì, tiền bạc đến từ sự vận động, chủ về tài phú lấy được trong sự chuyển động, nên làm các ngành nghề công tác xa, kinh doanh ngoại tỉnh, thương mại logistics, v.v., tài lộc phương xa và tài lộc lưu động đặc biệt vượng.",
+      "provenance": {
+        "count": 81296,
+        "topics": [
+          "overview"
+        ],
+        "zh": [
+          "禄马交驰格：禄存与天马同宫或会照——倪师说禄马交驰，财从动中来，主财富动中取，宜从事出差、外地经商、贸易物流等行业，异地财、流动财尤旺"
+        ]
+      },
+      "quotes": [
+        "Cách Lộc Mã Giao Trì: Lộc Tồn và Thiên Mã đồng cung hoặc hội chiếu — Thầy Nghê nói Lộc Mã Giao Trì, tiền bạc đến từ sự vận động, chủ về tài phú lấy được trong sự chuyển động, nên làm các ngành nghề công tác xa, kinh doanh ngoại tỉnh, thương mại logistics, v.v., tài lộc phương xa và tài lộc lưu động đặc biệt vượng."
+      ]
+    },
+    "ri_yue_bing_ming": {
+      "name": "Nhật Nguyệt Tịnh Minh",
+      "intro": "Cách cục Nhật Nguyệt Tịnh Minh: Thái Dương và Thái Âm cùng nhập miếu vượng – Ni Hải Hạ cho rằng làm việc gì cũng thuận lợi, cả đời vinh hoa, cách cục này đại diện cho Nhật Nguyệt đồng huy, cả đời nhiều quý nhân, làm việc suôn sẻ, danh lợi song toàn.",
+      "provenance": {
+        "count": 29598,
+        "topics": [
+          "overview"
+        ],
+        "zh": [
+          "日月并明格：太阳太阴同时入庙旺——倪海夏说做事情左右逢源，一辈子做事情荣华，此格局代表日月同辉，一生贵人多，做事顺遂，名利双全"
+        ]
+      },
+      "quotes": [
+        "Cách cục Nhật Nguyệt Tịnh Minh: Thái Dương và Thái Âm cùng nhập miếu vượng – Ni Hải Hạ cho rằng làm việc gì cũng thuận lợi, cả đời vinh hoa, cách cục này đại diện cho Nhật Nguyệt đồng huy, cả đời nhiều quý nhân, làm việc suôn sẻ, danh lợi song toàn."
+      ]
+    },
     "ri_yue_tong_gong": {
       "name": "Nhật Nguyệt Đồng Cung",
-      "intro": "Cách Nhật Nguyệt đồng cung: Thái Dương và Thái Âm đồng cung, Nhật Nguyệt cùng chiếu một nơi — cả đời thường đạt được sự cân bằng giữa danh tiếng, tình cảm và trách nhiệm gia đình.",
+      "intro": "Cách cục Nhật Nguyệt Đồng Cung: Thái Dương và Thái Âm cùng cung, Nhật Nguyệt cùng chiếu một nơi – cả đời thường đạt được sự cân bằng giữa danh tiếng, tình cảm và trách nhiệm gia đình.",
       "provenance": {
         "count": 7396,
         "topics": [
@@ -725,12 +813,12 @@
         ]
       },
       "quotes": [
-        "Cách Nhật Nguyệt đồng cung: Thái Dương và Thái Âm đồng cung, Nhật Nguyệt cùng chiếu một nơi — cả đời thường đạt được sự cân bằng giữa danh tiếng, tình cảm và trách nhiệm gia đình."
+        "Cách cục Nhật Nguyệt Đồng Cung: Thái Dương và Thái Âm cùng cung, Nhật Nguyệt cùng chiếu một nơi – cả đời thường đạt được sự cân bằng giữa danh tiếng, tình cảm và trách nhiệm gia đình."
       ]
     },
     "sha_po_lang": {
       "name": "Sát Phá Lang",
-      "intro": "Cách Sát Phá Tham: Thất Sát, Phá Quân, Tham Lang hội chiếu tam phương tứ chính của cung Mệnh, hình thành cách Sát Phá Tham — cả đời biến động lớn, tính khai phá mạnh, phù hợp với con đường khởi nghiệp, kỹ thuật, quân cảnh, phát triển ở phương xa, mấu chốt nằm ở việc dùng hành động để tạo dựng cục diện.",
+      "intro": "Cách cục Sát Phá Lang: Thất Sát, Phá Quân, Tham Lang hội chiếu tam phương tứ chính của Mệnh cung, hình thành cách cục Sát Phá Lang – cả đời biến động lớn, tính khai sáng mạnh, phù hợp với con đường khởi nghiệp, kỹ thuật, quân cảnh, phát triển ở phương xa, mấu chốt là dùng hành động để tạo nên cục diện.",
       "provenance": {
         "count": 128738,
         "topics": [
@@ -741,12 +829,12 @@
         ]
       },
       "quotes": [
-        "Cách Sát Phá Tham: Thất Sát, Phá Quân, Tham Lang hội chiếu tam phương tứ chính của cung Mệnh, hình thành cách Sát Phá Tham — cả đời biến động lớn, tính khai phá mạnh, phù hợp với con đường khởi nghiệp, kỹ thuật, quân cảnh, phát triển ở phương xa, mấu chốt nằm ở việc dùng hành động để tạo dựng cục diện."
+        "Cách cục Sát Phá Lang: Thất Sát, Phá Quân, Tham Lang hội chiếu tam phương tứ chính của Mệnh cung, hình thành cách cục Sát Phá Lang – cả đời biến động lớn, tính khai sáng mạnh, phù hợp với con đường khởi nghiệp, kỹ thuật, quân cảnh, phát triển ở phương xa, mấu chốt là dùng hành động để tạo nên cục diện."
       ]
     },
     "yang_tuo_jia_ming": {
       "name": "Dương Đà Giáp Mệnh",
-      "intro": "Dương Đà giáp Mệnh (Sát cách): Kình Dương và Đà La giáp cung Mệnh — là cách cục hung hiểm điển hình, thầy Nghê nói Dương Đà giáp Mệnh thì hình khắc khó tránh, cả đời nhiều sóng gió, thăng trầm, duyên phận với lục thân bạc bẽo.",
+      "intro": "Kình Đà giáp Mệnh (Sát cách): Kình Dương, Đà La giáp cung Mệnh — là cách cục hung điển hình, thầy Nghê nói Kình Đà giáp Mệnh thì hình khắc khó tránh, cả đời nhiều trắc trở, thăng trầm, duyên với lục thân mỏng.",
       "provenance": {
         "count": 42932,
         "topics": [
@@ -757,7 +845,7 @@
         ]
       },
       "quotes": [
-        "Dương Đà giáp Mệnh (Sát cách): Kình Dương và Đà La giáp cung Mệnh — là cách cục hung hiểm điển hình, thầy Nghê nói Dương Đà giáp Mệnh thì hình khắc khó tránh, cả đời nhiều sóng gió, thăng trầm, duyên phận với lục thân bạc bẽo."
+        "Kình Đà giáp Mệnh (Sát cách): Kình Dương, Đà La giáp cung Mệnh — là cách cục hung điển hình, thầy Nghê nói Kình Đà giáp Mệnh thì hình khắc khó tránh, cả đời nhiều trắc trở, thăng trầm, duyên với lục thân mỏng."
       ]
     },
     "ying_xing_ru_miao": {
