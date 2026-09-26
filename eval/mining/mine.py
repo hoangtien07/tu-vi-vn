@@ -181,6 +181,7 @@ def _signature_and_drift(sample_chart: dict, dto_chart: dict) -> tuple[bool, dic
         "palaces_by_branch": {},
         "vn_names": {},
     }
+    their_mutagens: dict[str, str] = {}
     for dp in their["palaces"]:
         b = int(dp["branch"])
         op = branch_palace.get(b)
@@ -197,21 +198,25 @@ def _signature_and_drift(sample_chart: dict, dto_chart: dict) -> tuple[bool, dic
                 their_majors[key] = s
             if key:
                 sig["stars"].add(key)
+            sihua = s.get("siHua") or ""
+            if sihua:
+                # mutagens land on non-major stars too (e.g. 文曲化忌) —
+                # an unmapped kind or star means we cannot compare → drop
+                kind = SIHUA_KIND.get(sihua)
+                if key is None or kind is None:
+                    return False, {}
+                their_mutagens[key] = kind
         if set(their_majors) != {s["key"] for s in op.get("majorStars") or []}:
             return False, {}
         sig["stars_by_branch"][b] = set(their_majors)
         sig["palace_by_name"] = {v: b for b, v in sig["palaces_by_branch"].items()}
-        # natal mutagen both directions (major stars only)
-        for key, ds in their_majors.items():
-            their_kind = SIHUA_KIND.get(ds.get("siHua") or "")
-            if our_mutagens.get(key) != their_kind and (
-                their_kind is not None or key in our_mutagens
-            ):
-                return False, {}
         for s in op.get("majorStars") or []:
             sig["vn_names"][s["key"]] = s["name"]
         for s in op.get("minorStars") or []:
             sig["vn_names"][s["key"]] = s["name"]
+    # natal mutagen assignment must match exactly, both directions
+    if our_mutagens != their_mutagens:
+        return False, {}
     return True, sig
 
 
@@ -314,15 +319,16 @@ def process_file(
                         for k in pat_keys:
                             _hit(f"pattern:{k}", phrase, topic_bit)
                     else:
-                        # no star/pattern named — attribute to the topic's
-                        # palace AND to each major star sitting in it (the
-                        # phrase is palace-star-conditional lore)
+                        # no star/pattern named — palace-conditional lore:
+                        # attribute to the topic's palace only; the
+                        # co-located stars go to parked palaceStar keys,
+                        # never to bare `star:`/`mutagenStar:` (that would
+                        # leak chart-specific claims into generic intros)
                         if palace_key:
                             _hit(f"palace:{palace_key}", phrase, topic_bit)
                             b = sig["palace_by_name"].get(palace_key)
                             if b is not None:
                                 for k in sig["stars_by_branch"].get(b, ()):
-                                    _hit(f"star:{k}", phrase, topic_bit)
                                     _hit(
                                         f"palaceStar:{palace_key}:{k}",
                                         phrase,
