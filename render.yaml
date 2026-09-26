@@ -12,8 +12,9 @@ services:
     plan: free
     healthCheckPath: /health
     # preDeployCommand is not supported on free tier — migrate at boot instead
-    # (alembic upgrade head is idempotent).
-    dockerCommand: sh -c "uv run --no-dev alembic upgrade head && uv run --no-dev uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    # (alembic upgrade head is idempotent). `sh start.sh` parses correctly
+    # whether dockerCommand is shell-run or exec-split.
+    dockerCommand: sh start.sh
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -39,11 +40,10 @@ services:
     plan: free
     healthCheckPath: /
     envVars:
-      # fromService.hostAndPort only works for private services — web services
-      # expose a public hostname. Predictable from the service name above; if
-      # Render suffixes it (name taken), edit this env on tuvi-web.
+      # Public edge URL of the api service above (name was suffixed — the
+      # unadorned tuvi-api.onrender.com belongs to someone else's service).
       - key: API_INTERNAL_URL
-        value: https://tuvi-api.onrender.com
+        value: https://tuvi-api-yflg.onrender.com
 
 databases:
   - name: tuvi-db
