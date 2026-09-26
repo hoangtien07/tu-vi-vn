@@ -11,7 +11,9 @@ services:
     region: singapore
     plan: free
     healthCheckPath: /health
-    preDeployCommand: uv run --no-dev alembic upgrade head
+    # preDeployCommand is not supported on free tier — migrate at boot instead
+    # (alembic upgrade head is idempotent).
+    dockerCommand: sh -c "uv run --no-dev alembic upgrade head && uv run --no-dev uvicorn app.main:app --host 0.0.0.0 --port $PORT"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -37,13 +39,11 @@ services:
     plan: free
     healthCheckPath: /
     envVars:
-      # Private-network address of tuvi-api ("host:port"; http:// prepended
-      # by next.config.ts / lib/api.ts normalization).
+      # fromService.hostAndPort only works for private services — web services
+      # expose a public hostname. Predictable from the service name above; if
+      # Render suffixes it (name taken), edit this env on tuvi-web.
       - key: API_INTERNAL_URL
-        fromService:
-          type: web
-          name: tuvi-api
-          property: hostAndPort
+        value: https://tuvi-api.onrender.com
 
 databases:
   - name: tuvi-db
