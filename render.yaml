@@ -1,0 +1,52 @@
+# Render blueprint — tu-vi-vn production deploy.
+# New → Blueprint Instance → point at this repo. Prompts for AI_API_KEY.
+# Free tier notes: web services sleep after ~15min idle (cold start ~60s);
+# free Postgres expires after 30 days — upgrade or export before then.
+services:
+  - type: web
+    name: tuvi-api
+    runtime: docker
+    dockerfilePath: ./apps/api/Dockerfile
+    dockerContext: .
+    region: singapore
+    plan: free
+    healthCheckPath: /health
+    preDeployCommand: uv run --no-dev alembic upgrade head
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: tuvi-db
+          property: connectionString
+      - key: AI_BASE_URL
+        value: https://generativelanguage.googleapis.com/v1beta/openai
+      - key: AI_MODEL
+        value: gemini-3.1-flash-lite
+      - key: AI_API_KEY
+        sync: false
+      - key: AI_TIMEOUT_SECONDS
+        value: "300"
+      - key: KNOWLEDGE_PACK
+        value: builtin
+
+  - type: web
+    name: tuvi-web
+    runtime: docker
+    dockerfilePath: ./apps/web/Dockerfile
+    dockerContext: .
+    region: singapore
+    plan: free
+    healthCheckPath: /
+    envVars:
+      # Private-network address of tuvi-api ("host:port"; http:// prepended
+      # by next.config.ts / lib/api.ts normalization).
+      - key: API_INTERNAL_URL
+        fromService:
+          type: web
+          name: tuvi-api
+          property: hostAndPort
+
+databases:
+  - name: tuvi-db
+    region: singapore
+    plan: free
+    postgresMajorVersion: "16"

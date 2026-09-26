@@ -1,4 +1,6 @@
-const API_URL = process.env.API_INTERNAL_URL ?? "http://localhost:8000";
+// Render `fromService.hostAndPort` yields `host:port` (no scheme) — normalize.
+const _raw = process.env.API_INTERNAL_URL ?? "http://localhost:8000";
+const API_URL = /^https?:\/\//.test(_raw) ? _raw : `http://${_raw}`;
 
 export interface ApiChartResponse {
   id: string;

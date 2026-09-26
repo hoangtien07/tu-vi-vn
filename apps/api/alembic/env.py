@@ -10,7 +10,12 @@ from alembic import context
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 config = context.config
-config.set_main_option("sqlalchemy.url", os.environ["DATABASE_URL"])
+_db_url = os.environ["DATABASE_URL"]
+if _db_url.startswith("postgres://"):
+    _db_url = "postgresql+psycopg://" + _db_url[len("postgres://"):]
+elif _db_url.startswith("postgresql://"):
+    _db_url = "postgresql+psycopg://" + _db_url[len("postgresql://"):]
+config.set_main_option("sqlalchemy.url", _db_url)
 
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
