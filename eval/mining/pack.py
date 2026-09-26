@@ -41,6 +41,69 @@ BOILERPLATE = re.compile(
     r"大限三方四正"
 )
 SIMPLIFY = re.compile(r"[^\w一-鿿]+")
+ZH = re.compile(r"[一-鿿]")
+
+# deterministic zh->vi fixups for terms the translator leaves untranslated
+ZH2VI_FIX = {
+    "格局": "cách cục",
+    "化禄": "Hóa Lộc",
+    "化权": "Hóa Quyền",
+    "化科": "Hóa Khoa",
+    "化忌": "Hóa Kỵ",
+    "同宫": "đồng cung",
+    "命宫": "cung Mệnh",
+    "三方四正": "tam phương tứ chính",
+    "倪师": "thầy Nghê",
+    "倪海夏": "Nghê Hải Hạ",
+    "英星入庙": "Anh Tinh nhập miếu",
+    "紫府同宫": "Tử Phủ đồng cung",
+    "羊陀夹命": "Dương Đà giáp Mệnh",
+    "禄存": "Lộc Tồn",
+    "擎羊": "Kình Dương",
+    "陀罗": "Đà La",
+    "天马": "Thiên Mã",
+    "地空": "Địa Không",
+    "地劫": "Địa Kiếp",
+    "贪狼": "Tham Lang",
+    "破军": "Phá Quân",
+    "七杀": "Thất Sát",
+    "紫微": "Tử Vi",
+    "天府": "Thiên Phủ",
+    "天机": "Thiên Cơ",
+    "太阳": "Thái Dương",
+    "太阴": "Thái Âm",
+    "武曲": "Vũ Khúc",
+    "天同": "Thiên Đồng",
+    "廉贞": "Liêm Trinh",
+    "巨门": "Cự Môn",
+    "天相": "Thiên Tướng",
+    "天梁": "Thiên Lương",
+    "文昌": "Văn Xương",
+    "文曲": "Văn Khúc",
+    "左辅": "Tả Phù",
+    "右弼": "Hữu Bật",
+    "天魁": "Thiên Khôi",
+    "天钺": "Thiên Dược",
+    "火星": "Hỏa Tinh",
+    "铃星": "Linh Tinh",
+    "孤辰": "Cô Thần",
+    "寡宿": "Quả Tú",
+    "天巫": "Thiên Vu",
+    "封诰": "Phong Cáo",
+    "三台": "Tam Thai",
+    "红鸾": "Hồng Loan",
+    "宫": "cung",
+    "格": "cách",
+    "突破": "đột phá",
+    "星": "sao",
+}
+_ZH_FIX = re.compile(
+    "|".join(sorted(map(re.escape, ZH2VI_FIX), key=len, reverse=True))
+)
+
+
+def vn_normalize(text: str) -> str:
+    return _ZH_FIX.sub(lambda m: ZH2VI_FIX[m.group(0)], text)
 
 TOPIC_VI = {
     "overview": "tổng quan",
@@ -108,7 +171,6 @@ def _chat(messages: list[dict], max_tokens: int = 4000) -> str:
             "messages": messages,
             "temperature": 0.2,
             "max_tokens": max_tokens,
-            "reasoning": {"enabled": False},
         }
     ).encode()
     req = urllib.request.Request(
@@ -141,16 +203,27 @@ TRANSLATE_SYS = (
 
 
 def translate_batch(texts: list[str]) -> list[str]:
-    """Translate a batch of zh phrases -> vi. Retries once on JSON parse."""
+    """Translate a batch of zh phrases -> vi. Retries on 429 + JSON parse."""
+    import time
+    import urllib.error
+
     user = json.dumps(texts, ensure_ascii=False)
-    for _ in range(2):
-        out = _chat(
-            [
-                {"role": "system", "content": TRANSLATE_SYS},
-                {"role": "user", "content": user},
-            ],
-            max_tokens=max(1000, len(texts) * 120),
-        )
+    for attempt in range(4):
+        try:
+            out = _chat(
+                [
+                    {"role": "system", "content": TRANSLATE_SYS},
+                    {"role": "user", "content": user},
+                ],
+                # thinking models burn tokens on hidden reasoning before the
+                # JSON answer — keep headroom or finish_reason=length truncates
+                max_tokens=max(16000, len(texts) * 500),
+            )
+        except urllib.error.HTTPError as exc:
+            if exc.code in (429, 500, 502, 503) and attempt < 3:
+                time.sleep(20 * (attempt + 1))  # free-tier rate limit/overload
+                continue
+            raise
         try:
             arr = json.loads(out[out.index("[") : out.rindex("]") + 1])
             if len(arr) == len(texts) and all(isinstance(x, str) for x in arr):
@@ -181,6 +254,7 @@ def main() -> int:
     from x_iztro.knowledge import KnowledgePack  # eval-only import
 
     _zh_pack = KnowledgePack.builtin("zh-CN")
+    star_key2zh = {s.key: s.name for s in _zh_pack.stars() if s.name}
 
     pack: dict = {
         "id": args.out_pack.stem,
@@ -251,7 +325,14 @@ def main() -> int:
         if etype not in ("star", "pattern", "palace"):
             coverage[f"parked_{etype}"] += 1
             continue
-        phrases = pick_phrases(r["phrases"], args.top_k, kept=kept)
+        raw_phrases = r["phrases"]
+        if etype == "star":
+            # keep only phrases that literally name this star — the miner
+            # may still hold pre-fix over-attributions where an unnamed
+            # palace sentence was credited to every co-located star
+            zh_name = star_key2zh.get(r["key"], "")
+            raw_phrases = [p for p in raw_phrases if zh_name and zh_name in p["text"]]
+        phrases = pick_phrases(raw_phrases, args.top_k, kept=kept)
         if not phrases:
             coverage[f"empty_{etype}"] += 1
             continue
@@ -274,27 +355,51 @@ def main() -> int:
     )
 
     if not args.no_translate and selected:
-        todo = selected
+        cache_path = args.candidates.parent / "translate_cache.json"
+        cache: dict[str, str] = {}
+        if cache_path.exists():
+            cache = json.loads(cache_path.read_text())
+        for p in selected:
+            if p["zh"] in cache:
+                p["vi"] = cache[p["zh"]]
+        todo = [p for p in selected if not p.get("vi")]
+        print(f"{len(selected) - len(todo)}/{len(selected)} from cache")
         for i in range(0, len(todo), args.batch):
             batch = todo[i : i + args.batch]
             try:
                 vi = translate_batch([p["zh"] for p in batch])
             except Exception as exc:
-                print(f"batch {i//args.batch} failed: {exc} — keep zh")
+                print(f"batch {i//args.batch} failed: {exc} — skip phrases")
                 vi = None
             for j, p in enumerate(batch):
                 p["vi"] = vi[j] if vi else None
             if (i // args.batch) % 4 == 0:
                 print(f"translated {i + len(batch)}/{len(todo)}", flush=True)
+        # persist clean translations only — zh-leaking ones retry next run
+        for p in selected:
+            if p.get("vi") and not ZH.search(vn_normalize(p["vi"])):
+                cache[p["zh"]] = p["vi"]
+        cache_path.write_text(json.dumps(cache, ensure_ascii=False))
 
     for p in selected:
-        entry_text = (p["vi"] or p["zh"]).strip()
+        entry_text = vn_normalize((p["vi"] or "").strip())
+        if not entry_text or ZH.search(entry_text):
+            # failed or zh-leaking translation must not ship — a Chinese
+            # excerpt inside a vi pack is worse than a missing excerpt
+            coverage["phrases_skipped_zh"] += 1
+            continue
         sec = {"star": "stars", "pattern": "patterns", "palace": "palaces"}[
             p["entityType"]
         ]
         cur = pack[sec].setdefault(
             p["key"], {"name": vi_name.get(p["key"], p["name"]), "intro": ""}
         )
+        prov = cur.setdefault("provenance", {"count": 0, "topics": [], "zh": []})
+        prov["count"] += p["count"]
+        prov["zh"].append(p["zh"])
+        for t in p["topics"]:
+            if t not in prov["topics"]:
+                prov["topics"].append(t)
         if not cur["name"]:
             cur["name"] = p["name"]
         if p["entityType"] == "pattern":
@@ -329,6 +434,7 @@ def main() -> int:
             f"{k}={len(v)}" for k, v in pack.items() if isinstance(v, dict)
         ),
         f"- translated: {sum(1 for p in selected if p['vi'])}/{len(selected)}",
+        f"- skipped (untranslated or zh-leaking): {coverage['phrases_skipped_zh']}",
         "",
         "Parked (composite) entities stay in candidates.jsonl for a later "
         "pack-schema extension.",
