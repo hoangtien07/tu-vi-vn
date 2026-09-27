@@ -48,13 +48,13 @@ def _new_session_token(session: Session, user_id: str) -> tuple[str, datetime]:
     return raw, expires
 
 
-def _set_cookie(response: Response, raw: str, expires: datetime) -> None:
+def _set_cookie(response: Response, raw: str, expires: datetime, secure: bool = False) -> None:
     response.set_cookie(
         _SESSION_COOKIE,
         raw,
         httponly=True,
         samesite="lax",
-        secure=False,  # flipped by deployment env in v0.4 hardening
+        secure=secure,  # AUTH_COOKIE_SECURE=true when deployed behind HTTPS
         # Path=/ required: SSR apiFetch reads cookies() on document/RSC GETs
         # (/profiles etc.), not only /api/* — path=/api hides login state
         # from every server-rendered page.
@@ -104,6 +104,7 @@ OptionalUser = Annotated[User | None, Depends(current_user)]
 @router.post("/register", status_code=201)
 def register(
     body: CredentialsIn,
+    request: Request,
     response: Response,
     session: Session = Depends(get_session),
 ) -> dict[str, str]:
@@ -122,7 +123,7 @@ def register(
     )
     raw, expires = _new_session_token(session, user.id)
     session.commit()
-    _set_cookie(response, raw, expires)
+    _set_cookie(response, raw, expires, secure=request.app.state.settings.auth_cookie_secure)
     return {"id": user.id, "email": user.email}
 
 
@@ -147,7 +148,7 @@ def login(
     )
     raw, expires = _new_session_token(session, user.id)
     session.commit()
-    _set_cookie(response, raw, expires)
+    _set_cookie(response, raw, expires, secure=request.app.state.settings.auth_cookie_secure)
     return {"id": user.id, "email": user.email}
 
 
