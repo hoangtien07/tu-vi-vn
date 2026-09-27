@@ -30,6 +30,8 @@ services:
         value: "300"
       - key: KNOWLEDGE_PACK
         value: builtin
+      - key: AUTH_COOKIE_SECURE
+        value: "true"
 
   - type: web
     name: tuvi-web

@@ -26,3 +26,5 @@ class Settings(BaseSettings):
     ai_timeout_seconds: float = 60.0
     # SPEC_V04 I17: "builtin" | "none" | path to an eval/packs/*.json file.
     knowledge_pack: str = "builtin"
+    # True when served over HTTPS (prod) — sets Secure on the session cookie.
+    auth_cookie_secure: bool = False
