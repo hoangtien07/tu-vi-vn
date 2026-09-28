@@ -35,12 +35,16 @@ services:
 
   - type: web
     name: tuvi-web
-    runtime: docker
-    dockerfilePath: ./apps/web/Dockerfile
-    dockerContext: .
+    # Native Node runtime — NOT docker. pnpm install peaks >512MB and gets
+    # OOM-killed in a docker build on the free plan; native builds run on
+    # the build pipeline (separate compute) so only `next start` (~200MB)
+    # must fit in the 512MB instance.
+    runtime: node
     region: singapore
     plan: free
     healthCheckPath: /
+    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm -C apps/web build
+    startCommand: corepack enable && pnpm -C apps/web start
     envVars:
       # Public edge URL of the api service above (name was suffixed — the
       # unadorned tuvi-api.onrender.com belongs to someone else's service).
